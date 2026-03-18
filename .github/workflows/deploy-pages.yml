@@ -34,8 +34,8 @@ jobs:
       - name: Build Astro site
         run: npm run build
         env:
-          SITE_URL: ${{ vars.SITE_URL || 'https://mariokurenn.github.io/cro-web' }}
-          BASE_PATH: /cro-web
+          SITE_URL: https://mariokurenn.github.io
+          BASE_PATH: /
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
