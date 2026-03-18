@@ -1,0 +1,78 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import FinalCTA from '@/components/sections/FinalCTA.astro';
+---
+
+<BaseLayout
+  title="Conversion Copywriting Service — Copy That Sells"
+  description="We write headlines, CTAs, email sequences, and product copy that convert. Voice-of-customer research meets proven conversion copywriting frameworks."
+>
+  <div class="service-hero">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+        <a href="/services/">Services</a>
+        <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+        <span class="breadcrumbs__current" aria-current="page">Conversion Copywriting</span>
+      </nav>
+      <span class="section-label">Service</span>
+      <h1 class="service-hero__title">Words That Move People to Act</h1>
+      <p class="service-hero__subtitle">
+        Most copy is written for the writer, not the reader. We write copy that speaks your customer's
+        language, addresses their real objections, and compels them to take action.
+      </p>
+      <a href="/contact/" class="btn btn--primary btn--lg">Get a Copy Consultation</a>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Copywriting Services</h2>
+      <div class="grid-2" style="margin-top: var(--space-10);">
+        {[
+          { title: 'Landing Page Copy', desc: 'Hero headlines, sub-headlines, feature/benefit blocks, social proof, FAQ, and CTA copy — all tested and optimized.' },
+          { title: 'Email Sequences', desc: 'Welcome sequences, nurture campaigns, cart abandonment, and win-back flows that convert at industry-leading rates.' },
+          { title: 'Product & PDP Copy', desc: 'Product descriptions that overcome objections and sell benefits. Especially powerful for e-commerce with complex products.' },
+          { title: 'Ad Copy', desc: 'Facebook, Google, and LinkedIn ad copy that drives qualified clicks — not just clicks. Message-matched to your landing page.' },
+        ].map(({ title, desc }) => (
+          <div class="card">
+            <h3 class="card__title">{title}</h3>
+            <p class="card__body">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <FinalCTA
+    title="Copy That Converts Starts Here"
+    subtitle="Share your offer and target audience. We'll audit your existing copy and show you exactly what we'd change."
+    ctaText="Book a Free Copy Audit"
+  />
+</BaseLayout>
+
+<style>
+  .service-hero {
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-16) 0;
+  }
+
+  .service-hero__title {
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    max-width: 800px;
+    margin: var(--space-4) 0;
+  }
+
+  .service-hero__subtitle {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    line-height: 1.6;
+    margin-bottom: var(--space-8);
+  }
+</style>

@@ -1,0 +1,133 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import FinalCTA from '@/components/sections/FinalCTA.astro';
+---
+
+<BaseLayout
+  title="A/B Testing Service — Statistically Rigorous Split Testing Agency"
+  description="We design, run, and analyze A/B tests that produce reliable, revenue-moving results. No false positives. No wasted cycles. Only data-backed wins."
+>
+  <div class="service-hero">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+        <a href="/services/">Services</a>
+        <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+        <span class="breadcrumbs__current" aria-current="page">A/B Testing</span>
+      </nav>
+      <span class="section-label">Service</span>
+      <h1 class="service-hero__title">A/B Testing That Actually Moves Revenue</h1>
+      <p class="service-hero__subtitle">
+        Most teams run A/B tests wrong — they peek at results early, stop when they see a "winner,"
+        and implement changes based on statistical noise. We do it properly.
+      </p>
+      <a href="/contact/" class="btn btn--primary btn--lg">Start Your Testing Program</a>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">How Our A/B Testing Works</h2>
+      <div class="process-grid">
+        {[
+          { step: '1', title: 'Research', desc: 'We audit your analytics, run heatmaps, and interview users to form data-backed hypotheses — not gut-feel guesses.' },
+          { step: '2', title: 'Design', desc: 'We design test variants based on psychological principles and CRO frameworks, with proper statistical power calculations upfront.' },
+          { step: '3', title: 'Run', desc: 'Tests run for the minimum required sample size and time — never stopped early, never peeked at mid-test results.' },
+          { step: '4', title: 'Analyze', desc: 'Full segment analysis: device, traffic source, new vs. returning. We extract learning whether the test wins or loses.' },
+          { step: '5', title: 'Implement', desc: 'Winners get implemented. Findings feed the next hypothesis. Your test log becomes a competitive moat over time.' },
+        ].map(({ step, title, desc }) => (
+          <div class="process-step-card">
+            <div class="process-step-card__number">{step}</div>
+            <h3 class="process-step-card__title">{title}</h3>
+            <p class="process-step-card__desc">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <FinalCTA
+    title="Ready to Run Tests That Actually Matter?"
+    subtitle="Book a free strategy call. We'll review your current testing setup and show you exactly what we'd test first and why."
+    ctaText="Book a Free Strategy Call"
+  />
+</BaseLayout>
+
+<style>
+  .service-hero {
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-16) 0;
+  }
+
+  .service-hero__title {
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    max-width: 800px;
+    margin: var(--space-4) 0;
+  }
+
+  .service-hero__subtitle {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    line-height: 1.6;
+    margin-bottom: var(--space-8);
+  }
+
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--space-4);
+    margin-top: var(--space-10);
+  }
+
+  .process-step-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-6);
+    text-align: center;
+  }
+
+  .process-step-card__number {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    background: var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    color: white;
+    margin: 0 auto var(--space-4);
+    font-size: var(--text-lg);
+  }
+
+  .process-step-card__title {
+    font-size: var(--text-base);
+    font-weight: 700;
+    margin-bottom: var(--space-3);
+  }
+
+  .process-step-card__desc {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 1024px) {
+    .process-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .process-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,52 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Services from '@/components/sections/Services.astro';
+import FinalCTA from '@/components/sections/FinalCTA.astro';
+---
+
+<BaseLayout
+  title="CRO Services — Conversion Rate Optimization Agency"
+  description="Data-driven CRO services: audits, A/B testing, landing page design, and conversion copywriting. We grow your revenue without increasing ad spend."
+>
+  <div class="services-page">
+    <div class="page-header">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+          <span class="breadcrumbs__current" aria-current="page">Services</span>
+        </nav>
+        <h1 class="page-header__title">CRO Services That Deliver Measurable Results</h1>
+        <p class="page-header__subtitle">
+          Every service is built around one goal: increasing the percentage of your visitors who become customers.
+          We work with data, not opinions.
+        </p>
+      </div>
+    </div>
+    <Services />
+    <FinalCTA />
+  </div>
+</BaseLayout>
+
+<style>
+  .page-header {
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-16) 0;
+  }
+
+  .page-header__title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    margin: var(--space-4) 0;
+    max-width: 800px;
+  }
+
+  .page-header__subtitle {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    line-height: 1.6;
+  }
+</style>

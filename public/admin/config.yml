@@ -1,0 +1,35 @@
+backend:
+  name: github
+  repo: your-username/conversionrate-expert
+  branch: main
+
+media_folder: "public/images/blog"
+public_folder: "/images/blog"
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text", hint: "150-160 characters for SEO" }
+      - { label: "Publish Date", name: "publishDate", widget: "datetime" }
+      - { label: "Updated Date", name: "updatedDate", widget: "datetime", required: false }
+      - { label: "Author", name: "author", widget: "string", default: "Darko" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - "CRO Strategy"
+          - "A/B Testing"
+          - "Landing Pages"
+          - "Copywriting"
+          - "Analytics"
+      - { label: "Tags", name: "tags", widget: "list", allow_add: true }
+      - { label: "Cover Image", name: "image", widget: "image", required: false }
+      - { label: "Image Alt Text", name: "imageAlt", widget: "string", required: false }
+      - { label: "Primary SEO Keyword", name: "seoKeyword", widget: "string", required: false }
+      - { label: "Draft", name: "draft", widget: "boolean", default: true }
+      - { label: "Body", name: "body", widget: "markdown" }

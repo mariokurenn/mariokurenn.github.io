@@ -1,0 +1,293 @@
+---
+const navLinks = [
+  { href: '/services/', label: 'Services' },
+  { href: '/case-studies/', label: 'Case Studies' },
+  { href: '/blog/', label: 'Blog' },
+  { href: '/about/', label: 'About' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header" id="site-header">
+  <div class="container header__inner">
+    <a href="/" class="header__logo" aria-label="conversionrate-expert.com home">
+      <svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <rect width="32" height="32" rx="8" fill="#1A7F3C"/>
+        <path d="M8 20L14 14L18 18L24 12" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="24" cy="12" r="2" fill="white"/>
+      </svg>
+      <span class="header__logo-text">CRO<span class="text-accent">Expert</span></span>
+    </a>
+
+    <nav class="header__nav" aria-label="Main navigation">
+      <ul class="header__nav-list">
+        {navLinks.map(({ href, label }) => (
+          <li>
+            <a
+              href={href}
+              class:list={['header__nav-link', { 'header__nav-link--active': currentPath.startsWith(href) }]}
+            >
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="header__actions">
+      <a href="/contact/" class="btn btn--primary header__cta">Get Free Audit</a>
+      <button class="header__menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu">
+        <span class="header__burger" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <nav aria-label="Mobile navigation">
+      <ul class="mobile-menu__list">
+        {navLinks.map(({ href, label }) => (
+          <li><a href={href} class="mobile-menu__link">{label}</a></li>
+        ))}
+        <li>
+          <a href="/contact/" class="btn btn--primary mobile-menu__cta">Get Free CRO Audit</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Sticky CTA Bar -->
+<div class="sticky-cta" id="sticky-cta" aria-hidden="true">
+  <div class="container sticky-cta__inner">
+    <span>Your traffic is expensive. Your conversions shouldn't be left on the table.</span>
+    <a href="/contact/" class="sticky-cta__btn">Get a Free CRO Audit →</a>
+  </div>
+</div>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.97);
+    border-bottom: 1px solid var(--color-border);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: box-shadow var(--transition-base);
+  }
+
+  .site-header.scrolled {
+    box-shadow: 0 2px 16px rgba(15, 23, 42, 0.08);
+  }
+
+  .header__inner {
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+    height: 68px;
+  }
+
+  .header__logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    flex-shrink: 0;
+    text-decoration: none;
+  }
+
+  .header__logo-text {
+    font-size: 1.0625rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: var(--color-heading);
+  }
+
+  .header__nav { flex: 1; }
+
+  .header__nav-list {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  .header__nav-link {
+    display: block;
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-text-muted);
+    border-radius: var(--radius-md);
+    transition: color var(--transition-fast), background var(--transition-fast);
+    text-decoration: none;
+  }
+
+  .header__nav-link:hover,
+  .header__nav-link--active {
+    color: var(--color-heading);
+    background: var(--color-surface);
+  }
+
+  .header__nav-link--active { font-weight: 600; }
+
+  .header__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-left: auto;
+  }
+
+  .header__cta {
+    padding: 0.575rem 1.25rem;
+    font-size: var(--text-sm);
+  }
+
+  /* Burger */
+  .header__menu-toggle {
+    display: none;
+    width: 40px; height: 40px;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    transition: background var(--transition-fast);
+  }
+
+  .header__menu-toggle:hover { background: var(--color-surface-mid); }
+
+  .header__burger,
+  .header__burger::before,
+  .header__burger::after {
+    display: block;
+    width: 18px; height: 2px;
+    background: var(--color-heading);
+    border-radius: 2px;
+    transition: transform var(--transition-fast), opacity var(--transition-fast);
+    position: relative;
+  }
+
+  .header__burger::before,
+  .header__burger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+  }
+
+  .header__burger::before { top: -6px; }
+  .header__burger::after  { top: 6px; }
+
+  .header__menu-toggle[aria-expanded="true"] .header__burger { background: transparent; }
+  .header__menu-toggle[aria-expanded="true"] .header__burger::before { transform: rotate(45deg) translate(4px, 4px); }
+  .header__menu-toggle[aria-expanded="true"] .header__burger::after  { transform: rotate(-45deg) translate(4px, -4px); }
+
+  /* Mobile menu */
+  .mobile-menu {
+    display: none;
+    background: var(--color-white);
+    border-top: 1px solid var(--color-border);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height var(--transition-base);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .mobile-menu.is-open { max-height: 420px; }
+
+  .mobile-menu__list {
+    padding: var(--space-4) var(--space-6) var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .mobile-menu__link {
+    display: block;
+    padding: var(--space-3) var(--space-2);
+    font-size: var(--text-lg);
+    font-weight: 500;
+    color: var(--color-text-muted);
+    border-radius: var(--radius-md);
+    transition: color var(--transition-fast), background var(--transition-fast);
+  }
+
+  .mobile-menu__link:hover { color: var(--color-heading); background: var(--color-surface); }
+
+  .mobile-menu__cta {
+    margin-top: var(--space-4);
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Sticky CTA Bar — green like CRE */
+  .sticky-cta {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 90;
+    background: var(--color-accent);
+    transform: translateY(100%);
+    transition: transform var(--transition-base);
+  }
+
+  .sticky-cta.is-visible { transform: translateY(0); }
+
+  .sticky-cta__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding-block: 0.75rem;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: white;
+  }
+
+  .sticky-cta__btn {
+    background: white;
+    color: var(--color-accent);
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    flex-shrink: 0;
+    white-space: nowrap;
+    transition: background var(--transition-fast), color var(--transition-fast);
+  }
+
+  .sticky-cta__btn:hover { background: var(--color-heading); color: white; }
+
+  @media (max-width: 768px) {
+    .header__nav  { display: none; }
+    .header__cta  { display: none; }
+    .header__menu-toggle { display: flex; }
+    .mobile-menu  { display: block; }
+    .sticky-cta span { display: none; }
+    .sticky-cta__inner { justify-content: center; }
+  }
+</style>
+
+<script>
+  const header     = document.getElementById('site-header');
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const stickyCTA  = document.getElementById('sticky-cta');
+
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    header?.classList.toggle('scrolled', y > 10);
+    const show = y > document.body.scrollHeight * 0.4;
+    if (stickyCTA) {
+      stickyCTA.classList.toggle('is-visible', show);
+      stickyCTA.setAttribute('aria-hidden', String(!show));
+    }
+  }, { passive: true });
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', String(!isOpen));
+      mobileMenu.classList.toggle('is-open', !isOpen);
+      mobileMenu.setAttribute('aria-hidden', String(isOpen));
+    });
+  }
+</script>

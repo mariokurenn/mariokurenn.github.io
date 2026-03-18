@@ -1,0 +1,233 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import FinalCTA from '@/components/sections/FinalCTA.astro';
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'CRO Audit',
+  description: 'A comprehensive 47-point conversion rate optimization audit. We analyze your funnel, landing pages, and user flows to identify what\'s killing your conversions.',
+  provider: {
+    '@type': 'Organization',
+    name: 'conversionrate-expert.com',
+    url: 'https://conversionrate-expert.com',
+  },
+  serviceType: 'CRO Audit',
+  areaServed: 'Worldwide',
+};
+
+const auditPoints = [
+  { category: 'Analytics & Data', items: ['GA4 funnel analysis', 'Drop-off point identification', 'Segment performance', 'Traffic source quality'] },
+  { category: 'UX & Usability', items: ['Heuristic evaluation', 'Mobile usability review', 'Navigation analysis', 'Form friction audit'] },
+  { category: 'Landing Pages', items: ['Value prop clarity', 'CTA placement & copy', 'Social proof audit', 'Above-fold review'] },
+  { category: 'Trust & Credibility', items: ['Trust signal audit', 'Security indicators', 'Review/rating placement', 'Brand credibility'] },
+  { category: 'Checkout/Lead Flow', items: ['Form field count', 'Error message quality', 'Progress indicators', 'Abandonment triggers'] },
+  { category: 'Performance', items: ['Core Web Vitals', 'Page speed analysis', 'Mobile performance', 'Render-blocking resources'] },
+];
+---
+
+<BaseLayout
+  title="CRO Audit Service — 47-Point Conversion Optimization Audit"
+  description="Get a comprehensive 47-point CRO audit that identifies exactly what's killing your conversions. Prioritized action plan included. Free consultation available."
+  jsonLd={serviceSchema}
+>
+  <!-- Hero -->
+  <div class="service-hero">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+        <a href="/services/">Services</a>
+        <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+        <span class="breadcrumbs__current" aria-current="page">CRO Audit</span>
+      </nav>
+      <span class="section-label">Service</span>
+      <h1 class="service-hero__title">The 47-Point CRO Audit That Finds Your Hidden Revenue</h1>
+      <p class="service-hero__subtitle">
+        Most businesses are bleeding conversions from 5–10 critical issues. Our audit finds them all,
+        ranks them by revenue impact, and gives you a step-by-step fix plan.
+      </p>
+      <div class="service-hero__actions">
+        <a href="/contact/" class="btn btn--primary btn--lg">Get Your Free CRO Audit</a>
+        <div class="service-hero__proof">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          <span>Free for qualifying businesses · No commitment required</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- What's included -->
+  <section class="section">
+    <div class="container">
+      <span class="section-label">What You Get</span>
+      <h2 class="section-title">47 Checks Across 6 Critical Areas</h2>
+      <p class="section-subtitle" style="margin-bottom: var(--space-12);">
+        Every audit covers the full funnel — from the moment a visitor lands to the moment they convert (or don't).
+      </p>
+
+      <div class="audit-grid">
+        {auditPoints.map(({ category, items }) => (
+          <div class="audit-category">
+            <h3 class="audit-category__title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.5" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              {category}
+            </h3>
+            <ul class="audit-category__list">
+              {items.map((item) => (
+                <li>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-secondary)" stroke-width="2" aria-hidden="true">
+                    <circle cx="12" cy="12" r="1"/>
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Deliverables -->
+  <section class="section" style="background: var(--color-surface); border-top: 1px solid var(--color-border);">
+    <div class="container">
+      <span class="section-label">Deliverables</span>
+      <h2 class="section-title">What You Receive After the Audit</h2>
+      <div class="deliverables-grid">
+        {[
+          {
+            title: 'Priority Issue List',
+            description: 'Every conversion blocker ranked by estimated revenue impact — so you know exactly where to start.',
+          },
+          {
+            title: 'Annotated Screenshots',
+            description: 'Visual markup of exactly what to fix on each page, with explanations your developer can act on immediately.',
+          },
+          {
+            title: 'A/B Test Roadmap',
+            description: 'A 90-day testing roadmap with 10+ hypotheses prioritized by PIE score (Potential, Importance, Ease).',
+          },
+          {
+            title: 'Benchmarks Report',
+            description: 'How your conversion metrics compare to industry benchmarks, so you know where the biggest gaps are.',
+          },
+        ].map(({ title, description }) => (
+          <div class="card">
+            <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <h3 class="card__title">{title}</h3>
+            <p class="card__body">{description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <FinalCTA
+    title="Get Your Free CRO Audit"
+    subtitle="We offer a free audit for qualifying businesses. Book a 30-minute call, we'll review your site together, and tell you exactly what we'd fix first."
+    ctaText="Book My Free Audit Call"
+  />
+</BaseLayout>
+
+<style>
+  .service-hero {
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-16) 0;
+  }
+
+  .service-hero__title {
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    max-width: 800px;
+    margin: var(--space-4) 0;
+  }
+
+  .service-hero__subtitle {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    line-height: 1.6;
+    margin-bottom: var(--space-8);
+  }
+
+  .service-hero__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+
+  .service-hero__proof {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+  }
+
+  .audit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+
+  .audit-category {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-6);
+  }
+
+  .audit-category__title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-base);
+    font-weight: 700;
+    margin-bottom: var(--space-4);
+  }
+
+  .audit-category__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .audit-category__list li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+  }
+
+  .deliverables-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+    margin-top: var(--space-8);
+  }
+
+  @media (max-width: 900px) {
+    .audit-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .audit-grid,
+    .deliverables-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

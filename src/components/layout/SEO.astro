@@ -1,0 +1,57 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  ogType?: string;
+  canonicalURL?: string;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  ogImage = '/og-default.jpg',
+  ogType = 'website',
+  canonicalURL,
+  jsonLd,
+  noindex = false,
+} = Astro.props;
+
+const siteURL = 'https://conversionrate-expert.com';
+const resolvedCanonical = canonicalURL ?? new URL(Astro.url.pathname, siteURL).href;
+const resolvedOGImage = ogImage.startsWith('http') ? ogImage : new URL(ogImage, siteURL).href;
+const fullTitle = title.includes('conversionrate-expert') ? title : `${title} | conversionrate-expert.com`;
+
+const jsonLdArray = jsonLd
+  ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd])
+  : [];
+---
+
+<!-- Primary Meta -->
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={resolvedCanonical} />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+
+<!-- Open Graph -->
+<meta property="og:type" content={ogType} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={resolvedCanonical} />
+<meta property="og:image" content={resolvedOGImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="conversionrate-expert.com" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={resolvedOGImage} />
+
+<!-- JSON-LD Structured Data -->
+{jsonLdArray.map((schema) => (
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+))}

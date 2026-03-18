@@ -1,0 +1,157 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import FinalCTA from '@/components/sections/FinalCTA.astro';
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Darko',
+  jobTitle: 'CRO Specialist & Founder',
+  url: 'https://conversionrate-expert.com/about/',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'conversionrate-expert.com',
+    url: 'https://conversionrate-expert.com',
+  },
+};
+---
+
+<BaseLayout
+  title="About — Darko, CRO Specialist & Founder"
+  description="Meet Darko, founder of conversionrate-expert.com. CRO specialist with 8+ years of experience helping 50+ businesses grow revenue through data-driven optimization."
+  jsonLd={personSchema}
+>
+  <div class="about-page">
+    <div class="about-hero">
+      <div class="container about-hero__inner">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+          <span class="breadcrumbs__current" aria-current="page">About</span>
+        </nav>
+
+        <div class="about-intro">
+          <div class="about-avatar" aria-hidden="true">D</div>
+          <div>
+            <span class="section-label">About the Founder</span>
+            <h1 class="about-hero__title">Hi, I'm Darko — I Turn Traffic Into Revenue</h1>
+          </div>
+        </div>
+
+        <div class="about-story prose">
+          <p>
+            I started optimizing conversion rates in 2018 after a frustrating experience running
+            an e-commerce store. I was spending $15,000/month on Facebook ads, getting traffic —
+            but converting at 1.2%. I was working harder to bring traffic in the front door while
+            it leaked out the back.
+          </p>
+
+          <p>
+            I went deep on CRO. Not just button colors and headline tests — but the real stuff:
+            customer psychology, statistical methodology, funnel architecture, voice-of-customer
+            research. Within 6 months, I had taken that store from 1.2% to 4.1% CVR. The ad budget
+            stayed the same. The revenue tripled.
+          </p>
+
+          <p>
+            That's when I realized this was what I was meant to do. Not just for my own business —
+            for every business fighting the same problem. I founded conversionrate-expert.com to
+            bring systematic, data-driven CRO to growth-stage brands who are tired of guessing.
+          </p>
+
+          <h2>What I Believe About CRO</h2>
+
+          <p>
+            Most "CRO agencies" run a few headline A/B tests, slap a testimonial on a page, and
+            call it conversion optimization. That's not what we do.
+          </p>
+
+          <p>
+            Real CRO starts with obsessive understanding of your customer — their fears, desires,
+            objections, and decision triggers. It continues with rigorous testing methodology:
+            proper sample sizes, no peeking, full segment analysis. And it compounds over time
+            as your test log grows into an irreplaceable competitive advantage.
+          </p>
+
+          <p>
+            Every client engagement I run is built around one question: <strong>what does the data
+            tell us about why visitors aren't converting, and what's the highest-leverage fix?</strong>
+          </p>
+
+          <h2>The Credentials</h2>
+
+          <ul>
+            <li>CRO Certified — CXL Institute</li>
+            <li>Google Analytics Certified</li>
+            <li>800+ A/B tests run across 50+ businesses</li>
+            <li>Industries: e-commerce, SaaS, lead generation, professional services</li>
+            <li>Average client result: 127% CVR increase within 90 days</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Values -->
+    <section class="section" style="background: var(--color-surface); border-top: 1px solid var(--color-border);">
+      <div class="container">
+        <h2 class="section-title">How I Work</h2>
+        <div class="grid-3" style="margin-top: var(--space-10);">
+          {[
+            { title: 'Data Before Opinion', desc: 'Every recommendation is backed by analytics, user research, or a tested hypothesis. I never rely on gut feeling alone.' },
+            { title: 'Transparency Always', desc: 'You\'ll always know what I\'m testing, why, and what the results mean. No black boxes, no proprietary fluff.' },
+            { title: 'Long-Term Thinking', desc: 'Quick wins are great, but the real goal is building a testing culture and conversion rate that compounds over years.' },
+          ].map(({ title, desc }) => (
+            <div class="card">
+              <h3 class="card__title">{title}</h3>
+              <p class="card__body">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <FinalCTA
+      title="Want to Work Together?"
+      subtitle="Let's talk about your funnel, your goals, and whether we're the right fit. The first call is always free."
+      ctaText="Book a Free Strategy Call"
+    />
+  </div>
+</BaseLayout>
+
+<style>
+  .about-hero {
+    padding: var(--space-16) 0;
+  }
+
+  .about-intro {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+    margin-bottom: var(--space-10);
+  }
+
+  .about-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: var(--radius-full);
+    background: var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-3xl);
+    font-weight: 900;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .about-hero__title {
+    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1.15;
+  }
+
+  .about-story {
+    max-width: 700px;
+  }
+</style>

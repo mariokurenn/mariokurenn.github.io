@@ -1,0 +1,231 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import FinalCTA from '@/components/sections/FinalCTA.astro';
+
+const cases = [
+  {
+    slug: 'ecommerce-checkout-optimization',
+    client: 'E-commerce Retailer',
+    industry: 'Fashion & Apparel',
+    services: ['CRO Audit', 'A/B Testing'],
+    before: '2.1%',
+    after: '4.8%',
+    change: '+128%',
+    revenue: '+$180K/mo',
+    summary: '90-day CRO program focused on checkout optimization and product page redesign. Identified 8 critical friction points through session recording analysis.',
+  },
+  {
+    slug: 'saas-trial-conversion',
+    client: 'B2B SaaS Platform',
+    industry: 'Software',
+    services: ['Landing Page Design', 'A/B Testing'],
+    before: '3.4%',
+    after: '7.9%',
+    change: '+132%',
+    revenue: '+$95K MRR',
+    summary: 'Free trial landing page redesign using VOC research. 12-week A/B testing program revealed that removing the pricing section increased sign-ups by 47%.',
+  },
+  {
+    slug: 'b2b-lead-generation',
+    client: 'Professional Services Firm',
+    industry: 'B2B Services',
+    services: ['CRO Audit', 'Copywriting', 'A/B Testing'],
+    before: '4.1%',
+    after: '11.2%',
+    change: '+173%',
+    revenue: '3× qualified leads',
+    summary: 'Comprehensive audit revealed fundamental message mismatch between ads and landing pages. Copy rewrite and page restructure drove 173% more qualified leads.',
+  },
+];
+---
+
+<BaseLayout
+  title="CRO Case Studies — Real Results from Real Clients"
+  description="See how we've helped 50+ businesses improve conversion rates. Real metrics, real strategies, real revenue impact — no fluff."
+>
+  <div>
+    <div class="page-header">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+          <span class="breadcrumbs__current" aria-current="page">Case Studies</span>
+        </nav>
+        <h1 class="page-header__title">Results That Speak for Themselves</h1>
+        <p class="page-header__subtitle">
+          Every case study is a real engagement with real metrics. We don't cherry-pick —
+          these represent our standard results across industries and company sizes.
+        </p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <div class="cases-list">
+          {cases.map(({ client, industry, services, before, after, change, revenue, summary }) => (
+            <article class="case-study-card">
+              <div class="case-study-card__left">
+                <div class="case-study-card__meta">
+                  <span class="badge badge--accent">{industry}</span>
+                  <div class="case-study-card__services">
+                    {services.map((s) => (
+                      <span class="badge badge--surface">{s}</span>
+                    ))}
+                  </div>
+                </div>
+                <h2 class="case-study-card__client">{client}</h2>
+                <p class="case-study-card__summary">{summary}</p>
+              </div>
+
+              <div class="case-study-card__metrics">
+                <div class="case-study-metric">
+                  <span class="case-study-metric__label">CVR Before</span>
+                  <span class="case-study-metric__value case-study-metric__value--before">{before}</span>
+                </div>
+                <div class="case-study-metric__arrow" aria-hidden="true">→</div>
+                <div class="case-study-metric">
+                  <span class="case-study-metric__label">CVR After</span>
+                  <span class="case-study-metric__value case-study-metric__value--after">{after}</span>
+                </div>
+                <div class="case-study-metric case-study-metric--change">
+                  <span class="case-study-metric__label">CVR Change</span>
+                  <span class="case-study-metric__value case-study-metric__value--change">{change}</span>
+                </div>
+                <div class="case-study-metric">
+                  <span class="case-study-metric__label">Revenue Impact</span>
+                  <span class="case-study-metric__value case-study-metric__value--revenue">{revenue}</span>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <FinalCTA
+      title="Want Results Like These?"
+      subtitle="Every engagement starts with a free audit. We'll identify your biggest opportunities before you spend a cent."
+      ctaText="Get Your Free Audit"
+    />
+  </div>
+</BaseLayout>
+
+<style>
+  .page-header {
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-16) 0;
+  }
+
+  .page-header__title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    margin: var(--space-4) 0;
+  }
+
+  .page-header__subtitle {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    line-height: 1.6;
+  }
+
+  .cases-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .case-study-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--space-10);
+    align-items: center;
+    transition: border-color var(--transition-base);
+  }
+
+  .case-study-card:hover {
+    border-color: var(--color-accent);
+  }
+
+  .case-study-card__meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-4);
+  }
+
+  .case-study-card__services {
+    display: flex;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+
+  .case-study-card__client {
+    font-size: var(--text-2xl);
+    font-weight: 800;
+    margin-bottom: var(--space-3);
+    letter-spacing: -0.02em;
+  }
+
+  .case-study-card__summary {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    max-width: 600px;
+  }
+
+  .case-study-card__metrics {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+    flex-shrink: 0;
+  }
+
+  .case-study-metric {
+    text-align: center;
+  }
+
+  .case-study-metric__label {
+    display: block;
+    font-size: var(--text-xs);
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: var(--space-2);
+  }
+
+  .case-study-metric__value {
+    display: block;
+    font-size: var(--text-2xl);
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .case-study-metric__value--before { color: var(--color-text-secondary); }
+  .case-study-metric__value--after { color: var(--color-success); }
+  .case-study-metric__value--change { color: var(--color-success); }
+  .case-study-metric__value--revenue { color: var(--color-accent); }
+
+  .case-study-metric__arrow {
+    font-size: var(--text-2xl);
+    color: var(--color-text-secondary);
+  }
+
+  @media (max-width: 900px) {
+    .case-study-card {
+      grid-template-columns: 1fr;
+    }
+
+    .case-study-card__metrics {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: var(--space-4);
+    }
+  }
+</style>

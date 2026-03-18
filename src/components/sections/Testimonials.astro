@@ -1,0 +1,109 @@
+---
+const testimonials = [
+  {
+    quote: "Working with CROExpert was a game-changer. In 90 days they took our checkout conversion from 1.8% to 4.2% — that's an extra $180K in revenue per month. The ROI was obvious within weeks.",
+    name: "Sarah Mitchell",
+    role: "Head of Growth, ShopScale",
+    initials: "SM",
+    color: "#1A7F3C",
+  },
+  {
+    quote: "I was skeptical about CRO — thought it was just button color tests. These guys showed me what systematic optimization really looks like. Our lead gen page now converts at 12% vs 4% before. Unreal.",
+    name: "Marcus Jensen",
+    role: "Founder & CEO, LeadFlow SaaS",
+    initials: "MJ",
+    color: "#2563EB",
+  },
+  {
+    quote: "The CRO audit alone was worth 10x what we paid. They found 23 critical issues we had no idea about. Three months of fixes later, our paid traffic ROAS went from 2.1 to 5.8.",
+    name: "Priya Sharma",
+    role: "Director of Marketing, EcomBrand",
+    initials: "PS",
+    color: "#7C3AED",
+  },
+  {
+    quote: "Most agencies talk about CRO but deliver cosmetic tweaks. CROExpert runs real experiments with real statistical rigor. Every recommendation is backed by data and customer research.",
+    name: "Tom Brauer",
+    role: "VP Product, TechStartup.io",
+    initials: "TB",
+    color: "#D97706",
+  },
+  {
+    quote: "We'd tried two other CRO agencies with mediocre results. Within the first 30 days of working with CROExpert, we had a winning A/B test that boosted our free trial signups by 38%.",
+    name: "Aisha Okonkwo",
+    role: "CMO, CloudPlatform",
+    initials: "AO",
+    color: "#DB2777",
+  },
+];
+---
+
+<section class="testimonials section--surface section" id="testimonials" aria-labelledby="testimonials-heading">
+  <div class="container">
+    <div class="testimonials__header">
+      <span class="section-label">Client Results</span>
+      <h2 class="section-title" id="testimonials-heading">
+        Don't Take Our Word for It
+      </h2>
+      <p class="section-subtitle">
+        Real results from real businesses. Average client sees a 127% increase in conversion rate within 90 days.
+      </p>
+    </div>
+
+    <div class="testimonials__grid">
+      {testimonials.map(({ quote, name, role, initials, color }) => (
+        <article class="testimonial-card" itemscope itemtype="https://schema.org/Review">
+          <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+            {Array.from({ length: 5 }).map(() => (
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            ))}
+          </div>
+          <blockquote class="testimonial-card__quote" itemprop="reviewBody">
+            {quote}
+          </blockquote>
+          <div class="testimonial-card__author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+            <div class="testimonial-card__avatar" style={`background:${color}18; color:${color};`} aria-hidden="true">
+              {initials}
+            </div>
+            <div>
+              <p class="testimonial-card__name" itemprop="name">{name}</p>
+              <p class="testimonial-card__role">{role}</p>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="testimonials__cta">
+      <a href="/case-studies/" class="btn btn--secondary">
+        View All Case Studies
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials__header { margin-bottom: var(--space-12); }
+
+  .testimonials__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+    margin-bottom: var(--space-10);
+  }
+
+  .testimonials__cta { display: flex; justify-content: center; }
+
+  @media (max-width: 1024px) {
+    .testimonials__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 640px) {
+    .testimonials__grid { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,0 +1,191 @@
+---
+const services = [
+  {
+    href: '/services/cro-audit/',
+    title: 'CRO Audit',
+    description: "A comprehensive 47-point audit of your funnel, landing pages, and user flows. We find what's killing your conversions and hand you a prioritized action plan.",
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+      <path d="M9 11l3 3L22 4"/>
+      <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+    </svg>`,
+    highlights: ['Heuristic evaluation', 'Analytics deep-dive', 'User flow analysis', 'Prioritized fix list'],
+  },
+  {
+    href: '/services/ab-testing/',
+    title: 'A/B Testing',
+    description: "We design, run, and analyze statistically significant split tests that prove what works. No guessing — only data-backed decisions that compound over time.",
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+      <path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/>
+      <path d="M13 13l6 6"/>
+    </svg>`,
+    highlights: ['Hypothesis-driven', 'Statistical significance', 'Full-funnel tests', 'Ongoing iteration'],
+  },
+  {
+    href: '/services/landing-page-design/',
+    title: 'Landing Page Design',
+    description: "High-converting landing pages built from the ground up — designed around your audience's psychology, not just aesthetics. Every element earns its place.",
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+      <rect x="3" y="3" width="18" height="18" rx="2"/>
+      <path d="M3 9h18M9 21V9"/>
+    </svg>`,
+    highlights: ['Psychology-first copy', 'Mobile-optimized', 'Speed-focused build', 'Iterative testing'],
+  },
+  {
+    href: '/services/conversion-copywriting/',
+    title: 'Conversion Copywriting',
+    description: "Words that sell. We write headlines, CTAs, email sequences, and product copy that speak directly to your buyer's pains and move them to act.",
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+      <path d="M12 20h9"/>
+      <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
+    </svg>`,
+    highlights: ['VOC research', 'Headline testing', 'Email sequences', 'Product copy'],
+  },
+];
+---
+
+<section class="services section" id="services" aria-labelledby="services-heading">
+  <div class="container">
+    <div class="services__header">
+      <span class="section-label">What We Do</span>
+      <h2 class="section-title" id="services-heading">
+        CRO Services That Move<br />the Revenue Needle
+      </h2>
+      <p class="section-subtitle">
+        Every engagement is focused on one thing: turning more of your existing traffic into customers — without spending more on ads.
+      </p>
+    </div>
+
+    <div class="services__grid">
+      {services.map(({ href, title, description, icon, highlights }) => (
+        <a href={href} class="service-card" aria-label={`Learn more about ${title}`}>
+          <div class="service-card__icon" aria-hidden="true" set:html={icon} />
+          <h3 class="service-card__title">{title}</h3>
+          <p class="service-card__description">{description}</p>
+          <ul class="service-card__highlights" aria-label={`${title} highlights`}>
+            {highlights.map((item) => (
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.5" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <span class="service-card__cta">
+            Learn more
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services__header {
+    margin-bottom: var(--space-12);
+    max-width: 700px;
+  }
+
+  .services__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+  }
+
+  .service-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8);
+    text-decoration: none;
+    color: inherit;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow var(--transition-base), transform var(--transition-base), border-color var(--transition-base);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--color-accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition-base);
+  }
+
+  .service-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+    border-color: var(--color-accent);
+  }
+
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-card__icon {
+    width: 44px; height: 44px;
+    color: var(--color-accent);
+    margin-bottom: var(--space-5);
+    background: var(--color-accent-light);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+  }
+
+  .service-card__title {
+    font-size: var(--text-xl);
+    font-weight: 800;
+    margin-bottom: var(--space-3);
+    color: var(--color-heading);
+    letter-spacing: -0.02em;
+  }
+
+  .service-card__description {
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    line-height: 1.65;
+    margin-bottom: var(--space-5);
+    flex: 1;
+  }
+
+  .service-card__highlights {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-bottom: var(--space-6);
+  }
+
+  .service-card__highlights li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .service-card__cta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-top: auto;
+    transition: gap var(--transition-fast);
+  }
+
+  .service-card:hover .service-card__cta { gap: var(--space-3); }
+
+  @media (max-width: 768px) {
+    .services__grid { grid-template-columns: 1fr; }
+  }
+</style>
