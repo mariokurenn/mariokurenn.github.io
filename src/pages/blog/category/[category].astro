@@ -59,13 +59,15 @@ const formatDate = (date: Date) =>
                   <time datetime={post.data.publishDate.toISOString()}>{formatDate(post.data.publishDate)}</time>
                   <span aria-hidden="true">·</span>
                   <span>{post.data.author}</span>
+                  <span aria-hidden="true">·</span>
+                  <span>{Math.max(1, Math.ceil(post.body.trim().split(/\s+/).length / 200))} min read</span>
                 </div>
               </div>
             </a>
           ))}
         </div>
       ) : (
-        <p style="color:var(--color-text-secondary);padding:var(--space-16) 0;text-align:center;">No posts in this category yet.</p>
+        <p style="color:var(--color-text-muted);padding:var(--space-16) 0;text-align:center;">No posts in this category yet.</p>
       )}
     </div>
   </div>
@@ -87,7 +89,7 @@ const formatDate = (date: Date) =>
 
   .blog-index__subtitle {
     font-size: var(--text-base);
-    color: var(--color-text-secondary);
+    color: var(--color-text-muted);
   }
 
   .blog-index__content {

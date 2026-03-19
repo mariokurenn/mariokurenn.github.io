@@ -1,0 +1,142 @@
+---
+const faqs = [
+  {
+    question: "How quickly will I see CRO results?",
+    answer: "Most clients see their first statistically significant A/B test result within 30–45 days. Measurable revenue impact typically shows within 60–90 days. We prioritise your highest-traffic pages first to maximise early wins — so you get tangible data fast, not just a roadmap.",
+  },
+  {
+    question: "How much does CRO cost?",
+    answer: "Every engagement starts with a free 47-point audit — no charge, no commitment. Ongoing programs start from €1,500/month depending on traffic volume and scope. The real question is ROI: if we can't identify opportunities worth at least 5× our monthly fee in additional revenue, we'll tell you upfront. We don't take on engagements we can't make profitable for you.",
+  },
+  {
+    question: "Do I need a large website to benefit from CRO?",
+    answer: "You need sufficient traffic to run statistically valid tests — generally 1,000+ monthly visitors on the pages being tested. For lower-traffic sites we focus on heuristic audit findings and direct implementation (no live A/B tests needed). Even small sites can see significant lifts from fixing UX and copy issues identified in a structured audit.",
+  },
+  {
+    question: "What's included in the free CRO audit?",
+    answer: "The 47-point audit covers: UX heuristic evaluation, Google Analytics / GA4 deep-dive, heatmap and scroll map analysis, Core Web Vitals and page speed review, competitor benchmarking, and a prioritised action list ranked by impact × effort. You receive a full written report within 7 business days — whether or not you proceed to a paid engagement.",
+  },
+  {
+    question: "How is CRO different from SEO or paid ads?",
+    answer: "SEO and ads bring more traffic. CRO makes that traffic worth more. If 2% of your visitors currently convert and we double that to 4%, you've doubled revenue from the same traffic spend. CRO multiplies the return on every other channel you're already investing in — it's the highest-leverage lever most businesses ignore.",
+  },
+  {
+    question: "What industries and platforms do you work with?",
+    answer: "We specialise in e-commerce (Shopify, WooCommerce, Magento, custom), SaaS, lead generation, and B2B service businesses. We've worked across retail, software, fintech, professional services and more. Platform matters less than traffic volume and a genuine willingness to test and iterate.",
+  },
+  {
+    question: "What if A/B tests don't produce winners?",
+    answer: "Losing tests are not failures — they're data. Every test reveals something concrete about your audience's behaviour and preferences. We typically run 3–5 tests simultaneously and expect a 40–60% win rate on well-formulated hypotheses. What compounds your revenue isn't any single test — it's the systematic learning that accumulates over months.",
+  },
+  {
+    question: "Are there long-term contracts?",
+    answer: "No lock-ins. After an initial 30-day onboarding period we work month-to-month. Most clients stay 6–18+ months because the compounding ROI makes it an easy decision — not because they're contractually obligated. You're always free to pause or cancel with 30 days' notice.",
+  },
+];
+---
+
+<section class="faq section" id="faq" aria-labelledby="faq-heading">
+  <div class="container">
+    <div class="faq__layout">
+      <div class="faq__header">
+        <span class="section-label">FAQs</span>
+        <h2 class="section-title" id="faq-heading">
+          Questions We Get<br />Before Every Engagement
+        </h2>
+        <p class="section-subtitle">
+          Straight answers to the things people actually want to know before investing in CRO.
+        </p>
+        <div class="faq__cta-aside">
+          <a href="/contact/" class="btn btn--outline">
+            Still have questions? Ask us
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="faq__list" role="list">
+        {faqs.map(({ question, answer }) => (
+          <details class="faq-item" role="listitem">
+            <summary>
+              <span>{question}</span>
+              <span class="faq-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+                  <line x1="12" y1="5" x2="12" y2="19"/>
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                </svg>
+              </span>
+            </summary>
+            <div class="faq-answer">{answer}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(({ question, answer }) => ({
+    '@type': 'Question',
+    name: question,
+    acceptedAnswer: { '@type': 'Answer', text: answer },
+  })),
+})} />
+
+<style>
+  .faq__layout {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: clamp(var(--space-12), 6vw, var(--space-20));
+    align-items: start;
+  }
+
+  .faq__header {
+    position: sticky;
+    top: calc(68px + var(--space-8));
+  }
+
+  .faq__header .section-title {
+    margin-bottom: var(--space-4);
+  }
+
+  .faq__header .section-subtitle {
+    margin-bottom: var(--space-8);
+    max-width: 100%;
+  }
+
+  .faq__list {
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    background: var(--color-white);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--color-border);
+    padding-inline: var(--space-8);
+  }
+
+  .faq-item:last-child { border-bottom: none; }
+
+  .faq-item summary {
+    padding-block: var(--space-6);
+  }
+
+  .faq-answer {
+    padding-inline: 0;
+    padding-bottom: var(--space-7);
+  }
+
+  @media (max-width: 900px) {
+    .faq__layout {
+      grid-template-columns: 1fr;
+    }
+
+    .faq__header {
+      position: static;
+    }
+  }
+</style>

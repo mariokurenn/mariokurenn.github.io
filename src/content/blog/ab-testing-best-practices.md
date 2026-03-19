@@ -3,7 +3,7 @@ title: "A/B Testing Best Practices: How to Run Tests That Actually Mean Somethin
 description: "Run statistically valid A/B tests that produce reliable results. Avoid common mistakes that waste months of effort and generate false positive winners."
 publishDate: "2026-02-01"
 updatedDate: "2026-03-05"
-author: "Darko"
+author: "Mario"
 category: "A/B Testing"
 tags: ["a/b testing", "split testing", "statistics", "cro"]
 seoKeyword: "a/b testing best practices"

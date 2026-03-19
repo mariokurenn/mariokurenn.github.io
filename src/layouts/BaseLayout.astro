@@ -17,6 +17,17 @@ interface Props {
 }
 
 const seoProps = Astro.props;
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'conversionrate-expert.com',
+  url: 'https://conversionrate-expert.com',
+};
+
+const resolvedJsonLd = seoProps.jsonLd
+  ? (Array.isArray(seoProps.jsonLd) ? [websiteSchema, ...seoProps.jsonLd] : [websiteSchema, seoProps.jsonLd])
+  : [websiteSchema];
 ---
 
 <!doctype html>
@@ -24,11 +35,14 @@ const seoProps = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#FF4D00" />
+    <meta name="theme-color" content="#1A7F3C" />
+    <meta name="author" content="Mario Kuren" />
+    <meta name="format-detection" content="telephone=no" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap.xml" />
     <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
-    <SEO {...seoProps} />
+    <SEO {...seoProps} jsonLd={resolvedJsonLd} />
+    <slot name="head" />
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>

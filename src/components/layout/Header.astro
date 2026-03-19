@@ -9,15 +9,33 @@ const navLinks = [
 const currentPath = Astro.url.pathname;
 ---
 
+<!-- Announcement Bar -->
+<div class="announcement-bar" id="announcement-bar" role="banner">
+  <div class="container announcement-bar__inner">
+    <div class="announcement-bar__content">
+      <span class="announcement-bar__stars" aria-hidden="true">★★★★★</span>
+      <span class="announcement-bar__text">
+        <strong>4.9/5</strong> from 47 reviews
+        <span class="announcement-bar__sep" aria-hidden="true">·</span>
+        50+ businesses optimised
+        <span class="announcement-bar__sep" aria-hidden="true">·</span>
+        <strong>127% avg CVR increase</strong>
+      </span>
+      <a href="/contact/" class="announcement-bar__cta">Get Free Audit →</a>
+    </div>
+    <button class="announcement-bar__close" id="announcement-close" aria-label="Close announcement">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+        <path d="M18 6L6 18M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
 <header class="site-header" id="site-header">
   <div class="container header__inner">
     <a href="/" class="header__logo" aria-label="conversionrate-expert.com home">
-      <svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-        <rect width="32" height="32" rx="8" fill="#1A7F3C"/>
-        <path d="M8 20L14 14L18 18L24 12" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="24" cy="12" r="2" fill="white"/>
-      </svg>
-      <span class="header__logo-text">CRO<span class="text-accent">Expert</span></span>
+      
+      <span class="header__logo-text">Conversion Rate <span class="text-accent">Expert</span></span>
     </a>
 
     <nav class="header__nav" aria-label="Main navigation">
@@ -66,6 +84,85 @@ const currentPath = Astro.url.pathname;
 </div>
 
 <style>
+  /* Announcement Bar */
+  .announcement-bar {
+    background: var(--color-accent);
+    color: white;
+    font-size: var(--text-sm);
+    padding: 0.6rem 0;
+    position: relative;
+    z-index: 101;
+  }
+
+  .announcement-bar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+  }
+
+  .announcement-bar__content {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex: 1;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .announcement-bar__stars {
+    color: #FFD700;
+    letter-spacing: 1px;
+    font-size: 0.8em;
+  }
+
+  .announcement-bar__text {
+    color: rgba(255,255,255,0.92);
+  }
+
+  .announcement-bar__sep {
+    opacity: 0.5;
+    margin: 0 var(--space-1);
+  }
+
+  .announcement-bar__cta {
+    background: white;
+    color: var(--color-accent);
+    font-weight: 700;
+    font-size: var(--text-xs);
+    padding: 0.3rem 0.875rem;
+    border-radius: var(--radius-full);
+    white-space: nowrap;
+    transition: background var(--transition-fast), color var(--transition-fast);
+    letter-spacing: 0.01em;
+  }
+
+  .announcement-bar__cta:hover {
+    background: var(--color-heading);
+    color: white;
+  }
+
+  .announcement-bar__close {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    background: rgba(255,255,255,0.15);
+    color: white;
+    flex-shrink: 0;
+    transition: background var(--transition-fast);
+  }
+
+  .announcement-bar__close:hover {
+    background: rgba(255,255,255,0.25);
+  }
+
+  .announcement-bar.is-hidden {
+    display: none;
+  }
+
   .site-header {
     position: sticky;
     top: 0;
@@ -263,10 +360,26 @@ const currentPath = Astro.url.pathname;
     .mobile-menu  { display: block; }
     .sticky-cta span { display: none; }
     .sticky-cta__inner { justify-content: center; }
+    .announcement-bar__sep { display: none; }
+    .announcement-bar__text { font-size: var(--text-xs); text-align: center; }
+    .announcement-bar__stars { display: none; }
   }
 </style>
 
 <script>
+  // Announcement bar close
+  const announcementBar = document.getElementById('announcement-bar');
+  const announcementClose = document.getElementById('announcement-close');
+  if (announcementClose && announcementBar) {
+    announcementClose.addEventListener('click', () => {
+      announcementBar.classList.add('is-hidden');
+      sessionStorage.setItem('announcement-closed', '1');
+    });
+    if (sessionStorage.getItem('announcement-closed') === '1') {
+      announcementBar.classList.add('is-hidden');
+    }
+  }
+
   const header     = document.getElementById('site-header');
   const menuToggle = document.getElementById('menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');

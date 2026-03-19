@@ -6,6 +6,7 @@ const SITE = 'https://conversionrate-expert.com';
 const staticPages = [
   { url: '/', priority: '1.0', changefreq: 'weekly' },
   { url: '/about/', priority: '0.7', changefreq: 'monthly' },
+  { url: '/author/mario-kuren/', priority: '0.8', changefreq: 'monthly' },
   { url: '/contact/', priority: '0.8', changefreq: 'monthly' },
   { url: '/services/', priority: '0.9', changefreq: 'monthly' },
   { url: '/services/cro-audit/', priority: '0.8', changefreq: 'monthly' },
@@ -14,6 +15,12 @@ const staticPages = [
   { url: '/services/conversion-copywriting/', priority: '0.8', changefreq: 'monthly' },
   { url: '/case-studies/', priority: '0.8', changefreq: 'weekly' },
   { url: '/blog/', priority: '0.9', changefreq: 'daily' },
+  // Category pages
+  { url: '/blog/category/cro-strategy/', priority: '0.7', changefreq: 'weekly' },
+  { url: '/blog/category/a-b-testing/', priority: '0.7', changefreq: 'weekly' },
+  { url: '/blog/category/landing-pages/', priority: '0.7', changefreq: 'weekly' },
+  { url: '/blog/category/copywriting/', priority: '0.7', changefreq: 'weekly' },
+  { url: '/blog/category/analytics/', priority: '0.7', changefreq: 'weekly' },
 ];
 
 export const GET: APIRoute = async () => {
@@ -44,8 +51,6 @@ ${allPages.map((page) => `  <url>
 </urlset>`;
 
   return new Response(xml, {
-    headers: {
-      'Content-Type': 'application/xml; charset=utf-8',
-    },
+    headers: { 'Content-Type': 'application/xml; charset=utf-8' },
   });
 };

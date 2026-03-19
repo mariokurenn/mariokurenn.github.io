@@ -1,0 +1,445 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import FinalCTA from '@/components/sections/FinalCTA.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const posts = allPosts.sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
+
+const siteURL = 'https://conversionrate-expert.com';
+
+const formatDate = (date: Date) =>
+  new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).format(date);
+
+const wordCount = (body: string) => body.trim().split(/\s+/).length;
+const readingTime = (body: string) => Math.max(1, Math.ceil(wordCount(body) / 200));
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Mario Kuren',
+  url: `${siteURL}/author/mario-kuren/`,
+  jobTitle: 'CRO Specialist & Founder',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'conversionrate-expert.com',
+    url: siteURL,
+  },
+  knowsAbout: [
+    'Conversion Rate Optimization',
+    'A/B Testing',
+    'Landing Page Design',
+    'Conversion Copywriting',
+    'Web Analytics',
+    'User Behaviour Analysis',
+  ],
+  hasCredential: [
+    {
+      '@type': 'EducationalOccupationalCredential',
+      name: 'CRO Certified — CXL Institute',
+    },
+    {
+      '@type': 'EducationalOccupationalCredential',
+      name: 'Google Analytics Certified',
+    },
+  ],
+  description:
+    'Mario Kuren is a CRO specialist and founder of conversionrate-expert.com. He has run 800+ A/B tests across 50+ businesses in e-commerce, SaaS, and lead generation, delivering an average 127% CVR increase within 90 days.',
+};
+
+const profilePageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  mainEntity: personSchema,
+  url: `${siteURL}/author/mario-kuren/`,
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteURL },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${siteURL}/blog/` },
+      { '@type': 'ListItem', position: 3, name: 'Mario Kuren', item: `${siteURL}/author/mario-kuren/` },
+    ],
+  },
+};
+
+const expertise = [
+  {
+    title: 'Conversion Rate Optimization',
+    desc: 'End-to-end CRO programs: research, hypothesis, test, implement. Systematic approach that compounds over time.',
+  },
+  {
+    title: 'A/B Testing & Experimentation',
+    desc: 'Statistically rigorous split testing. Proper sample sizes, significance thresholds, full-segment analysis.',
+  },
+  {
+    title: 'Landing Page Design',
+    desc: 'Psychology-first landing pages built around customer objections, triggers, and decision patterns.',
+  },
+  {
+    title: 'Funnel Analytics',
+    desc: 'Deep-dive analytics — GA4, heatmaps, session recordings, and VOC surveys to find exactly where money leaks.',
+  },
+];
+---
+
+<BaseLayout
+  title="Mario Kuren — CRO Specialist & Founder | conversionrate-expert.com"
+  description="Mario Kuren is a CRO specialist with 8+ years of experience, 800+ A/B tests run, and an average 127% CVR increase across 50+ client businesses. Read his CRO guides."
+  jsonLd={[personSchema, profilePageSchema]}
+>
+  <div class="author-page">
+
+    <!-- Header -->
+    <div class="author-header">
+      <div class="container author-header__inner">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+          <a href="/blog/">Blog</a>
+          <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+          <span class="breadcrumbs__current" aria-current="page">Mario Kuren</span>
+        </nav>
+
+        <div class="author-profile">
+          <div class="author-profile__avatar" aria-hidden="true">
+          <img src="/images/avatars/mario-lg.webp" alt="Mario Kuren" width="160" height="160" loading="eager" decoding="async" fetchpriority="high" />
+        </div>
+          <div class="author-profile__info">
+            <h1 class="author-profile__name" itemprop="name">Mario Kuren</h1>
+            <p class="author-profile__role">CRO Specialist & Founder · <a href="/">conversionrate-expert.com</a></p>
+            <p class="author-profile__bio">
+              I've spent 8+ years in the trenches of conversion rate optimization — running 800+ A/B tests,
+              analyzing thousands of user sessions, and figuring out exactly why people don't buy.
+              I write about what actually works, backed by real experiments and real data.
+            </p>
+            <div class="author-profile__badges">
+              <span class="author-badge">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                CRO Certified — CXL Institute
+              </span>
+              <span class="author-badge">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                Google Analytics Certified
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats bar -->
+        <div class="author-stats">
+          {[
+            { n: '8+', l: 'Years in CRO' },
+            { n: '800+', l: 'A/B tests run' },
+            { n: '50+', l: 'Businesses helped' },
+            { n: '127%', l: 'Avg. CVR increase' },
+            { n: posts.length.toString(), l: posts.length === 1 ? 'Article published' : 'Articles published' },
+          ].map(({ n, l }) => (
+            <div class="author-stat">
+              <span class="author-stat__num">{n}</span>
+              <span class="author-stat__lbl">{l}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Expertise -->
+    <section class="section section--surface" aria-labelledby="expertise-heading">
+      <div class="container">
+        <h2 class="section-title" id="expertise-heading" style="margin-bottom: var(--space-10);">Areas of Expertise</h2>
+        <div class="expertise-grid">
+          {expertise.map(({ title, desc }) => (
+            <div class="expertise-card">
+              <h3 class="expertise-card__title">{title}</h3>
+              <p class="expertise-card__desc">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- All posts -->
+    <section class="section" aria-labelledby="posts-heading">
+      <div class="container">
+        <div class="author-posts-header">
+          <h2 class="section-title" id="posts-heading">
+            All Articles by Mario
+            <span class="author-posts-count">({posts.length})</span>
+          </h2>
+        </div>
+
+        {posts.length > 0 ? (
+          <div class="author-posts-list">
+            {posts.map((post) => (
+              <article class="author-post-card">
+                <div class="author-post-card__meta">
+                  <span class="badge badge--accent" style="font-size: var(--text-xs);">{post.data.category}</span>
+                  <time
+                    datetime={post.data.publishDate.toISOString()}
+                    class="author-post-card__date"
+                  >
+                    {formatDate(post.data.publishDate)}
+                  </time>
+                  <span class="author-post-card__rt">{readingTime(post.body)} min read</span>
+                </div>
+                <h3 class="author-post-card__title">
+                  <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+                </h3>
+                <p class="author-post-card__desc">{post.data.description}</p>
+                {post.data.tags.length > 0 && (
+                  <div class="author-post-card__tags">
+                    {post.data.tags.map((tag) => (
+                      <span class="badge badge--surface">{tag}</span>
+                    ))}
+                  </div>
+                )}
+              </article>
+            ))}
+          </div>
+        ) : (
+          <p style="color: var(--color-text-muted);">No posts yet — check back soon.</p>
+        )}
+      </div>
+    </section>
+
+    <FinalCTA
+      title="Want Mario to Audit Your Site?"
+      subtitle="Book a free 30-minute strategy call. Mario will personally review your funnel and tell you the 3 biggest leaks — no charge, no obligation."
+      ctaText="Book a Free Strategy Call"
+    />
+  </div>
+</BaseLayout>
+
+<style>
+  /* Header */
+  .author-header {
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-16) 0 0;
+  }
+
+  .author-header__inner { max-width: 860px; }
+
+  .author-profile {
+    display: flex;
+    gap: var(--space-8);
+    align-items: flex-start;
+    margin-bottom: var(--space-10);
+    margin-top: var(--space-6);
+  }
+
+  .author-profile__avatar {
+    width: 100px; height: 100px;
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-accent);
+  }
+
+  .author-profile__avatar img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .author-profile__name {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    color: var(--color-heading);
+    margin-bottom: var(--space-1);
+  }
+
+  .author-profile__role {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-4);
+  }
+
+  .author-profile__role a {
+    color: var(--color-accent);
+  }
+
+  .author-profile__bio {
+    font-size: var(--text-base);
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    max-width: 620px;
+    margin-bottom: var(--space-5);
+  }
+
+  .author-profile__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .author-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--color-accent);
+    background: var(--color-accent-light);
+    border: 1px solid var(--color-border-accent);
+    padding: 0.3rem 0.75rem;
+    border-radius: var(--radius-full);
+  }
+
+  /* Stats bar */
+  .author-stats {
+    display: flex;
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-bottom: none;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    overflow: hidden;
+    margin-top: var(--space-2);
+  }
+
+  .author-stat {
+    flex: 1;
+    text-align: center;
+    padding: var(--space-5) var(--space-4);
+    border-right: 1px solid var(--color-border);
+  }
+
+  .author-stat:last-child { border-right: none; }
+
+  .author-stat__num {
+    display: block;
+    font-size: var(--text-2xl);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    color: var(--color-accent);
+    line-height: 1;
+  }
+
+  .author-stat__lbl {
+    display: block;
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    font-weight: 500;
+    margin-top: 4px;
+  }
+
+  /* Expertise grid */
+  .expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+  }
+
+  .expertise-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    transition: box-shadow var(--transition-base), border-color var(--transition-base);
+  }
+
+  .expertise-card:hover {
+    box-shadow: var(--shadow-accent);
+    border-color: var(--color-border-accent);
+  }
+
+  .expertise-card__title {
+    font-size: var(--text-base);
+    font-weight: 800;
+    color: var(--color-heading);
+    margin-bottom: var(--space-2);
+    letter-spacing: -0.02em;
+  }
+
+  .expertise-card__desc {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  /* Posts */
+  .author-posts-header {
+    margin-bottom: var(--space-8);
+  }
+
+  .author-posts-count {
+    font-size: 0.6em;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    letter-spacing: 0;
+    vertical-align: middle;
+  }
+
+  .author-posts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .author-post-card {
+    padding: var(--space-6) var(--space-7);
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-white);
+    transition: background var(--transition-fast);
+  }
+
+  .author-post-card:last-child { border-bottom: none; }
+
+  .author-post-card:hover { background: var(--color-surface); }
+
+  .author-post-card__meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+    flex-wrap: wrap;
+  }
+
+  .author-post-card__date,
+  .author-post-card__rt {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+  }
+
+  .author-post-card__title {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-2);
+    line-height: 1.3;
+  }
+
+  .author-post-card__title a {
+    color: var(--color-heading);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .author-post-card__title a:hover { color: var(--color-accent); }
+
+  .author-post-card__desc {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: var(--space-3);
+  }
+
+  .author-post-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  @media (max-width: 768px) {
+    .author-profile { flex-direction: column; gap: var(--space-5); }
+    .expertise-grid { grid-template-columns: 1fr; }
+    .author-stats { flex-wrap: wrap; }
+    .author-stat { flex: 0 0 50%; border-bottom: 1px solid var(--color-border); }
+    .author-stat:nth-child(even) { border-right: none; }
+    .author-post-card { padding: var(--space-5) var(--space-5); }
+  }
+</style>

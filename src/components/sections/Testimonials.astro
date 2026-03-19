@@ -1,75 +1,153 @@
 ---
+const featured = {
+  quote: "Working with CROExpert was a game-changer. In 90 days they took our checkout conversion from 1.8% to 4.2% — that's an extra $180K in revenue per month. The ROI was obvious within weeks.",
+  name: "Sarah Mitchell",
+  role: "Head of Growth",
+  company: "ShopScale",
+  avatar: "/images/avatars/reviewer-1.webp",
+  initials: "SM",
+  color: "#1A7F3C",
+  result: { before: '1.8%', after: '4.2%', lift: '+133%', revenue: '+$180K/mo' },
+};
+
 const testimonials = [
-  {
-    quote: "Working with CROExpert was a game-changer. In 90 days they took our checkout conversion from 1.8% to 4.2% — that's an extra $180K in revenue per month. The ROI was obvious within weeks.",
-    name: "Sarah Mitchell",
-    role: "Head of Growth, ShopScale",
-    initials: "SM",
-    color: "#1A7F3C",
-  },
   {
     quote: "I was skeptical about CRO — thought it was just button color tests. These guys showed me what systematic optimization really looks like. Our lead gen page now converts at 12% vs 4% before. Unreal.",
     name: "Marcus Jensen",
     role: "Founder & CEO, LeadFlow SaaS",
+    avatar: "/images/avatars/reviewer-2.webp",
     initials: "MJ",
     color: "#2563EB",
+    result: '+200% CVR',
   },
   {
     quote: "The CRO audit alone was worth 10x what we paid. They found 23 critical issues we had no idea about. Three months of fixes later, our paid traffic ROAS went from 2.1 to 5.8.",
     name: "Priya Sharma",
     role: "Director of Marketing, EcomBrand",
+    avatar: "/images/avatars/reviewer-3.webp",
     initials: "PS",
     color: "#7C3AED",
+    result: '2.76× ROAS',
   },
   {
     quote: "Most agencies talk about CRO but deliver cosmetic tweaks. CROExpert runs real experiments with real statistical rigor. Every recommendation is backed by data and customer research.",
     name: "Tom Brauer",
     role: "VP Product, TechStartup.io",
+    avatar: "/images/avatars/reviewer-4.webp",
     initials: "TB",
     color: "#D97706",
+    result: '+89% signups',
   },
   {
-    quote: "We'd tried two other CRO agencies with mediocre results. Within the first 30 days of working with CROExpert, we had a winning A/B test that boosted our free trial signups by 38%.",
+    quote: "We'd tried two other CRO agencies with mediocre results. Within the first 30 days, we had a winning A/B test that boosted our free trial signups by 38%.",
     name: "Aisha Okonkwo",
     role: "CMO, CloudPlatform",
+    avatar: "/images/avatars/reviewer-5.webp",
     initials: "AO",
     color: "#DB2777",
+    result: '+38% in 30 days',
   },
 ];
 ---
 
 <section class="testimonials section--surface section" id="testimonials" aria-labelledby="testimonials-heading">
   <div class="container">
-    <div class="testimonials__header">
+    <div class="testimonials__header section-header--center">
       <span class="section-label">Client Results</span>
       <h2 class="section-title" id="testimonials-heading">
-        Don't Take Our Word for It
+        Real Businesses. Real Numbers.
       </h2>
-      <p class="section-subtitle">
-        Real results from real businesses. Average client sees a 127% increase in conversion rate within 90 days.
+      <p class="section-subtitle" style="margin: 0 auto;">
+        Average client sees a <strong>127% increase in conversion rate</strong> within 90 days.
       </p>
     </div>
 
-    <div class="testimonials__grid">
-      {testimonials.map(({ quote, name, role, initials, color }) => (
-        <article class="testimonial-card" itemscope itemtype="https://schema.org/Review">
-          <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
-            {Array.from({ length: 5 }).map(() => (
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-              </svg>
-            ))}
+    <!-- Featured testimonial -->
+    <article class="testi-featured" itemscope itemtype="https://schema.org/Review">
+      <div class="testi-featured__quote-col">
+        <div class="testi-featured__stars" aria-label="5 out of 5 stars">
+          {Array.from({ length: 5 }).map(() => (
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          ))}
+        </div>
+        <svg class="testi-featured__mark" width="48" height="36" viewBox="0 0 48 36" fill="none" aria-hidden="true">
+          <path d="M0 36V22.5C0 9 8 2 24 0l3 5.5C18 8 14 13 14 18h10V36H0zm26 0V22.5C26 9 34 2 50 0l3 5.5C44 8 40 13 40 18h10V36H26z" fill="var(--color-accent)" opacity="0.12"/>
+        </svg>
+        <blockquote class="testi-featured__text" itemprop="reviewBody">
+          {featured.quote}
+        </blockquote>
+        <div class="testi-featured__author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+          <div class="testi-featured__avatar" aria-hidden="true">
+            <img src={featured.avatar} alt={featured.name} width="48" height="48" loading="lazy" decoding="async" />
           </div>
-          <blockquote class="testimonial-card__quote" itemprop="reviewBody">
+          <div>
+            <p class="testi-featured__name" itemprop="name">{featured.name}</p>
+            <p class="testi-featured__role">{featured.role} · <strong>{featured.company}</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Result metrics panel -->
+      <div class="testi-featured__results" aria-label="Result metrics">
+        <p class="testi-featured__results-lbl">90-day programme results</p>
+        <div class="testi-featured__metric-row">
+          <div class="testi-featured__metric">
+            <span class="testi-featured__metric-val testi-featured__metric-val--red">{featured.result.before}</span>
+            <span class="testi-featured__metric-key">CVR Before</span>
+          </div>
+          <div class="testi-featured__arrow" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="12" fill="var(--color-accent-light)"/>
+              <path d="M8 12h8M14 9l3 3-3 3" stroke="var(--color-accent)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="testi-featured__metric">
+            <span class="testi-featured__metric-val testi-featured__metric-val--green">{featured.result.after}</span>
+            <span class="testi-featured__metric-key">CVR After</span>
+          </div>
+        </div>
+        <div class="testi-featured__badges">
+          <div class="testi-featured__badge">
+            <span class="testi-featured__badge-num">{featured.result.lift}</span>
+            <span class="testi-featured__badge-lbl">Conversion lift</span>
+          </div>
+          <div class="testi-featured__badge testi-featured__badge--dark">
+            <span class="testi-featured__badge-num">{featured.result.revenue}</span>
+            <span class="testi-featured__badge-lbl">Revenue added</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Supporting grid -->
+    <div class="testimonials__grid">
+      {testimonials.map(({ quote, name, role, initials, color, result, avatar }) => (
+        <article class="testi-card" itemscope itemtype="https://schema.org/Review">
+          <div class="testi-card__top">
+            <div class="testi-card__stars" aria-label="5 out of 5 stars">
+              {Array.from({ length: 5 }).map(() => (
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="#F59E0B" aria-hidden="true">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              ))}
+            </div>
+            <span class="testi-card__result">{result}</span>
+          </div>
+          <blockquote class="testi-card__quote" itemprop="reviewBody">
             {quote}
           </blockquote>
-          <div class="testimonial-card__author" itemprop="author" itemscope itemtype="https://schema.org/Person">
-            <div class="testimonial-card__avatar" style={`background:${color}18; color:${color};`} aria-hidden="true">
-              {initials}
+          <div class="testi-card__author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+            <div class="testi-card__avatar" aria-hidden="true">
+              {avatar
+                ? <img src={avatar} alt={name} width="36" height="36" loading="lazy" decoding="async" />
+                : <span style={`background:${color}18; color:${color}; width:100%; height:100%; display:flex; align-items:center; justify-content:center; border-radius:50%; font-weight:800;`}>{initials}</span>
+              }
             </div>
             <div>
-              <p class="testimonial-card__name" itemprop="name">{name}</p>
-              <p class="testimonial-card__role">{role}</p>
+              <p class="testi-card__name" itemprop="name">{name}</p>
+              <p class="testi-card__role">{role}</p>
             </div>
           </div>
         </article>
@@ -88,22 +166,279 @@ const testimonials = [
 </section>
 
 <style>
-  .testimonials__header { margin-bottom: var(--space-12); }
+  .testimonials__header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+  }
 
+  /* ── Featured testimonial ── */
+  .testi-featured {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: var(--space-8);
+    align-items: center;
+    background: var(--color-white);
+    border: 1px solid var(--color-border-accent);
+    border-radius: var(--radius-xl);
+    padding: var(--space-10);
+    margin-bottom: var(--space-8);
+    box-shadow: var(--shadow-accent);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .testi-featured::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-accent), #22C55E);
+  }
+
+  .testi-featured__stars {
+    display: flex;
+    gap: 3px;
+    margin-bottom: var(--space-4);
+  }
+
+  .testi-featured__mark {
+    display: block;
+    margin-bottom: var(--space-2);
+  }
+
+  .testi-featured__text {
+    font-size: clamp(var(--text-base), 1.4vw, var(--text-lg));
+    font-weight: 500;
+    line-height: 1.7;
+    color: var(--color-heading);
+    letter-spacing: -0.01em;
+    margin-bottom: var(--space-8);
+    font-style: normal;
+  }
+
+  .testi-featured__author {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .testi-featured__avatar {
+    width: 48px; height: 48px;
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .testi-featured__avatar img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .testi-featured__name {
+    font-weight: 700;
+    font-size: var(--text-base);
+    color: var(--color-heading);
+    margin-bottom: 2px;
+  }
+
+  .testi-featured__role {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  /* Results panel */
+  .testi-featured__results {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-7);
+  }
+
+  .testi-featured__results-lbl {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-subtle);
+    margin-bottom: var(--space-5);
+  }
+
+  .testi-featured__metric-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    margin-bottom: var(--space-5);
+  }
+
+  .testi-featured__metric { text-align: center; }
+
+  .testi-featured__metric-val {
+    display: block;
+    font-size: var(--text-3xl);
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    line-height: 1;
+  }
+
+  .testi-featured__metric-val--red   { color: #DC2626; }
+  .testi-featured__metric-val--green { color: var(--color-accent); }
+
+  .testi-featured__metric-key {
+    display: block;
+    font-size: var(--text-xs);
+    color: var(--color-text-subtle);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: var(--space-1);
+  }
+
+  .testi-featured__badges {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+  }
+
+  .testi-featured__badge {
+    background: var(--color-accent-light);
+    border: 1px solid var(--color-border-accent);
+    border-radius: var(--radius-md);
+    padding: var(--space-3);
+    text-align: center;
+  }
+
+  .testi-featured__badge--dark {
+    background: var(--color-heading);
+    border-color: var(--color-heading);
+  }
+
+  .testi-featured__badge--dark .testi-featured__badge-num,
+  .testi-featured__badge--dark .testi-featured__badge-lbl {
+    color: white;
+  }
+
+  .testi-featured__badge-num {
+    display: block;
+    font-size: var(--text-lg);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    color: var(--color-accent);
+  }
+
+  .testi-featured__badge-lbl {
+    display: block;
+    font-size: var(--text-xs);
+    color: var(--color-text-subtle);
+    margin-top: 2px;
+  }
+
+  /* ── Supporting grid ── */
   .testimonials__grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--space-5);
     margin-bottom: var(--space-10);
+  }
+
+  .testi-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-7);
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow var(--transition-base), border-color var(--transition-base), transform var(--transition-base);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .testi-card:hover {
+    box-shadow: var(--shadow-accent);
+    border-color: var(--color-border-accent);
+    transform: translateY(-2px);
+  }
+
+  .testi-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+  }
+
+  .testi-card__stars { display: flex; gap: 2px; }
+
+  .testi-card__result {
+    font-size: var(--text-xs);
+    font-weight: 800;
+    color: var(--color-accent);
+    background: var(--color-accent-light);
+    border: 1px solid var(--color-border-accent);
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    white-space: nowrap;
+  }
+
+  .testi-card__quote {
+    font-size: var(--text-sm);
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    flex: 1;
+    font-style: normal;
+  }
+
+  .testi-card__author {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .testi-card__avatar {
+    width: 36px; height: 36px;
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .testi-card__avatar img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .testi-card__name {
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-heading);
+    margin-bottom: 2px;
+  }
+
+  .testi-card__role {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
   }
 
   .testimonials__cta { display: flex; justify-content: center; }
 
   @media (max-width: 1024px) {
-    .testimonials__grid { grid-template-columns: repeat(2, 1fr); }
+    .testi-featured {
+      grid-template-columns: 1fr;
+    }
+    .testi-featured__results {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--space-6);
+      align-items: center;
+    }
+    .testi-featured__results-lbl { grid-column: 1 / -1; margin-bottom: 0; }
   }
 
-  @media (max-width: 640px) {
+  @media (max-width: 768px) {
+    .testi-featured { padding: var(--space-7); }
+    .testi-featured__results { display: block; }
     .testimonials__grid { grid-template-columns: 1fr; }
   }
 </style>

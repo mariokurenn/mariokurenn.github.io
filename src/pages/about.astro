@@ -5,7 +5,7 @@ import FinalCTA from '@/components/sections/FinalCTA.astro';
 const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  name: 'Darko',
+  name: 'Mario Kuren',
   jobTitle: 'CRO Specialist & Founder',
   url: 'https://conversionrate-expert.com/about/',
   worksFor: {
@@ -17,8 +17,8 @@ const personSchema = {
 ---
 
 <BaseLayout
-  title="About — Darko, CRO Specialist & Founder"
-  description="Meet Darko, founder of conversionrate-expert.com. CRO specialist with 8+ years of experience helping 50+ businesses grow revenue through data-driven optimization."
+  title="About — Mario, CRO Specialist & Founder"
+  description="Meet Mario, founder of conversionrate-expert.com. CRO specialist with 8+ years of experience helping 50+ businesses grow revenue through data-driven optimization."
   jsonLd={personSchema}
 >
   <div class="about-page">
@@ -31,10 +31,12 @@ const personSchema = {
         </nav>
 
         <div class="about-intro">
-          <div class="about-avatar" aria-hidden="true">D</div>
+          <div class="about-avatar" aria-hidden="true">
+            <img src="/images/avatars/mario-lg.webp" alt="Mario Kuren" width="160" height="160" loading="eager" decoding="async" fetchpriority="high" />
+          </div>
           <div>
             <span class="section-label">About the Founder</span>
-            <h1 class="about-hero__title">Hi, I'm Darko — I Turn Traffic Into Revenue</h1>
+            <h1 class="about-hero__title">Hi, I'm Mario — I Turn Traffic Into Revenue</h1>
           </div>
         </div>
 
@@ -134,14 +136,15 @@ const personSchema = {
     width: 80px;
     height: 80px;
     border-radius: var(--radius-full);
-    background: var(--color-accent);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: var(--text-3xl);
-    font-weight: 900;
-    color: white;
+    overflow: hidden;
     flex-shrink: 0;
+    box-shadow: var(--shadow-accent);
+  }
+
+  .about-avatar img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .about-hero__title {

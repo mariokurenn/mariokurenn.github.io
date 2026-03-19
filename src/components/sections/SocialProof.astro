@@ -1,67 +1,165 @@
 ---
 const stats = [
-  { value: '127', suffix: '%', label: 'Avg. CVR increase' },
-  { value: '50',  suffix: '+', label: 'Clients optimized' },
-  { value: '800', suffix: '+', label: 'A/B tests run' },
-  { value: '4.8', suffix: '×', label: 'Avg. ROI delivered' },
+  { value: '127', suffix: '%', label: 'Average CVR increase', detail: 'across all engagements' },
+  { value: '50',  suffix: '+', label: 'Clients optimized', detail: 'e-commerce, SaaS & lead-gen' },
+  { value: '800', suffix: '+', label: 'A/B tests run', detail: 'with full statistical rigour' },
+  { value: '4.8', suffix: '×', label: 'Average ROI delivered', detail: 'per engagement' },
 ];
 ---
 
-<section class="social-proof section--tight section--surface" aria-label="Statistics">
-  <div class="container">
-    <div class="stats-grid">
-      {stats.map(({ value, suffix, label }) => (
-        <div class="stat-block">
-          <span
-            class="stat-block__value"
-            data-count={value}
-            data-suffix={suffix}
-            aria-label={`${value}${suffix} ${label}`}
-          >
-            0{suffix}
-          </span>
-          <span class="stat-block__label">{label}</span>
-        </div>
-      ))}
+<section class="social-proof" aria-label="Key metrics">
+  <div class="sp-stats">
+    <div class="container">
+      <div class="stats-grid">
+        {stats.map(({ value, suffix, label, detail }) => (
+          <div class="stat-block">
+            <span
+              class="stat-block__value"
+              data-count={value}
+              data-suffix={suffix}
+              aria-label={`${value}${suffix} — ${label}`}
+            >
+              0{suffix}
+            </span>
+            <span class="stat-block__label">{label}</span>
+            <span class="stat-block__detail">{detail}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <div class="sp-trust">
+    <div class="container">
+      <p class="sp-trust__label">Trusted by e-commerce brands, SaaS companies and lead-gen businesses worldwide</p>
+      <div class="sp-trust__logos" aria-hidden="true">
+        {Array.from({ length: 6 }).map(() => (
+          <div class="sp-logo">
+            <svg viewBox="0 0 120 28" fill="none" aria-hidden="true">
+              <rect width="120" height="28" rx="4" fill="var(--color-surface-dark)" />
+            </svg>
+          </div>
+        ))}
+      </div>
     </div>
   </div>
 </section>
 
 <style>
+  .social-proof {
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  /* ── Stats strip ── */
+  .sp-stats {
+    padding-block: var(--space-16);
+    border-bottom: 1px solid var(--color-border);
+  }
+
   .stats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-6);
+    gap: 1px;
+    background: var(--color-border);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
   }
 
   .stat-block {
-    text-align: center;
-    padding: var(--space-6) var(--space-4);
     background: var(--color-white);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-sm);
+    text-align: center;
+    padding: var(--space-10) var(--space-6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1);
+    transition: background var(--transition-fast);
+    position: relative;
   }
+
+  .stat-block::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--color-accent);
+    transform: scaleX(0);
+    transition: transform var(--transition-base);
+    transform-origin: center;
+  }
+
+  .stat-block:hover { background: var(--color-accent-subtle); }
+  .stat-block:hover::before { transform: scaleX(1); }
 
   .stat-block__value {
     display: block;
-    font-size: clamp(2.25rem, 4vw, 3rem);
+    font-size: clamp(2.5rem, 4.5vw, 3.75rem);
     font-weight: 900;
     color: var(--color-accent);
     line-height: 1;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.05em;
+    font-variant-numeric: tabular-nums;
   }
 
   .stat-block__label {
     display: block;
     font-size: var(--text-sm);
-    color: var(--color-text-muted);
+    font-weight: 700;
+    color: var(--color-heading);
     margin-top: var(--space-2);
+  }
+
+  .stat-block__detail {
+    display: block;
+    font-size: var(--text-xs);
+    color: var(--color-text-subtle);
     font-weight: 500;
   }
 
-  @media (max-width: 768px) {
+  /* ── Trust / logo strip ── */
+  .sp-trust {
+    padding-block: var(--space-8);
+  }
+
+  .sp-trust__label {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-subtle);
+    text-align: center;
+    margin-bottom: var(--space-5);
+  }
+
+  .sp-trust__logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(var(--space-6), 4vw, var(--space-12));
+    flex-wrap: wrap;
+    opacity: 0.35;
+    filter: grayscale(1);
+  }
+
+  .sp-logo svg {
+    width: 100px;
+    height: 28px;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
     .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .stat-block:nth-child(1), .stat-block:nth-child(2) { border-bottom: 1px solid var(--color-border); }
+  }
+
+  @media (max-width: 480px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .stat-block { padding: var(--space-6) var(--space-4); }
+    .stat-block__value { font-size: 2.25rem; }
   }
 </style>
 

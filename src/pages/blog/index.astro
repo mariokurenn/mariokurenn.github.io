@@ -75,7 +75,9 @@ const breadcrumbSchema = {
                     {formatDate(post.data.publishDate)}
                   </time>
                   <span aria-hidden="true">·</span>
-                  <span>{post.data.author}</span>
+                  <span class="blog-card__author">{post.data.author}</span>
+                  <span aria-hidden="true">·</span>
+                  <span>{Math.max(1, Math.ceil(post.body.trim().split(/\s+/).length / 200))} min read</span>
                   {post.data.tags.slice(0, 2).map((tag) => (
                     <>
                       <span aria-hidden="true">·</span>
@@ -111,7 +113,7 @@ const breadcrumbSchema = {
 
   .blog-index__subtitle {
     font-size: var(--text-lg);
-    color: var(--color-text-secondary);
+    color: var(--color-text-muted);
     max-width: 640px;
     line-height: 1.6;
     margin-bottom: var(--space-8);
@@ -129,7 +131,7 @@ const breadcrumbSchema = {
     border-radius: var(--radius-full);
     font-size: var(--text-sm);
     font-weight: 500;
-    color: var(--color-text-secondary);
+    color: var(--color-text-muted);
     border: 1px solid var(--color-border);
     background: var(--color-primary);
     transition: all var(--transition-fast);
@@ -185,6 +187,15 @@ const breadcrumbSchema = {
     background: linear-gradient(135deg, var(--color-surface-light) 0%, var(--color-border) 100%);
   }
 
+  .blog-card__author {
+    color: var(--color-accent);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .blog-card__author:hover { text-decoration: underline; }
+
   .blog-card__tag {
     background: var(--color-surface-light);
     border-radius: var(--radius-full);
@@ -194,7 +205,7 @@ const breadcrumbSchema = {
 
   .blog-index__empty {
     text-align: center;
-    color: var(--color-text-secondary);
+    color: var(--color-text-muted);
     padding: var(--space-16) 0;
   }
 
