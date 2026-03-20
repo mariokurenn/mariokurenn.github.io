@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 
-const SITE = 'https://conversionrate-expert.com';
+const SITE = 'https://grow-conversions.com';
 
 const staticPages = [
   { url: '/', priority: '1.0', changefreq: 'weekly' },

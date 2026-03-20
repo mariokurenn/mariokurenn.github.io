@@ -19,10 +19,10 @@ const {
   noindex = false,
 } = Astro.props;
 
-const siteURL = 'https://conversionrate-expert.com';
+const siteURL = 'https://grow-conversions.com';
 const resolvedCanonical = canonicalURL ?? new URL(Astro.url.pathname, siteURL).href;
 const resolvedOGImage = ogImage.startsWith('http') ? ogImage : new URL(ogImage, siteURL).href;
-const fullTitle = title.includes('conversionrate-expert') ? title : `${title} | conversionrate-expert.com`;
+const fullTitle = `${title} | grow-conversions.com`;
 
 const jsonLdArray = jsonLd
   ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd])
@@ -43,7 +43,7 @@ const jsonLdArray = jsonLd
 <meta property="og:image" content={resolvedOGImage} />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:site_name" content="conversionrate-expert.com" />
+<meta property="og:site_name" content="grow-conversions.com" />
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />

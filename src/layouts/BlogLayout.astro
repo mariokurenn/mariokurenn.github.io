@@ -13,7 +13,7 @@ interface Props {
 const { post, readingTime, relatedPosts = [], prevPost = null, nextPost = null } = Astro.props;
 const { title, description, publishDate, updatedDate, author, category, tags, image, imageAlt, seoKeyword, canonicalURL } = post.data;
 
-const siteURL = 'https://conversionrate-expert.com';
+const siteURL = 'https://grow-conversions.com';
 const postURL = new URL(`/blog/${post.slug}/`, siteURL).href;
 const authorURL = `${siteURL}/author/mario-kuren/`;
 const wordCount = post.body.trim().split(/\s+/).length;
@@ -32,7 +32,7 @@ const blogPostSchema = {
   },
   publisher: {
     '@type': 'Organization',
-    name: 'conversionrate-expert.com',
+    name: 'grow-conversions.com',
     url: siteURL,
     logo: {
       '@type': 'ImageObject',

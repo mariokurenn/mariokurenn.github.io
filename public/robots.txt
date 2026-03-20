@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 
-Sitemap: https://conversionrate-expert.com/sitemap.xml
+Sitemap: https://grow-conversions.com/sitemap.xml
