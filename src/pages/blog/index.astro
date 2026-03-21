@@ -69,7 +69,10 @@ const breadcrumbSchema = {
               class:list={['blog-card', { 'blog-card--featured': i === 0 }]}
             >
               <div class="blog-card__image">
-                <div class="blog-card__image-placeholder" aria-hidden="true"></div>
+                {post.data.image
+                  ? <img src={post.data.image} alt={post.data.imageAlt ?? post.data.title} loading="lazy" decoding="async" width="800" height="420" />
+                  : <div class="blog-card__image-placeholder" aria-hidden="true"></div>
+                }
               </div>
               <div class="blog-card__body">
                 <p class="blog-card__category">{post.data.category}</p>
@@ -125,7 +128,7 @@ const breadcrumbSchema = {
 
   .blog-categories-bar {
     position: sticky;
-    top: 72px;
+    top: 69px;
     z-index: 10;
     background: var(--color-bg);
     border-bottom: 1px solid var(--color-border);
