@@ -1,6 +1,6 @@
 ---
 term: "Loss Aversion"
-shortDefinition: "A cognitive bias where people feel the pain of losing something roughly twice as strongly as the pleasure of gaining something equivalent — used in CRO to increase urgency."
+shortDefinition: "A cognitive bias where losing feels twice as painful as gaining feels good — used in CRO to frame offers around what visitors stand to lose."
 category: "Psychology"
 difficulty: "intermediate"
 relatedTerms: ["social-proof", "call-to-action", "value-proposition", "landing-page"]
