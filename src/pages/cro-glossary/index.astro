@@ -5,7 +5,7 @@ import { getCollection } from 'astro:content';
 const allTerms = await getCollection('glossary');
 const sorted = allTerms.sort((a, b) => a.data.term.localeCompare(b.data.term));
 
-const siteURL = 'https://conversionrate-expert.com';
+const siteURL = 'https://grow-conversions.com';
 
 const categories = ['Metrics', 'A/B Testing', 'Analytics', 'CRO Strategy', 'Psychology', 'Technical'] as const;
 

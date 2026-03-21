@@ -6,7 +6,7 @@ import { getCollection } from 'astro:content';
 const allPosts = await getCollection('blog', ({ data }) => !data.draft);
 const posts = allPosts.sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
 
-const siteURL = 'https://conversionrate-expert.com';
+const siteURL = 'https://grow-conversions.com';
 
 const formatDate = (date: Date) =>
   new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).format(date);
@@ -22,7 +22,7 @@ const personSchema = {
   jobTitle: 'CRO Specialist & Founder',
   worksFor: {
     '@type': 'Organization',
-    name: 'conversionrate-expert.com',
+    name: 'grow-conversions.com',
     url: siteURL,
   },
   knowsAbout: [
@@ -44,9 +44,9 @@ const personSchema = {
     },
   ],
   description:
-    'Mario Kuren is a CRO specialist and founder of conversionrate-expert.com. He has run 800+ A/B tests across 50+ businesses in e-commerce, SaaS, and lead generation, delivering an average 127% CVR increase within 90 days.',
+    'Mario Kuren is a CRO specialist and founder of grow-conversions.com. He has run 800+ A/B tests across 50+ businesses in e-commerce, SaaS, and lead generation, delivering an average 127% CVR increase within 90 days.',
   sameAs: [
-    'https://conversionrate-expert.com/author/mario-kuren/',
+    'https://grow-conversions.com/author/mario-kuren/',
     'https://kurensolutions.com',
   ],
 };
@@ -87,7 +87,7 @@ const expertise = [
 ---
 
 <BaseLayout
-  title="Mario Kuren — CRO Specialist & Founder | conversionrate-expert.com"
+  title="Mario Kuren — CRO Specialist & Founder | grow-conversions.com"
   description="Mario Kuren is a CRO specialist with 8+ years of experience, 800+ A/B tests run, and an average 127% CVR increase across 50+ client businesses. Read his CRO guides."
   jsonLd={[personSchema, profilePageSchema]}
 >
@@ -110,7 +110,7 @@ const expertise = [
         </div>
           <div class="author-profile__info">
             <h1 class="author-profile__name" itemprop="name">Mario Kuren</h1>
-            <p class="author-profile__role">CRO Specialist & Founder · <a href="/">conversionrate-expert.com</a></p>
+            <p class="author-profile__role">CRO Specialist & Founder · <a href="/">grow-conversions.com</a></p>
             <p class="author-profile__bio">
               I've spent 8+ years in the trenches of conversion rate optimization — running 800+ A/B tests,
               analyzing thousands of user sessions, and figuring out exactly why people don't buy.
