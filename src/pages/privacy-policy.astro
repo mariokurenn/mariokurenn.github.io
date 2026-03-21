@@ -1,0 +1,145 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+const updated = '21 March 2026';
+---
+
+<BaseLayout
+  title="Privacy Policy — grow-conversions.com"
+  description="How grow-conversions.com collects, uses, and protects your data. GDPR-compliant privacy policy."
+>
+  <div class="privacy-page">
+    <div class="container privacy-inner">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+        <span class="breadcrumbs__current" aria-current="page">Privacy Policy</span>
+      </nav>
+
+      <h1>Privacy Policy</h1>
+      <p class="privacy-meta">Last updated: {updated}</p>
+
+      <div class="privacy-body prose">
+        <p>This Privacy Policy explains how <strong>grow-conversions.com</strong> ("we", "us", "our") collects, uses, and protects information when you visit our website. We are committed to full GDPR compliance.</p>
+
+        <h2>1. Who We Are</h2>
+        <p>grow-conversions.com is operated by Mario Kuren, a freelance CRO specialist. For any privacy-related questions, contact us at <a href="mailto:mariokurenn@gmail.com">mariokurenn@gmail.com</a>.</p>
+
+        <h2>2. What Data We Collect</h2>
+        <h3>Analytics cookies (only with your consent)</h3>
+        <p>If you accept cookies, we use <strong>Google Analytics 4</strong> to collect anonymised data about how visitors use this site — pages visited, time on site, referral source, and device type. IP addresses are anonymised. We do not collect personally identifiable information through analytics.</p>
+
+        <h3>Contact form</h3>
+        <p>When you submit our contact form, we collect your name, email address, website URL, and any information you provide in the message field. This data is used solely to respond to your enquiry. It is processed by <a href="https://formsubmit.co" target="_blank" rel="noopener noreferrer">FormSubmit.co</a> and delivered to our email.</p>
+
+        <h2>3. Legal Basis for Processing (GDPR)</h2>
+        <ul>
+          <li><strong>Analytics:</strong> Consent (Art. 6(1)(a) GDPR) — only after you accept cookies.</li>
+          <li><strong>Contact form:</strong> Legitimate interest (Art. 6(1)(f) GDPR) — to respond to your enquiry.</li>
+        </ul>
+
+        <h2>4. Cookies</h2>
+        <p>We use one category of cookies:</p>
+        <ul>
+          <li><strong>Analytics cookies</strong> (Google Analytics 4) — set only after your explicit consent. You can withdraw consent at any time by clearing your browser cookies or using the button below.</li>
+        </ul>
+        <p>We do not use advertising cookies, social media tracking cookies, or any third-party marketing cookies.</p>
+        <p>
+          <button
+            onclick="localStorage.removeItem('gc_consent'); location.reload();"
+            class="btn btn--ghost btn--sm"
+            type="button"
+          >
+            Withdraw Cookie Consent
+          </button>
+        </p>
+
+        <h2>5. Data Sharing</h2>
+        <p>We do not sell, rent, or share your personal data with third parties, except:</p>
+        <ul>
+          <li><strong>Google Analytics</strong> — anonymised usage data, if you have consented. Google's privacy policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a>.</li>
+          <li><strong>FormSubmit.co</strong> — form submission data, processed to deliver your message to us.</li>
+        </ul>
+
+        <h2>6. Data Retention</h2>
+        <p>Contact form enquiries are retained in email for up to 2 years. Analytics data is retained for 14 months in Google Analytics (default setting). You can request deletion at any time.</p>
+
+        <h2>7. Your Rights (GDPR)</h2>
+        <p>If you are located in the EU/EEA, you have the right to:</p>
+        <ul>
+          <li>Access the personal data we hold about you</li>
+          <li>Request correction or deletion of your data</li>
+          <li>Withdraw consent for analytics at any time</li>
+          <li>Object to processing based on legitimate interest</li>
+          <li>Lodge a complaint with your national data protection authority</li>
+        </ul>
+        <p>To exercise any of these rights, contact us at <a href="mailto:mariokurenn@gmail.com">mariokurenn@gmail.com</a>.</p>
+
+        <h2>8. Security</h2>
+        <p>This site is served over HTTPS. We do not store payment data or sensitive personal information on our servers.</p>
+
+        <h2>9. Changes to This Policy</h2>
+        <p>We may update this policy occasionally. The "Last updated" date at the top reflects the most recent revision. Continued use of the site after changes constitutes acceptance of the updated policy.</p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .privacy-page {
+    padding: var(--space-16) 0 var(--space-20);
+  }
+
+  .privacy-inner {
+    max-width: 720px;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    margin: var(--space-4) 0 var(--space-2);
+  }
+
+  .privacy-meta {
+    font-size: var(--text-sm);
+    color: var(--color-text-subtle);
+    margin-bottom: var(--space-10);
+  }
+
+  .privacy-body h2 {
+    font-size: var(--text-xl);
+    font-weight: 800;
+    margin-top: var(--space-10);
+    margin-bottom: var(--space-3);
+    letter-spacing: -0.02em;
+  }
+
+  .privacy-body h3 {
+    font-size: var(--text-base);
+    font-weight: 700;
+    margin-top: var(--space-5);
+    margin-bottom: var(--space-2);
+  }
+
+  .privacy-body p,
+  .privacy-body ul {
+    font-size: var(--text-base);
+    color: var(--color-text-muted);
+    line-height: 1.75;
+    margin-bottom: var(--space-4);
+  }
+
+  .privacy-body ul {
+    padding-left: var(--space-6);
+  }
+
+  .privacy-body li {
+    margin-bottom: var(--space-2);
+  }
+
+  .privacy-body a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+</style>

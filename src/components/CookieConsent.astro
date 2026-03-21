@@ -1,0 +1,145 @@
+---
+// Replace with your GA4 Measurement ID once you have it
+const GA_ID = 'G-XXXXXXXXXX';
+---
+
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-modal="false" aria-label="Cookie consent" hidden>
+  <div class="cookie-banner__inner">
+    <p class="cookie-banner__text">
+      We use analytics cookies to understand how visitors use this site. No ads, no third-party tracking.
+      <a href="/privacy-policy/" class="cookie-banner__link">Privacy Policy</a>
+    </p>
+    <div class="cookie-banner__actions">
+      <button id="cookie-decline" class="cookie-btn cookie-btn--ghost" type="button">Decline</button>
+      <button id="cookie-accept" class="cookie-btn cookie-btn--primary" type="button">Accept</button>
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ GA_ID }}>
+  const KEY = 'gc_consent';
+  const banner = document.getElementById('cookie-banner');
+
+  function loadGA() {
+    if (!GA_ID || GA_ID === 'G-XXXXXXXXXX') return;
+    const s = document.createElement('script');
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    s.async = true;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function() { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', GA_ID, { anonymize_ip: true });
+  }
+
+  const stored = localStorage.getItem(KEY);
+
+  if (stored === 'accepted') {
+    loadGA();
+  } else if (stored === null) {
+    // Show banner after page paint — no render blocking
+    requestAnimationFrame(() => {
+      banner.hidden = false;
+      setTimeout(() => banner.classList.add('cookie-banner--visible'), 50);
+    });
+  }
+
+  document.getElementById('cookie-accept').addEventListener('click', () => {
+    localStorage.setItem(KEY, 'accepted');
+    banner.classList.remove('cookie-banner--visible');
+    setTimeout(() => { banner.hidden = true; }, 300);
+    loadGA();
+  });
+
+  document.getElementById('cookie-decline').addEventListener('click', () => {
+    localStorage.setItem(KEY, 'declined');
+    banner.classList.remove('cookie-banner--visible');
+    setTimeout(() => { banner.hidden = true; }, 300);
+  });
+</script>
+
+<style>
+  .cookie-banner {
+    position: fixed;
+    bottom: var(--space-5);
+    left: 50%;
+    transform: translateX(-50%) translateY(calc(100% + var(--space-8)));
+    z-index: 999;
+    width: calc(100% - var(--space-8));
+    max-width: 680px;
+    background: var(--color-heading);
+    color: #fff;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    will-change: transform;
+  }
+
+  .cookie-banner--visible {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .cookie-banner__inner {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+    padding: var(--space-4) var(--space-6);
+    flex-wrap: wrap;
+  }
+
+  .cookie-banner__text {
+    flex: 1;
+    font-size: var(--text-sm);
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+    min-width: 200px;
+  }
+
+  .cookie-banner__link {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .cookie-banner__actions {
+    display: flex;
+    gap: var(--space-2);
+    flex-shrink: 0;
+  }
+
+  .cookie-btn {
+    padding: 0.4rem 1.1rem;
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: opacity 0.15s;
+    white-space: nowrap;
+  }
+
+  .cookie-btn:hover { opacity: 0.85; }
+
+  .cookie-btn--primary {
+    background: var(--color-accent);
+    color: #fff;
+    border-color: var(--color-accent);
+  }
+
+  .cookie-btn--ghost {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.7);
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+
+  @media (max-width: 540px) {
+    .cookie-banner__inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-3);
+    }
+    .cookie-banner__actions { width: 100%; justify-content: flex-end; }
+  }
+</style>
