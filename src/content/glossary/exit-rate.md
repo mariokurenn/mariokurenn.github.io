@@ -1,6 +1,6 @@
 ---
 term: "Exit Rate"
-shortDefinition: "The percentage of sessions that ended on a specific page, regardless of how visitors arrived. Different from bounce rate — exits can follow multiple pageviews."
+shortDefinition: "The percentage of sessions that ended on a specific page — different from bounce rate, as exits can follow multiple pageviews within the session."
 category: "Metrics"
 difficulty: "beginner"
 relatedTerms: ["bounce-rate", "funnel-optimization", "conversion-rate", "landing-page"]

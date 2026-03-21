@@ -1,6 +1,6 @@
 ---
 term: "Multivariate Testing"
-shortDefinition: "A testing method that simultaneously tests multiple elements and their combinations on a page to find the best-performing variant — more complex than A/B testing."
+shortDefinition: "A testing method that tests multiple page elements and combinations simultaneously — more complex and traffic-intensive than standard A/B testing."
 category: "A/B Testing"
 difficulty: "advanced"
 relatedTerms: ["ab-testing", "statistical-significance", "conversion-rate", "landing-page"]

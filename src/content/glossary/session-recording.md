@@ -1,6 +1,6 @@
 ---
 term: "Session Recording"
-shortDefinition: "A qualitative analytics tool that captures video replays of real user sessions — showing mouse movements, clicks, scrolls, and rage clicks to reveal conversion blockers."
+shortDefinition: "A tool that records video replays of real user sessions — showing clicks, scrolls, and rage clicks to reveal why visitors aren't converting."
 category: "Analytics"
 difficulty: "beginner"
 relatedTerms: ["heatmap", "funnel-optimization", "bounce-rate", "ab-testing", "conversion-rate"]

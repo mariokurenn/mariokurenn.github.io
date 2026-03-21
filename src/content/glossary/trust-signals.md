@@ -1,6 +1,6 @@
 ---
 term: "Trust Signals"
-shortDefinition: "Visual and textual elements that reduce visitor scepticism and increase confidence in a brand — security badges, reviews, guarantees, and credentials that drive conversions."
+shortDefinition: "Elements that reduce visitor scepticism and build confidence — reviews, security badges, guarantees, and credentials that directly improve conversion rate."
 category: "CRO Strategy"
 difficulty: "beginner"
 relatedTerms: ["social-proof", "landing-page", "call-to-action", "value-proposition", "conversion-rate"]

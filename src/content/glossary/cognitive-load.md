@@ -1,6 +1,6 @@
 ---
 term: "Cognitive Load"
-shortDefinition: "The mental effort required to process information on a page. High cognitive load kills conversions — visitors abandon rather than work to understand your offer."
+shortDefinition: "The mental effort required to process a page. High cognitive load kills conversions — visitors leave rather than work to understand your offer."
 category: "Psychology"
 difficulty: "intermediate"
 relatedTerms: ["landing-page", "call-to-action", "bounce-rate", "value-proposition", "above-the-fold"]
