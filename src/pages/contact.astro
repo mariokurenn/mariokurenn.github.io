@@ -1,12 +1,62 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 
-const contactSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'ContactPage',
-  name: 'Contact conversionrate-expert.com',
-  url: 'https://conversionrate-expert.com/contact/',
-};
+const siteURL = 'https://conversionrate-expert.com';
+
+const contactSchema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: 'Contact conversionrate-expert.com',
+    url: `${siteURL}/contact/`,
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['.contact-header__title', '.contact-header__subtitle'],
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: 'How to Get a Free CRO Audit from conversionrate-expert.com',
+    description: 'Submit your site for a free 47-point conversion rate optimization audit. Get a prioritised action plan within 24 hours — no cost, no obligation.',
+    totalTime: 'PT24H',
+    estimatedCost: { '@type': 'MonetaryAmount', currency: 'USD', value: '0' },
+    step: [
+      {
+        '@type': 'HowToStep',
+        position: 1,
+        name: 'We review your site',
+        text: 'Within 24 hours we do a quick review of your site and analytics before the call.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 2,
+        name: 'You get a calendar invite',
+        text: "We'll send a Calendly link to pick a time for a 30-minute strategy call.",
+      },
+      {
+        '@type': 'HowToStep',
+        position: 3,
+        name: 'Free audit walkthrough',
+        text: 'On the call, we share our findings and the 3–5 biggest opportunities we see.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 4,
+        name: "You decide what's next",
+        text: "No pressure. If we're a fit, we'll discuss engagement options. If not, the audit is yours to keep.",
+      },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteURL },
+      { '@type': 'ListItem', position: 2, name: 'Contact', item: `${siteURL}/contact/` },
+    ],
+  },
+];
 ---
 
 <BaseLayout
@@ -36,7 +86,7 @@ const contactSchema = {
         <div class="contact-form-wrap">
           <form
             class="contact-form"
-            action="https://formsubmit.co/your@email.com"
+            action="https://formsubmit.co/mariokurenn@gmail.com"
             method="POST"
             aria-label="Contact form"
           >

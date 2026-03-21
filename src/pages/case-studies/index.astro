@@ -2,6 +2,8 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import FinalCTA from '@/components/sections/FinalCTA.astro';
 
+const siteURL = 'https://conversionrate-expert.com';
+
 const cases = [
   {
     slug: 'ecommerce-checkout-optimization',
@@ -42,6 +44,34 @@ const cases = [
 <BaseLayout
   title="CRO Case Studies — Real Results from Real Clients"
   description="See how we've helped 50+ businesses improve conversion rates. Real metrics, real strategies, real revenue impact — no fluff."
+  jsonLd={[
+    {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: 'CRO Case Studies — conversionrate-expert.com',
+      description: "Real conversion rate optimization results from 50+ client engagements across e-commerce, SaaS, and lead generation.",
+      url: `${siteURL}/case-studies/`,
+      breadcrumb: {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: siteURL },
+          { '@type': 'ListItem', position: 2, name: 'Case Studies', item: `${siteURL}/case-studies/` },
+        ],
+      },
+      hasPart: cases.map(({ client, industry, summary, before, after, change }) => ({
+        '@type': 'Article',
+        name: `${client} — CRO Case Study`,
+        description: summary,
+        about: industry,
+        abstract: `Conversion rate improved from ${before} to ${after} (${change}).`,
+        author: {
+          '@type': 'Person',
+          name: 'Mario Kuren',
+          url: `${siteURL}/author/mario-kuren/`,
+        },
+      })),
+    },
+  ]}
 >
   <div>
     <div class="page-header">

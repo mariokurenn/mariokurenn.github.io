@@ -22,6 +22,18 @@ const blog = defineCollection({
     canonicalURL: z.string().url().optional(),
     draft: z.boolean().default(false),
     readingTime: z.number().optional(),
+    faqs: z.array(z.object({
+      question: z.string(),
+      answer: z.string(),
+    })).optional(),
+    howTo: z.object({
+      name: z.string(),
+      description: z.string().optional(),
+      steps: z.array(z.object({
+        name: z.string(),
+        text: z.string(),
+      })),
+    }).optional(),
   }),
 });
 
@@ -47,4 +59,21 @@ const caseStudies = defineCollection({
   }),
 });
 
-export const collections = { blog, 'case-studies': caseStudies };
+const glossary = defineCollection({
+  type: 'content',
+  schema: z.object({
+    term: z.string(),
+    shortDefinition: z.string().max(160),
+    category: z.enum(['Metrics', 'A/B Testing', 'Analytics', 'CRO Strategy', 'Psychology', 'Technical']),
+    difficulty: z.enum(['beginner', 'intermediate', 'advanced']).default('beginner'),
+    relatedTerms: z.array(z.string()).default([]),
+    publishDate: z.coerce.date(),
+    updatedDate: z.coerce.date().optional(),
+    faqs: z.array(z.object({
+      question: z.string(),
+      answer: z.string(),
+    })).optional(),
+  }),
+});
+
+export const collections = { blog, 'case-studies': caseStudies, glossary };

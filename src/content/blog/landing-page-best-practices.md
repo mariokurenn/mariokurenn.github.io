@@ -3,11 +3,40 @@ title: "Landing Page Best Practices: 15 Rules for Pages That Actually Convert"
 description: "15 landing page best practices used by top-converting pages. Psychology principles and actionable changes to boost conversions starting today."
 publishDate: "2026-02-20"
 updatedDate: "2026-03-10"
-author: "Mario"
+author: "Mario Kuren"
 category: "Landing Pages"
 tags: ["landing pages", "conversion rate", "cro", "design"]
 seoKeyword: "landing page best practices"
 draft: false
+howTo:
+  name: "How to Build a High-Converting Landing Page"
+  description: "The core steps to building a landing page that converts visitors into leads or customers, based on data from hundreds of A/B tests."
+  steps:
+    - name: "Match your headline to the traffic source"
+      text: "Your landing page headline must mirror the language in the ad or email that drove the click. Message mismatch — where the headline doesn't reflect what the visitor expected — is the most common cause of high bounce rates on paid traffic."
+    - name: "Lead with the outcome in your hero section"
+      text: "Your H1 should answer 'what does the visitor get?' — not 'what is your product?' Use benefit-led copy. 'Close 40% more deals without adding headcount' outperforms 'Advanced CRM with AI automation' every time."
+    - name: "Place your primary CTA above the fold"
+      text: "The call-to-action button must be visible without scrolling on all devices. Use high-contrast colour. Write action-led button copy: 'Start My Free Trial' beats 'Submit'. Repeat the CTA every 300–400px down the page."
+    - name: "Remove navigation and competing links"
+      text: "A landing page with a navigation menu has multiple exit points. Remove the nav, the footer links, and any outbound links. One page, one goal. Every distraction you remove increases conversion rate."
+    - name: "Add social proof near the CTA"
+      text: "Place your strongest trust signal — a testimonial, star rating, or customer count — directly adjacent to the CTA button. Visitors look for reassurance at the moment of decision. Give it to them in the right place."
+    - name: "Optimise for mobile first"
+      text: "Design the mobile layout before the desktop layout. CTA buttons must be thumb-friendly (minimum 48px height). Text must be readable without zooming (minimum 16px). Forms must use correct input types (email, tel). Images must use WebP format."
+    - name: "Set up A/B testing and iterate"
+      text: "Launch the page, install heatmaps and session recordings, and immediately set up your first A/B test — starting with the headline. Every landing page is version 1.0. The real gains come from systematic testing over 6–12 months."
+faqs:
+  - question: "What is a landing page?"
+    answer: "A landing page is a standalone web page designed for a single conversion goal — typically capturing a lead or driving a purchase. Unlike a homepage, a landing page removes navigation, sidebars, and outbound links so that 100% of visitor attention is directed toward one action. Landing pages are typically reached via paid ads, email campaigns, or direct links rather than organic search."
+  - question: "What is a good landing page conversion rate?"
+    answer: "Average landing page conversion rates range from 2–5% across industries. Top-performing lead generation pages convert at 10–30%. E-commerce product pages average 1–4%. If your landing page converts below 2%, structural improvements to headline, CTA placement, or social proof are likely required. Pages systematically optimised through A/B testing over 12+ months commonly reach 10–20% CVR."
+  - question: "How long should a landing page be?"
+    answer: "Landing page length should match the complexity of the offer. Low-commitment offers (free download, newsletter sign-up) convert well on short pages under 500 words. High-ticket offers ($1,000+) require longer pages — typically 1,000–3,000 words — to address all objections and build sufficient trust. The rule: the page should be exactly as long as it takes to answer every visitor objection and motivate the action."
+  - question: "What is message match and why does it matter?"
+    answer: "Message match is the alignment between the copy in an ad or email and the headline of the landing page it links to. Strong message match — where the landing page headline mirrors the exact language of the traffic source — reduces bounce rates because visitors immediately confirm they've arrived in the right place. Weak message match is one of the most common causes of high bounce rates on paid traffic campaigns."
+  - question: "What elements should every landing page have?"
+    answer: "Every high-converting landing page needs: (1) a headline stating the primary benefit, (2) a sub-headline with supporting detail, (3) a primary CTA button visible above the fold, (4) social proof near the CTA (reviews, customer count, or logos), (5) objection-handling content or FAQ section, and (6) a single conversion goal with no competing navigation links or outbound distractions."
 ---
 
 A landing page with a 2% conversion rate and a landing page with an 8% conversion rate can look nearly identical to the untrained eye. The difference is in the details — details that compound into a 4x revenue multiplier.

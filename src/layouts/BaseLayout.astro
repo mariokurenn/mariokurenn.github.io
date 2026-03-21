@@ -23,11 +23,53 @@ const websiteSchema = {
   '@type': 'WebSite',
   name: 'conversionrate-expert.com',
   url: 'https://conversionrate-expert.com',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: 'https://conversionrate-expert.com/blog/?q={search_term_string}',
+    },
+    'query-input': 'required name=search_term_string',
+  },
+};
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  '@id': 'https://conversionrate-expert.com/#organization',
+  name: 'conversionrate-expert.com',
+  url: 'https://conversionrate-expert.com',
+  description: "Data-driven conversion rate optimization agency. We grow businesses by fixing what's leaking in their funnel.",
+  serviceType: 'Conversion Rate Optimization',
+  areaServed: 'Worldwide',
+  founder: {
+    '@type': 'Person',
+    name: 'Mario Kuren',
+    url: 'https://conversionrate-expert.com/author/mario-kuren/',
+    jobTitle: 'CRO Specialist & Founder',
+  },
+  logo: {
+    '@type': 'ImageObject',
+    url: 'https://conversionrate-expert.com/favicon.svg',
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    url: 'https://conversionrate-expert.com/contact/',
+    contactType: 'customer service',
+    availableLanguage: ['English'],
+  },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.9',
+    reviewCount: '47',
+    bestRating: '5',
+    worstRating: '1',
+  },
 };
 
 const resolvedJsonLd = seoProps.jsonLd
-  ? (Array.isArray(seoProps.jsonLd) ? [websiteSchema, ...seoProps.jsonLd] : [websiteSchema, seoProps.jsonLd])
-  : [websiteSchema];
+  ? (Array.isArray(seoProps.jsonLd) ? [websiteSchema, organizationSchema, ...seoProps.jsonLd] : [websiteSchema, organizationSchema, seoProps.jsonLd])
+  : [websiteSchema, organizationSchema];
 ---
 
 <!doctype html>

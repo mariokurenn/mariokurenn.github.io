@@ -11,7 +11,7 @@ interface Props {
 }
 
 const { post, readingTime, relatedPosts = [], prevPost = null, nextPost = null } = Astro.props;
-const { title, description, publishDate, updatedDate, author, category, tags, image, imageAlt, seoKeyword, canonicalURL } = post.data;
+const { title, description, publishDate, updatedDate, author, category, tags, image, imageAlt, seoKeyword, canonicalURL, faqs, howTo } = post.data;
 
 const siteURL = 'https://conversionrate-expert.com';
 const postURL = new URL(`/blog/${post.slug}/`, siteURL).href;
@@ -86,7 +86,40 @@ const formatRelDate = (date: Date) =>
   ogType="article"
   ogImage={image}
   canonicalURL={canonicalURL ?? postURL}
-  jsonLd={[blogPostSchema, breadcrumbSchema]}
+  jsonLd={[
+    blogPostSchema,
+    breadcrumbSchema,
+    ...(howTo ? [{
+      '@context': 'https://schema.org',
+      '@type': 'HowTo',
+      name: howTo.name,
+      ...(howTo.description ? { description: howTo.description } : {}),
+      step: howTo.steps.map((s, i) => ({
+        '@type': 'HowToStep',
+        position: i + 1,
+        name: s.name,
+        text: s.text,
+      })),
+    }] : []),
+    ...(faqs && faqs.length > 0 ? [{
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqs.map(({ question, answer }) => ({
+        '@type': 'Question',
+        name: question,
+        acceptedAnswer: { '@type': 'Answer', text: answer },
+      })),
+    }] : []),
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      '@id': postURL,
+      speakable: {
+        '@type': 'SpeakableSpecification',
+        cssSelector: ['.blog-post__body .prose > p:first-child', '.post-faq__a'],
+      },
+    },
+  ]}
 >
   <!-- Article-specific OG meta tags -->
   <meta slot="head" property="article:published_time" content={publishDate.toISOString()} />
@@ -179,6 +212,21 @@ const formatRelDate = (date: Date) =>
         <div class="prose" itemprop="articleBody">
           <slot />
         </div>
+
+        <!-- FAQ section (AI-citeable Q&A pairs) -->
+        {faqs && faqs.length > 0 && (
+          <section class="post-faq" aria-labelledby="faq-heading">
+            <h2 id="faq-heading">Frequently Asked Questions</h2>
+            <div class="post-faq__list">
+              {faqs.map(({ question, answer }) => (
+                <details class="post-faq__item">
+                  <summary class="post-faq__q">{question}</summary>
+                  <p class="post-faq__a">{answer}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+        )}
 
         <!-- Tags -->
         {tags.length > 0 && (
@@ -461,6 +509,79 @@ const formatRelDate = (date: Date) =>
   }
 
   /* Tags */
+  /* FAQ section */
+  .post-faq {
+    margin-top: var(--space-12);
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .post-faq h2 {
+    font-size: var(--text-xl);
+    font-weight: 800;
+    color: var(--color-heading);
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-6);
+  }
+
+  .post-faq__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .post-faq__item {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  .post-faq__item[open] {
+    border-color: var(--color-border-accent);
+  }
+
+  .post-faq__q {
+    font-size: var(--text-base);
+    font-weight: 700;
+    color: var(--color-heading);
+    padding: var(--space-4) var(--space-5);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-4);
+    background: var(--color-surface);
+    transition: background var(--transition-fast);
+  }
+
+  .post-faq__q::-webkit-details-marker { display: none; }
+
+  .post-faq__q::after {
+    content: '+';
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--color-accent);
+    flex-shrink: 0;
+    transition: transform var(--transition-fast);
+  }
+
+  .post-faq__item[open] .post-faq__q::after {
+    transform: rotate(45deg);
+  }
+
+  .post-faq__q:hover { background: var(--color-accent-subtle); }
+
+  .post-faq__a {
+    font-size: var(--text-base);
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    padding: var(--space-4) var(--space-5);
+    margin: 0;
+    background: var(--color-white);
+    border-top: 1px solid var(--color-border);
+  }
+
   .blog-post__tags {
     display: flex;
     flex-wrap: wrap;

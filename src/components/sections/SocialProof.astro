@@ -31,13 +31,18 @@ const stats = [
 
   <div class="sp-trust">
     <div class="container">
-      <p class="sp-trust__label">Trusted by e-commerce brands, SaaS companies and lead-gen businesses worldwide</p>
-      <div class="sp-trust__logos" aria-hidden="true">
-        {Array.from({ length: 6 }).map(() => (
-          <div class="sp-logo">
-            <svg viewBox="0 0 120 28" fill="none" aria-hidden="true">
-              <rect width="120" height="28" rx="4" fill="var(--color-surface-dark)" />
-            </svg>
+      <p class="sp-trust__label">Proven with e-commerce, SaaS, and lead-gen businesses</p>
+      <div class="sp-trust__logos">
+        {[
+          { src: '/images/logos/client-1.png', alt: 'Client logo' },
+          { src: '/images/logos/client-2.svg', alt: 'Client logo' },
+          { src: '/images/logos/client-3.png', alt: 'Client logo' },
+          { src: '/images/logos/client-4.png', alt: 'Client logo' },
+          { src: '/images/logos/client-5.webp', alt: 'Client logo' },
+          { src: '/images/logos/client-6.png', alt: 'Client logo' },
+        ].map(({ src, alt }) => (
+          <div class="sp-logo-img">
+            <img src={src} alt={alt} loading="lazy" decoding="async" />
           </div>
         ))}
       </div>
@@ -139,15 +144,30 @@ const stats = [
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: clamp(var(--space-6), 4vw, var(--space-12));
+    gap: var(--space-8);
     flex-wrap: wrap;
-    opacity: 0.35;
-    filter: grayscale(1);
   }
 
-  .sp-logo svg {
-    width: 100px;
-    height: 28px;
+  .sp-logo-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+  }
+
+  .sp-logo-img img {
+    height: 100%;
+    width: auto;
+    max-width: 120px;
+    object-fit: contain;
+    display: block;
+    filter: brightness(0);
+    opacity: 0.55;
+    transition: opacity var(--transition-fast);
+  }
+
+  .sp-logo-img img:hover {
+    opacity: 0.9;
   }
 
   /* Responsive */

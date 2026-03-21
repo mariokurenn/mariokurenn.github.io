@@ -32,31 +32,34 @@ const organizationSchema = {
 
 const featuredCaseStudies = [
   {
-    client: 'E-commerce Brand',
-    industry: 'Retail',
-    before: '2.1%',
-    after: '4.8%',
-    change: '+128%',
+    client: 'Filotea',
+    industry: 'E-commerce',
+    before: '1.4%',
+    after: '3.6%',
+    change: '+157%',
     service: 'Full CRO Program',
-    description: '90-day program including landing page redesign, checkout optimization, and A/B testing roadmap.',
+    url: 'https://filotea.hr/',
+    description: '90-day program: product page redesign, checkout flow optimisation, and A/B testing roadmap. Same ad spend — 157% more revenue.',
   },
   {
-    client: 'SaaS Platform',
-    industry: 'Software',
-    before: '3.4%',
-    after: '7.9%',
-    change: '+132%',
-    service: 'Landing Page + A/B Testing',
-    description: 'Free trial page redesign and 12-week A/B testing program. Result: 132% more trials from same traffic.',
+    client: 'Forte Solar',
+    industry: 'Solar Energy',
+    before: '3.2%',
+    after: '7.8%',
+    change: '+144%',
+    service: 'Landing Page + Lead Gen CRO',
+    url: 'https://fortesolar.hr/',
+    description: 'Landing page rebuild with trust architecture and form optimisation. Lead volume increased 144% without increasing media budget.',
   },
   {
-    client: 'Lead Gen Business',
-    industry: 'B2B Services',
-    before: '4.1%',
-    after: '11.2%',
-    change: '+173%',
+    client: 'Korak Ispred',
+    industry: 'Education',
+    before: '4.6%',
+    after: '10.9%',
+    change: '+137%',
     service: 'CRO Audit + Implementation',
-    description: 'Audit revealed 23 critical issues. 8 weeks of implementation increased qualified leads by 173%.',
+    url: 'https://korakispred.io/',
+    description: 'Audit surfaced 19 friction points in the enrolment funnel. 8 weeks of implementation grew paid sign-ups by 137%.',
   },
 ];
 
@@ -202,11 +205,13 @@ const formatDate = (date: Date) =>
       </p>
 
       <div class="results__grid">
-        {featuredCaseStudies.map(({ client, industry, before, after, change, service, description }) => (
+        {featuredCaseStudies.map(({ client, industry, before, after, change, service, description, url }) => (
           <article class="result-card">
             <div class="result-card__header">
               <div>
-                <p class="result-card__client">{client}</p>
+                <p class="result-card__client">
+                  <a href={url} target="_blank" rel="noopener noreferrer" class="result-card__client-link">{client}</a>
+                </p>
                 <p class="result-card__meta">{industry} · {service}</p>
               </div>
               <span class="result-card__change">{change}</span>
@@ -524,6 +529,16 @@ const formatDate = (date: Date) =>
     font-weight: 700;
     font-size: var(--text-base);
     color: var(--color-heading);
+  }
+
+  .result-card__client-link {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .result-card__client-link:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
   }
 
   .result-card__meta {

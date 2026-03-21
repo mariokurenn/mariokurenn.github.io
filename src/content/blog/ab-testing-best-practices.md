@@ -3,11 +3,40 @@ title: "A/B Testing Best Practices: How to Run Tests That Actually Mean Somethin
 description: "Run statistically valid A/B tests that produce reliable results. Avoid common mistakes that waste months of effort and generate false positive winners."
 publishDate: "2026-02-01"
 updatedDate: "2026-03-05"
-author: "Mario"
+author: "Mario Kuren"
 category: "A/B Testing"
 tags: ["a/b testing", "split testing", "statistics", "cro"]
 seoKeyword: "a/b testing best practices"
 draft: false
+howTo:
+  name: "How to Run a Statistically Valid A/B Test"
+  description: "A step-by-step process for running A/B tests that produce reliable, actionable results — not false positives."
+  steps:
+    - name: "Calculate sample size before you start"
+      text: "Use a sample size calculator with your baseline CVR, minimum detectable effect (MDE), 80% statistical power, and 95% significance threshold. Never start a test without knowing the required sample size."
+    - name: "Define one primary success metric"
+      text: "Every test needs a single primary metric — checkout completion, form submission rate, or trial sign-ups. Secondary metrics can be monitored, but the test result is based on the primary metric only."
+    - name: "Set up the test and lock the end date"
+      text: "Set up your A/B testing tool (VWO, Optimizely, or Google Optimize), split traffic 50/50, and schedule a calendar reminder for when the test ends. Do not touch the dashboard until then."
+    - name: "Never peek at results during the test"
+      text: "Checking results early inflates the false positive rate from 5% to over 26%. Commit to the pre-set end date. If the test looks significant on day 3, it may not be by day 14."
+    - name: "Run for at least two full business cycles"
+      text: "Always run tests for a minimum of 14 days, even if you hit the sample size sooner. This captures weekday/weekend behavioral variance and avoids misleading day-of-week effects."
+    - name: "Segment the results before declaring a winner"
+      text: "Break down results by device type, traffic source, and new vs. returning visitors. A test winning on desktop may lose on mobile. A site-wide implementation of a desktop winner can destroy mobile conversions."
+    - name: "Document the result and next hypothesis"
+      text: "Log the hypothesis, date range, sample size, CVR per variant, confidence level, winner, and — most importantly — the learning. What does this result tell you about your audience? What's the next hypothesis?"
+faqs:
+  - question: "What is A/B testing?"
+    answer: "A/B testing (also called split testing) is a controlled experiment that compares two versions of a webpage, email, or interface element — Version A (the control) versus Version B (the variant) — to determine which produces more conversions. Visitor traffic is randomly split between both versions, and statistical analysis determines whether any observed difference is real or due to chance."
+  - question: "How many visitors do I need to run an A/B test?"
+    answer: "The required sample size depends on your baseline conversion rate, the minimum detectable effect (MDE), statistical power (typically 80%), and significance threshold (typically 95%). As a practical example: at a 3% baseline CVR targeting a 15% relative improvement, you need approximately 10,000 visitors per variant. Always calculate sample size before starting — running tests on insufficient traffic produces unreliable results."
+  - question: "How long should an A/B test run?"
+    answer: "An A/B test should run for a minimum of 14 days (two full business cycles) AND until each variant reaches the pre-calculated minimum sample size — whichever condition takes longer. Running tests for fewer than 14 days misses weekday/weekend behavioral variation. Stopping early when results look significant is the peeking problem, which inflates false positive rates from 5% to over 26%."
+  - question: "What is statistical significance in A/B testing?"
+    answer: "Statistical significance at 95% means there is a 5% probability that the observed difference between test variants occurred by random chance. It does not confirm the magnitude of the improvement or guarantee real-world revenue impact — it only confirms the measured difference is likely not noise. A statistically significant result with a small effect size may not justify the implementation effort."
+  - question: "What should I test first in A/B testing?"
+    answer: "Prioritise testing on pages with the highest traffic and clearest conversion actions. Test elements in order of impact: (1) headlines — highest leverage, easiest to run, (2) primary CTAs — copy, colour, placement, (3) hero section — above-the-fold experience, (4) social proof — testimonials, logos, stats, (5) form length — fewer fields typically converts better. Avoid testing low-traffic pages; you won't reach statistical significance in a reasonable timeframe."
 ---
 
 Most companies run A/B tests wrong. They peek at results early, stop tests when they see a winner, and end up with a library of false positives that provide zero lasting lift.
