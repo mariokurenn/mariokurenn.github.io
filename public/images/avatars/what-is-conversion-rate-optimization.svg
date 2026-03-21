@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f2419"/>
+      <stop offset="100%" style="stop-color:#1a3d2b"/>
+    </linearGradient>
+    <linearGradient id="bar1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4ade80"/>
+      <stop offset="100%" style="stop-color:#1A7F3C"/>
+    </linearGradient>
+    <linearGradient id="bar2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e"/>
+      <stop offset="100%" style="stop-color:#166534"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Subtle grid lines -->
+  <g stroke="#ffffff" stroke-opacity="0.04" stroke-width="1">
+    <line x1="0" y1="157" x2="1200" y2="157"/>
+    <line x1="0" y1="314" x2="1200" y2="314"/>
+    <line x1="0" y1="471" x2="1200" y2="471"/>
+    <line x1="200" y1="0" x2="200" y2="630"/>
+    <line x1="400" y1="0" x2="400" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="800" y1="0" x2="800" y2="630"/>
+    <line x1="1000" y1="0" x2="1000" y2="630"/>
+  </g>
+
+  <!-- Funnel shape -->
+  <polygon points="660,100 940,100 870,230 730,230" fill="#1A7F3C" opacity="0.9"/>
+  <polygon points="730,245 870,245 830,360 770,360" fill="#15803D" opacity="0.85"/>
+  <polygon points="770,375 830,375 810,470 790,470" fill="#166534" opacity="0.8"/>
+
+  <!-- Funnel labels -->
+  <text x="800" y="175" font-family="system-ui,sans-serif" font-size="18" font-weight="600" fill="white" opacity="0.9" text-anchor="middle">Visitors</text>
+  <text x="800" y="310" font-family="system-ui,sans-serif" font-size="16" font-weight="600" fill="white" opacity="0.9" text-anchor="middle">Leads</text>
+  <text x="800" y="430" font-family="system-ui,sans-serif" font-size="14" font-weight="600" fill="white" opacity="0.9" text-anchor="middle">Buyers</text>
+
+  <!-- Conversion rate callout -->
+  <rect x="660" y="500" width="280" height="64" rx="10" fill="#1A7F3C" opacity="0.3" stroke="#4ade80" stroke-width="1" stroke-opacity="0.5"/>
+  <text x="800" y="525" font-family="system-ui,sans-serif" font-size="14" fill="#4ade80" text-anchor="middle" opacity="0.9">Conversion Rate</text>
+  <text x="800" y="551" font-family="system-ui,sans-serif" font-size="24" font-weight="900" fill="#4ade80" text-anchor="middle">1.4% → 3.6%</text>
+
+  <!-- Bar chart on left -->
+  <g transform="translate(80, 120)">
+    <!-- Bars -->
+    <rect x="0" y="220" width="50" height="60" rx="4" fill="url(#bar1)" opacity="0.4"/>
+    <rect x="65" y="180" width="50" height="100" rx="4" fill="url(#bar1)" opacity="0.55"/>
+    <rect x="130" y="140" width="50" height="140" rx="4" fill="url(#bar1)" opacity="0.7"/>
+    <rect x="195" y="80" width="50" height="200" rx="4" fill="url(#bar1)" opacity="0.85"/>
+    <rect x="260" y="30" width="50" height="250" rx="4" fill="url(#bar2)"/>
+    <!-- Trend line -->
+    <polyline points="25,235 90,195 155,155 220,95 285,45" stroke="#4ade80" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Dots on trend line -->
+    <circle cx="25" cy="235" r="5" fill="#4ade80"/>
+    <circle cx="90" cy="195" r="5" fill="#4ade80"/>
+    <circle cx="155" cy="155" r="5" fill="#4ade80"/>
+    <circle cx="220" cy="95" r="5" fill="#4ade80"/>
+    <circle cx="285" cy="45" r="6" fill="#4ade80"/>
+    <!-- Baseline -->
+    <line x1="0" y1="285" x2="330" y2="285" stroke="white" stroke-opacity="0.15" stroke-width="1"/>
+  </g>
+
+  <!-- Main text -->
+  <text x="80" y="510" font-family="system-ui,sans-serif" font-size="13" font-weight="600" fill="#4ade80" letter-spacing="3" text-anchor="start" opacity="0.9">GROW-CONVERSIONS.COM</text>
+  <text x="80" y="555" font-family="system-ui,sans-serif" font-size="34" font-weight="900" fill="white" text-anchor="start">What is Conversion Rate</text>
+  <text x="80" y="595" font-family="system-ui,sans-serif" font-size="34" font-weight="900" fill="white" text-anchor="start">Optimization?</text>
+</svg>
