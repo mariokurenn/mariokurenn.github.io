@@ -34,9 +34,17 @@ const currentPath = Astro.url.pathname;
 
 <header class="site-header" id="site-header">
   <div class="container header__inner">
-    <a href="/" class="header__logo" aria-label="conversionrate-expert.com home">
-      
-      <span class="header__logo-text">Conversion Rate <span class="text-accent">Expert</span></span>
+    <a href="/" class="header__logo" aria-label="grow-conversions.com home">
+      <span class="header__logo-icon" aria-hidden="true">
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="30" height="30" rx="8" fill="var(--color-accent)"/>
+          <polyline points="5,21 11,13 17,17 25,7" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="20,7 25,7 25,12" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <span class="header__logo-text">
+        <span class="header__logo-grow">grow</span><span class="header__logo-sep">-</span><span class="header__logo-conv">conversions</span><span class="header__logo-tld">.com</span>
+      </span>
     </a>
 
     <nav class="header__nav" aria-label="Main navigation">
@@ -194,11 +202,43 @@ const currentPath = Astro.url.pathname;
     text-decoration: none;
   }
 
+  .header__logo-icon {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.12));
+    transition: transform var(--transition-fast);
+  }
+
+  .header__logo:hover .header__logo-icon {
+    transform: scale(1.07) rotate(-2deg);
+  }
+
   .header__logo-text {
-    font-size: 1.0625rem;
+    font-size: 1.05rem;
     font-weight: 800;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  .header__logo-grow {
     color: var(--color-heading);
+  }
+
+  .header__logo-sep {
+    color: var(--color-text-muted);
+    font-weight: 400;
+  }
+
+  .header__logo-conv {
+    color: var(--color-accent);
+  }
+
+  .header__logo-tld {
+    color: var(--color-text-muted);
+    font-size: 0.75em;
+    font-weight: 500;
+    letter-spacing: 0;
   }
 
   .header__nav { flex: 1; }

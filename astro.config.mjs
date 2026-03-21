@@ -3,11 +3,9 @@ import mdx from '@astrojs/mdx';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 
-const isPagesDeployment = process.env.SITE_URL?.includes('github.io');
-
 export default defineConfig({
-  site: process.env.SITE_URL || 'https://conversionrate-expert.com',
-  base: isPagesDeployment ? (process.env.BASE_PATH || '/') : '/',
+  site: process.env.SITE_URL || 'https://grow-conversions.com',
+  base: '/',
   integrations: [
     mdx(),
   ],
