@@ -179,6 +179,23 @@ const formatRelDate = (date: Date) =>
       </div>
     </header>
 
+    <!-- Hero image -->
+    {image && (
+      <div class="blog-post__hero">
+        <div class="container">
+          <img
+            src={image}
+            alt={imageAlt ?? title}
+            class="blog-post__hero-img"
+            width="1200"
+            height="630"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+      </div>
+    )}
+
     <!-- Main content layout -->
     <div class="blog-post__layout container">
       <!-- Sidebar: TOC + sticky CTA -->
@@ -338,6 +355,20 @@ const formatRelDate = (date: Date) =>
     background: var(--color-surface);
     border-bottom: 1px solid var(--color-border);
     padding: var(--space-12) 0;
+  }
+
+  .blog-post__hero {
+    background: var(--color-heading);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .blog-post__hero-img {
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
   }
 
   .blog-post__header-inner { max-width: 780px; }

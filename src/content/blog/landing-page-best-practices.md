@@ -7,6 +7,8 @@ author: "Mario Kuren"
 category: "Landing Pages"
 tags: ["landing pages", "conversion rate", "cro", "design"]
 seoKeyword: "landing page best practices"
+image: "/images/blog/landing-page-best-practices.svg"
+imageAlt: "Landing page wireframe showing best practices checklist with CTA, value proposition and social proof placement"
 draft: false
 howTo:
   name: "How to Build a High-Converting Landing Page"

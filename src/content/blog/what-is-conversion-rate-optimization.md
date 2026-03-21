@@ -7,6 +7,8 @@ author: "Mario Kuren"
 category: "CRO Strategy"
 tags: ["cro", "conversion rate", "getting started"]
 seoKeyword: "what is conversion rate optimization"
+image: "/images/blog/what-is-conversion-rate-optimization.svg"
+imageAlt: "Conversion rate optimization funnel diagram showing visitor to buyer progression with CVR metrics"
 draft: false
 howTo:
   name: "How to Start a CRO Programme"
