@@ -11,7 +11,8 @@ interface Props {
 }
 
 const { post, readingTime, relatedPosts = [], prevPost = null, nextPost = null } = Astro.props;
-const { title, description, publishDate, updatedDate, author, category, tags, image, imageAlt, seoKeyword, canonicalURL, faqs, howTo } = post.data;
+const { title, description, publishDate, updatedDate, author, category, tags, image, imageHero, imageAlt, seoKeyword, canonicalURL, faqs, howTo } = post.data;
+const heroImage = imageHero ?? image;
 
 const siteURL = 'https://grow-conversions.com';
 const postURL = new URL(`/blog/${post.slug}/`, siteURL).href;
@@ -180,11 +181,11 @@ const formatRelDate = (date: Date) =>
     </header>
 
     <!-- Hero image -->
-    {image && (
+    {heroImage && (
       <div class="blog-post__hero">
         <div class="container">
           <img
-            src={image}
+            src={heroImage}
             alt={imageAlt ?? title}
             class="blog-post__hero-img"
             width="1200"

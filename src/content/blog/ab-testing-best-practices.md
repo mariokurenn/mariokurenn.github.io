@@ -7,7 +7,8 @@ author: "Mario Kuren"
 category: "A/B Testing"
 tags: ["a/b testing", "split testing", "statistics", "cro"]
 seoKeyword: "a/b testing best practices"
-image: "/images/blog/ab-testing-best-practices.svg"
+image: "/images/blog/ab-testing-best-practices.webp"
+imageHero: "/images/blog/ab-testing-best-practices.svg"
 imageAlt: "A/B test comparison chart showing control vs variant conversion rates with statistical significance"
 draft: false
 howTo:
