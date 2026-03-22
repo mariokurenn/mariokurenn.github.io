@@ -12,63 +12,6 @@ const featured = {
 
 const siteURL = 'https://grow-conversions.com';
 
-const reviewsSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
-  '@id': `${siteURL}/#organization`,
-  name: 'grow-conversions.com',
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    reviewCount: '47',
-    bestRating: '5',
-    worstRating: '1',
-    itemReviewed: {
-      '@type': 'ProfessionalService',
-      '@id': `${siteURL}/#organization`,
-      name: 'grow-conversions.com',
-      url: siteURL,
-    },
-  },
-  review: [
-    {
-      '@type': 'Review',
-      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-      reviewBody: "Working with Mario was a game-changer. In 90 days our checkout conversion went from 1.8% to 4.2% — that's a significant revenue increase every single month. The ROI was obvious within weeks.",
-      author: { '@type': 'Person', name: 'S. M.' },
-      datePublished: '2025-11-01',
-    },
-    {
-      '@type': 'Review',
-      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-      reviewBody: "I was skeptical about CRO — thought it was just button color tests. Mario showed me what systematic optimization really looks like. Our lead gen page now converts at 12% vs 4% before. Unreal.",
-      author: { '@type': 'Person', name: 'M. J.' },
-      datePublished: '2025-10-15',
-    },
-    {
-      '@type': 'Review',
-      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-      reviewBody: "The CRO audit alone was worth 10x what we paid. They found 23 critical issues we had no idea about. Three months of fixes later, our paid traffic ROAS went from 2.1 to 5.8.",
-      author: { '@type': 'Person', name: 'P. S.' },
-      datePublished: '2025-09-20',
-    },
-    {
-      '@type': 'Review',
-      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-      reviewBody: "Most agencies deliver cosmetic tweaks. Mario runs real experiments with real statistical rigour. Every recommendation is backed by data and customer research. Night and day difference.",
-      author: { '@type': 'Person', name: 'T. B.' },
-      datePublished: '2025-08-10',
-    },
-    {
-      '@type': 'Review',
-      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-      reviewBody: "We'd tried other CRO consultants with mediocre results. Within the first 30 days of working with Mario, we had a winning A/B test that boosted our free trial signups by 38%.",
-      author: { '@type': 'Person', name: 'A. O.' },
-      datePublished: '2025-12-05',
-    },
-  ],
-};
-
 const testimonials = [
   {
     quote: "I was skeptical about CRO — thought it was just button color tests. Mario showed me what systematic optimization really looks like. Our lead gen page now converts at 12% vs 4% before. Unreal.",
@@ -108,8 +51,6 @@ const testimonials = [
   },
 ];
 ---
-
-<script type="application/ld+json" set:html={JSON.stringify(reviewsSchema)}></script>
 
 <section class="testimonials section--surface section" id="testimonials" aria-labelledby="testimonials-heading">
   <div class="container">
