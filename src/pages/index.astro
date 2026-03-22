@@ -15,28 +15,6 @@ const latestPosts = allPosts
 
 const siteURL = 'https://grow-conversions.com';
 
-const organizationSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
-  name: 'grow-conversions.com',
-  url: siteURL,
-  description: "Data-driven conversion rate optimization agency. We grow businesses by fixing what's leaking.",
-  serviceType: 'Conversion Rate Optimization',
-  areaServed: 'Worldwide',
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    reviewCount: '47',
-    bestRating: '5',
-    worstRating: '1',
-    itemReviewed: {
-      '@type': 'ProfessionalService',
-      name: 'grow-conversions.com',
-      url: 'https://grow-conversions.com',
-    },
-  },
-};
-
 const featuredCaseStudies = [
   {
     client: 'Filotea',
@@ -77,7 +55,6 @@ const formatDate = (date: Date) =>
 <BaseLayout
   title="Conversion Rate Optimization Agency | grow-conversions.com"
   description="Stop losing 97% of your visitors. Data-driven CRO agency delivering average 127% CVR increases — CRO audits, A/B testing, landing page optimisation. Free audit."
-  jsonLd={organizationSchema}
 >
   <!-- 1. HERO -->
   <Hero />
