@@ -10,6 +10,19 @@ image: "/images/blog/conversion-rate-benchmarks-by-industry.webp"
 imageHero: "/images/blog/conversion-rate-benchmarks-by-industry.svg"
 imageAlt: "Bar chart comparing average conversion rates across 14 industries including ecommerce, SaaS, B2B and lead generation"
 draft: false
+faqs:
+  - question: "What is the average e-commerce conversion rate?"
+    answer: "The global average e-commerce CVR is 1.5–3.0%, with top-performing stores (top 25%) converting at 5.0%+. Fashion and electronics trend lower (1.2–2.5%), while food, beauty, and subscription products trend higher (3.0–5.0%)."
+  - question: "What is a good conversion rate for a landing page?"
+    answer: "The industry average for landing pages across all sectors is 2.35%, with the top 25% converting at 5.31%+. A 'good' rate depends heavily on traffic source — paid social at 1.5% can be healthy, while organic search traffic at 1.5% warrants investigation."
+  - question: "What is a good SaaS free trial conversion rate?"
+    answer: "For no-credit-card free trials, 3–8% is average and 10–15% is top-quartile performance. If you require a credit card upfront, expect 0.5–2.5% — the friction significantly lowers intent to try."
+  - question: "Why is my conversion rate lower than the industry benchmark?"
+    answer: "Common causes: mismatched traffic intent, slow page speed (53% of mobile users abandon after 3 seconds), weak value proposition above the fold, missing trust signals like reviews or security badges, or too much friction in the conversion path."
+  - question: "Should I compare my CVR directly to competitors?"
+    answer: "Competitors rarely publish their CVR, so direct comparison isn't possible. Focus on industry benchmarks and your own historical data. The most actionable metric is your current CVR vs. your best previous CVR — that gap represents recoverable revenue."
+  - question: "How do I calculate the revenue impact of improving my conversion rate?"
+    answer: "Use this formula: (Target CVR − Current CVR) × Monthly Sessions × Average Order Value = Recoverable Revenue. Example: (0.030 − 0.018) × 12,000 sessions × €85 AOV = €7,140/month in recoverable revenue."
 ---
 
 "Is our conversion rate good?"
@@ -211,20 +224,3 @@ If you want to understand the full optimization process, see [What Is Conversion
 [Get a Free CRO Audit →](/contact/)
 
 ---
-
-## Conversion Rate Benchmarks: FAQ
-
-**What is the average e-commerce conversion rate?**
-The average e-commerce CVR globally is 1.5–3.0%, with top-performing stores (top 25%) converting at 5.0%+. Fashion and electronics trend lower; food, beauty, and subscription products trend higher.
-
-**What is a good conversion rate for a landing page?**
-The industry average for landing pages across all sectors is 2.35%. The top 25% of landing pages convert at 5.31%+. A "good" landing page CVR depends heavily on traffic source — paid social traffic converting at 1.5% can be healthy; organic search traffic at 1.5% is a signal to investigate.
-
-**What is a good SaaS free trial conversion rate?**
-For no-credit-card free trials, 3–8% is average. Top SaaS products see 10–15%. If you require a credit card upfront, expect 0.5–2.5% — and test removing that requirement if your business model allows it.
-
-**Why is my conversion rate lower than the benchmark?**
-Common causes: mismatched traffic intent (paid social to a checkout-ready page), slow page speed (53% of mobile users abandon after 3 seconds), weak value proposition above the fold, missing trust signals (reviews, security badges), or too much friction in the conversion path. A CRO audit identifies which applies to you.
-
-**Should I compare my CVR to competitors directly?**
-Rarely possible — competitors don't publish their CVR. Focus on industry benchmarks and your own historical data. The only CVR that matters is yours vs. your best previous CVR.

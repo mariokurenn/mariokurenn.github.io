@@ -10,6 +10,33 @@ image: "/images/blog/ab-testing-mistakes.webp"
 imageHero: "/images/blog/ab-testing-mistakes.svg"
 imageAlt: "Red warning signs overlaid on an A/B testing dashboard showing common errors in split test setup and analysis"
 draft: false
+faqs:
+  - question: "What is the most common A/B testing mistake?"
+    answer: "Stopping tests early — also called 'peeking.' Checking results daily and stopping at the moment significance is reached inflates false positive rates from 5% to over 30%. Pre-commit to a sample size and runtime before launch."
+  - question: "Can I run multiple A/B tests at the same time?"
+    answer: "Yes, if they test different pages or non-overlapping elements on the same page and your traffic supports it. Under 20,000 sessions/month, run one test at a time to avoid interaction effects and insufficient sample sizes per variant."
+  - question: "What is a Sample Ratio Mismatch in A/B testing?"
+    answer: "An SRM occurs when the actual traffic split between variants differs from the intended split (e.g., 53/47 instead of 50/50). Even small mismatches indicate a technical problem with randomization or caching that can bias results. Always check for SRM before reading results."
+  - question: "How do I know if my A/B test results are reliable?"
+    answer: "Check five things: (1) Did you reach pre-planned sample size? (2) Did you run for 2+ business cycles? (3) Is the traffic split close to 50/50? (4) Is traffic filtered for bots and internal sessions? (5) Are you measuring a business outcome, not a proxy metric?"
+  - question: "How many A/B tests should I run per month?"
+    answer: "Quality over quantity. One rigorous, well-structured test per month compounds into real optimization gains over time. Five poorly structured tests produce noise and false winners. With 50,000+ sessions/month, running 2–3 concurrent tests on different pages is achievable."
+  - question: "What is an A/A test and why does it matter?"
+    answer: "An A/A test sends equal traffic to two identical variants. It should show no significant difference. If it does, your testing infrastructure is broken — the randomization algorithm is biased or tracking fires differently on each variant. Run an A/A test before launching any major test program."
+howTo:
+  name: "How to Set Up a Valid A/B Test"
+  description: "The five steps to ensure your A/B test produces statistically reliable results."
+  steps:
+    - name: "Write a hypothesis before launch"
+      text: "Define what you're changing, why you expect it to work, and what metric you're measuring. A hypothesis prevents post-hoc rationalization of accidental results."
+    - name: "Calculate required sample size"
+      text: "Use a sample size calculator with your baseline CVR, target MDE (minimum detectable effect), 95% significance, and 80% power. Write this number down before launching."
+    - name: "Set minimum runtime of 2 full weeks"
+      text: "Day-of-week behavioral effects are real and significant. Always run for at least 2 complete calendar weeks regardless of when statistical significance is reached."
+    - name: "Check for Sample Ratio Mismatch before reading results"
+      text: "Verify the actual traffic split is close to the intended 50/50. A significant imbalance (e.g., 53/47) indicates a technical issue that invalidates the test."
+    - name: "Measure a business outcome as your primary metric"
+      text: "Revenue, purchases, signups, or demo requests — not clicks, scroll depth, or time on page. Only business outcomes justify shipping a variant."
 ---
 
 Running an A/B test feels rigorous. It feels scientific. It feels like you're making data-driven decisions.
@@ -157,20 +184,3 @@ Also read: [A/B Testing Best Practices](/blog/ab-testing-best-practices/) — th
 [Get a Free CRO Audit →](/contact/)
 
 ---
-
-## A/B Testing Mistakes: FAQ
-
-**How do I know if my A/B test results are reliable?**
-Check five things: (1) Did you reach pre-planned sample size? (2) Did you run for 2+ business cycles? (3) Is there an SRM (traffic split close to 50/50)? (4) Is your traffic filtered for bots and internal sessions? (5) Are you measuring a business outcome, not a proxy metric? If all five are yes, your results are reliable.
-
-**What is the most common A/B testing mistake?**
-Stopping tests early — also called "peeking." It's the most widespread mistake because testing dashboards show live results and humans are wired to act on information as soon as they see it. Pre-committing to a sample size and runtime before launch is the only reliable fix.
-
-**Can I run multiple A/B tests at the same time?**
-Yes, if they test different pages or non-overlapping elements on the same page, and your traffic supports it. Running two simultaneous tests on the same page with the same audience risks interaction effects — where the impact of test A on visitors affects how they respond to test B. If your traffic is under 20,000 sessions/month, prioritize one test at a time.
-
-**What is a Sample Ratio Mismatch in A/B testing?**
-An SRM occurs when the actual traffic split between variants doesn't match the intended split (e.g., 53/47 instead of 50/50). Even small mismatches indicate a technical problem with randomization, caching, or tracking that can bias your results. Any significant SRM should be investigated before reading test results.
-
-**How many tests should I run per month?**
-Quality over quantity. One rigorous, well-structured test per month will compound into meaningful optimization gains. Five poorly structured tests produce noise. If you have high traffic (50,000+ sessions/month), running 2–3 concurrent tests on different pages is achievable and advisable.

@@ -10,6 +10,35 @@ image: "/images/blog/how-long-to-run-ab-test.webp"
 imageHero: "/images/blog/how-long-to-run-ab-test.svg"
 imageAlt: "A/B test timeline chart showing test duration versus statistical confidence with early stopping risk highlighted"
 draft: false
+faqs:
+  - question: "Can I stop my A/B test as soon as it hits 95% significance?"
+    answer: "No. Statistical significance alone is not a stopping condition. You must also reach your pre-planned sample size and run for a minimum of 2 full business cycles (14 days). Stopping at 95% confidence before that inflates your false positive rate to over 30%."
+  - question: "How long is too long for an A/B test?"
+    answer: "Over 60–90 days. Tests running longer than 3 months risk contamination from seasonal shifts, product changes, and audience drift. If you're not at significance after 90 days, the effect is too small to matter at your current traffic level."
+  - question: "How many visitors do I need for an A/B test?"
+    answer: "At minimum: 1,000 sessions per variant per month and 30 conversions per variant per month. Use a sample size calculator with your baseline CVR and target MDE for a precise number. Below these thresholds, results are unreliable regardless of significance levels shown."
+  - question: "What if my A/B test never reaches significance?"
+    answer: "A null result is a valid result. It means you couldn't detect an improvement of your chosen MDE — either the change doesn't work, or the effect is smaller than your threshold. Document it, archive the test, and move to a different hypothesis."
+  - question: "Should I split traffic 50/50 or use a different ratio?"
+    answer: "50/50 is optimal for speed. Use a 90/10 split only when testing high-risk changes to protect revenue — but this significantly increases required runtime. Only use unequal splits when there is a clear business reason."
+  - question: "What is the Minimum Detectable Effect (MDE) in A/B testing?"
+    answer: "MDE is the smallest improvement you would consider worth implementing. It's a business decision, not a statistics one. For most e-commerce and SaaS tests, 10–20% relative improvement is a practical starting point."
+howTo:
+  name: "How to Calculate A/B Test Duration"
+  description: "The correct process for determining how long to run an A/B test before reading results."
+  steps:
+    - name: "Define your baseline conversion rate"
+      text: "Pull your current CVR for the page or element being tested using at least 30 days of data. Avoid using the last 7 days as it may not be representative."
+    - name: "Set your Minimum Detectable Effect (MDE)"
+      text: "Decide the smallest relative improvement worth implementing. For most sites, 15–20% relative improvement is a practical MDE. Lower MDE requires exponentially more traffic."
+    - name: "Calculate required sample size"
+      text: "Use a free sample size calculator (Evan Miller, VWO, or Optimizely) with 95% statistical significance, 80% power, and a 2-tailed test. This gives you the number of visitors needed per variant."
+    - name: "Calculate test duration in days"
+      text: "Divide required sample size per variant by your daily unique visitors to the test element. Multiply by 2 for a 50/50 split total."
+    - name: "Apply the 2-week minimum rule"
+      text: "Even if sample size is reached earlier, always run for at least 2 complete calendar weeks to capture day-of-week behavioral variation."
+    - name: "Commit to the stopping date before launch"
+      text: "Pre-define your end date and do not change it based on early results. Peeking and stopping early is the most common source of false A/B test winners."
 ---
 
 You're running an A/B test. Day 4, your variant is up 22%. Your dashboard shows 94% confidence. Someone on your team says "that's basically significant — let's call it."
@@ -186,23 +215,3 @@ Also read: [A/B Testing Best Practices](/blog/ab-testing-best-practices/) — th
 [Get a Free CRO Audit →](/contact/)
 
 ---
-
-## How Long to Run an A/B Test: FAQ
-
-**Can I stop my A/B test as soon as it hits 95% significance?**
-No. Statistical significance alone is not a stopping condition. You must also reach your pre-planned sample size and run for a minimum of 2 business cycles. Stopping at 95% confidence before that inflates your false positive rate significantly.
-
-**How long is too long for an A/B test?**
-Practically, over 60–90 days. Tests running longer than 3 months risk contamination from seasonal shifts, business changes, and audience drift. If you're still not at significance after 90 days, the effect you're measuring is too small to matter — or your traffic is too low to run A/B tests.
-
-**Does 95% or 99% confidence threshold change the test duration?**
-Yes. Moving from 95% to 99% requires roughly 60% more sample size. Use 99% for tests with major revenue implications (checkout redesign, pricing page), and 95% for lower-stakes tests (headline variants, CTA copy).
-
-**What if my A/B test never reaches significance?**
-A null result is a valid result. It means you couldn't detect the improvement you were looking for — either the change doesn't work, or the effect is smaller than your MDE. Document the finding, archive the test, and move on to a different hypothesis.
-
-**How do I calculate the right sample size quickly?**
-Use Evan Miller's sample size calculator with your baseline CVR, your target MDE, 95% significance, and 80% power. Divide the result by your daily traffic to get test duration in days.
-
-**Should I split traffic 50/50 or can I use a different split?**
-50/50 is optimal for speed. You can use a 90/10 split to protect revenue when testing high-risk changes (major checkout redesign, removing a key element) — but this significantly increases the required runtime. Only use unequal splits when there's a clear business reason.

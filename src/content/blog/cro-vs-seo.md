@@ -10,6 +10,19 @@ image: "/images/blog/cro-vs-seo.webp"
 imageHero: "/images/blog/cro-vs-seo.svg"
 imageAlt: "Two-sided scale comparing CRO and SEO with traffic on one side and conversion rate on the other"
 draft: false
+faqs:
+  - question: "Can CRO and SEO be done at the same time?"
+    answer: "Yes — and at scale, they should run in parallel. CRO improves UX signals (dwell time, bounce rate) that benefit SEO rankings. More targeted organic traffic from SEO converts at higher rates. The challenge is budget prioritization at early stages — sequence them before running both in parallel."
+  - question: "Does CRO help SEO rankings?"
+    answer: "Indirectly, yes. Lower bounce rate, higher pages-per-session, and faster page speed are positive SEO signals. Page speed improvements — a common CRO outcome — directly affect Core Web Vitals rankings. Better UX also generates more repeat visits and branded searches."
+  - question: "Should I fix my website before investing in SEO?"
+    answer: "Yes, if your site has clear conversion problems. Publishing 50 new blog posts to a site that doesn't convert generates traffic into a leaking funnel. Do a foundational CRO audit first — fix the obvious friction points — then scale your SEO content investment."
+  - question: "What is a bigger ROI: doubling traffic or doubling conversion rate?"
+    answer: "Mathematically identical revenue impact. But doubling traffic via SEO typically takes 12–24 months. Doubling conversion rate via CRO — from, say, 1.5% to 3.0% — can happen in 60–90 days for sites with clear friction points. The time advantage makes CRO the higher short-term ROI for most businesses."
+  - question: "Is CRO only for big websites with lots of traffic?"
+    answer: "No. Low-traffic sites can do CRO using qualitative methods — user testing, exit surveys, heatmaps — without needing A/B tests. The principle (understand why people aren't converting and fix it) applies at any traffic level."
+  - question: "When should I start A/B testing?"
+    answer: "When you consistently reach 2,000+ sessions/month to your key conversion pages and 50+ monthly conversions on those pages. Below those thresholds, qualitative CRO methods deliver better results per hour invested."
 ---
 
 Traffic without conversion is a vanity metric. Conversion without traffic is a ceiling. You need both — but you can only prioritize one at a time, and the order matters more than most businesses realize.
@@ -178,20 +191,3 @@ A CRO audit answers the question with data — not guesswork. I'll analyze your 
 [Get a Free CRO Audit →](/contact/)
 
 ---
-
-## CRO vs SEO: FAQ
-
-**Can CRO and SEO be done at the same time?**
-Yes — and at scale, they should be. CRO and SEO are complementary. Better UX (a CRO outcome) improves dwell time and bounce rate, which are positive SEO signals. More targeted organic traffic (an SEO outcome) is generally higher-intent and converts better. The challenge is resource allocation — most businesses should sequence them before running both in parallel.
-
-**Does CRO help SEO rankings?**
-Indirectly, yes. Google's ranking signals include user behavior metrics like time on page, bounce rate, and scroll depth. A site optimized for conversion typically has better UX, which improves these signals. Page speed improvements (a common CRO fix) also directly impact Core Web Vitals rankings.
-
-**Should I fix my website before investing in SEO?**
-Yes — if your site has clear conversion problems (very low CVR, high bounce rate, confusing UX). Publishing 50 new blog posts to a site that doesn't convert generates traffic into a leaking funnel. Fix the foundational CRO issues first, then scale SEO content.
-
-**What's a bigger ROI: doubling traffic or doubling conversion rate?**
-Mathematically, they produce identical revenue impact. But doubling traffic via SEO typically takes 12–24 months. Doubling conversion rate via CRO (from, say, 1.5% to 3.0%) can happen in 60–90 days for sites with clear friction points. The time advantage makes CRO the higher short-term ROI for most businesses.
-
-**Is CRO only for big websites with lots of traffic?**
-No. Low-traffic sites can do CRO using qualitative methods (user testing, exit surveys, heatmaps) without needing A/B tests. The tactics differ, but the principle — understand why people aren't converting and fix it — applies regardless of traffic volume.

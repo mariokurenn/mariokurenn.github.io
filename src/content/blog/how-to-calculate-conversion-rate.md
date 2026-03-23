@@ -10,6 +10,33 @@ image: "/images/blog/how-to-calculate-conversion-rate.webp"
 imageHero: "/images/blog/how-to-calculate-conversion-rate.svg"
 imageAlt: "Conversion rate formula diagram showing conversions divided by total visitors multiplied by 100"
 draft: false
+faqs:
+  - question: "What is the conversion rate formula?"
+    answer: "Conversion Rate (%) = (Number of Conversions ÷ Total Visitors) × 100. Use sessions as your denominator for most web analytics scenarios, not unique visitors."
+  - question: "What is a good conversion rate?"
+    answer: "For e-commerce, 1.5–3.0% is average and 5%+ is top quartile. For B2B lead generation, 1.0–3.5% is average. Always compare to your own historical baseline before benchmarking against industry averages."
+  - question: "Should I use sessions or unique visitors to calculate CVR?"
+    answer: "Use sessions for most CRO purposes. Sessions accurately capture repeat behavior. Use unique visitors only when analysing long-term retention — for example, what percentage of users converted at least once in 30 days."
+  - question: "How do I calculate conversion rate in Google Analytics 4?"
+    answer: "Mark your target action as a conversion event in GA4 (Admin → Events → Toggle 'Mark as conversion'), then view it in Reports → Engagement → Conversions, segmented by session source/medium for accurate channel data."
+  - question: "Why does my conversion rate fluctuate week to week?"
+    answer: "Small sample sizes amplify noise. Under 500 sessions/week, weekly CVR swings of 50%+ are normal and statistically meaningless. Use rolling 30-day averages instead of weekly snapshots."
+  - question: "What is the difference between micro and macro conversions?"
+    answer: "A macro conversion is your primary goal — a purchase, trial signup, or demo request. Micro conversions are actions indicating progress toward that goal — add to cart, email signup, video play, or return visit. Track both to diagnose where funnel drop-off occurs."
+howTo:
+  name: "How to Calculate Conversion Rate"
+  description: "The step-by-step process for calculating your website's conversion rate correctly using the right data."
+  steps:
+    - name: "Define your conversion event"
+      text: "Decide what counts as a conversion — a purchase, form submission, trial signup, or phone call. One defined action = one CVR. Don't mix multiple goals into a single metric."
+    - name: "Pull your conversion count"
+      text: "Get the number of times that event fired during your chosen time period from GA4, your CRM, or your e-commerce platform."
+    - name: "Pull your session count"
+      text: "Use sessions (not unique visitors) from the same time period and same traffic source as your conversion data. For landing page CVR, use only that page's sessions."
+    - name: "Apply the formula"
+      text: "Divide conversions by sessions, then multiply by 100. Example: 250 conversions ÷ 10,000 sessions × 100 = 2.5% CVR."
+    - name: "Segment immediately"
+      text: "Never stop at blended site-wide CVR. Segment by traffic source, device type, and landing page to find where real opportunities and problems exist."
 ---
 
 Most marketers know their traffic numbers. Very few actually know their conversion rate — and the ones who do are often calculating it wrong.
@@ -178,23 +205,3 @@ A CRO audit goes deeper than the formula. I'll analyze your funnel, identify the
 [Get a Free CRO Audit →](/contact/)
 
 ---
-
-## How to Calculate Conversion Rate: FAQ
-
-**What is the conversion rate formula?**
-Conversion Rate (%) = (Number of Conversions ÷ Total Visitors) × 100. Use sessions as the denominator for most web analytics scenarios.
-
-**What counts as a conversion?**
-Any action that aligns with your business goal: a purchase, a trial signup, a form submission, a phone call, a content download. Define it before you measure it.
-
-**Is a 2% conversion rate good?**
-It depends on your industry and channel. For e-commerce, 2% is roughly average. For B2B lead gen, 2% is on the low end for a well-targeted landing page. Always compare to your own historical baseline first, then to industry benchmarks.
-
-**How do I calculate conversion rate in Google Analytics 4?**
-In GA4, mark your target action as a conversion event (Admin → Events → Toggle "Mark as conversion"). Then view it in Reports → Engagement → Conversions, segmented by session source/medium.
-
-**Why does my conversion rate fluctuate week to week?**
-Small sample sizes magnify noise. CVR stabilizes with volume. Under 500 sessions/week, weekly CVR swings of 50%+ are normal — and meaningless. Look at rolling 30-day averages instead.
-
-**Should I calculate CVR per session or per user?**
-Per session for most CRO purposes. Per user when you're analyzing retention behavior (e.g., "what percentage of users converted at least once in 30 days?").
