@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="abt-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f2419"/>
+      <stop offset="100%" style="stop-color:#1a3d2b"/>
+    </linearGradient>
+    <linearGradient id="abt-line" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#dc2626"/>
+      <stop offset="45%" style="stop-color:#f97316"/>
+      <stop offset="100%" style="stop-color:#4ade80"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#abt-bg)"/>
+
+  <!-- Grid -->
+  <g stroke="#ffffff" stroke-opacity="0.04" stroke-width="1">
+    <line x1="0" y1="157" x2="1200" y2="157"/>
+    <line x1="0" y1="314" x2="1200" y2="314"/>
+    <line x1="0" y1="471" x2="1200" y2="471"/>
+    <line x1="200" y1="0" x2="200" y2="630"/>
+    <line x1="400" y1="0" x2="400" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="800" y1="0" x2="800" y2="630"/>
+    <line x1="1000" y1="0" x2="1000" y2="630"/>
+  </g>
+
+  <!-- Timeline base -->
+  <rect x="640" y="308" width="530" height="4" rx="2" fill="url(#abt-line)" opacity="0.8"/>
+
+  <!-- Timeline milestone ticks -->
+  <line x1="640" y1="295" x2="640" y2="325" stroke="#dc2626" stroke-width="2" opacity="0.7"/>
+  <line x1="775" y1="295" x2="775" y2="325" stroke="#f97316" stroke-width="2" opacity="0.7"/>
+  <line x1="910" y1="295" x2="910" y2="325" stroke="#facc15" stroke-width="2" opacity="0.7"/>
+  <line x1="1170" y1="295" x2="1170" y2="325" stroke="#4ade80" stroke-width="2.5" opacity="0.9"/>
+
+  <!-- Day labels -->
+  <text x="640" y="345" font-family="system-ui,sans-serif" font-size="12" fill="white" opacity="0.5" text-anchor="middle">Day 1</text>
+  <text x="775" y="345" font-family="system-ui,sans-serif" font-size="12" fill="#f97316" opacity="0.8" text-anchor="middle">Day 4</text>
+  <text x="910" y="345" font-family="system-ui,sans-serif" font-size="12" fill="#facc15" opacity="0.8" text-anchor="middle">Day 7</text>
+  <text x="1170" y="345" font-family="system-ui,sans-serif" font-size="12" fill="#4ade80" opacity="0.9" text-anchor="middle">Day 14+</text>
+
+  <!-- Variant A graph - top (unstable early, stabilizes) -->
+  <text x="640" y="105" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#4ade80" opacity="0.7" text-anchor="start">VARIANT A</text>
+  <polyline points="640,200 680,155 720,210 760,140 800,180 840,195 880,190 920,192 960,191 1000,193 1040,192 1080,192 1120,193 1170,192"
+    stroke="#4ade80" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+  <!-- dots -->
+  <circle cx="640" cy="200" r="4" fill="#4ade80" opacity="0.7"/>
+  <circle cx="760" cy="140" r="4" fill="#f97316" opacity="0.8"/>
+  <circle cx="1170" cy="192" r="6" fill="#4ade80"/>
+
+  <!-- Variant B graph - bottom (volatile) -->
+  <text x="640" y="255" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#86efac" opacity="0.6" text-anchor="start">VARIANT B</text>
+  <polyline points="640,270 680,290 720,248 760,295 800,260 840,275 880,268 920,272 960,270 1000,271 1040,270 1080,271 1120,270 1170,270"
+    stroke="#86efac" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.7" stroke-dasharray="6,3"/>
+  <circle cx="1170" cy="270" r="5" fill="#86efac" opacity="0.8"/>
+
+  <!-- "Too early" warning at Day 4 -->
+  <rect x="730" y="115" width="120" height="48" rx="8" fill="#dc2626" opacity="0.85"/>
+  <text x="790" y="135" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="white" text-anchor="middle">⚠ TOO EARLY</text>
+  <text x="790" y="153" font-family="system-ui,sans-serif" font-size="10" fill="white" text-anchor="middle" opacity="0.9">94% confidence</text>
+  <line x1="775" y1="163" x2="775" y2="295" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+
+  <!-- "Valid result" at Day 14+ -->
+  <rect x="1080" y="115" width="108" height="60" rx="8" fill="#1A7F3C" stroke="#4ade80" stroke-width="1.5" stroke-opacity="0.7"/>
+  <text x="1134" y="138" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#4ade80" text-anchor="middle">✓ VALID</text>
+  <text x="1134" y="155" font-family="system-ui,sans-serif" font-size="10" fill="white" text-anchor="middle" opacity="0.9">Sample reached</text>
+  <text x="1134" y="168" font-family="system-ui,sans-serif" font-size="10" fill="white" text-anchor="middle" opacity="0.9">2 full cycles</text>
+  <line x1="1134" y1="175" x2="1170" y2="295" stroke="#4ade80" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+
+  <!-- Stability zone shading -->
+  <rect x="900" y="100" width="270" height="200" rx="6" fill="#1A7F3C" opacity="0.08"/>
+  <rect x="900" y="100" width="270" height="200" rx="6" fill="none" stroke="#4ade80" stroke-width="1" stroke-opacity="0.15" stroke-dasharray="4,4"/>
+  <text x="1035" y="390" font-family="system-ui,sans-serif" font-size="11" fill="#4ade80" text-anchor="middle" opacity="0.6">STABLE ZONE</text>
+
+  <!-- Bottom text -->
+  <text x="80" y="510" font-family="system-ui,sans-serif" font-size="13" font-weight="600" fill="#4ade80" letter-spacing="3" text-anchor="start" opacity="0.9">GROW-CONVERSIONS.COM</text>
+  <text x="80" y="555" font-family="system-ui,sans-serif" font-size="34" font-weight="900" fill="white" text-anchor="start">How Long Should You</text>
+  <text x="80" y="600" font-family="system-ui,sans-serif" font-size="34" font-weight="900" fill="white" text-anchor="start">Run an A/B Test?</text>
+</svg>

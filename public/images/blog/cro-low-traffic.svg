@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="low-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f2419"/>
+      <stop offset="100%" style="stop-color:#1a3d2b"/>
+    </linearGradient>
+    <linearGradient id="low-funnel" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4ade80"/>
+      <stop offset="100%" style="stop-color:#1A7F3C"/>
+    </linearGradient>
+    <linearGradient id="low-ghost" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#374151"/>
+      <stop offset="100%" style="stop-color:#1f2937"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#low-bg)"/>
+
+  <!-- Grid -->
+  <g stroke="#ffffff" stroke-opacity="0.04" stroke-width="1">
+    <line x1="0" y1="157" x2="1200" y2="157"/>
+    <line x1="0" y1="314" x2="1200" y2="314"/>
+    <line x1="0" y1="471" x2="1200" y2="471"/>
+    <line x1="200" y1="0" x2="200" y2="630"/>
+    <line x1="400" y1="0" x2="400" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="800" y1="0" x2="800" y2="630"/>
+    <line x1="1000" y1="0" x2="1000" y2="630"/>
+  </g>
+
+  <!-- ===== RIGHT: EFFICIENT small funnel (hero) ===== -->
+  <text x="890" y="78" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#4ade80" letter-spacing="2" text-anchor="middle" opacity="0.9">✓ LOW TRAFFIC, ZERO LEAKS</text>
+
+  <!-- Small trickle of traffic at top — 3 small drops -->
+  <ellipse cx="850" cy="100" rx="8" ry="10" fill="#4ade80" opacity="0.7"/>
+  <ellipse cx="890" cy="92" rx="6" ry="8" fill="#4ade80" opacity="0.5"/>
+  <ellipse cx="930" cy="102" rx="7" ry="9" fill="#4ade80" opacity="0.6"/>
+  <text x="890" y="78" font-family="system-ui,sans-serif" font-size="0" fill="none"/>
+
+  <!-- Arrow showing input flow -->
+  <line x1="890" y1="112" x2="890" y2="135" stroke="#4ade80" stroke-width="2" stroke-opacity="0.5" marker-end="url(#low-arrow)"/>
+
+  <!-- Funnel shape - solid, no leaks -->
+  <polygon points="790,140 990,140 940,240 840,240" fill="url(#low-funnel)" opacity="0.9"/>
+  <text x="890" y="198" font-family="system-ui,sans-serif" font-size="13" font-weight="600" fill="white" opacity="0.9" text-anchor="middle">800 visitors/mo</text>
+
+  <!-- Middle -->
+  <polygon points="840,255 940,255 915,330 865,330" fill="#22c55e" opacity="0.9"/>
+
+  <!-- Bottom tube — sealed, no holes -->
+  <rect x="873" y="343" width="34" height="55" rx="4" fill="#16a34a"/>
+  <!-- sealed indicator line -->
+  <line x1="865" y1="398" x2="915" y2="398" stroke="#4ade80" stroke-width="2.5" stroke-opacity="0.8"/>
+
+  <!-- Output: conversions coming out -->
+  <text x="890" y="425" font-family="system-ui,sans-serif" font-size="11" fill="#86efac" text-anchor="middle" opacity="0.8">OUTPUT</text>
+
+  <!-- Green coins/output -->
+  <circle cx="860" cy="440" r="12" fill="#1A7F3C" stroke="#4ade80" stroke-width="1.5"/>
+  <text x="860" y="445" font-family="system-ui,sans-serif" font-size="11" fill="#4ade80" text-anchor="middle" font-weight="700">€</text>
+  <circle cx="890" cy="445" r="14" fill="#1A7F3C" stroke="#4ade80" stroke-width="2"/>
+  <text x="890" y="451" font-family="system-ui,sans-serif" font-size="13" fill="#4ade80" text-anchor="middle" font-weight="700">€</text>
+  <circle cx="922" cy="440" r="12" fill="#1A7F3C" stroke="#4ade80" stroke-width="1.5"/>
+  <text x="922" y="445" font-family="system-ui,sans-serif" font-size="11" fill="#4ade80" text-anchor="middle" font-weight="700">€</text>
+
+  <!-- CVR badge -->
+  <rect x="835" y="466" width="110" height="44" rx="8" fill="#1A7F3C" stroke="#4ade80" stroke-width="1.5" stroke-opacity="0.8"/>
+  <text x="890" y="483" font-family="system-ui,sans-serif" font-size="10" fill="#86efac" text-anchor="middle">CVR</text>
+  <text x="890" y="502" font-family="system-ui,sans-serif" font-size="20" font-weight="900" fill="white" text-anchor="middle">2.8%</text>
+
+  <!-- ===== LEFT: Ghost/leaking big funnel ===== -->
+  <text x="625" y="78" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#f87171" letter-spacing="2" text-anchor="middle" opacity="0.55">✗ HIGH TRAFFIC, LEAKING</text>
+
+  <!-- Large flow at top (many drops) -->
+  <ellipse cx="560" cy="95" rx="9" ry="11" fill="#6b7280" opacity="0.35"/>
+  <ellipse cx="585" cy="88" rx="8" ry="10" fill="#6b7280" opacity="0.3"/>
+  <ellipse cx="610" cy="96" rx="9" ry="11" fill="#6b7280" opacity="0.35"/>
+  <ellipse cx="635" cy="90" rx="8" ry="10" fill="#6b7280" opacity="0.3"/>
+  <ellipse cx="660" cy="95" rx="9" ry="11" fill="#6b7280" opacity="0.3"/>
+  <ellipse cx="685" cy="88" rx="7" ry="9" fill="#6b7280" opacity="0.25"/>
+
+  <!-- Big funnel (ghost, muted) -->
+  <polygon points="510,140 740,140 700,240 550,240" fill="url(#low-ghost)" opacity="0.45"/>
+  <text x="625" y="198" font-family="system-ui,sans-serif" font-size="13" font-weight="600" fill="white" opacity="0.35" text-anchor="middle">20,000 visitors/mo</text>
+
+  <!-- Middle (leaking) -->
+  <polygon points="550,255 700,255 680,330 570,330" fill="#374151" opacity="0.4"/>
+
+  <!-- Leaking holes on sides -->
+  <!-- Left hole -->
+  <path d="M 558 280 Q 545 295 555 310" stroke="#f87171" stroke-width="2" fill="none" opacity="0.5"/>
+  <ellipse cx="540" cy="295" rx="6" ry="8" fill="#6b7280" opacity="0.3"/>
+  <!-- Right hole -->
+  <path d="M 682 280 Q 695 295 685 310" stroke="#f87171" stroke-width="2" fill="none" opacity="0.5"/>
+  <ellipse cx="698" cy="295" rx="6" ry="8" fill="#6b7280" opacity="0.3"/>
+
+  <!-- Bottom tube with cracks -->
+  <rect x="605" y="343" width="40" height="55" rx="4" fill="#374151" opacity="0.5"/>
+  <!-- Crack lines -->
+  <line x1="612" y1="355" x2="622" y2="370" stroke="#f87171" stroke-width="1.5" opacity="0.5"/>
+  <line x1="630" y1="360" x2="638" y2="378" stroke="#f87171" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- Tiny output -->
+  <circle cx="625" cy="418" r="8" fill="#374151" opacity="0.5" stroke="#6b7280" stroke-width="1"/>
+  <text x="625" y="423" font-family="system-ui,sans-serif" font-size="8" fill="#6b7280" text-anchor="middle" font-weight="700">€</text>
+
+  <!-- Ghost CVR badge -->
+  <rect x="570" y="435" width="110" height="44" rx="8" fill="#374151" opacity="0.5" stroke="#6b7280" stroke-width="1"/>
+  <text x="625" y="452" font-family="system-ui,sans-serif" font-size="10" fill="#9ca3af" text-anchor="middle">CVR</text>
+  <text x="625" y="471" font-family="system-ui,sans-serif" font-size="20" font-weight="900" fill="#6b7280" text-anchor="middle">0.4%</text>
+
+  <!-- VS badge -->
+  <circle cx="790" cy="300" r="28" fill="#0f2419" stroke="#4ade80" stroke-width="2" stroke-opacity="0.5"/>
+  <text x="790" y="308" font-family="system-ui,sans-serif" font-size="18" font-weight="900" fill="white" text-anchor="middle">VS</text>
+
+  <!-- Bottom text -->
+  <text x="80" y="510" font-family="system-ui,sans-serif" font-size="13" font-weight="600" fill="#4ade80" letter-spacing="3" text-anchor="start" opacity="0.9">GROW-CONVERSIONS.COM</text>
+  <text x="80" y="555" font-family="system-ui,sans-serif" font-size="34" font-weight="900" fill="white" text-anchor="start">CRO With Low Traffic</text>
+  <text x="80" y="600" font-family="system-ui,sans-serif" font-size="34" font-weight="900" fill="white" text-anchor="start">Under 1,000 Visitors/Month</text>
+</svg>

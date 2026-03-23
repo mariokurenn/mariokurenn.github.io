@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="cvr-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f2419"/>
+      <stop offset="100%" style="stop-color:#1a3d2b"/>
+    </linearGradient>
+    <linearGradient id="cvr-funnel1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4ade80"/>
+      <stop offset="100%" style="stop-color:#1A7F3C"/>
+    </linearGradient>
+    <linearGradient id="cvr-funnel2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e"/>
+      <stop offset="100%" style="stop-color:#166534"/>
+    </linearGradient>
+    <linearGradient id="cvr-funnel3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#16a34a"/>
+      <stop offset="100%" style="stop-color:#14532d"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#cvr-bg)"/>
+
+  <!-- Grid -->
+  <g stroke="#ffffff" stroke-opacity="0.04" stroke-width="1">
+    <line x1="0" y1="157" x2="1200" y2="157"/>
+    <line x1="0" y1="314" x2="1200" y2="314"/>
+    <line x1="0" y1="471" x2="1200" y2="471"/>
+    <line x1="200" y1="0" x2="200" y2="630"/>
+    <line x1="400" y1="0" x2="400" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="800" y1="0" x2="800" y2="630"/>
+    <line x1="1000" y1="0" x2="1000" y2="630"/>
+  </g>
+
+  <!-- Funnel - right side -->
+  <!-- Layer 1: All Visitors -->
+  <polygon points="680,80 1100,80 1010,190 770,190" fill="url(#cvr-funnel1)" opacity="0.85"/>
+  <text x="890" y="145" font-family="system-ui,sans-serif" font-size="16" font-weight="700" fill="white" opacity="0.9" text-anchor="middle">10,000 visitors</text>
+
+  <!-- Person dots in layer 1 -->
+  <circle cx="730" cy="128" r="5" fill="white" opacity="0.25"/>
+  <circle cx="752" cy="120" r="5" fill="white" opacity="0.2"/>
+  <circle cx="774" cy="130" r="5" fill="white" opacity="0.25"/>
+  <circle cx="796" cy="122" r="5" fill="white" opacity="0.2"/>
+  <circle cx="818" cy="128" r="5" fill="white" opacity="0.15"/>
+  <circle cx="960" cy="128" r="5" fill="white" opacity="0.25"/>
+  <circle cx="982" cy="120" r="5" fill="white" opacity="0.2"/>
+  <circle cx="1004" cy="130" r="5" fill="white" opacity="0.25"/>
+
+  <!-- Layer 2: Engaged -->
+  <polygon points="770,205 1010,205 950,310 830,310" fill="url(#cvr-funnel2)" opacity="0.9"/>
+  <text x="890" y="265" font-family="system-ui,sans-serif" font-size="15" font-weight="600" fill="white" opacity="0.9" text-anchor="middle">3,200 engaged</text>
+
+  <!-- Layer 3: Intent -->
+  <polygon points="830,325 950,325 920,410 860,410" fill="url(#cvr-funnel3)" opacity="0.95"/>
+  <text x="890" y="375" font-family="system-ui,sans-serif" font-size="14" font-weight="600" fill="white" opacity="0.9" text-anchor="middle">800 intent</text>
+
+  <!-- Output box -->
+  <rect x="848" y="428" width="84" height="72" rx="10" fill="#1A7F3C" stroke="#4ade80" stroke-width="1.5" stroke-opacity="0.6"/>
+  <text x="890" y="453" font-family="system-ui,sans-serif" font-size="11" fill="#86efac" text-anchor="middle" letter-spacing="1">CVR</text>
+  <text x="890" y="486" font-family="system-ui,sans-serif" font-size="28" font-weight="900" fill="white" text-anchor="middle">2.5%</text>
+
+  <!-- Formula card on right -->
+  <rect x="960" y="430" width="200" height="68" rx="10" fill="#1A7F3C" opacity="0.2" stroke="#4ade80" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="1060" y="457" font-family="system-ui,sans-serif" font-size="11" fill="#4ade80" text-anchor="middle" opacity="0.8">FORMULA</text>
+  <text x="1060" y="478" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="white" text-anchor="middle">250 ÷ 10,000 × 100</text>
+  <text x="1060" y="493" font-family="system-ui,sans-serif" font-size="13" fill="#4ade80" text-anchor="middle">= 2.5%</text>
+
+  <!-- Stat pills left side -->
+  <rect x="60" y="110" width="145" height="52" rx="8" fill="#1A7F3C" opacity="0.25" stroke="#4ade80" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="132" y="132" font-family="system-ui,sans-serif" font-size="11" fill="#86efac" text-anchor="middle">Sessions</text>
+  <text x="132" y="152" font-family="system-ui,sans-serif" font-size="20" font-weight="800" fill="white" text-anchor="middle">10,000</text>
+
+  <rect x="60" y="178" width="145" height="52" rx="8" fill="#1A7F3C" opacity="0.25" stroke="#4ade80" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="132" y="200" font-family="system-ui,sans-serif" font-size="11" fill="#86efac" text-anchor="middle">Conversions</text>
+  <text x="132" y="220" font-family="system-ui,sans-serif" font-size="20" font-weight="800" fill="white" text-anchor="middle">250</text>
+
+  <rect x="60" y="246" width="145" height="52" rx="8" fill="#1A7F3C" opacity="0.4" stroke="#4ade80" stroke-width="1.5" stroke-opacity="0.6"/>
+  <text x="132" y="268" font-family="system-ui,sans-serif" font-size="11" fill="#86efac" text-anchor="middle">CVR</text>
+  <text x="132" y="290" font-family="system-ui,sans-serif" font-size="26" font-weight="900" fill="#4ade80" text-anchor="middle">2.5%</text>
+
+  <!-- Bottom text -->
+  <text x="80" y="510" font-family="system-ui,sans-serif" font-size="13" font-weight="600" fill="#4ade80" letter-spacing="3" text-anchor="start" opacity="0.9">GROW-CONVERSIONS.COM</text>
+  <text x="80" y="555" font-family="system-ui,sans-serif" font-size="34" font-weight="900" fill="white" text-anchor="start">How to Calculate</text>
+  <text x="80" y="600" font-family="system-ui,sans-serif" font-size="34" font-weight="900" fill="white" text-anchor="start">Conversion Rate</text>
+</svg>

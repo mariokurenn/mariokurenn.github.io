@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="miss-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f2419"/>
+      <stop offset="100%" style="stop-color:#1a3d2b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#miss-bg)"/>
+
+  <!-- Grid -->
+  <g stroke="#ffffff" stroke-opacity="0.04" stroke-width="1">
+    <line x1="0" y1="157" x2="1200" y2="157"/>
+    <line x1="0" y1="314" x2="1200" y2="314"/>
+    <line x1="0" y1="471" x2="1200" y2="471"/>
+    <line x1="200" y1="0" x2="200" y2="630"/>
+    <line x1="400" y1="0" x2="400" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="800" y1="0" x2="800" y2="630"/>
+    <line x1="1000" y1="0" x2="1000" y2="630"/>
+  </g>
+
+  <!-- Divider: wrong vs right -->
+  <line x1="900" y1="70" x2="900" y2="450" stroke="white" stroke-opacity="0.08" stroke-width="1.5" stroke-dasharray="6,4"/>
+
+  <!-- ===== LEFT: MISTAKES (red zone) ===== -->
+  <text x="625" y="85" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#f87171" letter-spacing="2" text-anchor="middle" opacity="0.8">✗ COMMON MISTAKES</text>
+
+  <!-- Mistake 1 -->
+  <rect x="480" y="100" width="280" height="62" rx="8" fill="#dc2626" opacity="0.15" stroke="#f87171" stroke-width="1" stroke-opacity="0.35"/>
+  <circle cx="510" cy="131" r="14" fill="#dc2626" opacity="0.3"/>
+  <text x="510" y="136" font-family="system-ui,sans-serif" font-size="15" fill="#f87171" text-anchor="middle" font-weight="800">✗</text>
+  <text x="540" y="124" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="white" text-anchor="start">Stopping too early</text>
+  <text x="540" y="143" font-family="system-ui,sans-serif" font-size="11" fill="white" opacity="0.5" text-anchor="start">Peeking at 94% confidence</text>
+
+  <!-- Mistake 2 -->
+  <rect x="480" y="177" width="280" height="62" rx="8" fill="#dc2626" opacity="0.15" stroke="#f87171" stroke-width="1" stroke-opacity="0.35"/>
+  <circle cx="510" cy="208" r="14" fill="#dc2626" opacity="0.3"/>
+  <text x="510" y="213" font-family="system-ui,sans-serif" font-size="15" fill="#f87171" text-anchor="middle" font-weight="800">✗</text>
+  <text x="540" y="201" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="white" text-anchor="start">Too many variables</text>
+  <text x="540" y="220" font-family="system-ui,sans-serif" font-size="11" fill="white" opacity="0.5" text-anchor="start">Testing 4 elements at once</text>
+
+  <!-- Mistake 3 -->
+  <rect x="480" y="254" width="280" height="62" rx="8" fill="#dc2626" opacity="0.15" stroke="#f87171" stroke-width="1" stroke-opacity="0.35"/>
+  <circle cx="510" cy="285" r="14" fill="#dc2626" opacity="0.3"/>
+  <text x="510" y="290" font-family="system-ui,sans-serif" font-size="15" fill="#f87171" text-anchor="middle" font-weight="800">✗</text>
+  <text x="540" y="278" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="white" text-anchor="start">Wrong metric</text>
+  <text x="540" y="297" font-family="system-ui,sans-serif" font-size="11" fill="white" opacity="0.5" text-anchor="start">Measuring clicks, not revenue</text>
+
+  <!-- Mistake 4 -->
+  <rect x="480" y="331" width="280" height="62" rx="8" fill="#dc2626" opacity="0.15" stroke="#f87171" stroke-width="1" stroke-opacity="0.35"/>
+  <circle cx="510" cy="362" r="14" fill="#dc2626" opacity="0.3"/>
+  <text x="510" y="367" font-family="system-ui,sans-serif" font-size="15" fill="#f87171" text-anchor="middle" font-weight="800">✗</text>
+  <text x="540" y="355" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="white" text-anchor="start">Sample ratio mismatch</text>
+  <text x="540" y="374" font-family="system-ui,sans-serif" font-size="11" fill="white" opacity="0.5" text-anchor="start">53/47 split = biased data</text>
+
+  <!-- ===== RIGHT: CORRECT approach (green zone) ===== -->
+  <text x="1060" y="85" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#4ade80" letter-spacing="2" text-anchor="middle" opacity="0.9">✓ VALID TEST</text>
+
+  <!-- Valid test checklist -->
+  <rect x="930" y="100" width="240" height="62" rx="8" fill="#1A7F3C" opacity="0.3" stroke="#4ade80" stroke-width="1.5" stroke-opacity="0.5"/>
+  <circle cx="958" cy="131" r="14" fill="#1A7F3C" opacity="0.6"/>
+  <text x="958" y="136" font-family="system-ui,sans-serif" font-size="14" fill="#4ade80" text-anchor="middle" font-weight="800">✓</text>
+  <text x="984" y="124" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="white" text-anchor="start">Hypothesis defined</text>
+  <text x="984" y="143" font-family="system-ui,sans-serif" font-size="11" fill="#86efac" opacity="0.7" text-anchor="start">Before launch</text>
+
+  <rect x="930" y="177" width="240" height="62" rx="8" fill="#1A7F3C" opacity="0.3" stroke="#4ade80" stroke-width="1.5" stroke-opacity="0.5"/>
+  <circle cx="958" cy="208" r="14" fill="#1A7F3C" opacity="0.6"/>
+  <text x="958" y="213" font-family="system-ui,sans-serif" font-size="14" fill="#4ade80" text-anchor="middle" font-weight="800">✓</text>
+  <text x="984" y="201" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="white" text-anchor="start">Sample size calculated</text>
+  <text x="984" y="220" font-family="system-ui,sans-serif" font-size="11" fill="#86efac" opacity="0.7" text-anchor="start">7,400 per variant</text>
+
+  <rect x="930" y="254" width="240" height="62" rx="8" fill="#1A7F3C" opacity="0.3" stroke="#4ade80" stroke-width="1.5" stroke-opacity="0.5"/>
+  <circle cx="958" cy="285" r="14" fill="#1A7F3C" opacity="0.6"/>
+  <text x="958" y="290" font-family="system-ui,sans-serif" font-size="14" fill="#4ade80" text-anchor="middle" font-weight="800">✓</text>
+  <text x="984" y="278" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="white" text-anchor="start">2 full weeks minimum</text>
+  <text x="984" y="297" font-family="system-ui,sans-serif" font-size="11" fill="#86efac" opacity="0.7" text-anchor="start">No early stopping</text>
+
+  <rect x="930" y="331" width="240" height="62" rx="8" fill="#1A7F3C" opacity="0.45" stroke="#4ade80" stroke-width="2" stroke-opacity="0.7"/>
+  <circle cx="958" cy="362" r="14" fill="#1A7F3C"/>
+  <text x="958" y="367" font-family="system-ui,sans-serif" font-size="14" fill="#4ade80" text-anchor="middle" font-weight="800">✓</text>
+  <text x="984" y="355" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="white" text-anchor="start">Business metric primary</text>
+  <text x="984" y="374" font-family="system-ui,sans-serif" font-size="11" fill="#4ade80" opacity="0.8" text-anchor="start">Revenue, not clicks</text>
+
+  <!-- Counter badges -->
+  <rect x="480" y="408" width="140" height="36" rx="18" fill="#dc2626" opacity="0.25" stroke="#f87171" stroke-width="1" stroke-opacity="0.5"/>
+  <text x="550" y="430" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#f87171" text-anchor="middle">7 mistakes</text>
+
+  <rect x="930" y="408" width="140" height="36" rx="18" fill="#1A7F3C" stroke="#4ade80" stroke-width="1.5" stroke-opacity="0.7"/>
+  <text x="1000" y="430" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#4ade80" text-anchor="middle">5 rules</text>
+
+  <!-- Bottom text -->
+  <text x="80" y="510" font-family="system-ui,sans-serif" font-size="13" font-weight="600" fill="#4ade80" letter-spacing="3" text-anchor="start" opacity="0.9">GROW-CONVERSIONS.COM</text>
+  <text x="80" y="555" font-family="system-ui,sans-serif" font-size="34" font-weight="900" fill="white" text-anchor="start">A/B Testing Mistakes</text>
+  <text x="80" y="600" font-family="system-ui,sans-serif" font-size="34" font-weight="900" fill="white" text-anchor="start">That Invalidate Results</text>
+</svg>
