@@ -12,7 +12,7 @@ interface Props {
 const {
   title,
   description,
-  ogImage = '/og-default.jpg',
+  ogImage = '/og-default.svg',
   ogType = 'website',
   canonicalURL,
   jsonLd,
@@ -41,8 +41,10 @@ const jsonLdArray = jsonLd
 <meta property="og:description" content={description} />
 <meta property="og:url" content={resolvedCanonical} />
 <meta property="og:image" content={resolvedOGImage} />
+<meta property="og:image:alt" content={title} />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
+<meta property="og:locale" content="en_US" />
 <meta property="og:site_name" content="grow-conversions.com" />
 
 <!-- Twitter Card -->

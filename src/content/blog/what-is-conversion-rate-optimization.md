@@ -54,6 +54,8 @@ If 1,000 people visit your landing page and 20 of them buy, your conversion rate
 
 CRO is the process of moving that number from 2% to 3%, 4%, or higher — without increasing your ad budget.
 
+*For a full breakdown of the formula, channel-specific examples, and common calculation mistakes, see [How to Calculate Conversion Rate](/blog/how-to-calculate-conversion-rate/).*
+
 ## Why CRO Matters More Than Traffic
 
 Here's the math that makes CRO so powerful:
@@ -99,7 +101,7 @@ You can't test everything at once. Prioritize using a scoring framework like PIE
 Run A/B tests or multivariate tests with statistical rigor:
 
 - Use a sample size calculator before starting
-- Run tests for at least 2 business cycles (usually 2 weeks minimum)
+- Run tests for at least 2 business cycles (usually 2 weeks minimum) — see [How Long Should You Run an A/B Test?](/blog/how-long-to-run-ab-test/) for the full calculation
 - Target 95%+ statistical significance before declaring a winner
 
 ### 5. Analysis & Learning
@@ -110,11 +112,11 @@ Whether a test wins or loses, extract learnings. A losing test isn't a failure �
 
 **Mistake 1: Testing without sufficient traffic**
 
-You need a minimum of ~1,000 conversions per variant to reach statistical significance. Running tests on low-traffic pages produces false positives.
+You need a minimum of ~1,000 conversions per variant to reach statistical significance. Running tests on low-traffic pages produces false positives. If you're under threshold, qualitative CRO methods are more effective — see [How to Do CRO With Low Traffic](/blog/cro-low-traffic/).
 
 **Mistake 2: Stopping tests too early**
 
-Peeking at results and stopping when you see a "winner" is called the peeking problem. It dramatically inflates false positive rates.
+Peeking at results and stopping when you see a "winner" is called the peeking problem. It dramatically inflates false positive rates. For the 7 structural mistakes that silently invalidate most tests, see [A/B Testing Mistakes That Invalidate Your Results](/blog/ab-testing-mistakes/).
 
 **Mistake 3: Ignoring qualitative data**
 
@@ -135,6 +137,8 @@ General benchmarks:
 
 The more important benchmark is your own baseline. If you're converting at 2% today, a 3% conversion rate next quarter is a 50% improvement — regardless of industry average.
 
+For a detailed breakdown with data across 14 industries, see [Conversion Rate Benchmarks by Industry](/blog/conversion-rate-benchmarks-by-industry/).
+
 ## Getting Started with CRO
 
 If you're just starting out:
@@ -144,5 +148,7 @@ If you're just starting out:
 3. **Start with your biggest lever** — Usually your homepage, main landing page, or checkout flow
 4. **Form one hypothesis and test it** — Don't try to optimize everything at once
 5. **Document everything** — Build a test log so your learnings compound over time
+
+Not sure whether to invest in CRO or SEO first? Read [CRO vs SEO: Which Should You Prioritize?](/blog/cro-vs-seo/) — the answer depends on where your business is right now.
 
 Want us to handle this for you? [Book a free CRO audit →](/contact/)

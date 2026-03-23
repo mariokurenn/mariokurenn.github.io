@@ -46,6 +46,8 @@ A landing page with a 2% conversion rate and a landing page with an 8% conversio
 
 Here are 15 landing page best practices based on data from hundreds of A/B tests.
 
+*Want context on what "good" conversion looks like for your industry before you start? See [Conversion Rate Benchmarks by Industry](/blog/conversion-rate-benchmarks-by-industry/).*
+
 ## 1. Match Your Headline to the Traffic Source
 
 The single biggest driver of landing page conversion is **message match** — the alignment between what your ad/email says and what your landing page headline says.
@@ -189,5 +191,7 @@ Set up:
 - Exit surveys to ask why people are leaving
 
 Landing pages compound. Each test teaches you something about your audience. After 20 tests, you'll have a page that's nearly impossible to compete with on conversion rate.
+
+Before you launch your first test, read [7 A/B Testing Mistakes That Invalidate Your Results](/blog/ab-testing-mistakes/) — most landing page tests fail due to avoidable setup errors. And for calculating how long each test should run, see [How Long Should You Run an A/B Test?](/blog/how-long-to-run-ab-test/).
 
 Need help getting from version 1 to a high-converting machine? [Book a free audit →](/contact/)

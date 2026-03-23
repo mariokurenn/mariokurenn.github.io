@@ -1,0 +1,60 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="grow-conversions.com — Data-Driven CRO">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f2419"/>
+      <stop offset="100%" style="stop-color:#1a3d2b"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4ade80"/>
+      <stop offset="100%" style="stop-color:#1A7F3C"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Subtle grid lines -->
+  <g stroke="#1e4a2e" stroke-width="1" opacity="0.4">
+    <line x1="0" y1="210" x2="1200" y2="210"/>
+    <line x1="0" y1="420" x2="1200" y2="420"/>
+    <line x1="300" y1="0" x2="300" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="900" y1="0" x2="900" y2="630"/>
+  </g>
+
+  <!-- Green accent bar top -->
+  <rect x="0" y="0" width="1200" height="6" fill="url(#accent)"/>
+
+  <!-- Logo / domain mark -->
+  <circle cx="100" cy="120" r="28" fill="none" stroke="#4ade80" stroke-width="2.5"/>
+  <text x="100" y="126" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" fill="#4ade80" text-anchor="middle">↗</text>
+
+  <!-- Domain name -->
+  <text x="148" y="128" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="600" fill="#4ade80" letter-spacing="0.5">grow-conversions.com</text>
+
+  <!-- Main headline -->
+  <text x="100" y="290" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif" font-size="62" font-weight="900" fill="#ffffff" letter-spacing="-2">Turn Traffic Into</text>
+  <text x="100" y="370" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif" font-size="62" font-weight="900" fill="#4ade80" letter-spacing="-2">Revenue.</text>
+
+  <!-- Subheadline -->
+  <text x="100" y="430" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif" font-size="24" font-weight="400" fill="#a3d9b5" letter-spacing="0">Data-driven Conversion Rate Optimization</text>
+
+  <!-- Stat cards on right side -->
+  <!-- Card 1 -->
+  <rect x="820" y="160" width="280" height="110" rx="12" fill="#0f2c1a" stroke="#2d5a3a" stroke-width="1.5"/>
+  <text x="860" y="205" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif" font-size="42" font-weight="900" fill="#4ade80">+127%</text>
+  <text x="860" y="240" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#6aab7a">avg CVR increase in 90 days</text>
+
+  <!-- Card 2 -->
+  <rect x="820" y="295" width="280" height="110" rx="12" fill="#0f2c1a" stroke="#2d5a3a" stroke-width="1.5"/>
+  <text x="860" y="340" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif" font-size="42" font-weight="900" fill="#4ade80">800+</text>
+  <text x="860" y="375" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#6aab7a">A/B tests across 50+ businesses</text>
+
+  <!-- Card 3 -->
+  <rect x="820" y="430" width="280" height="110" rx="12" fill="#0f2c1a" stroke="#2d5a3a" stroke-width="1.5"/>
+  <text x="860" y="475" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif" font-size="42" font-weight="900" fill="#4ade80">€0</text>
+  <text x="860" y="510" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#6aab7a">extra ad spend required</text>
+
+  <!-- Bottom accent line -->
+  <rect x="0" y="624" width="1200" height="6" fill="url(#accent)" opacity="0.5"/>
+</svg>

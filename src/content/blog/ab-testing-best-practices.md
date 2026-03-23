@@ -57,7 +57,7 @@ When you run a test, you're not just measuring a difference — you're measuring
 - **Multiple testing**: Running many tests simultaneously without correction
 - **Segment confusion**: A winner on desktop can be a loser on mobile
 
-The result? You "optimize" your site based on false data and wonder why you don't see real revenue impact.
+The result? You "optimize" your site based on false data and wonder why you don't see real revenue impact. For a complete breakdown of the specific mistakes that invalidate tests, see [7 A/B Testing Mistakes That Invalidate Your Results](/blog/ab-testing-mistakes/).
 
 ## Best Practice #1: Calculate Sample Size Before You Start
 
@@ -71,7 +71,7 @@ Inputs you need:
 
 A common mistake is setting MDE too low. If you're at 3% CVR and trying to detect a 5% relative improvement (0.15pp), you might need 50,000 visitors per variant. If you only get 5,000 visitors/month, that's a 20-month test. Not practical.
 
-Instead, target realistic effects: if your hypothesis is solid, aim for 15-20%+ relative improvement as your MDE.
+Instead, target realistic effects: if your hypothesis is solid, aim for 15-20%+ relative improvement as your MDE. If your traffic is genuinely too low for reliable testing, qualitative methods are more effective — see [How to Do CRO With Low Traffic](/blog/cro-low-traffic/).
 
 ## Best Practice #2: Never Peek at Results
 
@@ -81,7 +81,7 @@ Why? Because conversion rates fluctuate dramatically day-to-day. On day 3 of a t
 
 This is called the **peeking problem**, and it inflates your false positive rate from 5% to 26% if you check results 5 times during a test.
 
-**The fix**: Decide upfront when the test ends (minimum visitors reached), set a calendar reminder, and don't touch the dashboard until then.
+**The fix**: Decide upfront when the test ends (minimum visitors reached), set a calendar reminder, and don't touch the dashboard until then. For the exact formula to calculate how long your specific test should run, see [How Long Should You Run an A/B Test?](/blog/how-long-to-run-ab-test/).
 
 ## Best Practice #3: Run Tests for Full Business Cycles
 
@@ -153,5 +153,7 @@ If you're new to A/B testing, prioritize in this order:
 6. **Pricing page layout** — Especially plan comparison
 
 Start with pages that have the most traffic. A winner on your checkout page is worth 10x more than a winner on your About page.
+
+Also read: [A/B Testing Mistakes That Invalidate Your Results](/blog/ab-testing-mistakes/) — structural errors that silently break most tests before they even finish.
 
 Ready to run tests that actually move revenue? [Let's build your testing roadmap →](/contact/)
