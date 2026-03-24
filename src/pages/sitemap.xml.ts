@@ -19,8 +19,6 @@ const staticPages = [
   { url: '/blog/category/cro-strategy/', priority: '0.7', changefreq: 'weekly' },
   { url: '/blog/category/a-b-testing/', priority: '0.7', changefreq: 'weekly' },
   { url: '/blog/category/landing-pages/', priority: '0.7', changefreq: 'weekly' },
-  { url: '/blog/category/copywriting/', priority: '0.7', changefreq: 'weekly' },
-  { url: '/blog/category/analytics/', priority: '0.7', changefreq: 'weekly' },
 ];
 
 export const GET: APIRoute = async () => {
