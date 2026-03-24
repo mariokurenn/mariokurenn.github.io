@@ -1,5 +1,6 @@
 ---
 title: "What Is Conversion Rate Optimization? The Complete 2026 Guide"
+seoTitle: "What Is CRO? Complete Guide [2026]"
 description: "CRO is the process of increasing visitors who take action. Learn what conversion rate optimization is, how it works, and why it matters more than traffic."
 publishDate: "2026-01-15"
 updatedDate: "2026-03-01"

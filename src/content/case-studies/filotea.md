@@ -1,5 +1,6 @@
 ---
 title: "How Filotea Grew Conversion Rate by 157% in 90 Days"
+seoTitle: "Filotea: +157% Conversion Rate in 90 Days"
 description: "Full CRO programme for Croatian e-commerce food brand Filotea — from 1.4% to 3.6% CVR through funnel analysis, UX fixes, and A/B testing."
 client: "Filotea"
 clientUrl: "https://filotea.hr/"

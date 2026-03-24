@@ -43,6 +43,7 @@ const caseStudies = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
+    seoTitle: z.string().max(60).optional(),
     description: z.string().max(160),
     client: z.string(),
     clientUrl: z.string().url().optional(),

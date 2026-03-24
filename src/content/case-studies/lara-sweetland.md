@@ -1,5 +1,6 @@
 ---
 title: "Lara Sweetland: +143% Online Order Conversion Rate"
+seoTitle: "Lara Sweetland: +143% Order CVR [Case Study]"
 description: "E-commerce CRO for Croatian artisan bakery Lara Sweetland — from 1.9% to 4.6% CVR through product page optimisation and checkout simplification."
 client: "Lara Sweetland"
 clientUrl: "https://larasweetland.hr/"

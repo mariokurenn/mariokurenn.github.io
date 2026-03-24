@@ -1,5 +1,6 @@
 ---
 title: "Dominik Metličić: +119% Coaching Programme Conversion Rate"
+seoTitle: "Dominik Metličić: +119% CVR [Case Study]"
 description: "Personal brand CRO for Dominik Metličić — from 2.8% to 6.1% CVR through offer clarity, trust building, and a simplified booking funnel."
 client: "Dominik Metličić"
 clientUrl: "https://dominikmetlicic.com/"

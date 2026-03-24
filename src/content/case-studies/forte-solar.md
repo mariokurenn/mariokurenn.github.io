@@ -1,5 +1,6 @@
 ---
 title: "Forte Solar: +144% Lead Conversion Rate for Solar Energy Provider"
+seoTitle: "Forte Solar: +144% Lead CVR [Case Study]"
 description: "Landing page and lead gen CRO for Forte Solar — from 3.2% to 7.8% CVR by fixing the value proposition and reducing form friction on a high-intent audience."
 client: "Forte Solar"
 clientUrl: "https://fortesolar.hr/"

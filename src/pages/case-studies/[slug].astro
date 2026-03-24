@@ -17,7 +17,7 @@ interface Props {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
-const { title, description, client, clientUrl, industry, duration, services, results, testimonial, publishDate } = entry.data;
+const { title, seoTitle, description, client, clientUrl, industry, duration, services, results, testimonial, publishDate } = entry.data;
 
 const siteURL = 'https://grow-conversions.com';
 const pageURL = `${siteURL}/case-studies/${entry.slug}/`;
@@ -52,7 +52,7 @@ const breadcrumbSchema = {
 };
 ---
 
-<BaseLayout title={title} description={description} jsonLd={[caseStudySchema, breadcrumbSchema]}>
+<BaseLayout title={seoTitle ?? title} description={description} jsonLd={[caseStudySchema, breadcrumbSchema]}>
   <article class="case-page">
     <!-- Header -->
     <div class="case-header">

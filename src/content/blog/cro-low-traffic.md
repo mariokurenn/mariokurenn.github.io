@@ -1,5 +1,6 @@
 ---
 title: "How to Do CRO With Low Traffic (Under 1,000 Visitors/Month)"
+seoTitle: "CRO for Low Traffic Websites [2026]"
 description: "Low traffic doesn't mean you can't do CRO. Here's the exact framework for small sites: qualitative research, high-impact fixes, and when to start testing."
 publishDate: "2026-04-21"
 author: "Mario Kuren"

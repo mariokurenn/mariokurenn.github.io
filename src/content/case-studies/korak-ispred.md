@@ -1,5 +1,6 @@
 ---
 title: "Korak Ispred: +137% Conversion Rate for Online Education Platform"
+seoTitle: "Korak Ispred: +137% CVR [Case Study]"
 description: "CRO audit and implementation for Korak Ispred education platform — from 4.6% to 10.9% CVR by clarifying the offer and reducing checkout friction."
 client: "Korak Ispred"
 clientUrl: "https://korakispred.io/"

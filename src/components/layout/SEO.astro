@@ -22,7 +22,8 @@ const {
 const siteURL = 'https://grow-conversions.com';
 const resolvedCanonical = canonicalURL ?? new URL(Astro.url.pathname, siteURL).href;
 const resolvedOGImage = ogImage.startsWith('http') ? ogImage : new URL(ogImage, siteURL).href;
-const fullTitle = `${title} | grow-conversions.com`;
+const cleanTitle = title.replace(/ \| grow-conversions\.com$/, '');
+const fullTitle = `${cleanTitle} | grow-conversions.com`;
 
 const jsonLdArray = jsonLd
   ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd])

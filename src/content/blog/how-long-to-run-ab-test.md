@@ -1,5 +1,6 @@
 ---
 title: "How Long Should You Run an A/B Test? (The Real Answer)"
+seoTitle: "How Long to Run an A/B Test (Real Answer)"
 description: "Stop ending A/B tests too early. Learn how to calculate the right test duration, why 'it reached significance' isn't enough, and how to avoid false winners."
 publishDate: "2026-03-31"
 author: "Mario Kuren"
