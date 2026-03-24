@@ -156,6 +156,7 @@ const contactSchema = [
                 name="message"
                 placeholder="e.g. Our checkout abandonment rate is 78% and we don't know why. We're spending $20K/mo on ads but CVR hasn't moved in 6 months..."
                 rows="5"
+                style="overflow-y: hidden;"
               ></textarea>
             </div>
 
@@ -210,6 +211,17 @@ const contactSchema = [
     </div>
   </div>
 </BaseLayout>
+
+<script>
+  const textarea = document.getElementById('message') as HTMLTextAreaElement;
+  if (textarea) {
+    const autoResize = () => {
+      textarea.style.height = 'auto';
+      textarea.style.height = textarea.scrollHeight + 'px';
+    };
+    textarea.addEventListener('input', autoResize);
+  }
+</script>
 
 <style>
   .contact-header {
