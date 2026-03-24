@@ -38,9 +38,11 @@ faqs:
     answer: "UX design improves the usability and experience of a product based on user research and design principles. CRO is specifically focused on increasing measurable conversion outcomes — revenue, leads, sign-ups — through data analysis, hypothesis testing, and A/B testing. CRO uses UX improvements as a tool, but every change must be tied to a business metric and validated with data."
 ---
 
-Conversion rate optimization (CRO) is the systematic process of increasing the percentage of website visitors who take a desired action — whether that's making a purchase, filling out a form, or signing up for a newsletter.
+Most businesses invest heavily in getting people to their website — paid ads, SEO, social media — and almost nothing figuring out why those people don't convert once they arrive.
 
-In this guide, you'll learn exactly what CRO is, why it matters more than traffic growth, and how to build a CRO program that compounds results over time.
+The average website converts less than 3% of its visitors. For every 100 people you pay to attract, 97 leave without taking action. Your competitors face the same math. The ones outgrowing you have figured out how to change it.
+
+**Conversion rate optimization (CRO)** is the discipline that fixes it — the systematic process of increasing the percentage of visitors who take a desired action (purchase, form submission, sign-up) without increasing what you spend to get them there.
 
 ## What Is Conversion Rate Optimization?
 
@@ -68,9 +70,11 @@ Here's the math that makes CRO so powerful:
 
 Both approaches yield the same revenue — but doubling traffic costs significantly more than improving conversions. And once you improve your conversion rate, that improvement applies to every visitor forever.
 
+Econsultancy research found that companies with a structured approach to CRO are more than twice as likely to see a large increase in sales. Yet most businesses allocate less than 5% of their marketing budget to conversion — compared to 95% spent on acquiring the traffic in the first place.
+
 ## The CRO Process: How It Actually Works
 
-Effective CRO follows a repeatable, data-driven process:
+Effective CRO follows a repeatable, data-driven process. In 6+ years of CRO work across more than 100 businesses in e-commerce, SaaS, and B2B, I consistently find that most sites are leaving 30–50% of their revenue on the table — not from lack of traffic, but because the site was built to look good, not to convert.
 
 ### 1. Research & Discovery
 
@@ -138,6 +142,19 @@ General benchmarks:
 The more important benchmark is your own baseline. If you're converting at 2% today, a 3% conversion rate next quarter is a 50% improvement — regardless of industry average.
 
 For a detailed breakdown with data across 14 industries, see [Conversion Rate Benchmarks by Industry](/blog/conversion-rate-benchmarks-by-industry/).
+
+## Which CRO Method to Use at Your Traffic Level
+
+The right CRO approach depends entirely on your current traffic volume. Using A/B testing before you have enough sessions produces false results. Relying only on qualitative research when you have the traffic to test leaves real data on the table.
+
+| Traffic Level | Primary Method | Tools | Focus Area |
+|---|---|---|---|
+| Under 1,000 sessions/month | Qualitative only | Hotjar, customer interviews | Fix broken flows, improve trust signals |
+| 1,000–5,000 sessions/month | Qualitative + best practices | GA4, heatmaps, exit surveys | Value proposition, form optimization, social proof |
+| 5,000–20,000 sessions/month | Early A/B testing | VWO, Optimizely | Test highest-traffic pages first |
+| 20,000+ sessions/month | Full testing programme | VWO, Convert, Optimizely | Systematic test roadmap, audience segmentation |
+
+For a deep dive on the low-traffic approach, see [How to Do CRO With Low Traffic](/blog/cro-low-traffic/).
 
 ## Getting Started with CRO
 

@@ -37,6 +37,8 @@ Here's the framework for making the right call — based on where your business 
 
 ## CRO vs SEO: What's the Difference?
 
+**SEO gets more people to your site. CRO converts more of the people already there.** They're distinct disciplines with different levers, different timelines, and different ROI profiles.
+
 **SEO (Search Engine Optimization)** increases the number of people who find your site through organic search. More traffic → more potential customers.
 
 **CRO (Conversion Rate Optimization)** increases the percentage of visitors who take the action you want. Same traffic → more revenue.
@@ -55,6 +57,8 @@ Both grow revenue. Neither replaces the other. The question is which one to do *
 ---
 
 ## The Fundamental Principle: Fix the Bucket Before You Fill It
+
+**Driving traffic to a site that doesn't convert is like filling a bucket with a hole in it.** More water in doesn't help until you address the leak.
 
 Imagine you're filling a bucket with a hole in the bottom. You can pour water faster (more traffic via SEO) — but until you fix the hole (conversion rate), most of what you pour in escapes.
 
@@ -149,6 +153,8 @@ CRO vs SEO isn't a binary decision — it's a sequencing decision. Here's the fr
 ---
 
 ## How CRO and SEO Reinforce Each Other
+
+**CRO and SEO aren't competing investments — they amplify each other.** Better conversion UX improves the behavioral signals Google uses for ranking. Higher-intent organic traffic converts at rates paid traffic can't match. Run them in sequence, then in parallel, and both compound.
 
 The best-performing sites don't choose — they make CRO and SEO work together:
 

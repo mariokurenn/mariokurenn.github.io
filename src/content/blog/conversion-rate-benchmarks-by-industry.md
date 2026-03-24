@@ -31,7 +31,9 @@ It's one of the first questions every growth team asks — and one of the least 
 
 Context is everything. Industry benchmarks give you that context.
 
-Below is a compiled breakdown of conversion rate benchmarks across 14 industries, sourced from [Wordstream](https://www.wordstream.com/conversion-rate), [Unbounce's Conversion Benchmark Report](https://unbounce.com/conversion-rate-report/), and [Littledata's e-commerce dataset](https://www.littledata.io/benchmarks/shopify-conversion-rate). Use these numbers to understand where you stand — then use your own historical data to set realistic targets.
+I've audited conversion funnels across e-commerce, SaaS, and B2B services for 6+ years — and in almost every case, the team either had no benchmark to compare against, or was comparing themselves to the wrong one. Below is the benchmark data I use in every initial audit to orient where a site sits and where the real opportunity lies.
+
+The figures below are compiled from [Wordstream](https://www.wordstream.com/conversion-rate), [Unbounce's Conversion Benchmark Report](https://unbounce.com/conversion-rate-report/), and [Littledata's e-commerce dataset](https://www.littledata.io/benchmarks/shopify-conversion-rate). Use these numbers to understand where you stand — then use your own historical data to set realistic targets.
 
 ---
 

@@ -39,13 +39,15 @@ howTo:
       text: "Target 2,000+ sessions/month to your key conversion pages before introducing structured A/B testing. Until then, qualitative methods deliver better ROI."
 ---
 
-Every CRO article tells you to run A/B tests. Split your traffic. Wait for statistical significance. If you're not sure what CRO is yet, start with [What Is Conversion Rate Optimization](/blog/what-is-conversion-rate-optimization/) — then come back here.
+You have a website. You're getting traffic. But not enough to run A/B tests properly — and every guide you read assumes you're running 50,000 sessions a month.
 
-What they don't tell you: that advice is useless if you have under 1,000 visitors a month.
+That advice is useless when you have 800 visitors.
 
-At 800 visitors/month, a standard A/B test would take 4–6 months to reach statistical significance for a 20% improvement. You'd run maybe 2 tests a year. That's not a CRO program — that's a waiting game.
+At 800 visitors/month, a standard A/B test would take 4–6 months to reach statistical significance for a 20% improvement. You'd run maybe 2 tests a year. Meanwhile, your competitors with more traffic iterate every 3 weeks and compound their gains. That's not a CRO program — that's a waiting game with bad odds.
 
-But here's what most people get wrong: **CRO is not A/B testing.** A/B testing is one tool in CRO. And it's the tool that breaks first when traffic is low.
+But here's what changes everything: **CRO is not A/B testing.** A/B testing is one tool in CRO — and it's the tool that breaks first when traffic is low. The discipline of understanding why visitors don't convert and fixing it? That works at any traffic level.
+
+If you're not sure what CRO involves, start with [What Is Conversion Rate Optimization](/blog/what-is-conversion-rate-optimization/) — then come back here.
 
 Low-traffic CRO is a different game with different rules. Here's how to play it.
 
@@ -95,7 +97,7 @@ With 800 visitors/month, you'll get heatmap data within 2–3 weeks that shows r
 
 ### Phase 2: Ask Your Customers (The Highest ROI Activity in CRO)
 
-User research is the secret weapon of low-traffic CRO. With small volume, you can't rely on patterns — but you can talk to 5–10 people and get more actionable insight than 10,000 heatmap sessions.
+**Talking to customers is the single highest-ROI CRO activity available to a low-traffic site.** With small volume, you can't rely on statistical patterns — but 5–10 real conversations will surface more actionable insight than 10,000 heatmap sessions.
 
 **Three methods, ranked by impact:**
 
@@ -123,7 +125,7 @@ Five user testing sessions reveal 80% of usability issues — a finding from [Ni
 
 ### Phase 3: Fix High-Confidence Issues (No Test Required)
 
-Some problems don't need A/B testing because they're clearly broken:
+**Some problems are so clearly wrong that they don't need testing — they need fixing.** If your form is broken, your CTA button is invisible, or your page loads in 6 seconds on mobile, no A/B test will tell you anything useful. Ship the fix. Then measure.
 
 **Technical issues (fix immediately, no testing needed):**
 - Page load time over 3 seconds on mobile
@@ -159,7 +161,7 @@ When you can't measure the impact of changes, prioritize changes that have:
 |---|---|---|
 | Add trust badges near CTA | Consistent lift in published research | Very Low |
 | Show product/service reviews above the fold | Nielsen Norman, Baymard Institute data | Very Low |
-| Remove navigation from landing pages | Unbounce reports 25%+ avg CVR lift | Low |
+| Remove navigation from landing pages | [Unbounce Conversion Benchmark Report](https://unbounce.com/conversion-rate-report/): removing nav consistently improves CVR | Low |
 | Make CTA button contrast ratio 4.5:1+ | Accessibility + usability standard | None |
 | Add urgency (real, not fake) near CTA | Multiple published tests | Low |
 | Reduce form fields to minimum required | Baymard: every extra field reduces completion | Very Low |
@@ -198,7 +200,7 @@ Do these in order. Don't skip ahead.
 
 ## What Low-Traffic CRO Actually Looks Like: A Real Example
 
-A B2B service provider with 600 monthly visitors and a 1.2% contact form conversion rate (7 leads/month). Their goal: more leads without increasing ad spend.
+One of my clients — a B2B service provider with 600 monthly visitors and a 1.2% contact form conversion rate (7 leads/month) — came to me frustrated. They'd tried tweaking their homepage design and changing button colors. Nothing moved. Their goal: more leads without increasing ad spend.
 
 **What we found with qualitative research:**
 - Exit survey: 60% cited "I couldn't find pricing information" as their reason for leaving

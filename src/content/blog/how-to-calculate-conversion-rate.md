@@ -191,7 +191,7 @@ December e-commerce CVR vs. February e-commerce CVR is not an apples-to-apples c
 
 Knowing your CVR is step one. Here's what to do next:
 
-1. **Segment by device.** Mobile CVR is almost always lower than desktop. If your mobile CVR is less than 40% of desktop CVR, that's where you start.
+1. **Segment by device.** Mobile CVR is almost always lower than desktop. If your mobile CVR is less than 40% of desktop CVR, that's where you start. In one SaaS audit, mobile was 58% of traffic but only 14% of conversions — the signup form had a rendering bug on iOS that the team hadn't noticed because they only tested on desktop.
 2. **Segment by traffic source.** Which channel sends the visitors who actually convert? Double down on that. Cut or fix the ones that don't.
 3. **Identify your biggest revenue gap.** Use the formula: *(target CVR − current CVR) × monthly sessions × average order value = recoverable revenue*. This is how you build the business case for CRO investment.
 4. **Run a [CRO audit](/services/cro-audit/)** to find the friction points — technical issues, UX problems, copy gaps — that are suppressing your CVR.

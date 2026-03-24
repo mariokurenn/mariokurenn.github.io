@@ -60,6 +60,8 @@ A 95% confidence level means: if the null hypothesis is true (the variants are i
 
 **The fix:** Calculate your required sample size *before* the test starts. Use a sample size calculator ([Evan Miller](https://www.evanmiller.org/ab-testing/sample-size.html), [VWO](https://vwo.com/tools/ab-test-duration-calculator/), [Optimizely](https://www.optimizely.com/sample-size-calculator/) all have free ones). Run until you hit that number — or 2 full business cycles (minimum 2 weeks), whichever is longer. See the full guide: [How Long Should You Run an A/B Test?](/blog/how-long-to-run-ab-test/)
 
+Ronny Kohavi, who built experimentation platforms at Microsoft and Amazon, documented this problem extensively in *Trustworthy Online Controlled Experiments* (Cambridge University Press, 2020): teams that peek at results and stop early ship approximately 3× more false winners than teams that pre-commit to stopping rules.
+
 ---
 
 ## Mistake 2: Testing Too Many Elements at Once
@@ -142,7 +144,22 @@ This mistake is especially common in multipage funnels. A change on page 1 might
 
 If your A/A test shows a winner, your A/B test results cannot be trusted until the underlying issue is fixed.
 
-**The fix:** Run an A/A test for 1 week before any major test program launches (or after setting up new testing infrastructure). If it shows a significant result, debug before continuing. This step is skipped by 90% of teams — and it's why so many "winning" tests fail to hold in production.
+**The fix:** Run an A/A test for 1 week before any major test program launches (or after setting up new testing infrastructure). If it shows a significant result, debug before continuing. This step is skipped by the vast majority of teams — and it's why so many "winning" tests fail to hold in production.
+
+---
+
+## How to Diagnose Test Problems Before You Read Results
+
+Before you look at CVR numbers, run through this diagnostic checklist. Most test failures are detectable at setup — not after the fact.
+
+| Symptom | Likely Mistake | How to Confirm |
+|---|---|---|
+| "Winner" doesn't hold after shipping | Stopped too early or day-of-week bias | Did you hit pre-planned sample size? Did test run 2+ full weeks? |
+| Multiple things changed, can't attribute the win | Testing multiple elements | Review change log — was it really one variable? |
+| CTR up, revenue flat | Wrong primary metric | Is your primary metric a business outcome or a proxy? |
+| Traffic split is 53/47 instead of 50/50 | Sample Ratio Mismatch | Chi-squared test on the split — SRM confirmed if p < 0.05 |
+| CVR varies 3–5× between days | Polluted traffic | Compare bot vs. human sessions; check internal IP filtering |
+| A/A test shows a "winner" | Broken testing infrastructure | Randomization or tracking error — fix before any real test |
 
 ---
 
