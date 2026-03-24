@@ -1,0 +1,20 @@
+# grow-conversions.com
+
+> Conversion rate optimization (CRO) resources for marketers and founders. Expert guides, A/B testing frameworks, landing page best practices, and a CRO glossary — written by Mario Kuren, CRO specialist.
+
+## Blog
+- /blog/ — CRO articles, A/B testing guides, landing page best practices
+
+## Glossary
+- /cro-glossary/ — 48-term CRO glossary covering metrics, psychology, A/B testing, and technical SEO
+
+## Services
+- /services/cro-audit/ — Free 47-point CRO audit
+- /services/ab-testing/ — A/B testing program setup
+- /services/landing-page-design/ — Landing page design and optimization
+- /services/conversion-copywriting/ — Conversion-focused copywriting
+
+## About
+- /about/ — About Mario Kuren and grow-conversions.com
+- /author/mario-kuren/ — Author bio and all articles
+- /contact/ — Contact and free audit booking

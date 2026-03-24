@@ -1,5 +1,6 @@
 ---
 title: "7 A/B Testing Mistakes That Invalidate Your Results (And How to Fix Them)"
+seoTitle: "7 A/B Testing Mistakes That Invalidate Your Results"
 description: "Most A/B tests are invalid before they finish. These 7 mistakes produce false winners and waste months of optimization. Learn to avoid them before you launch."
 publishDate: "2026-04-14"
 author: "Mario Kuren"

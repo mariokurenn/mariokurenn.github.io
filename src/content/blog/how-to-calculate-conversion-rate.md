@@ -1,5 +1,6 @@
 ---
 title: "How to Calculate Conversion Rate (Formula, Examples & Common Mistakes)"
+seoTitle: "How to Calculate Conversion Rate: Formula & Examples"
 description: "Learn the exact conversion rate formula, see real examples by channel, and avoid the mistakes that give you wrong numbers. Includes free benchmark data."
 publishDate: "2026-03-24"
 author: "Mario Kuren"

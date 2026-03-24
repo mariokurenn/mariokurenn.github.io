@@ -11,7 +11,7 @@ interface Props {
 }
 
 const { post, readingTime, relatedPosts = [], prevPost = null, nextPost = null } = Astro.props;
-const { title, description, publishDate, updatedDate, author, category, tags, image, imageHero, imageAlt, seoKeyword, canonicalURL, faqs, howTo } = post.data;
+const { title, description, publishDate, updatedDate, author, category, tags, image, imageHero, imageAlt, seoKeyword, seoTitle, canonicalURL, faqs, howTo } = post.data;
 const heroImage = imageHero ?? image;
 
 const siteURL = 'https://grow-conversions.com';
@@ -82,7 +82,7 @@ const formatRelDate = (date: Date) =>
 ---
 
 <BaseLayout
-  title={title}
+  title={seoTitle ?? title}
   description={description}
   ogType="article"
   ogImage={image}
@@ -95,9 +95,8 @@ const formatRelDate = (date: Date) =>
       '@type': 'HowTo',
       name: howTo.name,
       ...(howTo.description ? { description: howTo.description } : {}),
-      step: howTo.steps.map((s, i) => ({
+      step: howTo.steps.map((s) => ({
         '@type': 'HowToStep',
-        position: i + 1,
         name: s.name,
         text: s.text,
       })),
@@ -111,15 +110,6 @@ const formatRelDate = (date: Date) =>
         acceptedAnswer: { '@type': 'Answer', text: answer },
       })),
     }] : []),
-    {
-      '@context': 'https://schema.org',
-      '@type': 'WebPage',
-      '@id': postURL,
-      speakable: {
-        '@type': 'SpeakableSpecification',
-        cssSelector: ['.blog-post__body .prose > p:first-child', '.post-faq__a'],
-      },
-    },
   ]}
 >
   <!-- Article-specific OG meta tags -->

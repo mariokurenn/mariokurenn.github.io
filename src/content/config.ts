@@ -20,6 +20,7 @@ const blog = defineCollection({
     imageHero: z.string().optional(),
     imageAlt: z.string().optional(),
     seoKeyword: z.string().optional(),
+    seoTitle: z.string().max(60).optional(),
     canonicalURL: z.string().url().optional(),
     draft: z.boolean().default(false),
     readingTime: z.number().optional(),

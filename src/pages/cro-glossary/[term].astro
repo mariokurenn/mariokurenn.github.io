@@ -42,7 +42,7 @@ const definedTermSchema = {
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
-  headline: `${term}: Definition, Examples & CRO Impact`,
+  headline: `${term} — CRO Glossary`,
   description: shortDefinition,
   url: pageURL,
   author: {
@@ -82,23 +82,13 @@ const faqSchema = faqs && faqs.length > 0 ? {
   })),
 } : null;
 
-const speakableSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  '@id': pageURL,
-  speakable: {
-    '@type': 'SpeakableSpecification',
-    cssSelector: ['.term-definition', '.term-faq__a'],
-  },
-};
-
-const schemas = [definedTermSchema, articleSchema, breadcrumbSchema, speakableSchema, ...(faqSchema ? [faqSchema] : [])];
+const schemas = [definedTermSchema, articleSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema] : [])];
 
 const difficultyLabel = { beginner: 'Beginner', intermediate: 'Intermediate', advanced: 'Advanced' }[difficulty];
 ---
 
 <BaseLayout
-  title={`${term}: Definition, Examples & CRO Impact`}
+  title={`${term} — CRO Glossary`}
   description={shortDefinition}
   jsonLd={schemas}
 >
