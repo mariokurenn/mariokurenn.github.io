@@ -24,7 +24,7 @@ FOMO activates two interlocking mechanisms:
 
 **1. Social comparison** — Humans constantly compare themselves to peers. Evidence that others are buying, joining, or benefiting triggers a need to close the gap between "their position" and "my position."
 
-**2. Loss aversion** — The prospect of missing out is experienced as a potential loss, not just a missed gain. And losses are felt approximately twice as intensely as equivalent gains ([Kahneman & Tversky, 1979](https://www.princeton.edu/~kahneman/docs/Publications/prospect_theory.pdf)).
+**2. Loss aversion** — The prospect of missing out is experienced as a potential loss, not just a missed gain. And losses are felt approximately twice as intensely as equivalent gains ([Kahneman & Tversky, 1979](https://doi.org/10.2307/1914185)).
 
 Combined: seeing that others are gaining something, while knowing you might lose access to it, is a powerful motivator.
 

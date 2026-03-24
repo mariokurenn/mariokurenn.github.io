@@ -33,7 +33,7 @@ Context is everything. Industry benchmarks give you that context.
 
 I've audited conversion funnels across e-commerce, SaaS, and B2B services for 6+ years — and in almost every case, the team either had no benchmark to compare against, or was comparing themselves to the wrong one. Below is the benchmark data I use in every initial audit to orient where a site sits and where the real opportunity lies.
 
-The figures below are compiled from [Wordstream](https://www.wordstream.com/conversion-rate), [Unbounce's Conversion Benchmark Report](https://unbounce.com/conversion-rate-report/), and [Littledata's e-commerce dataset](https://www.littledata.io/benchmarks/shopify-conversion-rate). Use these numbers to understand where you stand — then use your own historical data to set realistic targets.
+The figures below are compiled from [Wordstream](https://www.wordstream.com/conversion-rate), Unbounce's Conversion Benchmark Report, and Littledata's e-commerce dataset. Use these numbers to understand where you stand — then use your own historical data to set realistic targets.
 
 ---
 
@@ -91,7 +91,7 @@ Not sure how to calculate your CVR correctly? See: [How to Calculate Conversion 
 - Top performers: 40%+ trial-to-paid conversion
 - B2B SaaS specifically: 5–15% trial-to-paid is common due to longer evaluation cycles
 
-*Source: [OpenView SaaS Benchmarks 2024](https://openviewpartners.com/saas-benchmarks-report/), [Lenny Rachitsky's Product Analysis](https://www.lennysnewsletter.com/p/what-is-a-good-conversion-rate)*
+*Source: OpenView SaaS Benchmarks 2024, [Lenny Rachitsky's Product Analysis](https://www.lennysnewsletter.com/)*
 
 ---
 

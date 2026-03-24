@@ -162,7 +162,7 @@ When you can't measure the impact of changes, prioritize changes that have:
 |---|---|---|
 | Add trust badges near CTA | Consistent lift in published research | Very Low |
 | Show product/service reviews above the fold | Nielsen Norman, Baymard Institute data | Very Low |
-| Remove navigation from landing pages | [Unbounce Conversion Benchmark Report](https://unbounce.com/conversion-rate-report/): removing nav consistently improves CVR | Low |
+| Remove navigation from landing pages | Unbounce Conversion Benchmark Report: removing nav consistently improves CVR | Low |
 | Make CTA button contrast ratio 4.5:1+ | Accessibility + usability standard | None |
 | Add urgency (real, not fake) near CTA | Multiple published tests | Low |
 | Reduce form fields to minimum required | Baymard: every extra field reduces completion | Very Low |

@@ -130,7 +130,7 @@ Before you panic or celebrate your number, check where you stand relative to you
 | Healthcare | 2.5–4.5% | 7.0%+ |
 | Real Estate | 1.0–3.0% | 5.0%+ |
 
-*Source: [Wordstream Conversion Benchmark Report](https://www.wordstream.com/conversion-rate), [Unbounce Conversion Benchmark Report](https://unbounce.com/conversion-rate-report/), 2024–2025 data*
+*Source: [Wordstream Conversion Benchmark Report](https://www.wordstream.com/conversion-rate), Unbounce Conversion Benchmark Report, 2024–2025 data*
 
 **The benchmark that actually matters:** your own historical CVR vs. this month's CVR. Industry averages are context — not your goal.
 
