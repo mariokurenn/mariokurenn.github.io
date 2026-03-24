@@ -85,8 +85,8 @@ const contactSchema = [
         <!-- Form -->
         <div class="contact-form-wrap">
           <form
+            id="contact-form"
             class="contact-form"
-            action="https://formsubmit.co/mariokurenn@gmail.com"
             method="POST"
             aria-label="Contact form"
           >
@@ -213,6 +213,13 @@ const contactSchema = [
 </BaseLayout>
 
 <script>
+  // Set form action via JS to prevent Cloudflare email obfuscation
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  if (form) {
+    const u = 'mariokurenn' + String.fromCharCode(64) + 'gmail.com';
+    form.setAttribute('action', 'https://formsubmit.co/' + u);
+  }
+
   const textarea = document.getElementById('message') as HTMLTextAreaElement;
   if (textarea) {
     const autoResize = () => {
