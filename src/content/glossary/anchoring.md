@@ -47,7 +47,7 @@ The standard pricing page mistake: displaying the cheapest plan first. This sets
 3. Annual vs monthly: show annual savings prominently ("Save €480/year")
 4. Competitor pricing table: include a comparison with your anchor as the reference
 
-Research from pricing strategy firm [Price Intelligently](https://www.priceintelligently.com/) consistently shows that leading with the highest tier increases average plan chosen — because the highest plan becomes the reference point, not the exception.
+Research from pricing strategy firm Price Intelligently (now part of Paddle) consistently shows that leading with the highest tier increases average plan chosen — because the highest plan becomes the reference point, not the exception.
 
 ## Anchoring and A/B Testing Hypotheses
 

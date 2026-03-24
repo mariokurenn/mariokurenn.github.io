@@ -27,7 +27,7 @@ A page that speaks directly to a visitor's specific situation outperforms a gene
 2. **Specificity builds trust** — specific language signals understanding of their situation
 3. **Intent alignment** — the offer matches what the visitor was actually looking for
 
-[Epsilon research](https://www.epsilon.com/us/about-us/pressroom/new-epsilon-research-indicates-80-of-consumers-are-more-likely-to-make-a-purchase-when-brands-offer-personalized-experiences) (2017): 80% of consumers said they were more likely to purchase from brands that offered personalized experiences.
+Epsilon research (2017): 80% of consumers said they were more likely to purchase from brands that offered personalized experiences.
 
 ## Types of Personalization
 

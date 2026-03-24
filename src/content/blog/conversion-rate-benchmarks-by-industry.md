@@ -31,7 +31,7 @@ It's one of the first questions every growth team asks — and one of the least 
 
 Context is everything. Industry benchmarks give you that context.
 
-Below is a compiled breakdown of conversion rate benchmarks across 14 industries, sourced from [Wordstream](https://www.wordstream.com/blog/ws/2019/08/19/conversion-rate), [Unbounce's Conversion Benchmark Report](https://unbounce.com/conversion-rate-report/), and [Littledata's e-commerce dataset](https://www.littledata.io/benchmarks/shopify-conversion-rate). Use these numbers to understand where you stand — then use your own historical data to set realistic targets.
+Below is a compiled breakdown of conversion rate benchmarks across 14 industries, sourced from [Wordstream](https://www.wordstream.com/conversion-rate), [Unbounce's Conversion Benchmark Report](https://unbounce.com/conversion-rate-report/), and [Littledata's e-commerce dataset](https://www.littledata.io/benchmarks/shopify-conversion-rate). Use these numbers to understand where you stand — then use your own historical data to set realistic targets.
 
 ---
 
@@ -44,7 +44,7 @@ Below is a compiled breakdown of conversion rate benchmarks across 14 industries
 - **B2B lead generation:** 1.0–3.5% average, 6.0%+ top quartile
 - **Landing pages (all industries):** 2.35% average, 5.31%+ top 25%
 
-*Source: [Wordstream](https://www.wordstream.com/blog/ws/2019/08/19/conversion-rate), 2024*
+*Source: [Wordstream](https://www.wordstream.com/conversion-rate), 2024*
 
 If you're above the industry average but below the top quartile, you have room to grow. If you're at or above top-quartile performance, focus on volume and retention rather than pure CVR optimization.
 
@@ -186,7 +186,7 @@ The same page will convert differently depending on where the traffic came from.
 | Direct / Referral | 3.0–6.0% | Mix of warm leads and lost users |
 | Display Retargeting | 0.5–2.0% | Second chance — warm but not urgent |
 
-*Source: [Wordstream](https://www.wordstream.com/blog/ws/2019/08/19/conversion-rate), [HubSpot State of Marketing Report 2024](https://www.hubspot.com/state-of-marketing)*
+*Source: [Wordstream](https://www.wordstream.com/conversion-rate), [HubSpot State of Marketing Report 2024](https://www.hubspot.com/state-of-marketing)*
 
 **Practical implication:** If you're running paid social ads to a landing page and seeing 1.5% CVR, that's not necessarily a problem with the page. It may be a targeting problem — social audiences need more warming before they're ready to act.
 
