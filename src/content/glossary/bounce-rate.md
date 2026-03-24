@@ -44,7 +44,7 @@ These are often confused:
 - **Bounce rate**: Sessions with only ONE page viewed (enters and leaves from same page)
 - **Exit rate**: Percentage of visitors who leave from a specific page, regardless of how many pages they viewed first
 
-A page can have a low bounce rate but a high exit rate — it receives traffic from other pages but is the last page visited before leaving. Both metrics matter but signal different problems.
+A page can have a low bounce rate but a high [exit rate](/cro-glossary/exit-rate/) — it receives traffic from other pages but is the last page visited before leaving. Both metrics matter but signal different problems.
 
 ## What Causes High Bounce Rate?
 

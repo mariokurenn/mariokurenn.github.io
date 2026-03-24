@@ -95,7 +95,7 @@ For example: "Because heatmaps show users scroll past our CTA without clicking, 
 
 ### 3. Prioritization
 
-You can't test everything at once. Prioritize using a scoring framework like PIE:
+You can't test everything at once. Prioritize using a scoring framework like [PIE](/cro-glossary/pie-framework/):
 
 - **Potential**: How much improvement is possible?
 - **Importance**: How much traffic or revenue does this page drive?
@@ -168,5 +168,7 @@ If you're just starting out:
 5. **Document everything** — Build a test log so your learnings compound over time
 
 Not sure whether to invest in CRO or SEO first? Read [CRO vs SEO: Which Should You Prioritize?](/blog/cro-vs-seo/) — the answer depends on where your business is right now.
+
+Want to see what this process looks like in practice? See the [Korak Ispred case study](/case-studies/korak-ispred/) — a B2B education business that went from 2.3% to 5.5% CVR after a full audit and testing programme, or the [Dominik Metličić case study](/case-studies/dominik-metlicic/) for an e-commerce example.
 
 Want us to handle this for you? [Book a free CRO audit →](/contact/)

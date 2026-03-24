@@ -292,7 +292,7 @@ For the vast majority of sites, A/B testing is the right tool. MVT is a speciali
 
 ### AB Tasty
 
-[AB Tasty](https://www.abtasty.com/) combines A/B testing with personalization and feature management in one platform. It's positioned between Convert and Optimizely in terms of enterprise focus.
+[AB Tasty](https://www.abtasty.com/) combines A/B testing with [personalization](/cro-glossary/personalization/) and feature management in one platform. It's positioned between Convert and Optimizely in terms of enterprise focus.
 
 **Best for:** Teams who want to combine A/B testing and audience personalization without separate tool costs.
 

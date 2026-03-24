@@ -74,6 +74,8 @@ Not sure how to calculate your CVR correctly? See: [How to Calculate Conversion 
 
 **Why food & beverage converts high:** Subscription models, repeat purchases, and impulse buys. A consumer who wants protein powder doesn't need 6 touchpoints to decide.
 
+*Real example: [Filotea](/case-studies/filotea/), a Croatian gourmet food brand, went from 1.4% to 3.6% CVR in 90 days by fixing checkout friction and rewriting product page copy.*
+
 ---
 
 ### SaaS & Software
@@ -108,6 +110,8 @@ Not sure how to calculate your CVR correctly? See: [How to Calculate Conversion 
 **Important caveat:** Lead quality scales inversely with CVR. A whitepaper download converting at 15% generates mostly top-of-funnel contacts. A demo request at 2% generates hot prospects ready to talk budget.
 
 Don't optimize for quantity of leads without monitoring lead quality. A CVR jump from 2% to 4% on a demo page can be meaningless or damaging if it came from reducing qualification questions.
+
+*Real example: [Forte Solar](/case-studies/forte-solar/) increased qualified lead CVR by 144% in 60 days — without sacrificing lead quality — by simplifying the form and adding social proof at the point of submission.*
 
 ---
 
