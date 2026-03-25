@@ -97,7 +97,7 @@ Not sure how to calculate your CVR correctly? See: [How to Calculate Conversion 
 
 ---
 
-### B2B Lead Generation
+### [B2B Lead Generation](/blog/b2b-conversion-rate-optimization/)
 
 | Lead Type | Average CVR | Top 25% |
 |---|---|---|

@@ -86,7 +86,7 @@ Use this format:
 
 > *"Because we observed [data insight], we believe that [proposed change] will [increase/decrease] [metric] for [visitor segment]."*
 
-**Example:** "Because session recordings show 68% of mobile visitors scroll past our CTA without clicking, we believe moving the CTA above the fold will increase mobile checkout initiation rate by 15%."
+**Example:** "Because session recordings show 68% of mobile visitors scroll past our CTA without clicking, we believe moving the CTA above the fold will increase [mobile checkout](/blog/mobile-conversion-rate-optimization/) initiation rate by 15%."
 
 A hypothesis framed this way:
 - Forces you to validate that the insight is real (check the recording data)

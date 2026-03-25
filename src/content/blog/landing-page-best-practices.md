@@ -71,7 +71,7 @@ The single biggest driver of landing page conversion is **message match** — th
 
 If your Facebook ad says "Get 50% off premium accounting software," your landing page headline should say something very close to that. Not a generic "Accounting Software for Small Business."
 
-When visitors don't immediately see what they came for, they leave. This is called a high bounce rate, and message mismatch is the most common cause. The flip side is [priming](/cro-glossary/priming/): when your headline mirrors the ad that brought the visitor, they feel immediately oriented — and that positive first impression colours how they interpret everything below the fold.
+When visitors don't immediately see what they came for, they leave. This is called a high [bounce rate](/blog/bounce-rate-vs-exit-rate/), and message mismatch is the most common cause. The flip side is [priming](/cro-glossary/priming/): when your headline mirrors the ad that brought the visitor, they feel immediately oriented — and that positive first impression colours how they interpret everything below the fold.
 
 ## 2. Lead with the Outcome, Not the Feature
 

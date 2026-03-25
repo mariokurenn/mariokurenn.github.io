@@ -82,7 +82,7 @@ Effective CRO follows a repeatable, data-driven process. In 6+ years of CRO work
 Before changing anything, you need to understand *why* visitors aren't converting. This involves:
 
 - **Quantitative research**: Google Analytics, heatmaps, session recordings
-- **Qualitative research**: User surveys, customer interviews, support ticket analysis
+- **Qualitative research**: User surveys, [customer interviews](/blog/voice-of-customer-research/), support ticket analysis
 - **Competitive analysis**: What are the top performers in your space doing?
 
 ### 2. Hypothesis Formation
@@ -161,7 +161,7 @@ For a deep dive on the low-traffic approach, see [How to Do CRO With Low Traffic
 
 If you're just starting out:
 
-1. **Set up proper analytics** — Google Analytics 4, heatmaps (Hotjar or Microsoft Clarity), and a session recording tool
+1. **Set up proper analytics** — Google Analytics 4, [heatmaps](/blog/hotjar-alternatives/) (Hotjar or Microsoft Clarity), and a session recording tool
 2. **Run a CRO audit** — Identify your highest-traffic, lowest-converting pages
 3. **Start with your biggest lever** — Usually your homepage, main landing page, or checkout flow
 4. **Form one hypothesis and test it** — Don't try to optimize everything at once

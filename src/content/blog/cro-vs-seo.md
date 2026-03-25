@@ -159,7 +159,7 @@ CRO vs SEO isn't a binary decision — it's a sequencing decision. Here's the fr
 The best-performing sites don't choose — they make CRO and SEO work together:
 
 **CRO improves SEO signals:**
-- Lower bounce rate (better UX = users stay longer) → positive ranking signal
+- Lower [bounce rate](/blog/bounce-rate-vs-exit-rate/) (better UX = users stay longer) → positive ranking signal
 - Higher pages-per-session → more crawl depth, more internal links activated
 - Faster page speed (common CRO improvement) → [Core Web Vitals](https://developers.google.com/search/docs/appearance/core-web-vitals) boost
 

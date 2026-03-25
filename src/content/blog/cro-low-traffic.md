@@ -87,7 +87,7 @@ Even with low traffic, your analytics tell you which pages people visit and wher
 2. Look at the drop-off percentage at each step
 3. The step with the biggest drop-off is your first optimization target
 
-**Heatmaps ([Hotjar free plan](https://www.hotjar.com/) is enough at this traffic level):**
+**Heatmaps ([see free alternatives](/blog/hotjar-alternatives/) — Hotjar free plan is enough at this traffic level):**
 - Are people scrolling past your CTA without seeing it?
 - Are they clicking on non-clickable elements?
 - Where does scrolling stop on your most important pages?
@@ -98,7 +98,7 @@ With 800 visitors/month, you'll get heatmap data within 2–3 weeks that shows r
 
 ### Phase 2: Ask Your Customers (The Highest ROI Activity in CRO)
 
-**Talking to customers is the single highest-ROI CRO activity available to a low-traffic site.** With small volume, you can't rely on statistical patterns — but 5–10 real conversations will surface more actionable insight than 10,000 heatmap sessions.
+**[Talking to customers](/blog/voice-of-customer-research/) is the single highest-ROI CRO activity available to a low-traffic site.** With small volume, you can't rely on statistical patterns — but 5–10 real conversations will surface more actionable insight than 10,000 heatmap sessions.
 
 **Three methods, ranked by impact:**
 

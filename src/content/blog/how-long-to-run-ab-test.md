@@ -198,7 +198,7 @@ Low-traffic sites (under 5,000 sessions/month) have two options:
 Accept that you'll only detect large improvements. Set MDE at 25–40% and only test changes that could plausibly deliver that — major redesigns, new copy angles, removing friction points.
 
 **Option 2: Use qualitative methods instead**
-- Session recordings ([Hotjar](https://www.hotjar.com/), [Microsoft Clarity](https://clarity.microsoft.com/)): watch how real users behave
+- Session recordings ([Hotjar, Clarity, and alternatives](/blog/hotjar-alternatives/)): watch how real users behave
 - Heatmaps: identify ignored CTAs and rage clicks
 - User testing: 5 sessions reveal 80% of usability issues
 - Customer surveys: ask why they didn't convert
