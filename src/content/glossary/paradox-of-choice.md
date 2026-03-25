@@ -56,7 +56,7 @@ One of the most effective, lowest-cost CRO interventions: marking one option as 
 
 On a pricing page with three tiers, adding "Most Popular" or "Best Value" to the middle tier removes decision burden. The visitor no longer needs to evaluate all three plans equally — they have a social proof anchor that simplifies the choice.
 
-In studies by [Amir Grinstein et al.](https://link.springer.com/article/10.1007/s10551-020-04561-2), recommended defaults increased selection of the recommended option by 30–40% compared to choice sets with no recommendation.
+In studies by [Amir Grinstein et al.](https://doi.org/10.1007/s10551-020-04561-2), recommended defaults increased selection of the recommended option by 30–40% compared to choice sets with no recommendation.
 
 ## How to Audit for Choice Overload
 
