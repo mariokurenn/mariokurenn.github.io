@@ -40,7 +40,7 @@ faqs:
   - question: "What is the difference between A/B testing and multivariate testing?"
     answer: "A/B testing compares two versions of a single element — control vs one variant. Multivariate testing (MVT) tests multiple elements and their combinations simultaneously (e.g., 3 headlines × 2 CTAs = 6 variants). MVT tells you which combination of elements performs best, while A/B testing tells you whether a single change had an effect. MVT requires 5–10× more traffic than A/B testing and is only practical for pages with 100,000+ monthly sessions."
   - question: "What is the best A/B testing tool?"
-    answer: "The best A/B testing tool depends on your platform and scale. VWO and Optimizely are the most feature-complete for mid-market and enterprise. Convert is the best privacy-focused option. For Shopify, Shoplift is purpose-built. For WordPress, Nelio A/B Testing integrates natively. All tools support visual editors, targeting rules, and statistical significance reporting."
+    answer: "The best A/B testing tool depends on your platform and scale. VWO and Optimizely are the most feature-complete for mid-market and enterprise. Convert is the best privacy-focused option. For Shopify, Neat A/B Testing is purpose-built. For WordPress, Nelio A/B Testing integrates natively. All tools support visual editors, targeting rules, and statistical significance reporting."
   - question: "What should I test first in A/B testing?"
     answer: "Prioritise testing on pages with the highest traffic and clearest conversion actions. Test elements in order of impact: (1) headlines — highest leverage, easiest to run, (2) primary CTAs — copy, colour, placement, (3) hero section — above-the-fold experience, (4) social proof — testimonials, logos, stats, (5) form length — fewer fields typically converts better. Avoid testing low-traffic pages; you won't reach statistical significance in a reasonable timeframe."
   - question: "What is statistical significance in A/B testing?"
@@ -300,7 +300,7 @@ For the vast majority of sites, A/B testing is the right tool. MVT is a speciali
 
 | Platform | Recommended tool | Why |
 |---|---|---|
-| **Shopify (SMB)** | Shoplift or VWO | Native Shopify integration, visual editor |
+| **Shopify (SMB)** | Neat A/B Testing or VWO | Native Shopify integration, visual editor |
 | **Shopify (enterprise)** | Optimizely or Convert | Server-side testing for checkout |
 | **WordPress** | Nelio A/B Testing or VWO | WP-native, easy setup |
 | **SaaS (client-side)** | VWO or AB Tasty | Visual editor + personalization |
@@ -333,7 +333,7 @@ For the vast majority of sites, A/B testing is the right tool. MVT is a speciali
 | **Free shipping threshold** | Show threshold vs hide vs fixed messaging | High |
 | **Urgency messaging** | Stock level indicator vs none | Medium |
 
-**For Shopify A/B testing tools:** [Shoplift](https://www.shopliftapp.com/) is built specifically for Shopify and handles theme-level testing without code. VWO and Convert both support Shopify with visual editors.
+**For Shopify A/B testing tools:** [Neat A/B Testing](https://apps.shopify.com/neat-ab-testing) is built specifically for Shopify and handles theme-level testing without code. VWO and Convert both support Shopify with visual editors.
 
 **Key Shopify testing principle:** Always track Revenue Per Session (RPS), not just Add-to-Cart rate. A test that increases ATC but reduces checkout completion is a net loss.
 
