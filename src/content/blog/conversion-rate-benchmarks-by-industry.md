@@ -97,7 +97,7 @@ Not sure how to calculate your CVR correctly? See: [How to Calculate Conversion 
 
 ---
 
-### [B2B Lead Generation](/blog/b2b-conversion-rate-optimization/)
+### B2B Lead Generation
 
 | Lead Type | Average CVR | Top 25% |
 |---|---|---|
@@ -109,7 +109,7 @@ Not sure how to calculate your CVR correctly? See: [How to Calculate Conversion 
 
 **Important caveat:** Lead quality scales inversely with CVR. A whitepaper download converting at 15% generates mostly top-of-funnel contacts. A demo request at 2% generates hot prospects ready to talk budget.
 
-Don't optimize for quantity of leads without monitoring lead quality. A CVR jump from 2% to 4% on a demo page can be meaningless or damaging if it came from reducing qualification questions.
+Don't optimize for quantity of leads without monitoring lead quality. A CVR jump from 2% to 4% on a demo page can be meaningless or damaging if it came from reducing qualification questions. For the full B2B playbook, see [B2B Conversion Rate Optimization](/blog/b2b-conversion-rate-optimization/).
 
 *Real example: [Forte Solar](/case-studies/forte-solar/) increased qualified lead CVR by 144% in 60 days — without sacrificing lead quality — by simplifying the form and adding social proof at the point of submission.*
 
