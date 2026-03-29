@@ -58,7 +58,7 @@ High-consideration, high-price categories (travel, electronics, finance) abandon
 
 ## Why Shoppers Abandon Carts
 
-Baymard Institute research across 2,000+ US consumers identifies these primary causes:
+[Baymard Institute](https://baymard.com/lists/cart-abandonment-rate) research across 2,000+ US consumers identifies these primary causes:
 
 | Reason | % of Abandoners |
 |---|---|
@@ -124,6 +124,6 @@ At 70% average abandonment, checkout optimisation has an asymmetric ROI: traffic
 
 **Example:** A store doing $500,000/month in revenue with a 72% cart abandonment rate and $80 average order value. Reducing abandonment to 65% through checkout optimisation adds approximately $50,000/month in revenue from the same traffic — without increasing ad spend.
 
-The Baymard Institute estimates that $260 billion in online orders are recoverable globally each year through better checkout design. This is not a small optimisation — it's one of the highest-leverage activities in e-commerce CRO.
+The [Baymard Institute](https://baymard.com/lists/cart-abandonment-rate) estimates that $260 billion in online orders are recoverable globally each year through better checkout design. This is not a small optimisation — it's one of the highest-leverage activities in e-commerce CRO.
 
 Checkout optimisation is among the highest-ROI work in a [CRO programme](/services/cro-audit/). For a full checklist of what to audit, see [Conversion Rate Benchmarks by Industry](/blog/conversion-rate-benchmarks-by-industry/) and [Mobile Conversion Rate Optimization](/blog/mobile-conversion-rate-optimization/) for mobile-specific checkout fixes.
