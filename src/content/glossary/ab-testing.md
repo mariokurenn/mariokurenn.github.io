@@ -19,6 +19,8 @@ faqs:
     answer: "The peeking problem is the practice of checking A/B test results before reaching the pre-set sample size and stopping the test early when a 'winner' appears. Statistical significance fluctuates constantly during a test — a variant showing 95% confidence on day 3 may drop to 60% by day 14. If you stop on day 3, you've shipped a false positive. Checking results 5 times during a test inflates the false positive rate from 5% to 26% (Kohavi et al., 2014). The solution: decide the stopping conditions before the test starts and do not open the dashboard until those conditions are met."
   - question: "What is the difference between A/B testing and split testing?"
     answer: "A/B testing and split testing are synonymous terms for the same method. Both describe randomly splitting traffic between a control (original) and variant (changed) version of a page, then using statistical analysis to determine which performs better. The distinction sometimes drawn is between 'A/B testing' (comparing two page variants at the same URL using JavaScript injection) and 'split URL testing' (redirecting visitors to entirely different URLs). For CRO purposes, both methods apply the same statistical framework — the difference is technical implementation."
+  - question: "What does a 95% confidence level mean in an A/B test?"
+    answer: "A 95% confidence level means that if you ran the same test 100 times with fresh samples, approximately 95 of those tests would produce a statistically significant result that reflects a real effect rather than random noise. It does not mean you are 95% certain the variant is better — it means the method has a 5% false positive rate. For most business decisions, 95% confidence is the standard threshold. For high-stakes changes (site-wide, pricing), some teams require 99% confidence, which reduces false positives but requires larger sample sizes."
 ---
 
 **A/B testing** is a randomised controlled experiment that compares two versions of a webpage, email, or interface element to determine which produces a higher conversion rate. Version A (the control) represents the current design; Version B (the variant) contains a single proposed change.
@@ -40,15 +42,15 @@ The hypothesis step is often skipped — and skipping it is what separates rando
 
 | Element | Impact Potential | Notes |
 |---------|----------------|-------|
-| Headlines and value proposition | ★★★★★ Highest — often 20–50% lift | Start here |
-| CTA copy and placement | ★★★★☆ High | First-person copy typically wins |
-| Hero section / above the fold | ★★★★☆ High | Affects first impression and bounce |
-| Social proof placement and type | ★★★☆☆ Medium | Specific testimonials beat generic |
-| Form length | ★★★☆☆ Medium | Remove unnecessary fields |
-| Page layout | ★★★☆☆ Medium | Requires design resources |
-| Button colour | ★☆☆☆☆ Lowest | Only matters if current has no contrast |
+| Headlines and value proposition | Very high — often 20–50% lift | Start here |
+| CTA copy and placement | High | First-person copy typically wins |
+| Hero section / above the fold | High | Affects first impression and bounce |
+| Social proof placement and type | Medium | Specific testimonials beat generic |
+| Form length | Medium | Remove unnecessary fields |
+| Page layout | Medium | Requires design resources |
+| Button colour | Low | Only matters if current has no contrast |
 
-The biggest A/B testing gains come from copy, offer framing, and trust architecture — not cosmetic changes.
+The biggest A/B testing gains come from copy, offer framing, and trust architecture — not cosmetic changes. For full guidance on test prioritisation, see [A/B Testing Best Practices](/blog/ab-testing-best-practices/).
 
 ## A/B Test Benchmarks and Effect Sizes
 
@@ -71,6 +73,8 @@ Statistical significance fluctuates constantly during a test. A variant showing 
 
 Checking results 5 times during a test inflates the false positive rate from **5% to 26%**. The fix: decide when the test ends before it starts, and don't open the dashboard until then.
 
+For the full list of statistical mistakes that invalidate test results, see [A/B Testing Mistakes](/blog/ab-testing-mistakes/).
+
 ## A/B Testing vs Multivariate Testing
 
 | | A/B Test | Multivariate Test |
@@ -82,6 +86,36 @@ Checking results 5 times during a test inflates the false positive rate from **5
 
 A/B testing is the right tool for the vast majority of CRO scenarios. Multivariate testing requires enough traffic to support many variant combinations simultaneously — typically 100,000+ monthly sessions. See [Multivariate Testing](/cro-glossary/multivariate-testing/) for when to escalate.
 
+## When to Use A/B Testing vs Other Methods
+
+Not every conversion problem requires an A/B test. Use this framework to decide:
+
+| Situation | Recommended approach |
+|-----------|---------------------|
+| Clear UX problem identified in usability testing | Fix without testing |
+| Hypothesis based on analytics + qualitative data | A/B test |
+| Site with under 5,000 monthly conversions | Focus on qualitative research, test only high-confidence hypotheses |
+| Multiple competing hypotheses on same page | A/B test sequentially, not simultaneously |
+| Critical bug or legal requirement | Fix immediately, no test needed |
+
+For teams with limited traffic, read [CRO for Low-Traffic Sites](/blog/cro-low-traffic/) — A/B testing requires adequate sample sizes and there are more appropriate research methods below certain traffic thresholds.
+
+## Sample Size by Baseline Conversion Rate
+
+Pre-calculating sample size is non-negotiable. Tests stopped before reaching the required sample produce false positives at a dramatically elevated rate.
+
+| Baseline CVR | MDE (relative) | Visitors per variant needed |
+|---|---|---|
+| 1% | 20% | ~35,000 |
+| 2% | 15% | ~18,000 |
+| 3% | 15% | ~12,000 |
+| 5% | 10% | ~15,000 |
+| 10% | 10% | ~7,500 |
+
+*At 80% statistical power, 95% confidence level. Calculated using standard frequentist methodology.*
+
+For the exact calculation methodology, see [How Long to Run an A/B Test](/blog/how-long-to-run-ab-test/).
+
 ## Common A/B Testing Mistakes
 
 1. **Testing without a hypothesis** — Changes made without research backing are random guesses
@@ -89,11 +123,12 @@ A/B testing is the right tool for the vast majority of CRO scenarios. Multivaria
 3. **Stopping at significance without hitting sample size** — The peeking problem in practice
 4. **Not segmenting results** — A test that "loses" overall may win on mobile or for paid traffic
 5. **Ignoring interaction effects** — A winning headline may perform differently with a different hero image
+6. **Treating null results as failures** — A test that shows no difference is still valuable learning
 
 ## Tools for A/B Testing
 
-Popular platforms: VWO, Optimizely, AB Tasty, Convert. Statistical analysis can also be done manually using a chi-squared test or a dedicated significance calculator.
+Popular platforms include VWO, Optimizely, AB Tasty, and Convert. Statistical analysis can also be done manually using a chi-squared test or a dedicated significance calculator.
 
-Running tests correctly requires more than a tool — it requires a structured [testing methodology](/blog/ab-testing-best-practices/) that prevents common statistical errors. For the seven most common mistakes that invalidate results, see [A/B Testing Mistakes](/blog/ab-testing-mistakes/).
+Running tests correctly requires more than a tool — it requires a structured testing methodology that prevents common statistical errors. A/B testing is the primary delivery mechanism of any [CRO programme](/services/ab-testing/) — every insight from research eventually becomes a test hypothesis.
 
-A/B testing is the primary delivery mechanism of any [CRO programme](/services/ab-testing/) — every insight from research eventually becomes a test hypothesis.
+Understanding [statistical significance](/cro-glossary/statistical-significance/) and [confidence intervals](/cro-glossary/confidence-interval/) is prerequisite reading before interpreting results.

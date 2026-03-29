@@ -17,6 +17,8 @@ faqs:
     answer: "Measure CLS using: (1) Google PageSpeed Insights (pagespeed.web.dev) — shows both real-user CrUX CLS and lab CLS from Lighthouse; (2) Google Search Console → Core Web Vitals report — shows CLS across real users grouped by URL; (3) Chrome DevTools → Performance tab — run a performance profile and look for red/pink layout shift markers in the timeline; (4) Web Vitals Chrome Extension — shows live CLS as you scroll; (5) WebPageTest.org — shows frame-by-frame filmstrip with layout shift highlights. Always measure on mobile — CLS is almost always worse on mobile than desktop."
   - question: "What is a good CLS score for e-commerce?"
     answer: "For e-commerce, targeting a CLS score under 0.1 is the goal — especially on product pages and checkout where layout shifts cause the most damaging misclicks. Most e-commerce pages struggle with CLS due to: product image carousels that resize on load, recommended products sections loading after initial render, and payment method logos injected after page load. Google's 2024 CrUX data shows that only 35% of e-commerce pages achieve 'good' CLS scores, making this one of the most common technical CRO opportunities in the sector."
+  - question: "Does CLS affect SEO rankings?"
+    answer: "Yes. Google confirmed in 2021 that Core Web Vitals — including CLS — are a ranking signal as part of the Page Experience update. Pages with poor CLS scores (above 0.25) may rank lower than comparable pages with good CLS, all else being equal. The ranking impact is modest for most searches but can be a tiebreaker in competitive SERPs. More importantly, the user experience impact — misclicks, abandonment, and trust erosion — has a larger indirect effect on conversion than the direct ranking impact. Fixing CLS is both an SEO and CRO priority."
 ---
 
 **Cumulative Layout Shift (CLS)** is a [Core Web Vitals](/cro-glossary/core-web-vitals/) metric that measures the visual stability of a web page during loading — specifically, how much visible content unexpectedly shifts position.
@@ -48,6 +50,22 @@ CLS is calculated per layout shift event:
 - **Distance fraction:** How far did the element move as a fraction of the viewport?
 
 A shift affecting 50% of the viewport and moving 10% of the viewport distance produces a shift score of 0.05.
+
+## CLS Benchmarks by Industry
+
+Google's CrUX data shows significant variation across verticals:
+
+| Industry | % pages with Good CLS (<0.1) | Common cause |
+|----------|------------------------------|--------------|
+| Technology / SaaS | 52% | Late-loading chat widgets |
+| E-commerce | 35% | Image carousels, dynamic recommendations |
+| News / Media | 28% | Ad injection above editorial content |
+| Financial services | 44% | Third-party compliance widgets |
+| Healthcare | 41% | Third-party booking embeds |
+
+*Source: Google CrUX dataset, 2024*
+
+E-commerce has the worst CLS performance of major verticals — and it's also the vertical where misclicks have the most direct revenue impact.
 
 ## Common CLS Causes
 
@@ -90,6 +108,11 @@ Animating properties like `top`, `left`, `height`, or `width` triggers layout re
 .slide-in { animation: slide-down; } /* uses transform: translateY() */
 ```
 
+### Dynamic Content Injection
+Personalization engines, A/B testing tools, and recommendation widgets frequently inject content after the initial page render. This is one of the most overlooked CLS sources on mature e-commerce sites. Each injected block can add 0.05–0.15 to your CLS score.
+
+**Fix:** Pre-render placeholder containers with fixed dimensions so injected content fills reserved space rather than pushing content.
+
 ## CLS on Mobile vs Desktop
 
 CLS issues are almost always more severe on mobile because:
@@ -98,14 +121,41 @@ CLS issues are almost always more severe on mobile because:
 - Touch targets are smaller — shifted elements are harder to re-target accurately
 - Third-party scripts (ads, chat) load proportionally later on slower connections
 
-For any page where mobile represents significant traffic (typically 50–70%+ for most sites), CLS on mobile should be the primary CLS diagnostic focus.
+For any page where mobile represents significant traffic (typically 50–70%+ for most sites), CLS on mobile should be the primary CLS diagnostic focus. See [Mobile Conversion Rate Optimization](/blog/mobile-conversion-rate-optimization/) for the full mobile performance optimization context.
+
+## CLS and the Conversion Impact Calculation
+
+It's possible to estimate the revenue cost of poor CLS directly:
+
+**Example calculation:**
+- 50,000 monthly product page visits
+- Current CVR: 2.5%
+- Current CLS: 0.28 (poor)
+- Industry data: improving CLS from poor to good correlates with ~15% CVR improvement
+- Projected CVR after CLS fix: ~2.9%
+- Revenue per conversion: €80
+- Monthly revenue uplift: 50,000 × 0.004 × €80 = **€16,000/month**
+
+CLS fixes are frequently among the highest-ROI technical improvements in a [CRO audit](/services/cro-audit/) precisely because the fix is often straightforward (add image dimensions, fix font loading) while the revenue impact compounds across every page affected.
 
 ## Measuring and Monitoring CLS
 
-**Google PageSpeed Insights** — Reports field CLS (real user data) from CrUX and lab CLS from Lighthouse. The field data is what matters for SEO and ranking.
+**Google PageSpeed Insights** — Reports field CLS (real user data) from CrUX and lab CLS from Lighthouse. The field data is what matters for SEO and ranking. Available at [pagespeed.web.dev](https://pagespeed.web.dev/).
 
 **Chrome DevTools → Performance tab** — Run a performance profile to see layout shifts highlighted in the timeline as red/pink bands.
 
-**Google Search Console → Core Web Vitals** — Shows CLS data by page URL group across real users. The most actionable view for identifying which specific pages need fixing.
+**Google Search Console → Core Web Vitals** — Shows CLS data by page URL group across real users. The most actionable view for identifying which specific pages need fixing. Access at [search.google.com/search-console](https://search.google.com/search-console/).
+
+**WebPageTest.org** — Frame-by-frame filmstrip view highlights exactly when and where shifts occur. Essential for diagnosing which element is causing a shift.
+
+## CLS in the CRO Audit Process
+
+In a technical CRO audit, CLS is evaluated in order of:
+
+1. **Measure CLS per page group** — Product pages, checkout, landing pages separately
+2. **Identify the shift source** — Use Chrome DevTools Performance tab to pinpoint the element
+3. **Categorize by fix complexity** — Image dimensions (10 minutes), font loading (1 hour), third-party widgets (requires coordination)
+4. **Estimate revenue impact** — Calculate based on traffic × CVR improvement estimate
+5. **Fix and monitor** — CLS improvements should be verified in Search Console within 28 days (data update cycle)
 
 For the full Core Web Vitals context, see [Core Web Vitals](/cro-glossary/core-web-vitals/) and [Page Speed](/cro-glossary/page-speed/). CLS fixes are included in every technical [CRO audit](/services/cro-audit/).

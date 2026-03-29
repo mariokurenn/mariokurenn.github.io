@@ -40,6 +40,18 @@ When a visitor clicks an ad, email, or link, they arrive at a landing page with 
 - Attention shifts from "should I be here?" to "is this what I want?"
 - Cognitive friction is replaced by evaluation — the conversion decision can begin
 
+## The Cost of Message Mismatch
+
+Consider a Google Ads campaign with these characteristics:
+- Monthly ad spend: €5,000
+- Average CPC: €2.50
+- Monthly clicks: 2,000
+- Landing page bounce rate: 75% (due to mismatch)
+
+Fixing message match and reducing bounce rate to 45% recovers 600 visitors per month who were previously leaving immediately. At a 5% conversion rate on those recovered visitors, that's 30 additional leads per month — from the same ad spend, with no increase in budget.
+
+This is why message match auditing is the first step of every paid traffic CRO engagement.
+
 ## Message Match Spectrum
 
 Message match exists on a spectrum from exact to none:
@@ -64,12 +76,25 @@ For each paid ad campaign, ensure:
 ### Email-to-Landing Page
 Email subject lines create strong expectations. An email subject "Your free audit is waiting" should link to a page that says "Your Free Audit" — not the homepage or a generic services page. Email subscribers are your warmest audience — landing page mismatch wastes the highest-intent traffic you have.
 
-### Dynamic Text Replacement (DTR)
+### Organic Search-to-Page
+Message match applies to SEO as well. If a page ranks for "e-commerce checkout optimization" but the headline says "Conversion Optimization Services," searchers who clicked expecting checkout-specific content experience mismatch. Meta description → page headline alignment matters for reducing organic bounce rate.
+
+### Social Media-to-Landing Page
+Social ads often use informal, emotional language that differs sharply from standard landing page copy. A Facebook ad using a casual, problem-aware tone ("Tired of watching cart abandoners disappear?") should link to a page that starts in the same register — not a formal services page with no connection to the ad's tone.
+
+## Dynamic Text Replacement (DTR)
+
 Tools like Unbounce, Instapage, and most A/B testing platforms support DTR — automatically swapping page headline text to match the keyword or ad copy that drove the click.
 
 DTR allows a single landing page template to achieve exact message match across dozens of ad variations without creating separate pages for each.
 
-## Message Match Audit
+**Implementation steps:**
+1. Identify the UTM parameters you're passing from each ad group
+2. Set up DTR rules in your landing page tool to match headline text to UTM campaign or keyword values
+3. Define a default headline for direct/untagged traffic
+4. Test that each ad variation shows the correct headline before going live
+
+## Message Match Audit Process
 
 Review your highest-spend paid campaigns using this process:
 
@@ -81,6 +106,15 @@ Review your highest-spend paid campaigns using this process:
 
 A 30-minute message match audit on your Google Ads campaigns often reveals 3–5 mismatched landing pages where a headline change could double conversion rate.
 
+## Message Match and Quality Score
+
+In Google Ads, Quality Score partially reflects how well your landing page matches your ad and keyword. Strong message match between keyword → ad copy → landing page headline improves:
+- **Quality Score** (which reduces CPC and improves ad position)
+- **Post-click conversion rate** (fewer bounces, more evaluation)
+- **Overall campaign ROI** (same spend, more conversions)
+
+Poor message match punishes you twice: lower Quality Score increases cost per click, while high bounce rate wastes those more expensive clicks.
+
 ## Testing Message Match
 
 Message match improvement is one of the fastest-testing hypotheses in CRO because:
@@ -90,4 +124,4 @@ Message match improvement is one of the fastest-testing hypotheses in CRO becaus
 
 **Test format:** Control = current generic headline. Variant = headline that directly mirrors top ad copy.
 
-For the full testing framework, see [Landing Page Best Practices](/blog/landing-page-best-practices/) and [A/B Testing Best Practices](/blog/ab-testing-best-practices/).
+For the full testing framework, see [Landing Page Best Practices](/blog/landing-page-best-practices/) and [A/B Testing Best Practices](/blog/ab-testing-best-practices/). For the relationship between message match and full personalization strategy, see [Personalization](/cro-glossary/personalization/).

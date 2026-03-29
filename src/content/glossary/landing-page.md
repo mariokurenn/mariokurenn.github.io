@@ -74,6 +74,8 @@ For the detailed message match framework, see [Message Match](/cro-glossary/mess
 
 ## Landing Page Conversion Benchmarks
 
+Industry-level data from the Unbounce Conversion Benchmark Report 2024:
+
 | Industry | Average landing page CVR | Top quartile |
 |----------|--------------------------|--------------|
 | E-commerce (cold traffic) | 2–4% | 6–10% |
@@ -81,8 +83,21 @@ For the detailed message match framework, see [Message Match](/cro-glossary/mess
 | B2B lead generation | 3–7% | 10–20% |
 | Event registration | 10–20% | 30–50% |
 | Email opt-in | 15–30% | 40–60% |
+| Agency / services | 2–5% | 8–12% |
+| Finance / insurance | 3–6% | 10–18% |
 
-*Source: Unbounce Conversion Benchmark Report 2024*
+Top-quartile performance is achievable on nearly every page with sustained, data-driven A/B testing — but the baseline gap between average and top quartile is large. Most sites are not running systematic tests on their landing pages.
+
+## Above-the-Fold Design Principles
+
+The above-the-fold section is the most valuable real estate on any landing page — it determines whether the visitor decides to stay or bounce within the first 3–5 seconds. This section must contain:
+
+1. **Headline** — your value proposition in one sentence, mirroring the traffic source
+2. **Subheadline** — a single supporting statement adding specificity or proof
+3. **Primary CTA button** — visible, high-contrast, action-oriented copy
+4. **Trust signal** — at minimum a customer count, logo bar, or review score
+
+Everything below the fold exists to serve visitors who stayed past the initial judgment. Those visitors are more engaged but still need to be guided toward conversion — repeating the CTA every 300–400 pixels as content justifies the decision.
 
 ## What to Test First on a Landing Page
 
@@ -94,5 +109,31 @@ In order of typical impact:
 4. Form length
 5. Hero image or video
 6. Page length (short vs long form)
+7. Trust badges and guarantee placement
+8. Navigation removal (if currently present)
 
-For the complete testing methodology and 15-element test priority list, read the [Landing Page Best Practices](/blog/landing-page-best-practices/) guide. For a [landing page design service](/services/landing-page-design/) that applies these principles systematically, see the services page.
+Headline and CTA tests routinely deliver 20–50% CVR differences. Form length and trust badge tests typically deliver 5–15%. Start at the top of the list and work down.
+
+## Common Landing Page Mistakes
+
+**Navigation left in place** — Every navigation link is an exit route. Removing navigation from landing pages increases CVR by 10–15% on average (Unbounce data).
+
+**Weak above-the-fold section** — A vague headline ("Welcome to Our Site") forces visitors to hunt for the value proposition. They won't. They'll leave.
+
+**Single CTA placed only above the fold** — Long pages need the CTA repeated. Visitors who scroll to the bottom have higher intent — they deserve a CTA.
+
+**No social proof near the CTA** — Trust is required at the moment of decision. Testimonials placed only at the bottom of the page don't reduce anxiety at the conversion point.
+
+**Form asking for too much too early** — Every additional field reduces conversion. Ask only for information you will use immediately. Collect more data post-conversion.
+
+**Mismatched traffic source and page message** — If your Google Ad says "Free CRO Audit" and your landing page says "Conversion Optimization Services," the mismatch causes doubt and bounce.
+
+## Landing Page Speed Matters
+
+A technically strong message match is undermined by a slow page. If mobile LCP exceeds 4 seconds, a significant share of paid visitors abandon before the headline even renders — you paid for the click but received zero impression.
+
+Target: LCP under 2.5 seconds on mobile. Check with [Google PageSpeed Insights](https://pagespeed.web.dev/). For the full technical background, see [Largest Contentful Paint](/cro-glossary/largest-contentful-paint/) and [Page Speed](/cro-glossary/page-speed/).
+
+## The Testing Roadmap
+
+For the complete testing methodology and 15-element test priority list, read the [Landing Page Best Practices](/blog/landing-page-best-practices/) guide. For the full conversion rate context by industry, see [Conversion Rate Benchmarks by Industry](/blog/conversion-rate-benchmarks-by-industry/). The [A/B Testing Best Practices](/blog/ab-testing-best-practices/) guide covers the statistical side of running valid landing page tests.

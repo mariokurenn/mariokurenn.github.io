@@ -54,7 +54,7 @@ LCP is not just a SEO metric — it has direct conversion implications:
 
 *Source: Google/SOASTA research on 11M mobile landing page sessions*
 
-For paid traffic especially, slow LCP is expensive: you're paying for clicks that bounce immediately because the page took too long to show the hero image or headline.
+For paid traffic especially, slow LCP is expensive: you're paying for clicks that bounce immediately because the page took too long to show the hero image or headline. A €5,000/month Google Ads campaign with a 5-second mobile LCP may be losing 40–50% of clicks to abandonment before the page renders. No CTA, no headline, no offer — just a blank screen and a back button.
 
 ## LCP Industry Benchmarks
 
@@ -65,10 +65,12 @@ For paid traffic especially, slow LCP is expensive: you're paying for clicks tha
 | News & Publishing | 3.4s | 35% |
 | Travel | 4.2s | 22% |
 | Finance | 2.9s | 45% |
+| Healthcare | 3.6s | 31% |
+| B2B Services | 3.3s | 38% |
 
 *Source: Google Chrome User Experience Report (CrUX) 2024*
 
-Most industries are far from the 'good' threshold, representing significant opportunity.
+Most industries are far from the 'good' threshold, representing significant opportunity. E-commerce in particular — where mobile purchasing intent is highest — has the most to gain from LCP improvement.
 
 ## What Causes Poor LCP
 
@@ -98,16 +100,50 @@ Every millisecond of server response delay adds to LCP. TTFB over 800ms is a sig
 - Enable page caching on the server
 - Upgrade to faster hosting infrastructure
 
+### Third-Party Scripts Blocking Render
+Chat widgets, analytics pixels, retargeting scripts, and A/B testing tools all compete for the browser's attention at page load. A single poorly implemented third-party script can add 1–3 seconds to LCP.
+
+**Fixes:**
+- Load analytics and chat scripts with `async` or `defer`
+- Use a tag manager with script loading controls
+- Audit and remove scripts that aren't actively delivering value
+
+## How LCP Fits Within Core Web Vitals
+
+Google's Page Experience ranking signal uses three Core Web Vitals:
+
+| Metric | Measures | Good threshold |
+|--------|----------|----------------|
+| **LCP** | Loading performance | Under 2.5s |
+| **INP (Interaction to Next Paint)** | Interactivity responsiveness | Under 200ms |
+| **CLS (Cumulative Layout Shift)** | Visual stability | Under 0.1 |
+
+LCP is typically the hardest to achieve for content-heavy pages, and the one with the largest gap between current performance and the target. Fixing LCP alone is often sufficient to move from a "Needs Improvement" to a "Good" Page Experience signal.
+
 ## Measuring LCP
 
-**Google PageSpeed Insights** ([pagespeed.web.dev](https://pagespeed.web.dev/)) — Shows field data (real users) and lab data. The field data LCP is what Google uses for ranking.
+**Google PageSpeed Insights** ([pagespeed.web.dev](https://pagespeed.web.dev/)) — Shows field data (real users from the Chrome User Experience Report) and lab data. The field data LCP is what Google uses for ranking and what reflects actual visitor experience.
 
 **Chrome DevTools** → Lighthouse tab → Performance audit → Shows LCP element highlighted in the filmstrip view.
 
-**Google Search Console** → Core Web Vitals report → Shows real-user LCP by page group.
+**Google Search Console** → Core Web Vitals report → Shows real-user LCP by page group, segmented by mobile and desktop. This is the most actionable view for prioritizing fixes across large sites.
+
+**WebPageTest** ([webpagetest.org](https://www.webpagetest.org/)) — Shows the full waterfall view, allowing you to identify exactly which asset is the LCP element and what is delaying it.
+
+## LCP Optimization Priority
+
+On any page where LCP is above 4 seconds, fixing LCP should take priority over A/B testing. There's no value in testing headline copy when 40% of visitors bounce before the headline renders.
+
+A practical fix sequence:
+1. Identify the LCP element (PageSpeed Insights → LCP element)
+2. If it's a hero image: compress to WebP, add `fetchpriority="high"`, serve via CDN
+3. If TTFB is above 800ms: enable server-side caching or upgrade hosting
+4. Measure again — most images can be brought from 4–6s to under 2s with these steps alone
+
+For pages where LCP is between 2.5s and 4s (Needs Improvement), optimizing LCP should be on the roadmap within the next 3–6 months. These pages are losing ranking positions and conversion rate to faster competitors.
 
 ## LCP as a CRO Priority
 
 On high-traffic pages where LCP is above 4 seconds, fixing LCP is typically the highest-ROI CRO action available — no A/B testing required. A 3-second improvement to LCP on a checkout or landing page generates measurable conversion rate improvement that applies to every visitor immediately, without any design, copy, or testing work.
 
-For the full performance optimization context, see [Core Web Vitals](/cro-glossary/core-web-vitals/) and [Page Speed](/cro-glossary/page-speed/). LCP fixes are included in every technical [CRO audit](/services/cro-audit/).
+For the full performance optimization context, see [Core Web Vitals](/cro-glossary/core-web-vitals/) and [Page Speed](/cro-glossary/page-speed/). For the mobile-specific performance considerations, see the [Mobile Conversion Rate Optimization](/blog/mobile-conversion-rate-optimization/) guide.

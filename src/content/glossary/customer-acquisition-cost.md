@@ -17,6 +17,8 @@ faqs:
     answer: "Blended CAC is total acquisition spend divided by total new customers — a single average across all channels. Channel CAC is calculated separately for each marketing channel (paid search CAC, social CAC, content CAC). Blended CAC is useful for unit economics; channel CAC is useful for budget allocation decisions. If your paid search CAC is €80 and your content/SEO CAC is €20, you should invest more in content — but you need separate channel attribution to see this. CRO improvements also vary by channel — a 3× CVR improvement on email landing pages has more impact if email has higher traffic than paid social."
   - question: "How should I factor CAC into CRO investment decisions?"
     answer: "CRO investment is justified when the expected reduction in CAC (or improvement in LTV) exceeds the cost of the programme. Example calculation: current CAC is €300, LTV is €900 (3:1 ratio). A CRO programme costs €2,000/month and is expected to double CVR within 6 months. If CVR doubles, CAC halves to €150. On 200 new customers/month, that's €30,000/month in savings at steady state — 15× monthly ROI. Even conservative estimates (30% CVR improvement) typically produce strong positive ROI when CAC × volume is large enough."
+  - question: "What costs do most companies miss when calculating CAC?"
+    answer: "The most frequently omitted CAC components: (1) Sales team salaries and commissions — often the largest acquisition cost for B2B businesses; (2) Marketing tools and software — CRM, marketing automation, ad tech platforms; (3) Content creation costs — writer salaries, design, video production; (4) Agency and contractor fees; (5) Leadership time spent on strategy and vendor management. Companies that include only ad spend typically understate true CAC by 40–60%. This understatement leads to over-investment in paid channels and under-appreciation of the ROI from CRO."
 ---
 
 **Customer Acquisition Cost (CAC)** is the average total cost of acquiring one new paying customer, calculated across all sales and marketing expenditure in a given period.
@@ -63,8 +65,26 @@ The relationship between acquisition cost and lifetime value determines the fund
 | E-commerce | €15–€80 | Highly variable by category |
 | B2C SaaS / apps | €20–€150 | Depends on acquisition channel |
 | Financial services | €150–€1,000 | High regulatory costs |
+| Professional services | €300–€2,000 | Relationship-driven sales |
 
 *Source: OpenView Partners SaaS benchmarks, Shopify merchant data*
+
+## CAC by Acquisition Channel
+
+Not all channels produce the same CAC. Understanding channel-level CAC drives smarter budget allocation:
+
+| Channel | Typical CAC (e-commerce) | Typical CAC (SaaS) | Notes |
+|---------|--------------------------|---------------------|-------|
+| Paid search (Google) | €25–€90 | €200–€800 | High intent, competitive |
+| Paid social (Facebook/IG) | €15–€60 | €150–€600 | Scalable, intent varies |
+| Organic SEO | €5–€20 | €50–€200 | Low cost, slow to build |
+| Email marketing | €5–€15 | €30–€120 | Best for repeat/existing |
+| Referral / affiliate | €20–€50 | €100–€300 | Quality varies by program |
+| Content / inbound | €8–€25 | €60–€250 | Compounds over time |
+
+*Source: industry aggregate data; ranges vary significantly by category and competition*
+
+Channel CAC is why SEO and content have among the best long-term CAC economics — the cost of a piece of content is a one-time investment, but the leads it generates compound over months or years.
 
 ## How CRO Reduces CAC
 
@@ -76,7 +96,7 @@ CRO is the most capital-efficient mechanism for reducing CAC, because it applies
 
 The ad budget is identical. CAC halved. Every future euro spent on acquisition now generates twice the return.
 
-This compounding effect means CRO ROI is often the highest of any marketing investment — a higher conversion rate multiplies the efficiency of every channel permanently.
+This compounding effect means CRO ROI is often the highest of any marketing investment — a higher conversion rate multiplies the efficiency of every channel permanently. For the full methodology, see [What Is Conversion Rate Optimization](/blog/what-is-conversion-rate-optimization/).
 
 ## CAC Payback Period
 
@@ -94,4 +114,35 @@ If CAC is €400 and a customer pays €50/month, payback period is 8 months.
 | 12–18 months | Requires strong retention |
 | Over 18 months | Capital-intensive, requires funding runway |
 
-Reducing CAC through CRO shortens the payback period — improving cash flow and reducing the capital required to scale. For the full unit economics context, see [Customer Lifetime Value](/cro-glossary/customer-lifetime-value/).
+Reducing CAC through CRO shortens the payback period — improving cash flow and reducing the capital required to scale.
+
+## CAC in CRO Investment Justification
+
+CAC is the clearest way to justify a CRO programme budget:
+
+**Step 1:** Calculate current CAC accurately (include all costs)
+**Step 2:** Estimate CVR improvement from CRO (conservative: 20–40% in 6 months; realistic: 40–80%)
+**Step 3:** Calculate new CAC at improved CVR
+**Step 4:** Multiply CAC reduction × monthly customer volume = monthly savings
+**Step 5:** Compare monthly savings to CRO programme cost
+
+**Example:**
+- Current CAC: €250 | Monthly new customers: 200 | Monthly acquisition spend: €50,000
+- CRO programme cost: €3,000/month
+- Projected CVR improvement: 40% → new CAC: €178
+- Monthly CAC savings: €72 × 200 customers = **€14,400/month**
+- ROI: €14,400 ÷ €3,000 = **4.8× monthly ROI**
+
+Even at 20% CVR improvement, the math typically favors CRO investment strongly when volume and CAC are meaningful. For B2B-specific acquisition economics, see [B2B Conversion Rate Optimization](/blog/b2b-conversion-rate-optimization/).
+
+## CAC and Conversion Rate Benchmarks
+
+Understanding where your CAC stands relative to industry CVR benchmarks helps identify whether a CAC problem is primarily a conversion problem:
+
+| Industry CVR benchmark | If your CVR is below benchmark | Implication for CAC |
+|------------------------|-------------------------------|---------------------|
+| E-commerce: 1.5–4% | Below 1.5% | CAC is 2–3× higher than it should be |
+| SaaS trial-to-paid: 15–25% | Below 15% | High CAC despite low media costs |
+| B2B lead-to-opportunity: 10–20% | Below 10% | Sales costs inflating CAC |
+
+See [Conversion Rate Benchmarks by Industry](/blog/conversion-rate-benchmarks-by-industry/) for detailed benchmarks. Reducing CAC through CRO shortens the payback period — improving cash flow and reducing the capital required to scale. For the full unit economics context, see [Customer Lifetime Value](/cro-glossary/customer-lifetime-value/).

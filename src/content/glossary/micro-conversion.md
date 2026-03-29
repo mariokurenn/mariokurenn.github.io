@@ -17,6 +17,8 @@ faqs:
     answer: "The most valuable micro-conversions to track depend on business type. For e-commerce: add-to-cart (strong purchase intent), begin-checkout (higher intent), wishlist add (lower intent but trackable). For SaaS: pricing page visit, free trial signup, feature page view, demo request. For B2B lead gen: content download, webinar registration, newsletter signup, contact page visit. In GA4, these can be set up as custom events and marked as 'key events' to track alongside your primary conversion. The most valuable are those with the highest correlation to eventual macro-conversion."
   - question: "Can I use micro-conversions as A/B test metrics?"
     answer: "Yes — micro-conversions as test metrics are one of the most practical solutions for low-traffic sites. If your site converts 50 purchases/month, reaching statistical significance on purchase rate requires 6+ months per test. But if you have 350 add-to-carts/month, you can test against that metric and get results in 2–3 weeks. The key requirement: the micro-conversion must correlate strongly with the macro-conversion. Add-to-cart rate is a good proxy for purchase rate. Scroll depth alone is not — many visitors scroll without any intent to buy."
+  - question: "How do I set up micro-conversion tracking in GA4?"
+    answer: "In GA4, micro-conversions are set up as custom events. For e-commerce, GA4's enhanced ecommerce automatically tracks add_to_cart and begin_checkout as recommended events — enable enhanced ecommerce in your GA4 settings. For custom events like pricing page views or resource downloads, use GA4's event creation feature (Admin → Events → Create event) or implement via Google Tag Manager. Once events are created, mark the most intent-correlated ones as 'key events' in GA4 (Admin → Events → toggle 'Mark as key event'). This lets you see them prominently in reports alongside macro-conversions."
 ---
 
 **Micro-conversions** are small, intermediate actions that visitors take on their journey toward the primary conversion goal (the **macro-conversion**). They indicate engagement and intent without representing the final desired outcome.
@@ -30,10 +32,11 @@ faqs:
 | Newsletter subscription | Blog post read, scroll depth >70% |
 | Free trial signup | Feature page view, pricing page visit, FAQ engagement |
 | Contact form submission | Pricing page visit, case study view, calculator use |
+| App download | Feature page view, comparison page visit |
 
 ## Why Micro-Conversions Matter in CRO
 
-### 1. Funnel visibility
+### 1. Funnel Visibility
 Tracking only macro-conversions hides where users drop off. Tracking micro-conversions reveals the exact funnel step causing the most loss.
 
 **Example:** If 1,000 visitors land on a product page:
@@ -41,9 +44,9 @@ Tracking only macro-conversions hides where users drop off. Tracking micro-conve
 - 180 initiate checkout (18% micro-CVR)
 - 90 complete purchase (9% macro-CVR)
 
-The biggest drop is at checkout initiation → completion (50% drop). That's where to focus optimization, not on the product page.
+The biggest drop is at checkout initiation → completion (50% drop). That's where to focus optimization, not on the product page. Without micro-conversion tracking, analytics shows only "1,000 visitors, 90 purchases" — the funnel is invisible.
 
-### 2. Testing with low-volume macro-conversions
+### 2. Testing with Low-Volume Macro-Conversions
 If your site converts 50 purchases per month, you can't run statistically valid A/B tests on purchase rate — you'd need 6+ months per test. But if you have 350 add-to-carts per month, you can test against that metric and get results in 2–3 weeks.
 
 **Required monthly volume for valid tests:**
@@ -57,8 +60,16 @@ If your site converts 50 purchases per month, you can't run statistically valid 
 
 *Assumes 20% MDE, 80% power, 95% significance*
 
-### 3. Remarketing audiences
+### 3. Remarketing Audiences
 Visitors who complete micro-conversions are higher intent than general traffic. An add-to-cart remarketing audience converts 3–5× better than general site visitors. Pricing page visitors convert 2–3× better than blog readers. Segmenting remarketing by micro-conversion completed allows highly targeted messaging.
+
+### 4. Leading Indicators of Funnel Health
+When macro-conversion rate drops unexpectedly, micro-conversion data narrows the diagnosis:
+- Add-to-cart rate dropped but checkout completion rate is steady → product page or pricing problem
+- Add-to-cart rate is stable but checkout initiation dropped → cart page problem
+- Checkout initiation rate stable but completion dropped → checkout flow or payment problem
+
+Without micro-conversion tracking, all you see is "conversion rate dropped." With it, you see exactly where the funnel broke.
 
 ## Micro-Conversions to Track in GA4
 
@@ -80,10 +91,30 @@ Not all micro-conversions are equally predictive of the macro-conversion. Build 
 
 | Micro-conversion | Correlation to macro (typical) | Use for |
 |------------------|-------------------------------|---------|
-| Begin checkout | Very high (70–80% convert) | Testing, targeting |
-| Add to cart | High (25–35% purchase) | Testing, targeting |
+| Begin checkout | Very high (70–80% of initiators purchase) | Testing, targeting |
+| Add to cart | High (25–35% of adders purchase) | Testing, targeting |
 | Pricing page view | Medium (10–20% convert) | Targeting only |
+| Feature page view | Medium (8–15% convert) | Targeting only |
 | Blog post read | Low (1–3% convert) | Awareness only |
 | Video play | Variable | Testing if strong evidence |
+| Scroll depth 75% | Low-medium | Engagement signal only |
 
-Micro-conversion tracking transforms your analytics from a rearview mirror into a live diagnostic tool — and is a core part of any [CRO programme](/services/cro-audit/).
+Only use micro-conversions as A/B test metrics when there is confirmed correlation between that micro-conversion and the macro-conversion. A test that improves scroll depth but doesn't touch add-to-cart rate is measuring engagement, not purchase intent.
+
+## Micro-Conversions and the Low-Traffic CRO Problem
+
+For sites with fewer than 200 macro-conversions per month, micro-conversions are the primary path to running valid A/B tests. The [CRO for Low Traffic](/blog/cro-low-traffic/) guide covers how to build a testing program around micro-conversion metrics, including which micro-conversions to prioritize by business type and how to validate the macro-conversion correlation before relying on them as test metrics.
+
+## Setting Up Micro-Conversion Funnels
+
+In GA4, funnels are built in the Explore section (Explore → Funnel Exploration). A well-configured e-commerce funnel looks like:
+
+1. Product page view
+2. Add to cart
+3. Begin checkout
+4. Add payment info
+5. Purchase
+
+Running this report weekly reveals where the biggest percentage drops occur over time, and whether changes you've made (A/B test launches, page updates, checkout revisions) are moving the needle on the steps that matter.
+
+Micro-conversion tracking transforms your analytics from a rearview mirror into a live diagnostic tool — and is a core part of any systematic [CRO programme](/services/cro-audit/). For the full context on how to use these metrics within testing, see [How to Calculate Conversion Rate](/blog/how-to-calculate-conversion-rate/) and [A/B Testing Best Practices](/blog/ab-testing-best-practices/).

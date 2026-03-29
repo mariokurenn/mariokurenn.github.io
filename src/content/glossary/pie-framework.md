@@ -43,6 +43,7 @@ Signals of high potential:
 - Rage clicks or dead clicks visible in session recordings
 - User testing reveals persistent confusion at this step
 - Visitor survey responses mention frustration with this element
+- Heatmaps show visitors ignoring the primary CTA
 
 **Score 9–10:** Page or element has obvious, severe problems. Major improvement opportunity.
 **Score 5–6:** Some issues present but page performs reasonably well.
@@ -55,6 +56,7 @@ Signals of high importance:
 - High monthly sessions (this is where most of your audience lands)
 - Direct connection to conversion (checkout, pricing page, primary CTA)
 - High revenue per visitor (paid traffic landing page)
+- Part of the critical path — visitors must pass through this page to convert
 
 **Score 9–10:** Your single highest-traffic or highest-revenue page. Every 1% improvement here multiplies across thousands of monthly visitors.
 **Score 5–6:** Moderate traffic; contributing to conversion pipeline but not the primary bottleneck.
@@ -74,10 +76,12 @@ How easily can this change be implemented and tested?
 | Rewrite checkout page headline | 8 | 9 | 9 | **8.7** |
 | Add trust badges to checkout | 7 | 9 | 8 | **8.0** |
 | Simplify homepage navigation | 7 | 8 | 5 | **6.7** |
+| Add social proof to pricing page | 6 | 8 | 7 | **7.0** |
 | Redesign product category page | 6 | 7 | 3 | **5.3** |
 | A/B test blog CTA copy | 4 | 3 | 9 | **5.3** |
+| Reduce form fields on lead gen page | 8 | 6 | 8 | **7.3** |
 
-The checkout headline rewrite scores first: high potential (headline is a known high-leverage element), highest importance (checkout is where purchases happen), and easy to implement.
+The checkout headline rewrite scores first: high potential (headline is a known high-leverage element), highest importance (checkout is where purchases happen), and easy to implement. The blog CTA test scores identically to the category page redesign but represents dramatically less potential revenue — a reminder that PIE score alone doesn't tell the whole story.
 
 ## PIE vs ICE Framework
 
@@ -88,6 +92,13 @@ The checkout headline rewrite scores first: high potential (headline is a known 
 
 Many CRO programs use PIE to select pages and ICE to prioritize individual tests within a page.
 
+**ICE scoring in practice:**
+- Impact: expected CVR lift if the hypothesis is correct (1–10)
+- Confidence: strength of evidence backing the hypothesis (1–10)
+- Ease: implementation effort (1–10)
+
+A hypothesis with strong research backing (session recordings, user testing, heatmaps all pointing to the same problem) scores high on Confidence. A hypothesis based on a gut feeling scores low. ICE builds research-backing into the prioritization system.
+
 ## Data Sources for PIE Scoring
 
 | PIE Dimension | Data source | What to look for |
@@ -95,9 +106,26 @@ Many CRO programs use PIE to select pages and ICE to prioritize individual tests
 | Potential | GA4 exit rate | >60% exit rate = high potential |
 | Potential | Session recordings | Rage clicks, form abandonment patterns |
 | Potential | CVR vs industry benchmark | 50%+ below average = high potential |
+| Potential | Heatmaps | Ignored CTAs, scroll depth drop-offs |
 | Importance | GA4 page traffic | Monthly sessions count |
 | Importance | Revenue flow | Pages in direct checkout path |
+| Importance | Ad spend destination | Paid traffic landing pages score highest |
 | Ease | Development estimates | Time to implement + QA |
+
+Grounding each dimension in actual data before scoring reduces the team disagreement that undermines PIE's usefulness as a prioritization tool.
+
+## Building and Maintaining a PIE Backlog
+
+A well-run PIE backlog follows this cycle:
+
+1. **Discovery** — Pull low-CVR pages from GA4, identify rage clicks in Hotjar/FullStory, review user survey responses
+2. **Hypothesis formation** — Convert each problem into a testable hypothesis: "If we [change X], then [metric Y] will improve because [reason Z]"
+3. **Scoring** — Score each hypothesis on PIE (or ICE) using data anchors, not intuition
+4. **Ranking** — Sort by score, review top 5 for feasibility
+5. **Execution** — Run the highest-scored test that's ready to build
+6. **Review** — Quarterly re-score of inactive backlog items as site data changes
+
+A backlog of 10–30 items is manageable. Beyond 30, low-priority items become stale and the backlog loses credibility as a prioritization tool.
 
 ## Limitations of PIE
 
@@ -106,8 +134,14 @@ PIE is a subjective scoring system — different team members will score the sam
 - Anchoring Importance scores to actual traffic or revenue numbers
 - Having multiple team members score independently and averaging
 
-**Common PIE mistake:** Over-weighting Ease. A high-importance, low-ease test (checkout redesign) will often produce more revenue than 10 high-ease, low-importance tests. Ease is a tiebreaker, not a primary driver.
+**Common PIE mistake:** Over-weighting Ease. A high-importance, low-ease test (checkout redesign) will often produce more revenue than 10 high-ease, low-importance tests (blog sidebar CTAs). Ease is a tiebreaker between otherwise equal options — not a reason to skip high-importance work.
+
+**Weighted PIE:** Some teams assign weights to dimensions (e.g., Importance × 2, Potential × 1.5, Ease × 1) to prevent Ease from dominating the ranking. This is a reasonable modification for teams where Ease scores consistently crowding out high-importance, high-potential tests.
 
 PIE is a structured way to have an informed argument about priorities — not a mathematical truth.
 
-For running tests once priorities are set, see [A/B Testing Best Practices](/blog/ab-testing-best-practices/). For the service that applies PIE within a systematic CRO programme, see [CRO Audit](/services/cro-audit/).
+## PIE in the Context of a Full CRO Programme
+
+PIE is most effective when paired with a strong research phase. Running PIE scoring without analytics data, session recordings, and user research produces subjective guesses formatted as numbers. Running it with solid data produces informed prioritization.
+
+The research → PIE scoring → testing → learning → research cycle is the engine of a systematic CRO programme. For running tests once priorities are set, see [A/B Testing Best Practices](/blog/ab-testing-best-practices/). For how PIE fits within the broader [CRO strategy](/blog/what-is-conversion-rate-optimization/), see the full methodology overview.

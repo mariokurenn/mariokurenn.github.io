@@ -17,6 +17,8 @@ faqs:
     answer: "Full factorial MVT tests every possible combination of all variables — providing complete interaction effect data. A 3-element test with 2 options each = 2^3 = 8 combinations. Fractional factorial MVT tests a strategic subset of combinations — reducing traffic requirements but at the cost of some interaction data. Fractional factorial is used when full factorial is impractical due to traffic constraints, but it produces less definitive results about element interactions. Most enterprise tools (Optimizely, Adobe Target) support both approaches. For most CRO programs, full factorial A/B testing of individual elements sequentially produces better ROI than fractional factorial MVT."
   - question: "Is multivariate testing better than A/B testing for learning?"
     answer: "MVT provides more detailed information about individual element contributions and interactions — in theory. But in practice, A/B testing runs faster, produces cleaner results, and compounds better. If you run 3 sequential A/B tests (headline, then image, then CTA), you get clear attribution for each win and build each test on the previous winner — compounding the improvements. An MVT of the same 3 elements takes 8× longer, and any interaction effects discovered require follow-up A/B tests to validate. The sequential A/B approach produces more total learning and more total revenue improvement over a 12-month program."
+  - question: "What tools support multivariate testing?"
+    answer: "Enterprise-grade MVT tools: Optimizely Web Experimentation, Adobe Target (part of Adobe Experience Cloud), VWO (mid-market, full-factorial support). Mid-market: AB Tasty, Kameleoon. Basic MVT: Google Optimize supported MVT but was discontinued in 2023. For most businesses under 500,000 monthly sessions, none of these tools solve the fundamental traffic problem — MVT requires traffic volumes that most sites don't have. The tool is not the constraint; the sample size is."
 ---
 
 **Multivariate testing (MVT)** is a conversion testing methodology that simultaneously tests multiple page elements and all possible combinations of those elements to determine which combination produces the best conversion rate.
@@ -32,6 +34,11 @@ Suppose you want to test three elements:
 
 A full-factorial multivariate test creates all possible combinations: 2 × 2 × 2 = **8 variants**. Traffic is split equally across all 8, and the test runs until statistical significance is reached for each combination.
 
+The output is not just "which version wins" — it's:
+1. Which combination produces the highest conversion rate
+2. Which individual elements have the most influence on outcome
+3. Whether there are interaction effects (Headline A works better with Image B than with Image A)
+
 ## MVT vs A/B Testing: Decision Matrix
 
 | Factor | A/B Test | Multivariate Test |
@@ -42,6 +49,7 @@ A full-factorial multivariate test creates all possible combinations: 2 × 2 × 
 | Time to results | Faster | Much slower |
 | Risk of inconclusion | Low | High on medium-traffic sites |
 | Best for | 90%+ of all tests | High-traffic, mature pages |
+| Tool requirements | Any A/B tool | Enterprise platforms only |
 
 ## The Traffic Problem with MVT
 
@@ -63,6 +71,8 @@ For most sites, this makes MVT impractical. **A/B testing is the right tool for 
 | 16 (2^4) | ~160,000 | ~40,000 |
 | 27 (3×3×3) | ~270,000 | ~67,500 |
 
+Even the smallest MVT (4 combinations) requires 10,000 weekly sessions to the test page for a reasonable 4-week test duration. Sites without that traffic need to stick to A/B testing.
+
 ## When MVT is Worth It
 
 MVT makes sense when:
@@ -70,6 +80,8 @@ MVT makes sense when:
 2. **You need element interaction data** — knowing that Headline A works specifically with Image B, not just that B generally wins
 3. **The page is already optimised** via A/B testing and you're extracting incremental gains
 4. **You have enterprise tool support** — proper MVT requires Optimizely, VWO Enterprise, or Adobe Target
+
+If any of these conditions are missing, sequential A/B testing delivers better results with less complexity and shorter timelines.
 
 ## Sequential A/B vs MVT: The Strategic Comparison
 
@@ -79,12 +91,36 @@ For a 3-element test over 12 months:
 1. Month 1–2: Test headline (declare winner)
 2. Month 3–4: Test hero image on winning headline
 3. Month 5–6: Test CTA copy on winning headline + image
-4. **Result:** 3 compounds of 20% improvement each = 73% total CVR improvement
+4. **Result:** 3 compounding 20% improvements each = 73% total CVR improvement
 
 **MVT approach:**
 1. Month 1–16: Run 8-combination test
 2. **Result:** ~35% CVR improvement from winning combination
 
-Sequential A/B produces 73% improvement vs MVT's 35% — in the same timeframe — because each A/B test compounds the previous winner.
+Sequential A/B produces 73% improvement vs MVT's 35% — in the same timeframe — because each A/B test compounds the previous winner. This is the core argument against attempting MVT on medium-traffic sites: even if you had the traffic, the testing clock runs too slow to allow iteration.
 
-For most businesses running a [CRO programme](/services/cro-audit/), sequential A/B testing delivers better ROI than attempting multivariate testing before the traffic justifies it.
+## Fractional Factorial: A Middle Ground
+
+When full factorial MVT is impossible due to traffic constraints, fractional factorial testing tests a mathematically selected subset of combinations rather than all of them.
+
+For a 2^5 = 32 combination test, a fractional factorial design might test 8 or 16 carefully selected combinations that allow estimation of main effects and some two-way interactions — at half the traffic cost.
+
+**Trade-offs:**
+- Reduced traffic requirement vs full factorial
+- Cannot measure all interaction effects
+- Requires statistical expertise to design correctly
+- Still requires substantially more traffic than A/B testing
+
+For most CRO programs, this complexity is not justified. Sequential A/B testing with [statistical significance](/cro-glossary/statistical-significance/) monitoring achieves better outcomes faster.
+
+## Common MVT Mistakes
+
+**Running MVT on a page that's never been A/B tested** — MVT is a refinement tool, not a discovery tool. A page with fundamental CRO problems (weak headline, missing social proof, no clear CTA) needs A/B testing to solve those problems first, not an MVT to optimize element combinations.
+
+**Too many variables, too little traffic** — A 5-element MVT (32 combinations) on a page with 15,000 monthly sessions would take over a year to complete. The test is effectively never-ending.
+
+**Stopping MVT early** — Because some combination variants will show significance before others, teams are tempted to stop MVT when the best combination is ahead. This is the peeking problem, and it inflates false positive rates significantly in multi-combination tests.
+
+**Ignoring interaction effects** — The whole point of MVT is interaction effects. If your MVT analysis looks only at which single element won and ignores combination performance, you wasted the extra traffic and complexity.
+
+For most businesses running a [CRO programme](/services/cro-audit/), sequential A/B testing delivers better ROI than attempting multivariate testing before the traffic justifies it. For the full A/B testing methodology, see [A/B Testing Best Practices](/blog/ab-testing-best-practices/) and [How Long Should You Run an A/B Test?](/blog/how-long-to-run-ab-test/).

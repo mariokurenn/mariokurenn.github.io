@@ -17,6 +17,10 @@ faqs:
     answer: "A high CTR on ads indicates your headline or creative is compelling clicks — but if the landing page doesn't deliver on the implicit promise, those clicks bounce immediately. High ad CTR + low landing page conversion rate = message mismatch. The correct optimization target is not CTR alone but the full funnel metric: Cost Per Acquisition (CPA) or Revenue Per Visitor (RPV). Optimizing ad CTR in isolation can actually hurt overall campaign performance if it attracts curiosity clicks from low-intent audiences."
   - question: "How does CTR affect Google Ads Quality Score?"
     answer: "Google Ads Quality Score (1–10) is heavily influenced by expected CTR — Google's prediction of how likely your ad is to receive clicks relative to competitors for the same keywords. A higher Quality Score reduces your cost-per-click (CPC) and improves ad position. Specifically: each Quality Score point improvement reduces CPA by approximately 10% (Google's published data). High CTR signals relevance to Google's algorithm, which rewards you with lower costs. This makes CTR optimization in paid search doubly valuable — it improves both conversion volume and acquisition cost simultaneously."
+  - question: "What is the difference between CTR and open rate in email marketing?"
+    answer: "Open rate measures the percentage of email recipients who opened the email (tracked via a 1×1 pixel image load). CTR measures the percentage of delivered emails (or opened emails) where a recipient clicked a link. Click-to-Open Rate (CTOR) = Clicks ÷ Opens — it measures how compelling the email content is to people who already opened. CTOR benchmarks: B2B averages 10–15%, B2C averages 8–12%. CTR relative to delivered emails measures the combined effectiveness of subject line + email content. Segment your email CTR by subject line, send time, and list segment to identify optimization opportunities."
+  - question: "How do I diagnose a low CTR on my landing page CTA?"
+    answer: "Diagnose low CTA CTR in this sequence: (1) check if the CTA is visible above the fold on mobile — if not, a large percentage of visitors never see it; (2) review the button copy — passive generic copy ('Submit', 'Learn More') consistently underperforms benefit-led copy; (3) check visual contrast — the button should be the most visually prominent element on the page; (4) run a session recording analysis to see where visitors scroll to and whether they interact with the CTA area; (5) run a 5-second test — if visitors can't identify the primary action in 5 seconds, the CTA has a visibility problem. Fix visibility before testing copy changes."
 ---
 
 **Click-through rate (CTR)** is the percentage of people who click on a specific link, ad, or call-to-action element out of the total number of people who viewed it.
@@ -49,7 +53,7 @@ CTR is a leading indicator — it tells you whether your messaging and design ar
 | Meta ads | 0.8–1.5% | 2–4% |
 | Landing page CTA button | 3–10% | 15–25% |
 
-*Sources: Mailchimp 2024 Email Marketing Benchmarks, Google Ads industry benchmarks, WordStream 2024 PPC benchmarks*
+*Sources: Mailchimp 2024 Email Marketing Benchmarks, [Google Ads industry benchmarks](https://support.google.com/google-ads/answer/2615875), WordStream 2024 PPC benchmarks*
 
 ## CTR vs Conversion Rate
 
@@ -75,6 +79,41 @@ The single biggest lever for CTA button CTR is **copy**. Switching from passive,
 
 Visual contrast is the second lever — a button that blends into the page background is invisible regardless of copy quality. Test your button colour against the background using a contrast checker (minimum WCAG 4.5:1 ratio for text).
 
+For complete guidance on CTA optimization, see [Call to Action](/cro-glossary/call-to-action/).
+
+## CTR in Email Marketing
+
+Email CTR is a composite metric — it measures both the subject line's ability to generate opens and the email content's ability to drive clicks.
+
+**Click-to-Open Rate (CTOR)** is often more informative than raw CTR because it isolates email body performance from subject line performance:
+
+**CTOR = Clicks ÷ Opens**
+
+| Metric | What it measures | Benchmark |
+|---|---|---|
+| Open rate | Subject line + send timing | 20–30% (B2B), 15–25% (B2C) |
+| CTR (vs delivered) | Subject line + body content | 2–5% |
+| CTOR (vs opened) | Body content and CTA only | 10–15% (B2B), 8–12% (B2C) |
+
+A low open rate with a high CTOR suggests the subject line is the problem — not the email content. A high open rate with a low CTOR suggests the content or CTA is the problem.
+
+## CTR and Google Ads Quality Score
+
+[Google's Quality Score](https://support.google.com/google-ads/answer/6167118) (1–10) is heavily influenced by expected CTR — Google's prediction of how likely your ad is to be clicked relative to competitors for the same keyword.
+
+Quality Score directly affects your cost-per-click:
+
+| Quality Score | Relative CPC adjustment |
+|---|---|
+| 10 | −50% vs baseline |
+| 8–9 | −25% to −40% |
+| 6–7 | −17% |
+| 5 | Baseline |
+| 3–4 | +25–67% |
+| 1–2 | +400%+ |
+
+Higher CTR → higher Quality Score → lower CPC. This makes CTR improvement in paid search doubly valuable — improving CTR both directly increases clicks and reduces the cost of each click.
+
 ## CTR Across the Funnel
 
 CTR is useful as a diagnostic metric at every funnel stage:
@@ -86,4 +125,6 @@ CTR is useful as a diagnostic metric at every funnel stage:
 
 Low CTR at any stage signals a messaging problem at that specific touchpoint. High CTR at one stage followed by low conversion at the next signals a stage-to-stage mismatch — what you promised in the click doesn't match what was delivered after.
 
-Use these as orientation, not gospel. Your own historical CTR is always the most relevant benchmark. In any [CRO programme](/services/cro-audit/), CTR improvement on key CTAs is one of the fastest wins available — especially when the current copy is passive or generic.
+This funnel-level thinking is the core of [conversion rate optimization](/blog/what-is-conversion-rate-optimization/) — diagnosing where in the journey the gap between intent and action exists.
+
+Use benchmarks as orientation, not gospel. Your own historical CTR is always the most relevant benchmark. In any [CRO programme](/services/cro-audit/), CTR improvement on key CTAs is one of the fastest wins available — especially when the current copy is passive or generic.

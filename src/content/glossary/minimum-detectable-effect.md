@@ -42,6 +42,7 @@ You're not trying to detect a 20 percentage point change — you're trying to de
 | 2.0% | 30% | 2.6% |
 | 5.0% | 10% | 5.5% |
 | 5.0% | 20% | 6.0% |
+| 10.0% | 15% | 11.5% |
 
 ## How MDE Affects Sample Size
 
@@ -63,6 +64,8 @@ At 5,000 sessions/month to the test page:
 - MDE 10% → ~16 months per variant
 - MDE 5% → 63 months — not viable
 
+The implication: most sites cannot run tests designed to detect 5–10% relative improvements. The math doesn't allow it. Setting MDE below what your traffic can support produces tests that run for years and still don't reach significance.
+
 ## Setting MDE: Practical Guidelines
 
 **Ask: "Is this improvement worth implementing?"**
@@ -83,12 +86,28 @@ Set your MDE at the minimum improvement you'd consider worth shipping.
 | Email subject line (high volume) | 2–5% open rate |
 | Checkout optimization (critical flow) | 10–15% |
 | Headline test (large effect expected) | 15–25% |
+| Pricing page test | 10–20% |
+
+## MDE and Business Value
+
+MDE should connect to real revenue impact. Before setting it, calculate what a given relative improvement is worth:
+
+**Example calculation:**
+- Monthly revenue: €200,000
+- Current CVR: 2.0%
+- Monthly sessions: 50,000
+- 20% MDE means detecting a 2.0% → 2.4% CVR improvement
+- Revenue impact: 50,000 × 0.4% × average order value = additional revenue per month
+
+If a 20% relative improvement is worth €4,000/month, it clearly justifies implementation. If a 5% improvement is worth €1,000/month, it might not — especially if it introduces technical debt or complexity.
 
 ## MDE and Low-Traffic Sites
 
 For sites under 5,000 sessions/month, even a 30% MDE produces impractically long test durations. The right response is not to lower the significance threshold — it's to use qualitative CRO methods instead.
 
-See [How to Do CRO With Low Traffic](/blog/cro-low-traffic/) for methods that work without A/B testing infrastructure.
+Lowering significance from 95% to 90% doesn't solve the sample size problem; it just increases your false positive rate from 5% to 10%. The test is still underpowered; you're just more likely to incorrectly declare a winner.
+
+See [How to Do CRO With Low Traffic](/blog/cro-low-traffic/) for methods that work without A/B testing infrastructure, including [Micro-Conversion](/cro-glossary/micro-conversion/) testing, qualitative research, and expert review.
 
 ## The Four Interrelated Parameters
 
@@ -101,10 +120,21 @@ MDE is one of four parameters that determine sample size. Changing any one affec
 | Statistical power (1-β) | 0.80 | Higher power → larger sample |
 | Baseline CVR | Your rate | Lower CVR → larger sample |
 
+These four parameters form a system. You cannot set all four independently — given your traffic, three of them are constraints, and the fourth must adjust. In most practical CRO situations, traffic and baseline CVR are fixed, significance and power are set by best practice, and MDE is the variable that must be set realistically based on what the traffic can detect.
+
+## Pre-Test Checklist: MDE
+
+Before starting any A/B test, confirm:
+1. What relative improvement am I designing this test to detect?
+2. Is that improvement worth implementing if found?
+3. Is that improvement realistically achievable for this type of change?
+4. Does my sample size calculation show a test duration under 4–6 weeks at this MDE?
+5. Have I committed to stopping the test at the pre-calculated sample size, not before?
+
 ## Calculating Required Sample Size
 
 Use any of these free calculators with your baseline CVR and MDE:
 - [Evan Miller Sample Size Calculator](https://www.evanmiller.org/ab-testing/sample-size.html)
 - [VWO A/B Test Duration Calculator](https://vwo.com/tools/ab-test-duration-calculator/)
 
-For the complete test duration framework, see [How Long Should You Run an A/B Test?](/blog/how-long-to-run-ab-test/).
+For the complete test duration framework, see [How Long Should You Run an A/B Test?](/blog/how-long-to-run-ab-test/). For the relationship between MDE and p-values, see [P-Value](/cro-glossary/p-value/).

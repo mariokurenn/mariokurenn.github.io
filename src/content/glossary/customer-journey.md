@@ -46,6 +46,17 @@ The customer journey is rarely linear. Research from Google's [See Think Do Care
 
 This non-linearity means optimizing a single touchpoint in isolation misses the full picture. A landing page with a 3% CVR might look underperforming — until you realize 60% of its visitors return later via direct or branded search to convert.
 
+## Customer Journey Touchpoints by Stage
+
+| Stage | Digital touchpoints | Offline touchpoints | Key metric |
+|-------|---------------------|---------------------|------------|
+| **Awareness** | Blog, social, SEO, display ads | Word of mouth, trade shows | Impressions, organic reach |
+| **Consideration** | Product pages, comparison tools, email, retargeting | Sales calls, demos | Engagement rate, time on site |
+| **Decision** | Pricing page, checkout, proposals | Final sales calls | CVR, form completions |
+| **Onboarding** | Welcome email sequence, in-app tutorials | Onboarding calls | Activation rate, time-to-value |
+| **Retention** | Re-engagement email, usage dashboards | QBRs, account management | Churn rate, NPS |
+| **Advocacy** | Referral programs, review requests | Case studies, references | NPS, referral rate |
+
 ## Customer Journey Mapping for CRO
 
 A customer journey map documents the journey from the *customer's perspective*:
@@ -56,6 +67,8 @@ A customer journey map documents the journey from the *customer's perspective*:
 - **What emotions are they feeling?** (Curious, skeptical, anxious, excited)
 - **What friction points exist?** (Can't find pricing, unclear onboarding, confusing checkout)
 - **What would move them forward?** (Relevant case study, free trial, live demo)
+
+The most useful journey maps are built from actual customer data — not internal assumptions. Qualitative research methods like customer interviews, exit surveys, and session recording analysis are the primary input. See [Voice of Customer Research](/blog/voice-of-customer-research/) for the research methodology that feeds journey mapping.
 
 ## Journey Stage Mismatch: The Most Common CRO Problem
 
@@ -68,7 +81,24 @@ Sending visitors to the wrong stage of the journey is one of the most common —
 | Decision (ready to buy) | Blog post | Direct conversion page |
 | Retention (existing customer) | Acquisition homepage | Account/upgrade page |
 
-For paid campaigns especially: match the ad's intent signal to the landing page's content stage.
+For paid campaigns especially: match the ad's intent signal to the landing page's content stage. A visitor who clicked a "how to reduce cart abandonment" ad is in the Consideration stage — they need education and proof, not an immediate sales pitch. Mismatched landing pages are responsible for the majority of poor paid campaign CVR.
+
+## Average Touches to Conversion by Business Type
+
+Understanding how many interactions your typical customer needs before converting helps you build the right journey infrastructure:
+
+| Business type | Average touches before conversion | Primary touchpoint types |
+|---------------|-----------------------------------|--------------------------|
+| E-commerce (impulse purchase <€30) | 1–2 visits | Paid ad → product page |
+| E-commerce (considered purchase €100–€500) | 2–4 visits | Search → product → retargeting |
+| B2C SaaS (freemium) | 3–6 touches | Content → trial → email nurture |
+| B2B SaaS (SMB) | 5–10 touches | SEO → demo → email sequence |
+| B2B SaaS (Enterprise) | 15–30 touches | Content → SDR → multi-stakeholder |
+| Professional services | 8–20 touches | Referral/SEO → consultation → proposal |
+
+*Source: Forrester B2B Research 2023, Google Think With Google data*
+
+The number of required touches determines the infrastructure you need — an e-commerce impulse business needs a frictionless single-session experience; a B2B enterprise business needs a complete multi-touch nurture architecture. See [B2B Conversion Rate Optimization](/blog/b2b-conversion-rate-optimization/) for the full B2B journey framework.
 
 ## Using Session Recordings for Journey Insight
 
@@ -81,6 +111,19 @@ Session recordings are the richest data source for understanding actual customer
 
 [Microsoft Clarity](https://clarity.microsoft.com/) and [Hotjar](https://www.hotjar.com/) both provide free tools. Watching 20–30 sessions for your highest-intent visitors (those who visited pricing + returned) reveals journey patterns that analytics cannot.
 
+## Optimizing the Journey vs Optimizing Pages
+
+The distinction matters:
+
+| Page optimization | Journey optimization |
+|-------------------|---------------------|
+| Improve CVR of a single page | Improve progression through all stages |
+| A/B test elements on one URL | Improve channel-to-page intent matching |
+| Metrics: page CVR, bounce rate | Metrics: stage-to-stage progression, multi-visit CVR |
+| Timeframe: 2–6 week tests | Timeframe: 3–12 month programs |
+
+The highest-leverage journey optimization is usually intent matching — ensuring each traffic source lands on content calibrated to where that visitor is in their decision process. A 30% improvement in intent match across your paid campaigns can double campaign CVR without changing a single page element.
+
 ## The CRO Implication: Optimize for Stage, Not Just Page
 
 Different journey stages require different conversion approaches:
@@ -90,4 +133,4 @@ Different journey stages require different conversion approaches:
 - **Decision pages** (checkout, pricing) need objection handling and friction removal
 - **Post-purchase** needs activation help, not sales pressure
 
-For the full CRO methodology applied across each stage, see [What Is Conversion Rate Optimization](/blog/what-is-conversion-rate-optimization/) and [B2B Conversion Rate Optimization](/blog/b2b-conversion-rate-optimization/) for B2B-specific journey considerations.
+For the full CRO methodology applied across each stage, see [What Is Conversion Rate Optimization](/blog/what-is-conversion-rate-optimization/) and [Landing Page Best Practices](/blog/landing-page-best-practices/) for stage-matched landing page design. For [B2B Conversion Rate Optimization](/blog/b2b-conversion-rate-optimization/), the multi-touch journey is especially critical to optimize.

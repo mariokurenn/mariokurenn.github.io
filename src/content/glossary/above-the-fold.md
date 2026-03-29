@@ -19,6 +19,8 @@ faqs:
     answer: "Yes — more than ever. While users scroll more than they did in the early web era (scrolling is now the default behavior), the fold still determines whether a visitor gives you the attention required to scroll. Eye-tracking studies from Nielsen Norman Group consistently show that initial above-fold content receives disproportionate attention — the first screenful gets 5–10× more viewing time per pixel than content further down the page. The fold determines whether the scroll happens at all."
   - question: "What are the most common above-the-fold mistakes on landing pages?"
     answer: "The five most costly above-the-fold mistakes: (1) Clever over clear — a witty headline that doesn't communicate what you do is worse than a boring headline that does; (2) Hero image that pushes content below the fold — a large image that forces the headline and CTA off-screen on mobile is one of the most common landing page errors; (3) No CTA above the fold — visitors with immediate intent have no obvious action to take; (4) Navigation-heavy header consuming 20–30% of above-fold space that should be used for the value proposition; (5) Value proposition written for the brand, not the visitor — 'We are award-winning' vs 'You'll increase conversion rate by 30% in 90 days.'"
+  - question: "How do I run a 5-second test for my above-the-fold section?"
+    answer: "A 5-second test shows your above-the-fold design to a participant for exactly 5 seconds, then removes it and asks: 'What does this company do?' and 'Who is it for?' and 'What should you do next?' If participants can answer all three accurately, your above-the-fold passes. If they can't, your value proposition lacks clarity. Tools like UsabilityHub (now Lyssna) run 5-second tests with remote participants. You can also run informal versions by showing the design to a colleague unfamiliar with the product. This test takes 30 minutes to set up and identifies the single most common above-the-fold failure: being unclear."
 ---
 
 **Above the fold** refers to the content visible in a visitor's browser window without scrolling — the first thing they see when they land on your page.
@@ -35,6 +37,8 @@ Visitors make a stay-or-leave decision within 3–5 seconds of landing on a page
 - The very first screenful receives dramatically more attention than any other screenful
 - Attention drops sharply as users scroll, with each successive screen receiving less time
 
+This concentration of attention makes the above-the-fold section the single highest-leverage area to optimise on any page. A 10% improvement in above-fold clarity and CTA visibility has the same effect as a 10% increase in traffic — and it costs nothing to test.
+
 ## The Fold by Device
 
 | Device | Typical viewport height | Effective fold position |
@@ -45,6 +49,8 @@ Visitors make a stay-or-leave decision within 3–5 seconds of landing on a page
 | Mobile (375px) | 667px | ~450–550px below top |
 
 These are approximations — browser toolbars, pinned tabs, and OS chrome all eat into the effective viewport. Always verify your above-fold section in real browsers on real devices, not just in design mockups.
+
+Mobile warrants special attention: with mobile representing 60–70% of web traffic across most sectors, an above-the-fold section that works on desktop but breaks on a 375px screen is failing the majority of your visitors.
 
 ## What Belongs Above the Fold
 
@@ -60,6 +66,20 @@ A conversion-optimised above-the-fold section contains these five elements:
 
 Everything else — features, case studies, FAQs, testimonials — goes below the fold to support the decision already set up above it.
 
+## Value Proposition Clarity: The Most Important Element
+
+The headline is the most important element above the fold — and the most commonly broken. Weak headlines share these patterns:
+
+- **Brand-centric:** "We are a leading digital agency" — tells the visitor nothing about what's in it for them
+- **Vague benefit:** "Unlock your potential" — meaningless without specificity
+- **Industry jargon:** "Full-stack conversion optimisation solutions" — excludes buyers who don't use that language
+- **Feature-first:** "AI-powered analytics dashboard" — features before benefits is the wrong sequence
+
+Strong headlines answer three questions simultaneously: What is this? Who is it for? Why should I choose it over alternatives?
+
+**Weak:** "Digital marketing that drives results"
+**Strong:** "Double your e-commerce conversion rate in 90 days — or your money back"
+
 ## Above-the-Fold Conversion Checklist
 
 Run this audit on your highest-traffic pages:
@@ -71,6 +91,17 @@ Run this audit on your highest-traffic pages:
 - [ ] Does the hero image show an outcome or person, not just a product?
 - [ ] Is the font size at least 16px body / 36px+ headline on mobile?
 - [ ] Is the CTA button visually distinct from every other element?
+- [ ] Is the loading time under 2.5 seconds on mobile (LCP score)?
+
+## Message Match: The Hidden Above-Fold Problem
+
+The most common above-the-fold conversion failure isn't bad design — it's message mismatch between the traffic source and the landing page.
+
+If your Facebook ad says "50% off running shoes" and the landing page headline says "Athletic Footwear Collection," visitors arrive expecting a discount and see a generic category page. The disconnect triggers an immediate bounce — before the visitor has even processed your above-fold content.
+
+Message match means the headline (and sometimes the hero image) should directly echo the promise made in the ad, email subject line, or organic search result that brought the visitor to the page. Dedicated landing pages with matched headlines consistently convert 30–50% higher than generic pages receiving the same traffic.
+
+For the full landing page optimisation framework, see [Landing Page Best Practices](/blog/landing-page-best-practices/).
 
 ## Common Above-the-Fold Mistakes
 
@@ -89,6 +120,9 @@ A tall header with multiple nav items, logos, and promotional banners can eat 20
 **5. Generic social proof**
 "Trusted by thousands" does less than "Trusted by 4,200 e-commerce brands." Specificity is what makes social proof credible.
 
+**6. Slow above-the-fold render**
+The fastest above-the-fold copy is worthless if it takes 5 seconds to appear. Hero images should be compressed to WebP, sized correctly, and loaded with `fetchpriority="high"`. A slow Largest Contentful Paint (LCP) score is as damaging as a weak headline for first impressions.
+
 ## Above the Fold on Mobile
 
 "The fold" is different on every device. On a 13" laptop, the fold might be at 700px. On a mobile phone, it might be at 500px — and the viewport is narrower, so less content fits horizontally.
@@ -99,3 +133,5 @@ Always test your above-the-fold section on:
 - Mobile (375–390px)
 
 The value proposition, headline, and CTA should be fully visible on all three. Above-the-fold optimisation is the single highest-leverage starting point in any [CRO audit](/services/cro-audit/). For a full breakdown of what belongs in the hero section, see [Landing Page Best Practices](/blog/landing-page-best-practices/).
+
+High [bounce rates](/cro-glossary/bounce-rate/) from paid traffic are often traceable to above-the-fold failures — the visitor arrives, doesn't immediately see what they expected, and leaves. See [Bounce Rate](/cro-glossary/bounce-rate/) for the diagnostic framework.

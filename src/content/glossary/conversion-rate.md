@@ -19,6 +19,8 @@ faqs:
     answer: "Conversion rate varies dramatically by source. Typical e-commerce CVR by source: email (own list) 4–8%; branded paid search 3–6%; non-branded organic search 1–3%; non-branded paid search 1–3%; social media organic 0.5–1.5%; social media paid 0.5–1%; display retargeting 1–3%. Email converts highest because subscribers already know and trust the brand — they're the warmest audience. Paid social converts lowest because targeting is demographic, not intent-based. This source-level segmentation is essential for accurate optimization prioritization."
   - question: "What is the difference between session CVR and user CVR?"
     answer: "Session conversion rate = Conversions ÷ Sessions. User conversion rate = Conversions ÷ Unique Users. They differ because users visit multiple times. A user might visit 3 times before converting — that user's 3 visits count as 3 sessions but 1 user. Session CVR is typically lower than user CVR. For most CRO purposes, session CVR is the correct metric because A/B tests are assigned at the session level and you want to know how efficiently each visit is being converted. User CVR is more useful for measuring the health of your acquisition-to-conversion pipeline."
+  - question: "What is a micro-conversion and why does it matter?"
+    answer: "A micro-conversion is a smaller action that indicates progress toward the main conversion goal — adding to cart, viewing a pricing page, watching a product video, or downloading a lead magnet. Micro-conversions matter because they are often measurable on pages with too little traffic for A/B testing the macro-conversion, they are leading indicators (high micro-conversion → higher probability of macro-conversion), and improving micro-conversion rates at each funnel step compounds into significant macro-conversion improvement. A funnel with 5 steps each converting at 50% produces a 3.1% end-to-end rate; improving each step by 10 percentage points to 60% produces a 7.8% end-to-end rate — a 150% improvement."
 ---
 
 **Conversion rate** is the percentage of website visitors who complete a desired action within a given time period. It is the core metric of conversion rate optimization (CRO) and the primary measure of a website's commercial effectiveness.
@@ -28,6 +30,8 @@ faqs:
 > **Conversion Rate = (Conversions ÷ Total Visitors) × 100**
 
 If 1,000 people visit a landing page and 25 of them submit a contact form, the conversion rate is 2.5%.
+
+For a detailed walkthrough of the calculation with worked examples, see [How to Calculate Conversion Rate](/blog/how-to-calculate-conversion-rate/).
 
 ## What Counts as a Conversion?
 
@@ -55,7 +59,7 @@ Most businesses track one primary macro-conversion as the headline CVR, with mic
 
 *Sources: Monetate Ecommerce Quarterly, Unbounce Conversion Benchmark Report 2024, Baymard Institute*
 
-These figures vary significantly by traffic source — paid traffic typically converts lower than organic; email converts highest of all channels.
+These figures vary significantly by traffic source — paid traffic typically converts lower than organic; email converts highest of all channels. For sector-by-sector detail, see [Conversion Rate Benchmarks by Industry](/blog/conversion-rate-benchmarks-by-industry/).
 
 ## Why Conversion Rate Matters More Than Traffic
 
@@ -68,6 +72,22 @@ The power of conversion rate improvements is that they compound permanently. A h
 | Double CVR | 10,000 | 4% | €40,000 |
 
 Both approaches deliver the same result — but doubling traffic typically doubles ad spend. Doubling CVR costs a fraction of that. Additionally, a higher CVR reduces [Customer Acquisition Cost](/cro-glossary/customer-acquisition-cost/) across every channel simultaneously.
+
+This is the core argument of [conversion rate optimization](/blog/what-is-conversion-rate-optimization/) — improving CVR compounds permanently, whereas traffic improvements cease the moment ad spend stops.
+
+## CVR by Traffic Source
+
+| Traffic Source | Typical CVR (e-commerce) | Notes |
+|---|---|---|
+| Email (own list) | 4–8% | Highest — brand trust + purchase intent |
+| Branded paid search | 3–6% | High — explicit brand intent |
+| Non-branded organic | 1–3% | Varies by keyword intent |
+| Non-branded paid search | 1–3% | Intent-matched but cold |
+| Display retargeting | 1–3% | Warm audience revisiting |
+| Social media (paid) | 0.5–1% | Lowest — demographic targeting, no intent |
+| Social media (organic) | 0.5–1.5% | Engagement-driven, not intent-driven |
+
+Segmenting CVR by traffic source before running A/B tests is essential. A test that appears to "lose" overall may be winning on email traffic and losing on paid social — which are fundamentally different audiences with different objections.
 
 ## What Affects Conversion Rate?
 
@@ -87,7 +107,23 @@ The five biggest drivers:
 | Tablet | 2–4% |
 | Mobile | 1–2% |
 
-The mobile gap is narrowing but persists due to checkout friction (manual card entry), smaller screens, and slower connections on cellular networks. One-tap payment methods (Apple Pay, Google Pay) can reduce the mobile-desktop gap by 30–50%.
+The mobile gap is narrowing but persists due to checkout friction (manual card entry), smaller screens, and slower connections on cellular networks. One-tap payment methods (Apple Pay, Google Pay) can reduce the mobile-desktop gap by 30–50%. Any site where mobile traffic exceeds 50% of sessions but desktop-equivalent CVR hasn't been achieved has a significant mobile conversion opportunity.
+
+## Micro-Conversion Funnel Analysis
+
+Most conversion problems aren't on a single page — they're spread across a multi-step funnel. Measuring CVR at each funnel step identifies the highest-leverage intervention point:
+
+**Example e-commerce funnel:**
+
+| Funnel step | Visitors | CVR to next step | Drop-off |
+|---|---|---|---|
+| Homepage | 10,000 | 40% | 6,000 |
+| Product page | 4,000 | 25% | 3,000 |
+| Add to cart | 1,000 | 60% | 400 |
+| Checkout | 600 | 65% | 210 |
+| Purchase | 390 | — | — |
+
+End-to-end CVR: 3.9%. The product page has the largest absolute drop-off (3,000 visitors lost) — that's where optimization effort has the highest leverage, not the checkout page.
 
 ## How to Improve Conversion Rate
 
@@ -99,4 +135,6 @@ Improving conversion rate requires a structured process — not random changes:
 4. **A/B test changes** with proper statistical methodology
 5. **Implement winners** and build on each test's learnings
 
-This is precisely what a [CRO audit](/services/cro-audit/) systematises — finding the specific issues costing you conversions on your highest-value pages. For a detailed breakdown of CVR by industry and what moves the needle in each sector, see [Conversion Rate Benchmarks by Industry](/blog/conversion-rate-benchmarks-by-industry/).
+This is precisely what a [CRO audit](/services/cro-audit/) systematises — finding the specific issues costing you conversions on your highest-value pages.
+
+For a detailed breakdown of CVR by industry and what moves the needle in each sector, see [Conversion Rate Benchmarks by Industry](/blog/conversion-rate-benchmarks-by-industry/). For the complete A/B testing methodology used to improve CVR systematically, see [A/B Testing Best Practices](/blog/ab-testing-best-practices/).

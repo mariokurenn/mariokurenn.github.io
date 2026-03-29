@@ -17,6 +17,8 @@ faqs:
     answer: "Yes — intentional friction can improve lead quality. A longer application process filters out low-intent visitors. A multi-step form that asks qualifying questions reduces support costs by ensuring you only attract suitable customers. In luxury e-commerce, deliberately elevated friction (higher price, fewer discounts, limited availability) signals exclusivity and increases perceived value. The key distinction: friction is good when it increases the quality of the conversion; friction is bad when it prevents a willing buyer from completing a genuine purchase. Remove friction in the checkout flow; you may intentionally add friction at the top of a high-end service funnel."
   - question: "What is the relationship between friction and trust in CRO?"
     answer: "Friction and trust are inversely related: high friction increases the perceived risk of conversion (too much effort suggests something might go wrong), while strong trust signals reduce the psychological cost of each friction point. A 10-field form is less damaging when accompanied by strong social proof, a money-back guarantee, and a clear privacy statement — the trust signals offset the friction. The ideal conversion path has minimum necessary friction and maximum trust at every friction point. Removing friction without adding trust, or adding trust without removing friction, produces suboptimal results."
+  - question: "How much does page speed friction affect conversion rate?"
+    answer: "Page speed is one of the most quantified friction sources: Google's data shows that a 1-second delay in mobile page load time increases bounce rate by 32% (Google/Deloitte, 2019). Walmart found that every 1-second improvement in page load time increased conversions by 2%. Portent's 2022 study found pages loading in 1 second convert 3× better than pages loading in 5 seconds. For e-commerce, the Baymard Institute notes that 18% of cart abandonment is attributed to slow checkout performance. Speed friction is both the most damaging and among the most fixable forms of friction — it requires technical work but has no experimental ambiguity."
 ---
 
 **Friction** is any element in a conversion path that slows, confuses, or discourages a visitor from completing the intended action.
@@ -45,6 +47,8 @@ Mental effort that makes the conversion decision harder:
 - Unclear what the offer actually includes
 - Pricing hidden or confusingly structured
 
+Cognitive friction is the most prevalent type on most websites because it doesn't feel broken — it just makes decisions harder without anyone realizing why.
+
 ### Form Friction
 Every field in a form is friction. Each additional required field reduces completion rate:
 
@@ -58,7 +62,7 @@ Every field in a form is friction. Each additional required field reduces comple
 
 *Based on Baymard Institute and HubSpot form completion studies*
 
-Unnecessary fields are the most common and most fixable form friction. Audit every field: if you don't actively use the data it collects within 48 hours, remove it.
+Unnecessary fields are the most common and most fixable form friction. Audit every field: if you don't actively use the data it collects within 48 hours of submission, remove it.
 
 ### Trust Friction
 Doubt and risk perception that makes conversion feel unsafe:
@@ -69,7 +73,7 @@ Doubt and risk perception that makes conversion feel unsafe:
 - Unknown brand with no external validation
 - Missing or hidden contact information
 
-Trust friction is reduced by [social proof](/cro-glossary/social-proof/) and [trust signals](/cro-glossary/trust-signals/).
+Trust friction is reduced by [social proof](/cro-glossary/social-proof/) and [trust signals](/cro-glossary/trust-signals/). The key insight: trust signals don't eliminate friction — they compensate for it. The goal is minimum friction with maximum trust at every decision point.
 
 ### Navigation Friction
 Exit opportunities that distract from the conversion path:
@@ -78,6 +82,24 @@ Exit opportunities that distract from the conversion path:
 - Multiple competing CTAs with equal visual weight
 - Related product suggestions on checkout pages
 - Social media share buttons (invite visitors to leave)
+
+Navigation friction on landing pages is a well-documented conversion killer. Pages with navigation menus typically convert 20–25% lower than equivalent pages without menus — every link is a potential exit. See [Landing Page Best Practices](/blog/landing-page-best-practices/) for the specific navigation removal protocol.
+
+## Friction Benchmarks by Page Type
+
+Understanding what friction costs at each stage of the funnel:
+
+| Friction type | Typical conversion impact | Research source |
+|---------------|--------------------------|-----------------|
+| +1 second page load time | -7% CVR | Akamai, 2017 |
+| Required account creation at checkout | -23–35% checkout CVR | Baymard Institute, 2024 |
+| Unexpected shipping cost at checkout | -28% checkout completion | Baymard Institute, 2024 |
+| Navigation menu on landing page | -20–25% form submission CVR | Unbounce benchmark data |
+| Each extra form field (beyond 3) | -3–10% completion per field | HubSpot research |
+| No mobile-optimized checkout | -40–50% mobile conversion | Monetate benchmark |
+| Missing security badge at payment | -8–15% checkout completion | Econsultancy |
+
+These are averages across many sites. The actual impact on your specific pages requires testing — but these benchmarks justify which friction points to prioritize.
 
 ## Friction by Impact and Fix Complexity
 
@@ -91,6 +113,7 @@ Exit opportunities that distract from the conversion path:
 | No trust signals at CTA | High | Low | Add immediately |
 | Full navigation on landing page | Medium-High | Low | Remove on new pages |
 | Hidden pricing | Medium | Low | Clarify copy |
+| No mobile payment options (Apple/Google Pay) | High on mobile | Medium | Prioritize for mobile |
 
 ## The Friction Audit Process
 
@@ -102,6 +125,21 @@ Systematically identifying friction requires layered research:
 4. **Exit surveys** — "What stopped you from completing your goal today?" reveals friction in the visitor's own words.
 5. **User testing** — 5 sessions reveal 80% of usability-level friction that data alone cannot surface.
 
+For the qualitative research methods that surface friction most efficiently, see [Voice of Customer Research](/blog/voice-of-customer-research/).
+
+## Friction Prioritization Framework
+
+Not all friction is equal. Prioritize by:
+
+**Revenue × Fixability = Priority Score**
+
+- **High revenue impact, low fix complexity:** Fix immediately without testing (technical bugs, missing trust signals)
+- **High revenue impact, high fix complexity:** Test before full investment (checkout redesign, value proposition rewrite)
+- **Low revenue impact, low fix complexity:** Batch fix in regular optimization cycles
+- **Low revenue impact, high fix complexity:** Deprioritize indefinitely
+
+The highest-ROI friction fixes are always in the checkout flow — because visitors at checkout have the highest purchase intent, and any friction at that stage is losing your most motivated buyers.
+
 ## Removing Friction vs Adding Motivation
 
 CRO has two mechanisms for improving conversion rate:
@@ -112,4 +150,4 @@ Both work. But friction removal has an advantage: once friction is removed, it's
 
 The CRO priority order: remove critical technical friction first, then address psychological friction, then add motivation.
 
-For a step-by-step friction-finding framework, see [CRO for Low Traffic Websites](/blog/cro-low-traffic/) (qualitative methods) and [What Is Conversion Rate Optimization](/blog/what-is-conversion-rate-optimization/). For the conversion audit that identifies your highest-friction pages, see [CRO Audit](/services/cro-audit/).
+For a step-by-step friction-finding framework, see [What Is Conversion Rate Optimization](/blog/what-is-conversion-rate-optimization/). For [funnel optimization](/cro-glossary/funnel-optimization/) that maps friction to specific funnel stages, see the full funnel methodology. For the conversion audit that identifies your highest-friction pages, see [CRO Audit](/services/cro-audit/).

@@ -54,6 +54,9 @@ Three mechanisms:
 | Chernev et al., 2015 (meta-analysis of 99 studies) | Choice overload reliably reduces purchase likelihood |
 | Schwartz, 2004 | More options → lower decision satisfaction regardless of outcome |
 | Sethi-Iyengar et al., 2004 | 401k participation fell as investment fund options increased |
+| Iyengar & Kamenica, 2010 | More investment options → lower participation and more conservative choices |
+
+Chernev et al.'s 2015 meta-analysis — covering 99 experiments — confirmed that the choice overload effect is real and consistent, though moderated by factors like expertise, time pressure, and decision accountability.
 
 ## Paradox of Choice by Page Type
 
@@ -66,6 +69,17 @@ Three mechanisms:
 | **CTA area** | Multiple competing buttons | One primary CTA, secondary actions visually de-emphasized |
 | **Homepage** | Multiple conversion goals | Pick one primary CTA, make others subordinate |
 | **Form** | Too many optional fields | Show only required fields; make optional fields secondary |
+
+## Pricing Page: The Highest-Stakes Application
+
+Pricing pages are where the paradox of choice causes the most direct revenue damage:
+
+- **2-option pricing** — Forces a binary comparison. Often leads to choosing the cheaper option.
+- **3-option pricing** — The sweet spot. Middle option gets the most selections (decoy effect). "Recommended" label increases middle tier selection by 30–40%.
+- **4-option pricing** — Marginal increase in complexity. Can work with clear differentiation.
+- **5+ option pricing** — Significant choice overload. Decision paralysis and abandonment increase sharply.
+
+The most common pricing page fix: reduce from 5–6 tiers to 3 tiers, add "Most Popular" label to the second-highest tier. CVR improvements of 15–30% are routine from this single change.
 
 ## The "Recommended" Label Effect
 
@@ -80,6 +94,28 @@ Research by Grinstein et al. showed recommended defaults increased selection of 
 - Triggers the [decoy effect](/cro-glossary/decoy-effect/) — the cheap and expensive options make the middle feel "right"
 - Reflects the actual purchase behaviour of most buyers, lending authentic credibility
 
+## Navigation Choice Overload
+
+Hick's Law states that the time required to make a decision increases logarithmically with the number of choices available. Applied to site navigation:
+
+- 5 nav items: ~2 seconds to process
+- 10 nav items: ~3.5 seconds to process
+- 15 nav items: ~4.5 seconds to process
+
+During those extra seconds, visitors experience cognitive friction rather than progress toward conversion. The best-converting SaaS landing pages frequently have no navigation at all — eliminating exit routes entirely for paid traffic. See [Landing Page](/cro-glossary/landing-page/) for the full navigation-removal case.
+
+## How to Audit for Choice Overload
+
+Signs your site has choice overload problems:
+- High bounce rate on category pages despite relevant traffic
+- Long time-on-page with low conversion (browsing, not deciding)
+- High cart abandonment at product selection stage
+- Heatmaps showing visitors scrolling through all options without clicking
+- Session recordings showing repeated back-and-forth between options
+- User testing participants expressing confusion or frustration at option comparison
+
+The fix is almost always subtraction: fewer options, clearer hierarchy, one dominant choice recommended.
+
 ## The Paradox in CRO Context
 
 The paradox of choice does not mean "fewer options always wins." The right number of options depends on:
@@ -90,15 +126,4 @@ The paradox of choice does not mean "fewer options always wins." The right numbe
 
 The principle that does universally apply: **every unnecessary choice costs conversion rate.** Remove choices that visitors don't actually need to make in order to complete the primary conversion.
 
-## How to Audit for Choice Overload
-
-Signs your site has choice overload problems:
-- High bounce rate on category pages despite relevant traffic
-- Long time-on-page with low conversion (browsing, not deciding)
-- High cart abandonment at product selection stage
-- Heatmaps showing visitors scrolling through all options without clicking
-- Session recordings showing repeated back-and-forth between options
-
-The fix is almost always subtraction: fewer options, clearer hierarchy, one dominant choice recommended.
-
-For a practical framework covering choice architecture and other friction sources, see the [CRO Audit](/services/cro-audit/) process.
+For a practical framework covering choice architecture and other friction sources, see the [CRO Audit](/services/cro-audit/) process and [What is Conversion Rate Optimization](/blog/what-is-conversion-rate-optimization/).

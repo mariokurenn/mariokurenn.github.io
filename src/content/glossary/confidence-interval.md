@@ -19,6 +19,8 @@ faqs:
     answer: "Use the lower bound of the confidence interval for conservative decision-making. If your test shows a 15% CVR improvement with 95% CI of 4%–26%, ask: 'Even in the worst plausible case (4% improvement), is this variant worth implementing given the cost?' If yes, ship. If the lower bound is below zero (CI spans from negative to positive), the test is inconclusive — do not ship. If the entire CI is above your MDE, you have strong evidence for a meaningful improvement. For high-stakes decisions (site-wide changes, pricing changes), require the lower CI bound to exceed zero before shipping."
   - question: "How do confidence intervals relate to sample size?"
     answer: "Confidence interval width is inversely related to sample size: larger samples produce narrower CIs, smaller samples produce wider ones. Doubling your sample size reduces CI width by approximately 30% (it decreases by a factor of √2). This is why underpowered tests — stopped early or run on low-traffic pages — produce wide CIs with high uncertainty. The pre-test sample size calculation determines what CI width you'll achieve at the end of the test, which is why calculating sample size before starting is essential."
+  - question: "What is the relationship between confidence interval and statistical significance?"
+    answer: "A 95% confidence interval and a p-value threshold of 0.05 (5%) are two ways of expressing the same criterion. If the 95% CI does not include zero (or the null value), the result is statistically significant at p < 0.05. If the CI includes zero, the result is not statistically significant. The confidence interval provides more information than the p-value alone — it shows both significance and the plausible range of effect sizes. Reporting both is best practice in CRO. The CI is especially useful for communicating results to stakeholders who want to know 'how much better' the variant is, not just 'whether it's better.'"
 ---
 
 **A confidence interval (CI)** is a range of values within which the true effect of an A/B test is likely to fall, with a specified level of confidence.
@@ -58,9 +60,11 @@ The CI narrows as sample size grows. This is the core reason for pre-calculating
 
 *Approximate values for a 2–5% baseline CVR at 95% confidence*
 
-## CI vs P-Value: The Full Picture
+Doubling sample size reduces CI width by a factor of √2 (approximately 30%). This is why pre-calculating the required sample size before starting a test is non-negotiable — it determines what precision you'll achieve when the test concludes.
 
-P-value and confidence interval are complementary:
+## Confidence Interval vs P-Value: The Full Picture
+
+P-value and confidence interval are complementary — they measure different aspects of the same result:
 
 | Metric | Tells you | Doesn't tell you |
 |---|---|---|
@@ -74,6 +78,8 @@ P-value and confidence interval are complementary:
 - Non-significant p-value + CI that includes zero = no detectable effect → null result
 - Non-significant p-value + CI that excludes zero = borderline — gather more data
 
+The CI is especially valuable when communicating test results to stakeholders. "Statistically significant at p = 0.03" is harder to act on than "We're 95% confident the variant improves CVR by 4%–26% — even in the worst case, we gain 4%."
+
 ## Practical Application: "Is This Worth Shipping?"
 
 Use the lower bound of the confidence interval for conservative decision-making:
@@ -86,6 +92,19 @@ If yes → ship. The minimum realistic benefit (lower CI bound) still exceeds yo
 
 If no → the uncertainty means the risk of implementing isn't justified by the potential reward at the lower bound.
 
+This lower-bound decision rule protects against the common mistake of shipping a change whose point estimate looks impressive but whose CI extends into negative territory — which would mean no detectable improvement in the worst plausible case.
+
+## Reading CI Results: Practical Decision Matrix
+
+| Result | CI interpretation | Decision |
+|---|---|---|
+| p < 0.05, CI entirely above zero | Significant positive effect with good precision | Ship |
+| p < 0.05, CI spans zero | Should not be possible — check analysis | Re-analyse |
+| p < 0.05, CI lower bound near zero | Technically significant but effect may be trivial | Evaluate implementation cost vs lower bound benefit |
+| p > 0.05, CI above zero but wide | Positive trend, insufficient data | Extend test if traffic allows |
+| p > 0.05, CI includes zero | Null result | Do not ship |
+| p < 0.05, CI entirely below zero | Variant hurts performance | Roll back immediately |
+
 ## Confidence Intervals and Sequential Testing
 
 For teams using sequential testing (making ongoing decisions as data comes in), confidence intervals are especially important because:
@@ -93,6 +112,8 @@ For teams using sequential testing (making ongoing decisions as data comes in), 
 - CI width decreases as sample size grows
 - Decisions made when CI is still wide are far more likely to be wrong
 
-The standard: wait until the CI has narrowed enough that the lower bound exceeds your minimum acceptable effect size.
+Standard frequentist confidence intervals are not valid for sequential testing — they require a predetermined sample size and a single analysis. For sequential testing (peeking-safe analysis), Bayesian credible intervals or sequential probability ratio tests are more appropriate tools.
 
-For the complete framework on when to stop a test, see [How Long Should You Run an A/B Test?](/blog/how-long-to-run-ab-test/). For statistical power — the complement to confidence intervals — see [Statistical Power](/cro-glossary/statistical-power/).
+The standard for frequentist A/B testing: wait until the CI has narrowed enough that the lower bound exceeds your minimum acceptable effect size.
+
+For the complete framework on when to stop a test, see [How Long Should You Run an A/B Test?](/blog/how-long-to-run-ab-test/). For the related statistical concept, see [Statistical Power](/cro-glossary/statistical-power/) — it determines the probability that your test produces a detectable CI when a real effect exists. Inadequate statistical power is the most common reason for wide confidence intervals and inconclusive test results.

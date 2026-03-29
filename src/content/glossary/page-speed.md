@@ -36,8 +36,9 @@ The commercial impact of page speed is well documented:
 | Walmart internal data | 1 second improvement → 2% increase in conversions |
 | Google mobile research | 53% of mobile sessions abandoned after 3+ seconds load time |
 | Deloitte research (2020) | 0.1s improvement → 8% increase in retail CVR |
+| BBC data | Each additional second of load time = 10% fewer users |
 
-For a business doing €100,000/month in e-commerce revenue, improving mobile load time from 5s to 2s could represent €14,000–21,000/month in additional revenue.
+For a business doing €100,000/month in e-commerce revenue, improving mobile load time from 5s to 2s could represent €14,000–21,000/month in additional revenue — based on the Akamai conversion impact data.
 
 ## Key Page Speed Metrics
 
@@ -48,9 +49,10 @@ For a business doing €100,000/month in e-commerce revenue, improving mobile lo
 | **Largest Contentful Paint (LCP)** | Main content loaded | Under 2.5s |
 | **Total Blocking Time (TBT)** | Time page is unresponsive to input | Under 200ms |
 | **Cumulative Layout Shift (CLS)** | Visual stability (elements jumping) | Under 0.1 |
+| **Interaction to Next Paint (INP)** | Runtime interactivity | Under 200ms |
 | **Time to Interactive (TTI)** | Page fully usable | Under 3.8s |
 
-LCP and CLS are the Core Web Vitals with the most direct SEO ranking impact.
+LCP, INP, and CLS are the three Core Web Vitals metrics with direct SEO ranking impact. LCP and TBT have the most direct conversion rate implications.
 
 ## Common Page Speed Problems and Fixes
 
@@ -65,6 +67,22 @@ LCP and CLS are the Core Web Vitals with the most direct SEO ranking impact.
 | **Slow server response** | High TTFB | Upgrade hosting, enable server-side caching |
 | **Web fonts** | Text invisible then reflows | Preload fonts, use font-display: swap or optional |
 
+## Industry Page Speed Benchmarks
+
+Current state of page speed performance by industry (Google CrUX data, 2024):
+
+| Industry | Median mobile LCP | % pages with 'Good' LCP | Median mobile TTFB |
+|----------|-------------------|--------------------------|-------------------|
+| Finance | 2.9s | 45% | 520ms |
+| Technology / SaaS | 3.1s | 40% | 580ms |
+| News & Publishing | 3.4s | 35% | 620ms |
+| B2B Services | 3.3s | 38% | 590ms |
+| Healthcare | 3.6s | 31% | 650ms |
+| E-commerce | 3.8s | 28% | 710ms |
+| Travel | 4.2s | 22% | 780ms |
+
+E-commerce has the slowest median performance and the lowest percentage of pages achieving 'Good' LCP — despite being the industry where mobile purchasing intent is highest and the conversion cost of slow loads is greatest.
+
 ## Page Speed by Device
 
 Mobile speeds are almost always worse than desktop — and matter more:
@@ -74,7 +92,9 @@ Mobile speeds are almost always worse than desktop — and matter more:
 | Desktop | Higher scores | Faster CPUs, wired connections, larger bandwidth |
 | Mobile | Lower scores (often 30–50 points lower) | Cellular connections, limited CPU, battery throttling |
 
-Mobile represents 60–70% of web traffic for most consumer sites. Google's ranking signals weight mobile performance. A site with 90 desktop score and 40 mobile score has a serious mobile performance problem.
+Mobile represents 60–70% of web traffic for most consumer sites. Google's ranking signals weight mobile performance. A site with 90 desktop score and 40 mobile score has a serious mobile performance problem — and is likely losing both ranking positions and conversions on the device that carries most of the traffic.
+
+For the full mobile optimization context, see [Mobile Conversion Rate Optimization](/blog/mobile-conversion-rate-optimization/).
 
 ## Testing Page Speed
 
@@ -82,9 +102,22 @@ Mobile represents 60–70% of web traffic for most consumer sites. Google's rank
 
 **Google Lighthouse** — Available in Chrome DevTools (F12 → Lighthouse). Lab-based testing that provides actionable diagnostics and specific fix suggestions.
 
-**WebPageTest** ([webpagetest.org](https://www.webpagetest.org/)) — Advanced waterfall analysis, filmstrip view, test from multiple locations and devices.
+**WebPageTest** ([webpagetest.org](https://www.webpagetest.org/)) — Advanced waterfall analysis, filmstrip view, test from multiple locations and devices. Essential for understanding which specific assets are causing delays.
 
-**GTmetrix** — Combines Lighthouse + additional metrics, easy visual reports for clients.
+**GTmetrix** — Combines Lighthouse + additional metrics, easy visual reports.
+
+**Google Search Console → Core Web Vitals** — Shows real-user field data by page group, segmented by mobile and desktop. The most actionable view for prioritizing fixes across a large site.
+
+## The Page Speed Fix Priority Order
+
+Not all speed improvements are equal. Fix in this order for maximum impact:
+
+1. **Hero image optimization** (WebP + compression + `fetchpriority="high"`) — typically the single largest LCP improvement
+2. **TTFB optimization** (CDN + server caching) — reduces all downstream metrics
+3. **Render-blocking script audit** — identify and defer third-party scripts
+4. **Web font optimization** — preload critical fonts, use `font-display: swap`
+5. **CSS optimization** — inline critical CSS, defer non-critical styles
+6. **Remove unnecessary third-party tags** — audit all GTM tags for value vs performance cost
 
 ## Page Speed as a CRO Quick Win
 
@@ -94,3 +127,5 @@ Unlike most CRO changes, page speed improvements are:
 - **Compounding** — faster pages also benefit SEO rankings, increasing future traffic
 
 Page speed improvements are in the Phase 1 "fix first, test second" category of CRO work. A mobile LCP over 4 seconds should be fixed before any A/B tests are run on that page — otherwise you're A/B testing on a fundamentally broken foundation.
+
+See [Largest Contentful Paint](/cro-glossary/largest-contentful-paint/) for the deep-dive on the most important individual speed metric. For how page speed fits within the full [CRO strategy](/blog/what-is-conversion-rate-optimization/), the technical foundation must always be established before behavioral optimization begins.

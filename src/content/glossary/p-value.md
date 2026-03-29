@@ -39,6 +39,8 @@ faqs:
 - Confirmation that the result will hold at 100% traffic
 - A sufficient standalone basis for a business decision
 
+The American Statistical Association published a formal statement in 2016 ([doi.org/10.1080/00031305.2016.1154108](https://doi.org/10.1080/00031305.2016.1154108)) to address widespread misinterpretation of p-values in research. The same misinterpretations are common in CRO.
+
 ## P-Value Thresholds in A/B Testing
 
 | Threshold | Confidence Level | False Positive Rate | Use Case |
@@ -61,7 +63,7 @@ If you check a test continuously and stop when p < 0.05:
 
 This is because p-values fluctuate throughout a test; they will dip below 0.05 multiple times by chance even when variants are identical.
 
-**The fix:** Pre-commit to a sample size and stopping date before the test starts. Do not check p-values until the predetermined end condition is met. See [How Long Should You Run an A/B Test?](/blog/how-long-to-run-ab-test/).
+**The fix:** Pre-commit to a sample size and stopping date before the test starts. Do not check p-values until the predetermined end condition is met. See [How Long Should You Run an A/B Test?](/blog/how-long-to-run-ab-test/) for the complete framework.
 
 ## P-Value vs Statistical Significance
 
@@ -81,8 +83,32 @@ With very large traffic volumes, tiny differences produce significant p-values:
 | Sample Size | Variant CVR Difference | P-Value | Practical Significance |
 |---|---|---|---|
 | 500/variant | 2.0% → 3.2% | 0.03 | Large and important — ship it |
+| 10,000/variant | 2.0% → 2.3% | 0.04 | Meaningful — worth shipping |
 | 50,000/variant | 2.00% → 2.06% | 0.04 | Statistically significant, practically meaningless |
 
 Always report effect size alongside p-values. A 0.06% CVR improvement reaching significance is not worth the implementation cost or risk of regression.
 
-For the complete A/B testing methodology, see [A/B Testing Mistakes That Invalidate Your Results](/blog/ab-testing-mistakes/).
+The [Minimum Detectable Effect](/cro-glossary/minimum-detectable-effect/) concept is how you set a pre-test threshold for what "meaningful" means — so you're not caught in a situation where a statistically significant result is practically irrelevant.
+
+## Frequentist vs Bayesian: Two Approaches to Test Significance
+
+| Approach | Question answered | Pros | Cons |
+|----------|-------------------|------|------|
+| **Frequentist (p-value)** | How likely is this data if there's no real difference? | Standardized, auditable | Peeking problem, requires pre-set sample size |
+| **Bayesian** | What's the probability that B beats A? | Intuitive, handles early stopping | Requires priors, harder to calibrate |
+
+Both approaches are valid for CRO. Most testing tools default to frequentist methods (p-values). Bayesian tools include VWO's SmartStats and Convert's Bayesian engine. For teams familiar with statistics, Bayesian methods offer more flexibility. For teams that need auditable, reproducible standards, frequentist methods are preferable.
+
+## Common P-Value Errors in CRO
+
+**Stopping tests early when p < 0.05** — The peeking problem. The actual false positive rate may be 25–30%, not 5%.
+
+**Running multiple variants and applying p < 0.05 to each** — With 5 variants tested against control, the probability that at least one false positive appears at p < 0.05 is approximately 23% (multiple comparisons problem). Apply a Bonferroni correction or reduce the number of variants.
+
+**Ignoring effect size** — A small p-value doesn't mean a large effect. Report CVR difference and confidence interval alongside p-value in every test summary.
+
+**Treating p = 0.051 as a failure** — A result just above the threshold doesn't mean the variant failed; it means the test was underpowered relative to the observed effect. Extend the test to the pre-set sample size and re-evaluate.
+
+**Declaring a winner from a single test** — A single test result at p < 0.05 has a 5% false positive rate by definition. High-value changes should be validated with a replication test before full rollout.
+
+For the complete A/B testing methodology, see [A/B Testing Best Practices](/blog/ab-testing-best-practices/) and [A/B Testing Mistakes That Invalidate Your Results](/blog/ab-testing-mistakes/).

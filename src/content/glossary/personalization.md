@@ -85,6 +85,8 @@ One of the simplest and highest-impact personalizations:
 | Industry-segment messaging | 20–45% | Medium |
 | AI-driven recommendations | 5–20% | High |
 
+*Ranges based on industry practitioner data; results vary by implementation quality and segment size*
+
 ## Personalization vs Optimization: Which First?
 
 **Start with optimization (A/B testing).** Find the best version of your page for your broadest audience. Once you have a strong control, personalize for specific high-value segments.
@@ -96,6 +98,29 @@ Personalizing before optimizing means you're running segmented experiences of an
 2. Analyze by segment — do different sources respond differently to your control?
 3. Build personalized variants for segments where the generic experience clearly underperforms
 4. A/B test the personalized variant against the control within that segment
+5. Roll out personalization for segments where the variant wins
+
+This approach ensures personalization compounds an already-optimized baseline rather than scaling mediocre performance.
+
+## Measuring Personalization Effectiveness
+
+Personalization requires careful measurement to avoid false conclusions:
+
+- **Segment the analysis** — compare personalized segment CVR vs the same segment's CVR with the generic page (not against the overall average)
+- **Control for traffic quality** — if email subscribers always convert at 3× the rate of cold paid traffic, seeing higher CVR for "email personalization" may reflect traffic quality, not personalization lift
+- **Run A/B tests within segments** — the only way to isolate personalization impact is to compare personalized vs non-personalized within the same segment simultaneously
+
+Without this rigor, teams routinely overestimate personalization lift by comparing different-quality traffic segments.
+
+## Personalization by Funnel Stage
+
+| Funnel stage | Personalization opportunity | Implementation |
+|---|---|---|
+| First visit (awareness) | Industry-specific messaging | Traffic source + UTM targeting |
+| Return visit (consideration) | Objection-focused content | Cookie-based returning visitor detection |
+| High intent (decision) | Urgency + specific offer | Pricing page visits, cart additions |
+| Post-trial (conversion) | Progress loss framing | Trial expiry + usage data |
+| Customer (retention/upsell) | Relevant upsell content | CRM data + product usage signals |
 
 ## Tools for Website Personalization
 
@@ -104,5 +129,6 @@ Personalizing before optimizing means you're running segmented experiences of an
 - **Optimizely** — Enterprise-level personalization with behavioral targeting
 - **Dynamic Yield** — E-commerce personalization platform
 - **Proof** — Personalized social proof and CTA based on visitor characteristics
+- **Mutiny** — B2B personalization platform using firmographic data
 
-For the testing methodology that underlies personalization decisions, see [A/B Testing Best Practices](/blog/ab-testing-best-practices/).
+For the testing methodology that underlies personalization decisions, see [A/B Testing Best Practices](/blog/ab-testing-best-practices/). For the foundational message match implementation, see [Landing Page Best Practices](/blog/landing-page-best-practices/).

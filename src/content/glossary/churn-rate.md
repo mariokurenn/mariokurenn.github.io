@@ -17,6 +17,10 @@ faqs:
     answer: "The leading causes of voluntary churn are: (1) poor onboarding — customers who never reach the 'aha moment' or first value milestone churn within the first 30 days, accounting for 30–40% of all SaaS churn; (2) lack of product engagement — Totango research found customers using a product fewer than 3 times per month are 4× more likely to churn; (3) pricing misalignment — customers who feel they're not getting value relative to cost; (4) competitor switching — typically triggered by specific missing feature gaps; (5) involuntary churn from failed payments, which accounts for 20–40% of all SaaS churn and is often ignored."
   - question: "How does CRO apply to churn reduction?"
     answer: "CRO methodology applies directly to churn reduction — it's post-acquisition funnel optimization. The same research-and-test approach used to improve signup conversion applies to improving activation and retention: (1) identify where in the lifecycle churn peaks (early, mid, or at renewal), (2) run qualitative research — exit surveys, cancellation interviews, NPS detractor follow-ups, (3) form hypotheses about what changes would address root causes, (4) test onboarding sequence changes, in-app engagement triggers, and success check-in timing. Involuntary churn from failed payments is especially worth targeting — automated dunning sequences recover 20–40% of failed payments."
+  - question: "How do I calculate annual churn from monthly churn?"
+    answer: "Annual churn is not simply monthly churn × 12. Because you're losing customers each month from a shrinking base, the correct formula is: Annual Churn = 1 − (1 − Monthly Churn)^12. At 2% monthly churn: Annual = 1 − (0.98)^12 = approximately 21.5%. At 5% monthly churn: Annual = 1 − (0.95)^12 = approximately 46%. This compounding effect means high monthly churn decimates the customer base far faster than the simple multiplication suggests — which is why even a 1% monthly churn reduction has a significant annual impact."
+  - question: "What is net revenue retention (NRR) and why does it matter more than churn rate?"
+    answer: "Net Revenue Retention (NRR) measures the total revenue retained from your existing customer base in a period, including expansions (upsells, seat additions) and subtracting contractions (downgrades, cancellations). Formula: NRR = (Starting MRR + Expansion MRR − Contraction MRR − Churned MRR) ÷ Starting MRR × 100. An NRR above 100% means existing customers are generating more revenue than you're losing to churn — your existing base is growing even without new customer acquisition. NRR above 120% is considered excellent and is a key metric for SaaS investors. It's more informative than raw churn rate because it captures the full revenue health of your customer base."
 ---
 
 **Churn rate** is the percentage of customers (or subscribers, users, or revenue) that are lost within a defined time period.
@@ -67,18 +71,33 @@ Halving churn doubles LTV — with no change in pricing or new customer acquisit
 
 *Source: Paddle 2024 SaaS Metrics Benchmark Report and OpenView Partners annual SaaS survey*
 
+## Annual Churn vs Monthly Churn
+
+Annual churn is not simply monthly churn multiplied by 12. Because you lose customers from a shrinking base each month, the relationship is compounding:
+
+**Annual Churn = 1 − (1 − Monthly Churn Rate)^12**
+
+| Monthly churn | Annual churn (actual) | Annual churn (simple × 12 — incorrect) |
+|---|---|---|
+| 1% | 11.4% | 12% |
+| 2% | 21.5% | 24% |
+| 5% | 46.0% | 60% |
+| 10% | 71.8% | 120% (impossible) |
+
+At high monthly churn rates, the simple multiplication gives absurd results. The compounding calculation is always the correct one.
+
 ## Churn and the CAC:LTV Ratio
 
 At 10% monthly churn, LTV is €500. If CAC is €400, the ratio is 1.25:1 — barely profitable, with no margin for product, support, or ops costs.
 
 At 2% monthly churn, LTV is €2,500. Same CAC = 6.25:1 ratio — a healthy, scalable business with room to invest aggressively in growth.
 
-The path to a fundable unit economics story is often churn reduction, not new customer acquisition.
+The path to a fundable unit economics story is often churn reduction, not new customer acquisition. A 3:1 CAC:LTV ratio is generally the minimum threshold for sustainable SaaS growth; 5:1+ is considered strong.
 
 ## What Causes Churn
 
 **Product-related:**
-- Poor onboarding — customers never reach the "aha moment" or first value milestone
+- Poor onboarding — customers never reach the "aha moment" or first value milestone. This accounts for 30–40% of all SaaS churn and is the highest-leverage intervention point.
 - Lack of perceived value — they don't use it enough to justify the cost
 - Missing features that prompted signup
 
@@ -95,6 +114,18 @@ The path to a fundable unit economics story is often churn reduction, not new cu
 - Account expiry without notification
 - Dunning email sequences not sending
 
+## Early Churn: The 30-Day Problem
+
+The highest-risk churn window for most SaaS products is the first 30 days — specifically, whether the customer reaches the "aha moment" (the first experience of core product value) before their first renewal.
+
+Metrics to track for early churn prediction:
+- **Activation rate**: % of new users who complete the key setup action within 7 days
+- **Feature adoption rate**: % who use the 2–3 core features within 14 days
+- **Login frequency**: Users logging in fewer than 3 times in first 30 days are 4× more likely to churn (Totango research)
+- **Support tickets in first 30 days**: High support volume in early lifecycle correlates with churn
+
+Improving activation rate by 10 percentage points typically reduces 30-day churn by a similar magnitude — because users who reach value don't cancel.
+
 ## Reducing Churn: The CRO Connection
 
 Churn reduction is the post-acquisition CRO problem. The same research-and-optimization methodology that improves signup conversion applies to improving activation and retention:
@@ -107,3 +138,5 @@ Churn reduction is the post-acquisition CRO problem. The same research-and-optim
 For voluntary churn specifically, exit survey data is the most actionable source. A single question — "What was the primary reason you're cancelling?" — with 5–6 structured options plus free text, typically reveals patterns within 30–50 responses.
 
 Involuntary churn from failed payments is often overlooked and easily addressable. An automated dunning sequence (3–5 emails after payment failure, with direct update link) typically recovers 20–40% of at-risk MRR without any product changes.
+
+The [conversion rate](/cro-glossary/conversion-rate/) framework that applies to acquisition — measure, hypothesize, test, implement — applies identically to retention. Churn rate is conversion rate applied to renewals.
