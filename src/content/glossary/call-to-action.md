@@ -3,15 +3,22 @@ term: "Call to Action (CTA)"
 shortDefinition: "A prompt that directs visitors to take a specific, desired action — a button, link, or form that initiates conversion."
 category: "CRO Strategy"
 difficulty: "beginner"
-relatedTerms: ["landing-page", "conversion-rate", "ab-testing", "bounce-rate"]
+relatedTerms: ["landing-page", "conversion-rate", "ab-testing", "bounce-rate", "value-proposition"]
 publishDate: "2026-03-21"
+updatedDate: "2026-03-29"
 faqs:
   - question: "What is a call to action (CTA)?"
-    answer: "A call to action (CTA) is any prompt that directs a website visitor to take a specific desired action. CTAs are most commonly buttons (\"Book a Free Audit\", \"Start My Free Trial\") but can also be links, forms, or any interactive element. An effective CTA is action-oriented, benefit-focused, and placed where visitors are ready to convert — typically above the fold and adjacent to social proof."
+    answer: "A call to action (CTA) is any prompt that directs a website visitor to take a specific desired action. CTAs are most commonly buttons ('Book a Free Audit', 'Start My Free Trial') but can also be links, forms, or any interactive element. An effective CTA is action-oriented, benefit-focused, and placed where visitors are ready to convert — typically above the fold and adjacent to social proof. Michael Aagaard's research at ContentVerve found that first-person CTA copy ('Get My Free Report' vs 'Get Your Free Report') increased clicks by 90% in one documented test."
   - question: "What makes a good CTA button?"
-    answer: "A high-converting CTA button has: (1) action-oriented, first-person copy ('Start My Trial' beats 'Submit'), (2) a specific benefit stated in the button text, (3) high visual contrast against the surrounding page, (4) placement above the fold and repeated every 300–400px, (5) no competing CTAs nearby. Multiple studies show first-person CTA copy ('Get My Free Report') outperforms second-person ('Get Your Free Report') by up to 90%."
+    answer: "A high-converting CTA button has: (1) action-oriented, first-person copy ('Start My Trial' beats 'Submit'), (2) a specific benefit stated in the button text or immediately adjacent, (3) high visual contrast against the surrounding page — the button colour should appear nowhere else on the page, (4) placement above the fold and repeated every 300–400px, (5) a minimum size of 48px height on mobile for comfortable thumb-tapping, (6) surrounding whitespace that isolates it visually. Multiple studies show first-person CTA copy consistently outperforms second-person by 20–90%."
   - question: "How many CTAs should a landing page have?"
-    answer: "A landing page should have one primary CTA — one specific action you want visitors to take. However, this CTA should appear multiple times down the page (above the fold, mid-page, at the bottom). Having multiple different CTAs (e.g., 'book a call' and 'download the guide' and 'view pricing') creates decision paralysis and reduces overall conversion rate."
+    answer: "A landing page should have one primary CTA — one specific action you want visitors to take. However, this same CTA should appear multiple times down the page (above the fold, mid-page, at the bottom). Having multiple different CTAs (e.g., 'book a call' and 'download the guide' and 'view pricing') creates decision paralysis and reduces overall conversion rate. If secondary actions must exist, they should be visually de-emphasised — text links rather than buttons, smaller size, lower contrast."
+  - question: "What CTA copy converts best?"
+    answer: "The highest-converting CTA copy patterns: (1) first-person action + specific outcome: 'Get My Free Audit', 'Start Saving Today', 'Show Me the Strategy'; (2) benefit-first with specificity: 'Double My Conversion Rate', 'Fix My Checkout'; (3) low-friction framing: 'See How It Works', 'Get Instant Access'. The weakest CTA copy is passive, generic, and visitor-centric rather than action-oriented: 'Submit', 'Click Here', 'Learn More', 'Sign Up'. The single highest-impact change to most CTAs is switching from passive to first-person active voice."
+  - question: "Where should I place the CTA on a long-form landing page?"
+    answer: "On long-form landing pages, CTA placement follows intent intensity. Place the primary CTA: (1) above the fold — captures visitors with immediate intent, (2) after the main value proposition section — for visitors who needed more convincing before the first CTA, (3) after the social proof / testimonials section — directly adjacent to the highest-trust evidence, (4) at the bottom of the page — captures visitors who read all the way through. A visitor who reads a 2,000-word page has shown extremely high intent; giving them a CTA at the bottom converts a meaningful percentage of those high-intent readers."
+  - question: "What is microcopy and how does it help CTA conversion?"
+    answer: "Microcopy is the small supporting text placed directly adjacent to a CTA button that addresses the main objection to clicking. Examples: 'No credit card required' below a free trial CTA, 'Cancel anytime' next to a subscription sign-up, '30-day money-back guarantee' near a purchase button, 'Takes 2 minutes' next to a form. Microcopy directly addresses the #1 hesitation at the moment of decision. Well-crafted microcopy routinely increases CTA clicks by 10–25% without changing the button itself."
 ---
 
 A **call to action (CTA)** is a prompt on a webpage, email, or ad that directs the visitor to take a specific desired action. CTAs are the conversion mechanism — the bridge between visitor intent and business outcome.
@@ -28,35 +35,52 @@ CTA button copy is one of the most frequently tested — and highest-impact — 
 | "Sign Up" | "Start My Free Trial" | Action-oriented, specific |
 | "Click Here" | "Book a Free Strategy Call" | Descriptive, reduces ambiguity |
 | "Learn More" | "See How It Works →" | Direction + curiosity |
+| "Contact Us" | "Get a Free Audit Today" | Specific offer, urgency |
+| "Download" | "Get My Free Guide" | Personalized, benefit-focused |
 
-**First-person copy consistently outperforms second-person:** "Get My Free Audit" vs "Get Your Free Audit." Multiple A/B tests show first-person variants win by 20–90% in different contexts. The psychology: first-person copy feels like the visitor is completing their own thought.
+**First-person copy consistently outperforms second-person:** "Get My Free Audit" vs "Get Your Free Audit." Multiple A/B tests show first-person variants win by 20–90% in different contexts. The psychology: first-person copy feels like the visitor is completing their own thought rather than following an instruction.
 
 ## CTA Placement
 
-**Above the fold** — Always. Your primary CTA must be visible without scrolling on every device.
+**Above the fold** — Always. Your primary CTA must be visible without scrolling on every device. Visitors with immediate intent shouldn't have to hunt for a way to take action.
 
-**Adjacent to social proof** — Visitors look for reassurance at the moment of decision. A testimonial or review count next to the CTA button reduces anxiety and increases clicks.
+**Adjacent to social proof** — Visitors look for reassurance at the moment of decision. A testimonial or review count next to the CTA button reduces anxiety and increases clicks. This is the single highest-converting placement combination.
 
-**Repeated down the page** — Every 300–400px of vertical scroll on long pages. A visitor who reads to the bottom is highly interested — give them a CTA where they are.
+**Repeated down the page** — Every 300–400px of vertical scroll on long pages. A visitor who reads to the bottom is highly interested — give them a CTA where they are, not back at the top.
 
 **In-line with benefit statements** — "Our clients see 127% CVR improvement within 90 days. [Book a Free Audit →]" — the CTA follows directly from the credibility claim.
 
 ## CTA Design Principles
 
-**Contrast is critical.** The CTA button colour should appear nowhere else on the page. If your site is green and white, a green button disappears. A different colour for the CTA button creates visual hierarchy that draws the eye.
+**Contrast is critical.** The CTA button colour should appear nowhere else on the page. If your site is green and white, a green button disappears. An orange or red button on a green/white site creates visual hierarchy that draws the eye to the action.
 
-**Size matters.** Mobile CTA buttons must be a minimum of 48px height for comfortable thumb tapping. Desktop buttons of 44–52px height perform consistently better than smaller variants.
+**Size matters.** Mobile CTA buttons must be a minimum of 48px height for comfortable thumb tapping (Apple HIG and Google Material Design guidelines). Desktop buttons of 44–52px height perform consistently better than smaller variants.
 
-**Whitespace isolates.** Surrounding the CTA button with empty space increases visual emphasis without changing the copy or colour. Cluttered CTAs get fewer clicks.
+**Whitespace isolates.** Surrounding the CTA button with empty space increases visual emphasis without changing the copy or colour. Cluttered CTAs — surrounded by other elements — get fewer clicks than isolated ones.
+
+**Microcopy converts.** The small text directly beneath the button addresses the final objection. "No credit card required" · "Cancel anytime" · "Takes under 2 minutes" — each removes a specific hesitation at the critical moment.
+
+## CTA Benchmark Data
+
+| Element | Typical CVR impact from optimization |
+|---------|--------------------------------------|
+| CTA copy (passive → first-person active) | +20–90% click rate |
+| CTA placement (below fold → above fold) | +10–30% |
+| Adding microcopy below button | +10–25% |
+| Improving button contrast | +5–15% (only if currently low) |
+| Button size (mobile optimization) | +5–20% on mobile |
+
+*These are ranges from published A/B tests across multiple studies. Actual impact varies significantly by baseline.*
 
 ## What to Test on Your CTA
 
 Priority order for A/B testing:
 
 1. **Button copy** — Biggest impact, easiest to test
-2. **Button colour** — Only meaningful if the current colour has no contrast
+2. **Microcopy** — Text immediately beneath or beside the button
 3. **Placement** — Above vs below vs within content
 4. **Size** — Particularly on mobile
 5. **Surrounding copy** — The sentence above the button often affects clicks as much as the button itself
+6. **Button colour** — Only meaningful if the current colour has no contrast against the page
 
-A single [A/B test](/cro-glossary/ab-testing/) on CTA copy can yield 20–50% improvement. It's one of the fastest wins in any [CRO programme](/services/cro-audit/).
+A single [A/B test](/cro-glossary/ab-testing/) on CTA copy can yield 20–50% improvement. It's one of the fastest wins in any [CRO programme](/services/cro-audit/). For the full testing methodology, see [A/B Testing Best Practices](/blog/ab-testing-best-practices/).

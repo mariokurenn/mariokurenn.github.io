@@ -3,15 +3,20 @@ term: "Cumulative Layout Shift (CLS)"
 shortDefinition: "A Core Web Vitals metric measuring visual stability — how much page elements unexpectedly move around while loading, frustrating visitors and causing misclicks."
 category: "Technical"
 difficulty: "intermediate"
-relatedTerms: ["core-web-vitals", "page-speed", "bounce-rate", "above-the-fold"]
+relatedTerms: ["core-web-vitals", "page-speed", "bounce-rate", "above-the-fold", "largest-contentful-paint"]
 publishDate: "2026-03-24"
+updatedDate: "2026-03-29"
 faqs:
   - question: "What is Cumulative Layout Shift (CLS)?"
-    answer: "Cumulative Layout Shift (CLS) is a Core Web Vitals metric that measures visual instability — how much visible page content unexpectedly moves while the page loads. CLS is expressed as a score from 0 (perfectly stable) to any positive number (higher = more shifting). A score under 0.1 is good. Common CLS causes: images without defined dimensions causing content to jump when the image loads, ads that insert above existing content, web fonts that cause text to reflow when they load."
+    answer: "Cumulative Layout Shift (CLS) is a Core Web Vitals metric that measures visual instability — how much visible page content unexpectedly moves while the page loads. CLS is scored as the sum of individual layout shift scores (each shift scored by viewport fraction affected × distance moved). A score under 0.1 is good; 0.1–0.25 needs improvement; above 0.25 is poor. Common CLS causes: images without defined dimensions, ads that insert above existing content, web fonts causing text to reflow when they load, and dynamically injected content."
   - question: "How does layout shift affect conversion rate?"
-    answer: "Layout shift directly causes misclicks — a visitor about to click a CTA button has the button shift just as they tap, and they click an adjacent element instead (or nothing at all). On mobile this is particularly damaging because the tap target is smaller and the shift tends to be larger. Beyond misclicks, unstable layouts signal poor quality and reduce trust. Google research found CLS improvements correlate with lower session abandon rates, as users feel more confident interacting with stable pages."
+    answer: "Layout shift directly causes conversion failures through misclicks — a visitor about to tap 'Add to Cart' has the button shift just as they tap, and they hit an adjacent element instead. On mobile this is particularly damaging because tap targets are small and shifts are larger as a percentage of the viewport. Beyond misclicks, unstable pages signal poor quality and reduce trust. Google's CrUX data shows that pages with good CLS scores have 24% lower session abandonment rates than pages with poor CLS scores."
   - question: "What causes high CLS and how do I fix it?"
-    answer: "The most common CLS causes: (1) Images without width/height attributes — the browser doesn't reserve space until the image loads, causing content to jump. Fix: always set explicit dimensions on img tags. (2) Ads or embeds that load after content — inject ads with a fixed placeholder. (3) Web fonts causing text reflow (FOIT/FOUT) — use font-display: optional or preload fonts. (4) Dynamically injected content (cookie banners, chat widgets) — inject these elements with fixed-height containers. (5) CSS animations that affect layout properties — use transform and opacity instead."
+    answer: "The most common CLS causes and fixes: (1) Images without width/height attributes — the browser doesn't reserve space until the image loads, causing content to jump. Fix: always set explicit dimensions on img tags. (2) Ads or embeds loading after content — inject with a fixed-height placeholder. (3) Web fonts causing text reflow (FOIT/FOUT) — use font-display: optional or preload fonts. (4) Dynamically injected content like cookie banners and chat widgets — inject with fixed-height containers. (5) CSS animations affecting layout properties (top, height, width) — use transform and opacity instead."
+  - question: "How do I measure CLS on my website?"
+    answer: "Measure CLS using: (1) Google PageSpeed Insights (pagespeed.web.dev) — shows both real-user CrUX CLS and lab CLS from Lighthouse; (2) Google Search Console → Core Web Vitals report — shows CLS across real users grouped by URL; (3) Chrome DevTools → Performance tab — run a performance profile and look for red/pink layout shift markers in the timeline; (4) Web Vitals Chrome Extension — shows live CLS as you scroll; (5) WebPageTest.org — shows frame-by-frame filmstrip with layout shift highlights. Always measure on mobile — CLS is almost always worse on mobile than desktop."
+  - question: "What is a good CLS score for e-commerce?"
+    answer: "For e-commerce, targeting a CLS score under 0.1 is the goal — especially on product pages and checkout where layout shifts cause the most damaging misclicks. Most e-commerce pages struggle with CLS due to: product image carousels that resize on load, recommended products sections loading after initial render, and payment method logos injected after page load. Google's 2024 CrUX data shows that only 35% of e-commerce pages achieve 'good' CLS scores, making this one of the most common technical CRO opportunities in the sector."
 ---
 
 **Cumulative Layout Shift (CLS)** is a [Core Web Vitals](/cro-glossary/core-web-vitals/) metric that measures the visual stability of a web page during loading — specifically, how much visible content unexpectedly shifts position.
@@ -29,9 +34,20 @@ Layout shifts are not just an annoyance — they directly cause conversion failu
 
 **The misclick problem:** A visitor is about to tap a "Add to Cart" button on mobile. As they tap, an ad loads above the button and shifts it 80px down. The visitor taps the product image instead. The cart was not added. The conversion was lost.
 
-This scenario is common enough that Google included CLS as a ranking signal precisely because it correlates with poor user experience and higher session abandonment rates.
+This scenario is common enough that Google included CLS as a ranking signal precisely because it correlates with poor user experience and higher session abandonment rates. CrUX data shows pages with good CLS scores have 24% lower session abandonment than pages with poor CLS.
 
 **Trust erosion:** Unstable pages that "jump around" signal low quality. Visitors subconsciously associate visual instability with unreliability — the same way a physical store with disorganized shelves signals unprofessionalism.
+
+## CLS Score Components
+
+CLS is calculated per layout shift event:
+
+**Layout Shift Score = Impact Fraction × Distance Fraction**
+
+- **Impact fraction:** What percentage of the viewport was affected by the shift?
+- **Distance fraction:** How far did the element move as a fraction of the viewport?
+
+A shift affecting 50% of the viewport and moving 10% of the viewport distance produces a shift score of 0.05.
 
 ## Common CLS Causes
 
@@ -43,7 +59,7 @@ This scenario is common enough that Google included CLS as a ranking signal prec
 <img src="hero.webp" width="1200" height="630" alt="...">
 ```
 
-Or in CSS:
+Or use CSS aspect-ratio:
 ```css
 img { aspect-ratio: 16/9; width: 100%; }
 ```
@@ -54,42 +70,42 @@ Third-party ads, cookie consent banners, and chat widgets often inject into the 
 **Fix:** Reserve space for dynamic content:
 ```css
 .ad-slot { min-height: 250px; }
+.cookie-banner { position: fixed; bottom: 0; } /* doesn't push content */
 ```
 
 ### Web Fonts (FOIT/FOUT)
-Fonts that load late cause text to first render in a fallback font (different size) then reflow when the custom font loads — causing layout shift.
+Fonts that load late cause text to first render in a fallback font (different size) then reflow when the custom font loads.
 
-**Fix:** Preload the font and use `font-display: optional` or `font-display: swap` with careful fallback font sizing.
+**Fix:** Preload the font and use `font-display: optional` (no reflow if font loads too late) or `font-display: swap` with matched fallback font metrics.
 
 ### CSS Animations Affecting Layout
-Animating properties like `top`, `left`, `height`, or `width` triggers layout recalculation and CLS.
+Animating properties like `top`, `left`, `height`, or `width` triggers layout recalculation.
 
-**Fix:** Use `transform` and `opacity` for animations — these don't trigger layout recalculation:
+**Fix:** Use `transform` and `opacity` for animations — these run on the compositor thread and don't trigger layout:
 ```css
 /* Causes CLS */
-.slide-in { animation: slideDown; } /* changes top: value */
+.slide-in { animation: shift-top; } /* animates top: value */
 
 /* No CLS */
-.slide-in { animation: slideDown; } /* uses transform: translateY() */
+.slide-in { animation: slide-down; } /* uses transform: translateY() */
 ```
 
-## Measuring CLS
-
-**Google PageSpeed Insights** — Reports field CLS (real user data) from CrUX and lab CLS from Lighthouse.
-
-**Chrome DevTools → Performance tab** — Run a performance profile to see layout shifts highlighted in the timeline (marked in red/green bands).
-
-**Chrome Extension: Web Vitals** — Shows real-time CLS score as you interact with any page.
-
-**Google Search Console → Core Web Vitals** — Shows CLS data by page URL group across real users.
-
-## CLS and Mobile
+## CLS on Mobile vs Desktop
 
 CLS issues are almost always more severe on mobile because:
 - Viewport is smaller — a 50px shift is a larger percentage of the screen
 - Mobile connections are slower — more assets load with delays between them
-- Touch targets are smaller — shifted elements are harder to re-target
+- Touch targets are smaller — shifted elements are harder to re-target accurately
+- Third-party scripts (ads, chat) load proportionally later on slower connections
 
-For any page where mobile represents a significant share of traffic (typically 50–70%+ for most sites), CLS on mobile should be your primary CLS focus.
+For any page where mobile represents significant traffic (typically 50–70%+ for most sites), CLS on mobile should be the primary CLS diagnostic focus.
 
-For the full Core Web Vitals context, see [Core Web Vitals](/cro-glossary/core-web-vitals/) and [Page Speed](/cro-glossary/page-speed/).
+## Measuring and Monitoring CLS
+
+**Google PageSpeed Insights** — Reports field CLS (real user data) from CrUX and lab CLS from Lighthouse. The field data is what matters for SEO and ranking.
+
+**Chrome DevTools → Performance tab** — Run a performance profile to see layout shifts highlighted in the timeline as red/pink bands.
+
+**Google Search Console → Core Web Vitals** — Shows CLS data by page URL group across real users. The most actionable view for identifying which specific pages need fixing.
+
+For the full Core Web Vitals context, see [Core Web Vitals](/cro-glossary/core-web-vitals/) and [Page Speed](/cro-glossary/page-speed/). CLS fixes are included in every technical [CRO audit](/services/cro-audit/).
