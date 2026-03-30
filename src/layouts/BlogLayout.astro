@@ -122,6 +122,24 @@ const formatRelDate = (date: Date) =>
   <!-- Reading progress bar -->
   <div class="reading-progress" id="reading-progress" aria-hidden="true" role="progressbar" aria-label="Reading progress"></div>
 
+  <!-- Mobile TOC -->
+  <div class="mobile-toc" id="mobile-toc" aria-hidden="true">
+    <div class="mobile-toc__backdrop" id="mobile-toc-backdrop"></div>
+    <div class="mobile-toc__drawer" role="dialog" aria-label="Table of contents">
+      <div class="mobile-toc__header">
+        <span class="mobile-toc__title">On this page</span>
+        <button class="mobile-toc__close" id="mobile-toc-close" aria-label="Close table of contents">✕</button>
+      </div>
+      <nav id="mobile-toc-nav" aria-label="Page sections"></nav>
+    </div>
+  </div>
+  <button class="mobile-toc__trigger" id="mobile-toc-trigger" aria-label="Open table of contents" aria-expanded="false">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+      <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="15" y2="12"/><line x1="3" y1="18" x2="18" y2="18"/>
+    </svg>
+    Contents
+  </button>
+
   <article class="blog-post" itemscope itemtype="https://schema.org/BlogPosting">
     <!-- Header -->
     <header class="blog-post__header">
@@ -842,6 +860,119 @@ const formatRelDate = (date: Date) =>
     .related-posts__grid { grid-template-columns: 1fr; }
     .blog-post__meta-details { font-size: 0.7rem; }
   }
+
+  /* ── Mobile TOC ── */
+  .mobile-toc__trigger {
+    display: none;
+    position: fixed;
+    bottom: 24px;
+    right: 20px;
+    z-index: 120;
+    background: var(--color-heading);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 0.6rem 1.1rem 0.6rem 0.9rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    transition: background 0.15s, transform 0.15s;
+  }
+
+  .mobile-toc__trigger:hover { background: var(--color-accent); transform: translateY(-1px); }
+
+  .mobile-toc {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 150;
+  }
+
+  .mobile-toc[aria-hidden="false"] { display: block; }
+
+  .mobile-toc__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+  }
+
+  .mobile-toc__drawer {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: #fff;
+    border-radius: 20px 20px 0 0;
+    max-height: 70vh;
+    overflow-y: auto;
+    padding-bottom: env(safe-area-inset-bottom, 16px);
+    transform: translateY(100%);
+    transition: transform 0.28s cubic-bezier(0.32,0.72,0,1);
+  }
+
+  .mobile-toc[aria-hidden="false"] .mobile-toc__drawer {
+    transform: translateY(0);
+  }
+
+  .mobile-toc__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px 12px;
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 1;
+  }
+
+  .mobile-toc__title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+  }
+
+  .mobile-toc__close {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 6px;
+  }
+
+  .mobile-toc__close:hover { background: var(--color-surface); }
+
+  :global(#mobile-toc-nav a) {
+    display: block;
+    padding: 12px 20px;
+    font-size: 0.9375rem;
+    color: var(--color-text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-border);
+    transition: background 0.1s, color 0.1s;
+  }
+
+  :global(#mobile-toc-nav .toc-h3) {
+    padding-left: 36px;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+  }
+
+  :global(#mobile-toc-nav a:hover),
+  :global(#mobile-toc-nav a.is-active) {
+    background: var(--color-accent-subtle);
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 1024px) {
+    .mobile-toc__trigger { display: inline-flex; }
+  }
 </style>
 
 <script>
@@ -887,5 +1018,38 @@ const formatRelDate = (date: Date) =>
     );
 
     headings.forEach((h) => observer.observe(h));
+  }
+
+  // Mobile TOC
+  const mobileToc = document.getElementById('mobile-toc') as HTMLElement | null;
+  const mobileTocNav = document.getElementById('mobile-toc-nav') as HTMLElement | null;
+  const mobileTocTrigger = document.getElementById('mobile-toc-trigger') as HTMLButtonElement | null;
+  const mobileTocClose = document.getElementById('mobile-toc-close') as HTMLButtonElement | null;
+  const mobileTocBackdrop = document.getElementById('mobile-toc-backdrop') as HTMLElement | null;
+
+  if (mobileToc && mobileTocNav && tocNav) {
+    // Clone links from desktop TOC into mobile TOC
+    mobileTocNav.innerHTML = tocNav.innerHTML;
+
+    const openToc = () => {
+      mobileToc.setAttribute('aria-hidden', 'false');
+      mobileTocTrigger?.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    };
+
+    const closeToc = () => {
+      mobileToc.setAttribute('aria-hidden', 'true');
+      mobileTocTrigger?.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    };
+
+    mobileTocTrigger?.addEventListener('click', openToc);
+    mobileTocClose?.addEventListener('click', closeToc);
+    mobileTocBackdrop?.addEventListener('click', closeToc);
+
+    // Close on link click
+    mobileTocNav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', closeToc);
+    });
   }
 </script>
