@@ -302,7 +302,7 @@ const formatDate = (date: Date) =>
             <a href={`/blog/${post.slug}/`} class="blog-card">
               <div class="blog-card__image">
                 {post.data.imageHero ? (
-                  <img src={post.data.imageHero} alt={post.data.imageAlt || post.data.title} width="600" height="200" loading="lazy" decoding="async" />
+                  <img src={post.data.imageHero.replace('.svg', '.webp')} alt={post.data.imageAlt || post.data.title} width="600" height="200" loading="lazy" decoding="async" />
                 ) : (
                   <div class="blog-card__img-placeholder" aria-hidden="true"></div>
                 )}
