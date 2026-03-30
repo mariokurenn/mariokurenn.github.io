@@ -583,6 +583,8 @@
 
 .calc-field input,
 .calc-field select {
+  width: 100%;
+  min-width: 0;
   padding: 0.625rem 0.875rem;
   border: 1.5px solid var(--color-border);
   border-radius: 8px;
