@@ -586,7 +586,7 @@ const formatDate = (date: Date) =>
   /* Founder */
   .founder__inner {
     display: grid;
-    grid-template-columns: 340px 1fr;
+    grid-template-columns: minmax(0, 340px) 1fr;
     gap: clamp(var(--space-12), 6vw, var(--space-20));
     align-items: center;
   }
@@ -704,5 +704,7 @@ const formatDate = (date: Date) =>
   @media (max-width: 768px) {
     .results__grid { grid-template-columns: 1fr; }
     .blog-preview__header { flex-direction: column; align-items: flex-start; }
+    .founder__stats { gap: var(--space-5); }
+    .founder__stat-num { font-size: var(--text-2xl); }
   }
 </style>

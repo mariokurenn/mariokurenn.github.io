@@ -581,6 +581,25 @@
 }
 
 /* ============================================
+   MOBILE RESPONSIVE (768px)
+   ============================================ */
+
+@media (max-width: 768px) {
+  .faq-item summary {
+    font-size: var(--text-base);
+    padding: var(--space-4) 0;
+  }
+
+  .card {
+    padding: var(--space-6);
+  }
+
+  .testimonial-card {
+    padding: var(--space-6);
+  }
+}
+
+/* ============================================
    ICON BOX (for process steps, features)
    ============================================ */
 

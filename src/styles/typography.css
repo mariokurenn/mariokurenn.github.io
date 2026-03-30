@@ -204,11 +204,22 @@
   color: inherit;
 }
 
+.table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: var(--space-8) 0;
+}
+
+.table-wrap table {
+  margin: 0;
+}
+
 .prose table {
   width: 100%;
   border-collapse: collapse;
   margin: var(--space-8) 0;
   font-size: var(--text-sm);
+  min-width: 480px;
 }
 
 .prose th {
@@ -252,3 +263,13 @@
 .prose h2 a:hover, .prose h3 a:hover { color: var(--color-accent); }
 
 .prose strong { font-weight: 700; color: var(--color-heading); }
+
+/* Responsive prose tables — wrap overflowing content */
+@media (max-width: 768px) {
+  .prose table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    min-width: unset;
+  }
+}

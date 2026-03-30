@@ -211,7 +211,7 @@
 
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 400px;
+  grid-template-columns: 1fr minmax(0, 400px);
   gap: var(--space-16);
   align-items: start;
 }
@@ -772,4 +772,58 @@
 
 .calc-highlight-text {
   opacity: 0.9;
+}
+
+/* ============================================
+   MOBILE RESPONSIVE OVERRIDES (768px)
+   ============================================ */
+
+@media (max-width: 768px) {
+  /* Page headers */
+  .page-header {
+    padding: var(--space-10) 0;
+  }
+
+  .contact-header {
+    padding: var(--space-10) 0;
+  }
+
+  .contact-content {
+    padding-top: var(--space-10);
+    padding-bottom: var(--space-10);
+  }
+
+  .service-hero {
+    padding: var(--space-10) 0;
+  }
+
+  .service-hero__subtitle {
+    font-size: var(--text-base);
+  }
+
+  /* Contact grid gap on mobile */
+  .contact-grid {
+    gap: var(--space-10);
+  }
+
+  /* Blog index header */
+  .blog-index__header {
+    padding: var(--space-10) 0 var(--space-8);
+  }
+
+  /* Case study card */
+  .case-study-card {
+    padding: var(--space-6);
+    gap: var(--space-6);
+  }
+
+  /* Calc: make MDE table horizontally scrollable on mobile */
+  .calc-mde-table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .calc-wrap {
+    margin: var(--space-8) 0;
+  }
 }
