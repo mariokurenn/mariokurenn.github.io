@@ -1,0 +1,124 @@
+---
+// Cart Abandonment Revenue Calculator
+---
+
+<div class="calc-highlight">
+  <span class="calc-highlight-badge">Free Tool</span>
+  <span class="calc-highlight-text">Interactive Calculator — get your results instantly, no sign-up required</span>
+</div>
+<div class="calc-wrap" id="cart-calculator">
+  <div class="calc-header">
+    <div class="calc-icon">🛒</div>
+    <div>
+      <h3 class="calc-title">Cart Abandonment Revenue Calculator</h3>
+      <p class="calc-subtitle">See exactly how much revenue cart abandonment is costing you — and what recovery is worth</p>
+    </div>
+  </div>
+
+  <div class="calc-body">
+    <div class="calc-inputs">
+      <div class="calc-field">
+        <label for="cart-sessions">Monthly Website Sessions</label>
+        <input type="number" id="cart-sessions" placeholder="e.g. 20000" min="1" />
+      </div>
+      <div class="calc-field">
+        <label for="cart-add-rate">Add-to-Cart Rate (%)</label>
+        <input type="number" id="cart-add-rate" placeholder="e.g. 8" min="0.1" max="100" step="0.1" />
+        <span class="calc-hint">Industry average: 8–10% for e-commerce</span>
+      </div>
+      <div class="calc-field">
+        <label for="cart-abandon-rate">Cart Abandonment Rate (%)</label>
+        <input type="number" id="cart-abandon-rate" placeholder="e.g. 70" min="1" max="99" step="1" />
+        <span class="calc-hint">Industry average: 68–72%</span>
+      </div>
+      <div class="calc-field">
+        <label for="cart-aov">Average Order Value (€)</label>
+        <input type="number" id="cart-aov" placeholder="e.g. 85" min="1" />
+      </div>
+    </div>
+
+    <div class="calc-results" id="cart-results" style="display:none">
+      <div class="calc-result-primary">
+        <span class="calc-result-label">Monthly Revenue Lost to Abandonment</span>
+        <span class="calc-result-value" id="cart-lost">—</span>
+      </div>
+      <div class="calc-result-grid">
+        <div class="calc-result-card">
+          <span class="calc-result-card-label">Carts Started / Month</span>
+          <span class="calc-result-card-value" id="cart-started">—</span>
+        </div>
+        <div class="calc-result-card">
+          <span class="calc-result-card-label">Carts Abandoned / Month</span>
+          <span class="calc-result-card-value" id="cart-abandoned">—</span>
+        </div>
+        <div class="calc-result-card">
+          <span class="calc-result-card-label">Current Monthly Revenue</span>
+          <span class="calc-result-card-value" id="cart-current-rev">—</span>
+        </div>
+        <div class="calc-result-card">
+          <span class="calc-result-card-label">Annual Revenue Lost</span>
+          <span class="calc-result-card-value" id="cart-annual-lost">—</span>
+        </div>
+        <div class="calc-result-card calc-result-card--green">
+          <span class="calc-result-card-label">Recover 10% → extra/month</span>
+          <span class="calc-result-card-value" id="cart-rec-10">—</span>
+        </div>
+        <div class="calc-result-card calc-result-card--green">
+          <span class="calc-result-card-label">Recover 20% → extra/month</span>
+          <span class="calc-result-card-value" id="cart-rec-20">—</span>
+        </div>
+        <div class="calc-result-card calc-result-card--green">
+          <span class="calc-result-card-label">Recover 30% → extra/month</span>
+          <span class="calc-result-card-value" id="cart-rec-30">—</span>
+        </div>
+        <div class="calc-result-card calc-result-card--green">
+          <span class="calc-result-card-label">Recover 30% → extra/year</span>
+          <span class="calc-result-card-value" id="cart-rec-30-yr">—</span>
+        </div>
+      </div>
+      <p class="calc-note" id="cart-note"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function calcCart() {
+    const sessions = parseFloat((document.getElementById('cart-sessions') as HTMLInputElement).value);
+    const addRate = parseFloat((document.getElementById('cart-add-rate') as HTMLInputElement).value) / 100;
+    const abandonRate = parseFloat((document.getElementById('cart-abandon-rate') as HTMLInputElement).value) / 100;
+    const aov = parseFloat((document.getElementById('cart-aov') as HTMLInputElement).value);
+
+    if (!sessions || !addRate || !abandonRate || !aov) return;
+
+    const cartsStarted = Math.round(sessions * addRate);
+    const cartsAbandoned = Math.round(cartsStarted * abandonRate);
+    const cartsCompleted = cartsStarted - cartsAbandoned;
+    const currentRevenue = cartsCompleted * aov;
+    const revenueLost = cartsAbandoned * aov;
+
+    document.getElementById('cart-started')!.textContent = cartsStarted.toLocaleString();
+    document.getElementById('cart-abandoned')!.textContent = cartsAbandoned.toLocaleString();
+    document.getElementById('cart-current-rev')!.textContent = '€' + Math.round(currentRevenue).toLocaleString();
+    document.getElementById('cart-lost')!.textContent = '€' + Math.round(revenueLost).toLocaleString() + '/mo';
+    document.getElementById('cart-annual-lost')!.textContent = '€' + Math.round(revenueLost * 12).toLocaleString();
+    document.getElementById('cart-rec-10')!.textContent = '+€' + Math.round(revenueLost * 0.10).toLocaleString();
+    document.getElementById('cart-rec-20')!.textContent = '+€' + Math.round(revenueLost * 0.20).toLocaleString();
+    document.getElementById('cart-rec-30')!.textContent = '+€' + Math.round(revenueLost * 0.30).toLocaleString();
+    document.getElementById('cart-rec-30-yr')!.textContent = '+€' + Math.round(revenueLost * 0.30 * 12).toLocaleString();
+
+    const noteEl = document.getElementById('cart-note')!;
+    if (abandonRate > 0.75) {
+      noteEl.textContent = '⚠ Your abandonment rate is above the 70% industry average. Checkout friction — extra steps, forced account creation, or surprise shipping costs — are the most common causes.';
+    } else if (abandonRate > 0.65) {
+      noteEl.textContent = '📊 Your abandonment rate is near the industry average. Even a 10% reduction through checkout optimisation adds meaningful revenue without increasing ad spend.';
+    } else {
+      noteEl.textContent = '✓ Your abandonment rate is below average — well done. Focus on recovery emails and exit-intent offers to capture the remaining drop-off.';
+    }
+
+    document.getElementById('cart-results')!.style.display = 'block';
+  }
+
+  ['cart-sessions','cart-add-rate','cart-abandon-rate','cart-aov'].forEach(id => {
+    document.getElementById(id)?.addEventListener('input', calcCart);
+  });
+</script>

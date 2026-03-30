@@ -1,0 +1,135 @@
+---
+// Sample Size Calculator
+---
+
+<div class="calc-highlight">
+  <span class="calc-highlight-badge">Free Tool</span>
+  <span class="calc-highlight-text">Interactive Calculator — get your results instantly, no sign-up required</span>
+</div>
+<div class="calc-wrap" id="sample-calculator">
+  <div class="calc-header">
+    <div class="calc-icon">n</div>
+    <div>
+      <h3 class="calc-title">Sample Size Calculator</h3>
+      <p class="calc-subtitle">Calculate how many visitors you need per variant for a statistically valid A/B test</p>
+    </div>
+  </div>
+
+  <div class="calc-body">
+    <div class="calc-inputs">
+      <div class="calc-field">
+        <label for="ss-baseline">Baseline Conversion Rate (%)</label>
+        <input type="number" id="ss-baseline" placeholder="e.g. 3.5" min="0.01" max="100" step="0.1" />
+      </div>
+      <div class="calc-field">
+        <label for="ss-mde">Minimum Detectable Effect (%)</label>
+        <input type="number" id="ss-mde" placeholder="e.g. 15" min="1" max="300" step="1" />
+        <span class="calc-hint">Relative improvement. 10% MDE on 3% baseline = detecting 3.3% CVR.</span>
+      </div>
+      <div class="calc-field">
+        <label for="ss-confidence">Statistical Confidence</label>
+        <select id="ss-confidence">
+          <option value="1.645">90%</option>
+          <option value="1.96" selected>95% (recommended)</option>
+          <option value="2.576">99%</option>
+        </select>
+      </div>
+      <div class="calc-field">
+        <label for="ss-power">Statistical Power</label>
+        <select id="ss-power">
+          <option value="0.842" selected>80% (standard)</option>
+          <option value="1.282">90% (higher confidence)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="calc-results" id="ss-results" style="display:none">
+      <div class="calc-result-primary">
+        <span class="calc-result-label">Sample Size per Variant</span>
+        <span class="calc-result-value" id="ss-per-variant">—</span>
+      </div>
+      <div class="calc-result-grid">
+        <div class="calc-result-card">
+          <span class="calc-result-card-label">Total Sample (A+B)</span>
+          <span class="calc-result-card-value" id="ss-total">—</span>
+        </div>
+        <div class="calc-result-card">
+          <span class="calc-result-card-label">Detectable CVR (variant)</span>
+          <span class="calc-result-card-value" id="ss-detect-cvr">—</span>
+        </div>
+        <div class="calc-result-card">
+          <span class="calc-result-card-label">False Positive Risk</span>
+          <span class="calc-result-card-value" id="ss-fpr">—</span>
+        </div>
+        <div class="calc-result-card">
+          <span class="calc-result-card-label">False Negative Risk</span>
+          <span class="calc-result-card-value" id="ss-fnr">—</span>
+        </div>
+      </div>
+      <div class="calc-mde-table">
+        <p class="calc-mde-table-title">Sample size at different MDE levels:</p>
+        <div class="calc-mde-rows" id="ss-mde-table"></div>
+      </div>
+      <p class="calc-note" id="ss-note"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function calcSampleSize(baseline: number, mde: number, z: number, power: number): number {
+    const p1 = baseline;
+    const p2 = baseline * (1 + mde);
+    const pooled = (p1 + p2) / 2;
+    const numerator = Math.pow(z * Math.sqrt(2 * pooled * (1 - pooled)) + power * Math.sqrt(p1 * (1 - p1) + p2 * (1 - p2)), 2);
+    const denominator = Math.pow(p2 - p1, 2);
+    return Math.ceil(numerator / denominator);
+  }
+
+  function calcSS() {
+    const baseline = parseFloat((document.getElementById('ss-baseline') as HTMLInputElement).value) / 100;
+    const mde = parseFloat((document.getElementById('ss-mde') as HTMLInputElement).value) / 100;
+    const z = parseFloat((document.getElementById('ss-confidence') as HTMLSelectElement).value);
+    const power = parseFloat((document.getElementById('ss-power') as HTMLSelectElement).value);
+
+    if (!baseline || !mde) return;
+
+    const n = calcSampleSize(baseline, mde, z, power);
+    const detectCVR = baseline * (1 + mde);
+    const confidenceLevel = z === 1.645 ? '10%' : z === 1.96 ? '5%' : '1%';
+    const powerPct = power === 0.842 ? '20%' : '10%';
+
+    document.getElementById('ss-per-variant')!.textContent = n.toLocaleString();
+    document.getElementById('ss-total')!.textContent = (n * 2).toLocaleString();
+    document.getElementById('ss-detect-cvr')!.textContent = (detectCVR * 100).toFixed(2) + '%';
+    document.getElementById('ss-fpr')!.textContent = confidenceLevel;
+    document.getElementById('ss-fnr')!.textContent = powerPct;
+
+    // MDE comparison table
+    const mdeValues = [5, 10, 15, 20, 30, 50];
+    const tableEl = document.getElementById('ss-mde-table')!;
+    tableEl.innerHTML = mdeValues.map(m => {
+      const size = calcSampleSize(baseline, m / 100, z, power);
+      const isSelected = Math.abs(m - mde * 100) < 1;
+      return `<div class="calc-mde-row${isSelected ? ' calc-mde-row--active' : ''}">
+        <span>${m}% MDE</span>
+        <span>${size.toLocaleString()} / variant</span>
+        <span>${(size * 2).toLocaleString()} total</span>
+      </div>`;
+    }).join('');
+
+    const noteEl = document.getElementById('ss-note')!;
+    if (n > 50000) {
+      noteEl.textContent = '⚠ You need ' + n.toLocaleString() + ' visitors per variant — this is a very large sample. Consider increasing MDE (detect bigger effects) or focusing on higher-traffic pages.';
+    } else if (n > 10000) {
+      noteEl.textContent = '📊 ' + n.toLocaleString() + ' visitors per variant. Make sure your test page gets enough daily traffic — check the Duration Calculator to estimate how long this will take.';
+    } else {
+      noteEl.textContent = '✓ ' + n.toLocaleString() + ' visitors per variant is achievable. Pair this with the Duration Calculator to plan your test timeline.';
+    }
+
+    document.getElementById('ss-results')!.style.display = 'block';
+  }
+
+  ['ss-baseline','ss-mde','ss-confidence','ss-power'].forEach(id => {
+    document.getElementById(id)?.addEventListener('input', calcSS);
+  });
+</script>

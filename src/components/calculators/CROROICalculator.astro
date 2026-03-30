@@ -1,0 +1,133 @@
+---
+// CRO ROI Calculator
+---
+
+<div class="calc-highlight">
+  <span class="calc-highlight-badge">Free Tool</span>
+  <span class="calc-highlight-text">See the exact revenue impact of improving your conversion rate</span>
+</div>
+<div class="calc-wrap calc-wrap--featured" id="cro-roi-calculator">
+  <div class="calc-header">
+    <div class="calc-icon">€</div>
+    <div>
+      <h3 class="calc-title">CRO Revenue Impact Calculator</h3>
+      <p class="calc-subtitle">See how much additional revenue a conversion rate improvement is worth to your business</p>
+    </div>
+  </div>
+
+  <div class="calc-body">
+    <div class="calc-inputs">
+      <div class="calc-field">
+        <label for="roi-visitors">Monthly Visitors</label>
+        <input type="number" id="roi-visitors" placeholder="e.g. 15000" min="1" />
+      </div>
+      <div class="calc-field">
+        <label for="roi-cvr">Current Conversion Rate (%)</label>
+        <input type="number" id="roi-cvr" placeholder="e.g. 2.1" min="0.01" max="100" step="0.01" />
+      </div>
+      <div class="calc-field">
+        <label for="roi-aov">Average Order / Lead Value (€)</label>
+        <input type="number" id="roi-aov" placeholder="e.g. 120" min="1" />
+      </div>
+      <div class="calc-field">
+        <label for="roi-improvement">CVR Improvement Target (%)</label>
+        <select id="roi-improvement">
+          <option value="10">+10% (conservative)</option>
+          <option value="25" selected>+25% (realistic)</option>
+          <option value="50">+50% (strong programme)</option>
+          <option value="100">+100% (best-in-class)</option>
+          <option value="custom">Custom</option>
+        </select>
+      </div>
+      <div class="calc-field" id="roi-custom-field" style="display:none">
+        <label for="roi-custom">Custom Improvement (%)</label>
+        <input type="number" id="roi-custom" placeholder="e.g. 35" min="1" max="500" />
+      </div>
+    </div>
+
+    <div class="calc-results" id="roi-results" style="display:none">
+      <div class="calc-result-primary">
+        <span class="calc-result-label">Additional Monthly Revenue</span>
+        <span class="calc-result-value" id="roi-monthly-extra">—</span>
+      </div>
+      <div class="calc-result-grid">
+        <div class="calc-result-card">
+          <span class="calc-result-card-label">Current Monthly Revenue</span>
+          <span class="calc-result-card-value" id="roi-current">—</span>
+        </div>
+        <div class="calc-result-card calc-result-card--green">
+          <span class="calc-result-card-label">New Monthly Revenue</span>
+          <span class="calc-result-card-value" id="roi-new">—</span>
+        </div>
+        <div class="calc-result-card">
+          <span class="calc-result-card-label">Current CVR</span>
+          <span class="calc-result-card-value" id="roi-current-cvr">—</span>
+        </div>
+        <div class="calc-result-card calc-result-card--green">
+          <span class="calc-result-card-label">New CVR</span>
+          <span class="calc-result-card-value" id="roi-new-cvr">—</span>
+        </div>
+        <div class="calc-result-card calc-result-card--green">
+          <span class="calc-result-card-label">Additional Revenue / Year</span>
+          <span class="calc-result-card-value" id="roi-annual-extra">—</span>
+        </div>
+        <div class="calc-result-card">
+          <span class="calc-result-card-label">Extra Conversions / Month</span>
+          <span class="calc-result-card-value" id="roi-extra-conv">—</span>
+        </div>
+      </div>
+      <p class="calc-note" id="roi-note"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function calcROI() {
+    const visitors = parseFloat((document.getElementById('roi-visitors') as HTMLInputElement).value);
+    const cvr = parseFloat((document.getElementById('roi-cvr') as HTMLInputElement).value) / 100;
+    const aov = parseFloat((document.getElementById('roi-aov') as HTMLInputElement).value);
+    const improvementSelect = (document.getElementById('roi-improvement') as HTMLSelectElement).value;
+    const customVal = parseFloat((document.getElementById('roi-custom') as HTMLInputElement).value);
+
+    let improvement: number;
+    if (improvementSelect === 'custom') {
+      if (!customVal) return;
+      improvement = customVal / 100;
+    } else {
+      improvement = parseFloat(improvementSelect) / 100;
+    }
+
+    if (!visitors || !cvr || !aov) return;
+
+    const currentConversions = visitors * cvr;
+    const currentRevenue = currentConversions * aov;
+    const newCVR = cvr * (1 + improvement);
+    const newConversions = visitors * newCVR;
+    const newRevenue = newConversions * aov;
+    const extraMonthly = newRevenue - currentRevenue;
+    const extraYearly = extraMonthly * 12;
+
+    document.getElementById('roi-current')!.textContent = '€' + Math.round(currentRevenue).toLocaleString();
+    document.getElementById('roi-new')!.textContent = '€' + Math.round(newRevenue).toLocaleString();
+    document.getElementById('roi-current-cvr')!.textContent = (cvr * 100).toFixed(2) + '%';
+    document.getElementById('roi-new-cvr')!.textContent = (newCVR * 100).toFixed(2) + '%';
+    document.getElementById('roi-monthly-extra')!.textContent = '+€' + Math.round(extraMonthly).toLocaleString() + '/mo';
+    document.getElementById('roi-annual-extra')!.textContent = '+€' + Math.round(extraYearly).toLocaleString();
+    document.getElementById('roi-extra-conv')!.textContent = '+' + Math.round(newConversions - currentConversions).toLocaleString();
+
+    const noteEl = document.getElementById('roi-note')!;
+    noteEl.textContent = `With ${visitors.toLocaleString()} monthly visitors and a ${(improvement * 100).toFixed(0)}% CVR improvement, you'd generate an extra €${Math.round(extraYearly).toLocaleString()} per year — from the same traffic you're already paying for.`;
+
+    document.getElementById('roi-results')!.style.display = 'block';
+  }
+
+  (document.getElementById('roi-improvement') as HTMLSelectElement).addEventListener('change', function() {
+    const customField = document.getElementById('roi-custom-field')!;
+    customField.style.display = this.value === 'custom' ? 'block' : 'none';
+    calcROI();
+  });
+
+  ['roi-visitors','roi-cvr','roi-aov','roi-custom'].forEach(id => {
+    document.getElementById(id)?.addEventListener('input', calcROI);
+  });
+</script>

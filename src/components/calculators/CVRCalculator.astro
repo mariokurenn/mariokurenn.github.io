@@ -1,0 +1,135 @@
+---
+// Conversion Rate Calculator
+---
+
+<div class="calc-highlight">
+  <span class="calc-highlight-badge">Free Tool</span>
+  <span class="calc-highlight-text">Interactive Calculator — get your results instantly, no sign-up required</span>
+</div>
+<div class="calc-wrap" id="cvr-calculator">
+  <div class="calc-header">
+    <div class="calc-icon">%</div>
+    <div>
+      <h3 class="calc-title">Conversion Rate Calculator</h3>
+      <p class="calc-subtitle">Calculate your CVR and see the revenue impact of improving it</p>
+    </div>
+  </div>
+
+  <div class="calc-body">
+    <div class="calc-inputs">
+      <div class="calc-field">
+        <label for="cvr-sessions">Monthly Sessions</label>
+        <input type="number" id="cvr-sessions" placeholder="e.g. 10000" min="1" />
+      </div>
+      <div class="calc-field">
+        <label for="cvr-conversions">Monthly Conversions</label>
+        <input type="number" id="cvr-conversions" placeholder="e.g. 250" min="0" />
+      </div>
+      <div class="calc-field">
+        <label for="cvr-aov">Average Order Value (€)</label>
+        <input type="number" id="cvr-aov" placeholder="e.g. 85" min="0" />
+      </div>
+      <div class="calc-field">
+        <label for="cvr-industry">Industry</label>
+        <select id="cvr-industry">
+          <option value="2.5">E-commerce (avg 2.5%)</option>
+          <option value="4.0">SaaS / Software (avg 4.0%)</option>
+          <option value="2.2">B2B Lead Gen (avg 2.2%)</option>
+          <option value="3.8">Finance (avg 3.8%)</option>
+          <option value="3.5">Travel (avg 3.5%)</option>
+          <option value="5.0">Food & Beverage (avg 5.0%)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="calc-results" id="cvr-results" style="display:none">
+      <div class="calc-result-primary">
+        <span class="calc-result-label">Your Conversion Rate</span>
+        <span class="calc-result-value" id="cvr-rate">—</span>
+      </div>
+      <div class="calc-result-grid">
+        <div class="calc-result-card">
+          <span class="calc-result-card-label">vs Industry Average</span>
+          <span class="calc-result-card-value" id="cvr-vs-industry">—</span>
+        </div>
+        <div class="calc-result-card">
+          <span class="calc-result-card-label">Monthly Revenue</span>
+          <span class="calc-result-card-value" id="cvr-revenue">—</span>
+        </div>
+        <div class="calc-result-card calc-result-card--green">
+          <span class="calc-result-card-label">+10% CVR improvement</span>
+          <span class="calc-result-card-value" id="cvr-rev-10">—</span>
+        </div>
+        <div class="calc-result-card calc-result-card--green">
+          <span class="calc-result-card-label">+25% CVR improvement</span>
+          <span class="calc-result-card-value" id="cvr-rev-25">—</span>
+        </div>
+        <div class="calc-result-card calc-result-card--green">
+          <span class="calc-result-card-label">+50% CVR improvement</span>
+          <span class="calc-result-card-value" id="cvr-rev-50">—</span>
+        </div>
+        <div class="calc-result-card calc-result-card--green">
+          <span class="calc-result-card-label">+100% CVR improvement</span>
+          <span class="calc-result-card-value" id="cvr-rev-100">—</span>
+        </div>
+      </div>
+      <p class="calc-note" id="cvr-benchmark-note"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function calcCVR() {
+    const sessions = parseFloat((document.getElementById('cvr-sessions') as HTMLInputElement).value);
+    const conversions = parseFloat((document.getElementById('cvr-conversions') as HTMLInputElement).value);
+    const aov = parseFloat((document.getElementById('cvr-aov') as HTMLInputElement).value);
+    const industryAvg = parseFloat((document.getElementById('cvr-industry') as HTMLSelectElement).value);
+
+    if (!sessions || !conversions) return;
+
+    const cvr = (conversions / sessions) * 100;
+    const revenue = aov ? conversions * aov : null;
+    const diff = cvr - industryAvg;
+    const diffPct = ((cvr - industryAvg) / industryAvg * 100);
+
+    document.getElementById('cvr-rate')!.textContent = cvr.toFixed(2) + '%';
+
+    const vsEl = document.getElementById('cvr-vs-industry')!;
+    if (diff > 0) {
+      vsEl.textContent = '+' + diffPct.toFixed(0) + '% above average';
+      vsEl.style.color = '#1A7F3C';
+    } else {
+      vsEl.textContent = diffPct.toFixed(0) + '% below average';
+      vsEl.style.color = '#e53e3e';
+    }
+
+    if (revenue !== null && !isNaN(revenue)) {
+      document.getElementById('cvr-revenue')!.textContent = '€' + Math.round(revenue).toLocaleString();
+      document.getElementById('cvr-rev-10')!.textContent = '+€' + Math.round(revenue * 0.10).toLocaleString() + '/mo';
+      document.getElementById('cvr-rev-25')!.textContent = '+€' + Math.round(revenue * 0.25).toLocaleString() + '/mo';
+      document.getElementById('cvr-rev-50')!.textContent = '+€' + Math.round(revenue * 0.50).toLocaleString() + '/mo';
+      document.getElementById('cvr-rev-100')!.textContent = '+€' + Math.round(revenue).toLocaleString() + '/mo';
+    } else {
+      ['cvr-revenue','cvr-rev-10','cvr-rev-25','cvr-rev-50','cvr-rev-100'].forEach(id => {
+        document.getElementById(id)!.textContent = 'Enter AOV';
+      });
+    }
+
+    const noteEl = document.getElementById('cvr-benchmark-note')!;
+    if (cvr < industryAvg * 0.5) {
+      noteEl.textContent = '⚠ Your CVR is significantly below the industry average. A CRO audit would likely surface quick wins.';
+    } else if (cvr < industryAvg) {
+      noteEl.textContent = '📊 Your CVR is below the industry average. There is clear room for improvement through systematic optimisation.';
+    } else if (cvr < industryAvg * 1.5) {
+      noteEl.textContent = '✓ Your CVR is above average. Focused testing on high-traffic pages can push you into the top quartile.';
+    } else {
+      noteEl.textContent = '🏆 Your CVR is well above average — top quartile performance. Focus on AOV and retention now.';
+    }
+
+    document.getElementById('cvr-results')!.style.display = 'block';
+  }
+
+  ['cvr-sessions','cvr-conversions','cvr-aov','cvr-industry'].forEach(id => {
+    document.getElementById(id)?.addEventListener('input', calcCVR);
+  });
+</script>

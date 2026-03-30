@@ -1,0 +1,123 @@
+---
+// A/B Test Duration Calculator
+---
+
+<div class="calc-highlight">
+  <span class="calc-highlight-badge">Free Tool</span>
+  <span class="calc-highlight-text">Interactive Calculator — get your results instantly, no sign-up required</span>
+</div>
+<div class="calc-wrap" id="abt-calculator">
+  <div class="calc-header">
+    <div class="calc-icon">⚡</div>
+    <div>
+      <h3 class="calc-title">A/B Test Duration Calculator</h3>
+      <p class="calc-subtitle">Find out how long you need to run your test to get reliable results</p>
+    </div>
+  </div>
+
+  <div class="calc-body">
+    <div class="calc-inputs">
+      <div class="calc-field">
+        <label for="abt-baseline">Baseline Conversion Rate (%)</label>
+        <input type="number" id="abt-baseline" placeholder="e.g. 3.2" min="0.01" max="100" step="0.1" />
+      </div>
+      <div class="calc-field">
+        <label for="abt-mde">Minimum Detectable Effect (%)</label>
+        <input type="number" id="abt-mde" placeholder="e.g. 15" min="1" max="200" step="1" />
+        <span class="calc-hint">The % improvement you want to detect. 10–20% is typical.</span>
+      </div>
+      <div class="calc-field">
+        <label for="abt-visitors">Daily Visitors to the Page</label>
+        <input type="number" id="abt-visitors" placeholder="e.g. 500" min="1" />
+      </div>
+      <div class="calc-field">
+        <label for="abt-variants">Number of Variants (incl. control)</label>
+        <select id="abt-variants">
+          <option value="2">2 (A vs B)</option>
+          <option value="3">3 (A vs B vs C)</option>
+          <option value="4">4 variants</option>
+        </select>
+      </div>
+      <div class="calc-field">
+        <label for="abt-confidence">Statistical Confidence</label>
+        <select id="abt-confidence">
+          <option value="1.645">90%</option>
+          <option value="1.96" selected>95% (recommended)</option>
+          <option value="2.576">99%</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="calc-results" id="abt-results" style="display:none">
+      <div class="calc-result-primary">
+        <span class="calc-result-label">Test Duration</span>
+        <span class="calc-result-value" id="abt-days">—</span>
+      </div>
+      <div class="calc-result-grid">
+        <div class="calc-result-card">
+          <span class="calc-result-card-label">Visitors per Variant</span>
+          <span class="calc-result-card-value" id="abt-per-variant">—</span>
+        </div>
+        <div class="calc-result-card">
+          <span class="calc-result-card-label">Total Visitors Needed</span>
+          <span class="calc-result-card-value" id="abt-total">—</span>
+        </div>
+        <div class="calc-result-card">
+          <span class="calc-result-card-label">Expected Variant CVR</span>
+          <span class="calc-result-card-value" id="abt-variant-cvr">—</span>
+        </div>
+        <div class="calc-result-card">
+          <span class="calc-result-card-label">Statistical Power</span>
+          <span class="calc-result-card-value">80%</span>
+        </div>
+      </div>
+      <p class="calc-note" id="abt-note"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function calcABT() {
+    const baseline = parseFloat((document.getElementById('abt-baseline') as HTMLInputElement).value) / 100;
+    const mde = parseFloat((document.getElementById('abt-mde') as HTMLInputElement).value) / 100;
+    const dailyVisitors = parseFloat((document.getElementById('abt-visitors') as HTMLInputElement).value);
+    const variants = parseInt((document.getElementById('abt-variants') as HTMLSelectElement).value);
+    const z = parseFloat((document.getElementById('abt-confidence') as HTMLSelectElement).value);
+
+    if (!baseline || !mde || !dailyVisitors) return;
+
+    const zPower = 0.842; // 80% power
+    const p1 = baseline;
+    const p2 = baseline * (1 + mde);
+    const pooled = (p1 + p2) / 2;
+
+    // Sample size per variant formula
+    const numerator = Math.pow(z * Math.sqrt(2 * pooled * (1 - pooled)) + zPower * Math.sqrt(p1 * (1 - p1) + p2 * (1 - p2)), 2);
+    const denominator = Math.pow(p2 - p1, 2);
+    const samplePerVariant = Math.ceil(numerator / denominator);
+    const totalSample = samplePerVariant * variants;
+    const days = Math.ceil(totalSample / dailyVisitors);
+    // Ensure at least 2 full weeks
+    const recommendedDays = Math.max(days, 14);
+
+    document.getElementById('abt-days')!.textContent = recommendedDays + ' days';
+    document.getElementById('abt-per-variant')!.textContent = samplePerVariant.toLocaleString();
+    document.getElementById('abt-total')!.textContent = totalSample.toLocaleString();
+    document.getElementById('abt-variant-cvr')!.textContent = (p2 * 100).toFixed(2) + '%';
+
+    const noteEl = document.getElementById('abt-note')!;
+    if (recommendedDays > 90) {
+      noteEl.textContent = '⚠ This test would take ' + recommendedDays + ' days — consider increasing MDE or driving more traffic to the page first. Tests over 90 days risk seasonal contamination.';
+    } else if (days < 14) {
+      noteEl.textContent = '⚠ Statistics suggest ' + days + ' days, but always run tests for at least 2 full weeks to account for day-of-week effects.';
+    } else {
+      noteEl.textContent = '✓ ' + recommendedDays + ' days is a reliable test window. Make sure to run it for complete weeks (not stopping mid-week).';
+    }
+
+    document.getElementById('abt-results')!.style.display = 'block';
+  }
+
+  ['abt-baseline','abt-mde','abt-visitors','abt-variants','abt-confidence'].forEach(id => {
+    document.getElementById(id)?.addEventListener('input', calcABT);
+  });
+</script>
