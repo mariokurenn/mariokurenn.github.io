@@ -5,22 +5,16 @@ import CROROICalculator from '@/components/calculators/CROROICalculator.astro';
 
 const siteURL = 'https://grow-conversions.com';
 
-const siteURL = 'https://grow-conversions.com';
-
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   name: 'CRO Audit',
   description: 'A comprehensive 47-point conversion rate optimization audit. We analyze your funnel, landing pages, and user flows to identify what\'s killing your conversions.',
-<<<<<<< Updated upstream
   provider: {
     '@type': 'Organization',
     name: 'grow-conversions.com',
     url: siteURL,
   },
-=======
-  provider: { '@type': 'Organization', name: 'grow-conversions.com', url: siteURL },
->>>>>>> Stashed changes
   serviceType: 'CRO Audit',
   areaServed: 'Worldwide',
 };
@@ -119,7 +113,6 @@ const auditPoints = [
       <p class="section-subtitle" style="margin-bottom: var(--space-12);">
         Every audit covers the full funnel — from the moment a visitor lands to the moment they convert (or don't).
       </p>
-
       <div class="audit-grid">
         {auditPoints.map(({ category, items }) => (
           <div class="audit-category">
@@ -152,22 +145,10 @@ const auditPoints = [
       <h2 class="section-title">What You Receive After the Audit</h2>
       <div class="deliverables-grid">
         {[
-          {
-            title: 'Priority Issue List',
-            description: 'Every conversion blocker ranked by estimated revenue impact — so you know exactly where to start.',
-          },
-          {
-            title: 'Annotated Screenshots',
-            description: 'Visual markup of exactly what to fix on each page, with explanations your developer can act on immediately.',
-          },
-          {
-            title: 'A/B Test Roadmap',
-            description: 'A 90-day testing roadmap with 10+ hypotheses prioritized by PIE score (Potential, Importance, Ease).',
-          },
-          {
-            title: 'Benchmarks Report',
-            description: 'How your conversion metrics compare to industry benchmarks, so you know where the biggest gaps are.',
-          },
+          { title: 'Priority Issue List', description: 'Every conversion blocker ranked by estimated revenue impact — so you know exactly where to start.' },
+          { title: 'Annotated Screenshots', description: 'Visual markup of exactly what to fix on each page, with explanations your developer can act on immediately.' },
+          { title: 'A/B Test Roadmap', description: 'A 90-day testing roadmap with 10+ hypotheses prioritized by PIE score (Potential, Importance, Ease).' },
+          { title: 'Benchmarks Report', description: 'How your conversion metrics compare to industry benchmarks, so you know where the biggest gaps are.' },
         ].map(({ title, description }) => (
           <div class="card">
             <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
@@ -181,7 +162,6 @@ const auditPoints = [
     </div>
   </section>
 
-<<<<<<< Updated upstream
   <!-- What a CRO Audit Actually Is -->
   <section class="section">
     <div class="container" style="max-width: 760px;">
@@ -201,8 +181,6 @@ const auditPoints = [
     </div>
   </section>
 
-=======
->>>>>>> Stashed changes
   <!-- Blog resource link -->
   <section class="section">
     <div class="container">
@@ -211,11 +189,7 @@ const auditPoints = [
           <span class="section-label">Free Resource</span>
           <h2 class="resource-callout__title">Do Your Own Audit First</h2>
           <p class="resource-callout__desc">
-<<<<<<< Updated upstream
             Before we talk, run through our 37-question CRO audit checklist — the same framework we use
-=======
-            Before we talk, you can run through our 37-question CRO audit checklist — the same framework we use
->>>>>>> Stashed changes
             internally, now available for free. It'll help you understand exactly where to focus.
           </p>
           <a href="/blog/cro-audit-checklist/" class="btn btn--secondary">
@@ -261,7 +235,6 @@ const auditPoints = [
     border-bottom: 1px solid var(--color-border);
     padding: var(--space-16) 0;
   }
-
   .service-hero__title {
     font-size: clamp(2rem, 4vw, 3.25rem);
     font-weight: 900;
@@ -270,7 +243,6 @@ const auditPoints = [
     max-width: 800px;
     margin: var(--space-4) 0;
   }
-
   .service-hero__subtitle {
     font-size: var(--text-lg);
     color: var(--color-text-muted);
@@ -278,14 +250,12 @@ const auditPoints = [
     line-height: 1.6;
     margin-bottom: var(--space-8);
   }
-
   .service-hero__actions {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: var(--space-3);
   }
-
   .service-hero__proof {
     display: flex;
     align-items: center;
@@ -293,20 +263,17 @@ const auditPoints = [
     font-size: var(--text-sm);
     color: var(--color-text-muted);
   }
-
   .audit-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-6);
   }
-
   .audit-category {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
     padding: var(--space-6);
   }
-
   .audit-category__title {
     display: flex;
     align-items: center;
@@ -315,13 +282,11 @@ const auditPoints = [
     font-weight: 700;
     margin-bottom: var(--space-4);
   }
-
   .audit-category__list {
     display: flex;
     flex-direction: column;
     gap: var(--space-2);
   }
-
   .audit-category__list li {
     display: flex;
     align-items: center;
@@ -329,34 +294,12 @@ const auditPoints = [
     font-size: var(--text-sm);
     color: var(--color-text-muted);
   }
-
   .deliverables-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-6);
     margin-top: var(--space-8);
   }
-
-  .resource-callout {
-    background: linear-gradient(135deg, var(--color-accent-light), rgba(235,247,238,0.3));
-    border: 1px solid var(--color-border-accent);
-    border-radius: var(--radius-xl);
-    padding: var(--space-10) var(--space-12);
-  }
-  .resource-callout__title { font-size: var(--text-2xl); font-weight: 800; letter-spacing: -0.03em; margin: var(--space-3) 0; }
-  .resource-callout__desc { color: var(--color-text-muted); line-height: 1.6; margin-bottom: var(--space-6); max-width: 600px; }
-
-  .faq-list { border-radius: var(--radius-xl); overflow: hidden; border: 1px solid var(--color-border); background: var(--color-white); }
-  .faq-item { border-bottom: 1px solid var(--color-border); padding-inline: var(--space-8); }
-  .faq-item:last-child { border-bottom: none; }
-  .faq-item summary { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding-block: var(--space-6); font-weight: 600; cursor: pointer; list-style: none; }
-  .faq-item summary::-webkit-details-marker { display: none; }
-  .faq-answer { padding-bottom: var(--space-7); color: var(--color-text-muted); line-height: 1.7; }
-
-  @media (max-width: 900px) {
-    .audit-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-
   .resource-callout {
     background: linear-gradient(135deg, var(--color-accent-light), rgba(235,247,238,0.3));
     border: 1px solid var(--color-border-accent);
@@ -371,16 +314,10 @@ const auditPoints = [
   .faq-item summary { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding-block: var(--space-6); font-weight: 600; cursor: pointer; list-style: none; }
   .faq-item summary::-webkit-details-marker { display: none; }
   .faq-answer { padding-bottom: var(--space-7); color: var(--color-text-muted); line-height: 1.7; }
-
+  @media (max-width: 900px) { .audit-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 640px) {
     .audit-grid,
-<<<<<<< Updated upstream
     .deliverables-grid { grid-template-columns: 1fr; }
-=======
-    .deliverables-grid {
-      grid-template-columns: 1fr;
-    }
->>>>>>> Stashed changes
     .resource-callout { padding: var(--space-8); }
   }
 </style>

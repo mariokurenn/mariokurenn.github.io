@@ -3,7 +3,6 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
 const siteURL = 'https://grow-conversions.com';
 
-<<<<<<< Updated upstream
 const contactSchema = [
   {
     '@context': 'https://schema.org',
@@ -58,29 +57,12 @@ const contactSchema = [
     ],
   },
 ];
-=======
-const contactSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'ContactPage',
-  name: 'Contact grow-conversions.com',
-  url: `${siteURL}/contact/`,
-};
-
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: siteURL },
-    { '@type': 'ListItem', position: 2, name: 'Contact', item: `${siteURL}/contact/` },
-  ],
-};
->>>>>>> Stashed changes
 ---
 
 <BaseLayout
   title="Contact — Book Your Free CRO Audit"
   description="Book a free CRO audit or strategy call. We'll analyze your site, find what's killing your conversions, and give you a prioritized action plan — free."
-  jsonLd={[contactSchema, breadcrumbSchema]}
+  jsonLd={contactSchema}
 >
   <div class="contact-page">
     <div class="contact-header">

@@ -1,18 +1,9 @@
 ---
-<<<<<<< Updated upstream
-title: "Landing Page Best Practices: 15 Rules for Pages That Actually Convert"
-seoTitle: "Landing Page Best Practices: 15 Conversion Rules"
-description: "15 landing page best practices used by top-converting pages. Psychology principles and actionable changes to boost conversions starting today."
-publishDate: "2026-02-20"
-updatedDate: "2026-03-10"
-author: "Mario Kuren"
-=======
 title: "Landing Page Best Practices: 18 Rules for Pages That Actually Convert"
 description: "18 landing page best practices used by top-converting pages. Psychology principles and actionable changes you can implement today to boost conversions."
 publishDate: "2026-02-20"
 updatedDate: "2026-04-10"
 author: "Mario"
->>>>>>> Stashed changes
 category: "Landing Pages"
 tags: ["landing pages", "conversion rate", "cro", "design", "copywriting"]
 seoKeyword: "landing page best practices"
@@ -53,29 +44,7 @@ faqs:
 
 A landing page with a 2% conversion rate and one with an 8% conversion rate can look nearly identical to the untrained eye. The difference is in the details — details that compound into a 4x revenue multiplier from the same traffic.
 
-<<<<<<< Updated upstream
-Here are 15 landing page best practices distilled from 6 years of testing across e-commerce, SaaS, and B2B campaigns — including A/B tests on pages generating €50k to €2M in monthly revenue.
-
-## Landing Page Essentials: What Goes Where
-
-Before the details, here's the structure that consistently outperforms everything else. Every element has a place — and placing them wrong is one of the most common conversion killers.
-
-| Page Position | Required Element | Priority |
-|---|---|---|
-| Above the fold | Outcome-led headline (H1) | Critical |
-| Above the fold | Primary CTA button (high contrast) | Critical |
-| Above the fold | Value proposition sub-headline | Critical |
-| Above the fold | Trust signal (logos, star rating, or customer count) | High |
-| First scroll | Benefit bullets or proof points | High |
-| Adjacent to CTA | Testimonial or social proof | High |
-| Mid-page | Objection handling / FAQ | Medium |
-| Near CTA (repeated) | Risk reversal (guarantee, free trial) | High |
-| Page end | Secondary CTA | Medium |
-
-*Want context on what "good" conversion looks like for your industry before you start? See [Conversion Rate Benchmarks by Industry](/blog/conversion-rate-benchmarks-by-industry/).*
-=======
 After hundreds of A/B tests across ecommerce, SaaS, and lead generation, these are the 18 rules that separate top-converting landing pages from everything else.
->>>>>>> Stashed changes
 
 ## What Makes a Landing Page Different from a Normal Website Page?
 
@@ -87,11 +56,7 @@ Unlike a general website page, a landing page typically:
 - Matches the message of the ad or email that sent the visitor
 - Is built around the psychology of the *specific audience* it's targeting
 
-<<<<<<< Updated upstream
-When visitors don't immediately see what they came for, they leave. This is called a high [bounce rate](/blog/bounce-rate-vs-exit-rate/), and message mismatch is the most common cause. The flip side is [priming](/cro-glossary/priming/): when your headline mirrors the ad that brought the visitor, they feel immediately oriented — and that positive first impression colours how they interpret everything below the fold.
-=======
 When these characteristics are in place, landing page conversion rates average 5–15% — versus 1–3% for general website pages. The focused intent is the difference.
->>>>>>> Stashed changes
 
 ---
 
@@ -145,11 +110,7 @@ Specificity signals authenticity. "127% average CVR increase" is more persuasive
 
 Every element on a landing page should serve one purpose: moving the visitor toward one specific action.
 
-<<<<<<< Updated upstream
-Every form field you add reduces conversions. Baymard Institute's checkout research and multiple field-reduction tests consistently show that cutting form fields from 11 to 4 can double conversion rate — because every additional field adds friction at the exact moment of decision.
-=======
 Navigation menus are conversion killers on landing pages — they provide exits. Outbound links send paid traffic away. Multiple CTAs create decision paralysis: when everything competes for attention, nothing gets clicked.
->>>>>>> Stashed changes
 
 Remove the navigation. Eliminate footer links. Kill the "See our other products" sections. One page, one goal. This alone can increase conversion rates 20–30% for paid traffic landing pages.
 
@@ -163,13 +124,7 @@ Multiple CTAs throughout the page are fine — in fact, recommended for long pag
 
 ### 7. Use Directional Cues to Guide Attention
 
-<<<<<<< Updated upstream
-*See how authentic product photography contributed to a 143% CVR lift: [Lara Sweetland case study](/case-studies/lara-sweetland/).*
-
-## 8. Make Your Value Proposition Crystal Clear
-=======
 Visitors don't read pages sequentially — they scan. Directional cues guide their eyes toward what matters:
->>>>>>> Stashed changes
 
 - **Visual arrows** pointing toward the CTA
 - **Face direction**: photographs of people who are looking at your CTA (eye-tracking studies show visitors follow where photographed subjects look)
@@ -223,35 +178,12 @@ The psychology: when visitors are about to commit, they instinctively look for r
 
 "Great product! Highly recommend." is nearly worthless. Nobody believes it, and it doesn't address any specific concern.
 
-<<<<<<< Updated upstream
-Multi-step forms with progress bars consistently outperform single long forms — in some tests by over 80% — because visitors feel committed once they start and the progress indicator reduces perceived effort.
-=======
 Specific, outcome-focused testimonials convert:
->>>>>>> Stashed changes
 
 ❌ "This is the best CRM we've used. Very happy with it."
 
 ✅ "We migrated from Salesforce in two days and closed our first deal in week one. We've processed £2.3M in pipeline with Pipe since March." — James K., VP Sales, Construct Group
 
-<<<<<<< Updated upstream
-Principles:
-- Use first-person — CTA researcher Michael Aagaard found first-person copy ("Start My Trial") consistently outperforms second-person ("Start Your Trial"), with some tests showing 90%+ lift
-- Reinforce the value ("Get My Free Report" beats "Download")
-- Reduce friction ("Try Free for 14 Days" beats "Sign Up")
-- Create urgency when real ("Claim My Spot — 7 Left")
-
-Here's what that looks like in practice:
-
-| Weak CTA | Strong CTA | Why It Works |
-|---|---|---|
-| "Submit" | "Get My Free Quote" | States the outcome, not the action |
-| "Download" | "Get the Free Report" | Benefit-led language |
-| "Sign Up" | "Start My 14-Day Free Trial" | Reduces friction, sets expectations |
-| "Learn More" | "See How It Works (2 min)" | Specific, low-commitment signal |
-| "Contact Us" | "Book a Free Strategy Call" | Concrete action + zero-cost framing |
-
-## 15. Don't Stop at Launch
-=======
 The difference:
 - Specific outcome (£2.3M pipeline)
 - Specific timeframe (since March)
@@ -259,7 +191,6 @@ The difference:
 - Specific comparison point (migrated from Salesforce)
 
 Real names convert better than initials. Companies convert better than anonymised descriptions. Numbers convert better than adjectives.
->>>>>>> Stashed changes
 
 ### 12. Show the Humans Behind the Business
 
@@ -270,11 +201,6 @@ This is especially true for:
 - High-ticket purchases (trust matters more at higher price points)
 - B2B (decision makers want to know who they're working with)
 
-<<<<<<< Updated upstream
-Before you launch your first test, read [7 A/B Testing Mistakes That Invalidate Your Results](/blog/ab-testing-mistakes/) — most landing page tests fail due to avoidable setup errors. And for calculating how long each test should run, see [How Long Should You Run an A/B Test?](/blog/how-long-to-run-ab-test/).
-
-Need help getting from version 1 to a high-converting machine? [Book a free audit →](/contact/)
-=======
 ---
 
 ## Forms & Friction
@@ -431,4 +357,3 @@ No, for paid traffic. Navigation links are exits. Remove the header nav and mini
 ---
 
 Need a landing page that actually converts your traffic? [See our landing page design service →](/services/landing-page-design/) or [book a free audit](/contact/) and we'll review your current page.
->>>>>>> Stashed changes
