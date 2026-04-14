@@ -1,11 +1,67 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import FinalCTA from '@/components/sections/FinalCTA.astro';
+
+const siteURL = 'https://grow-conversions.com';
+
+const faqs = [
+  {
+    question: "What's the difference between conversion copywriting and regular copywriting?",
+    answer: "Regular copywriting focuses on tone, brand voice, and communication. Conversion copywriting is engineered to drive a specific action — a click, a sign-up, a purchase. Every word is chosen to reduce friction, address an objection, or amplify a desire. It's informed by data: customer reviews, session recordings, survey responses, and A/B test results.",
+  },
+  {
+    question: "Do you write copy based on research or templates?",
+    answer: "Research, always. Before writing a single word, we analyse your existing customer reviews, support tickets, and sales calls to extract the language your buyers use. We map objections, desires, and emotional triggers. Templates produce forgettable copy. Research produces copy that makes people feel understood.",
+  },
+  {
+    question: "What deliverables do we get?",
+    answer: "Depending on the engagement: full landing page copy (H1, sub-headline, sections, CTA), email sequences with subject lines, or product page copy. Everything is delivered in a structured document with headline variants and copy rationale — so you understand why each choice was made, and can test accordingly.",
+  },
+  {
+    question: "Will the copy be tested?",
+    answer: "Yes — every engagement includes copy testing recommendations. We write headline variants and CTA alternatives alongside the main copy so you have A/B test hypotheses ready to run immediately. For ongoing engagements, we review performance data and iterate based on what the tests show.",
+  },
+  {
+    question: "How long does a copywriting project take?",
+    answer: "A full landing page copy project takes 7–10 business days after research. Email sequences depend on length — typically 5–12 business days. All timelines include a revision round. We move quickly without sacrificing the research phase, which is where most of the value comes from.",
+  },
+];
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: siteURL },
+    { '@type': 'ListItem', position: 2, name: 'Services', item: `${siteURL}/services/` },
+    { '@type': 'ListItem', position: 3, name: 'Conversion Copywriting', item: `${siteURL}/services/conversion-copywriting/` },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(({ question, answer }) => ({
+    '@type': 'Question',
+    name: question,
+    acceptedAnswer: { '@type': 'Answer', text: answer },
+  })),
+};
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Conversion Copywriting',
+  description: 'Conversion copywriting backed by voice-of-customer research and A/B test data. Headlines, CTAs, landing pages, and email sequences that drive measurable results.',
+  provider: { '@type': 'Organization', name: 'grow-conversions.com', url: siteURL },
+  serviceType: 'Conversion Copywriting',
+  areaServed: 'Worldwide',
+};
 ---
 
 <BaseLayout
   title="Conversion Copywriting Service — Copy That Sells"
   description="We write headlines, CTAs, email sequences, and product copy that convert. Voice-of-customer research meets proven conversion copywriting frameworks."
+  jsonLd={[serviceSchema, breadcrumbSchema, faqSchema]}
 >
   <div class="service-hero">
     <div class="container">
@@ -45,12 +101,53 @@ import FinalCTA from '@/components/sections/FinalCTA.astro';
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" style="background: var(--color-surface); border-top: 1px solid var(--color-border);">
     <div class="container" style="max-width: 760px;">
       <h2 class="section-title" style="text-align:left;">How We Write Copy That Converts</h2>
       <p style="margin-bottom: var(--space-6); color: var(--color-text);">Most copy is written by someone who knows the product deeply but doesn't know the customer. The result is copy full of features, technical language, and insider jargon that says nothing to a visitor arriving for the first time. Good conversion copy does one thing: makes the visitor feel immediately understood.</p>
       <p style="margin-bottom: var(--space-6); color: var(--color-text);">We start every copywriting engagement with voice-of-customer research — interviews with your best customers, analysis of your reviews and support tickets, and review of competitor messaging. The goal is to find the exact language your customers use to describe their problem and your solution. That language becomes the foundation of every headline and CTA we write.</p>
       <p style="color: var(--color-text);">The best landing page copy isn't written — it's assembled from what your customers have already said. A single phrase discovered in a customer interview, placed in the right position on your page, can outperform months of headline tests. We've seen homepage headline rewrites produce 20–40% increases in demo request rate without changing any other element on the page.</p>
+    </div>
+  </section>
+
+  <!-- Blog resource link -->
+  <section class="section">
+    <div class="container">
+      <div class="resource-callout">
+        <div>
+          <span class="section-label">Free Resource</span>
+          <h2 class="resource-callout__title">18 Rules Behind Every High-Converting Landing Page</h2>
+          <p class="resource-callout__desc">
+            Understand the principles that separate converting landing page copy from generic copy.
+            The same framework we apply to every engagement — available to read for free.
+          </p>
+          <a href="/blog/landing-page-best-practices/" class="btn btn--secondary">
+            Read: Landing Page Best Practices (18 Rules)
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" style="background: var(--color-surface); border-top: 1px solid var(--color-border);">
+    <div class="container">
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">Conversion Copywriting Questions, Answered</h2>
+      <div class="faq-list" style="margin-top: var(--space-10);">
+        {faqs.map(({ question, answer }) => (
+          <details class="faq-item">
+            <summary>
+              <span>{question}</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true">
+                <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </summary>
+            <div class="faq-answer">{answer}</div>
+          </details>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -61,3 +158,40 @@ import FinalCTA from '@/components/sections/FinalCTA.astro';
   />
 </BaseLayout>
 
+<style>
+  .service-hero {
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-16) 0;
+  }
+  .service-hero__title {
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    max-width: 800px;
+    margin: var(--space-4) 0;
+  }
+  .service-hero__subtitle {
+    font-size: var(--text-lg);
+    color: var(--color-text-muted);
+    max-width: 640px;
+    line-height: 1.6;
+    margin-bottom: var(--space-8);
+  }
+  .resource-callout {
+    background: linear-gradient(135deg, var(--color-accent-light), rgba(235,247,238,0.3));
+    border: 1px solid var(--color-border-accent);
+    border-radius: var(--radius-xl);
+    padding: var(--space-10) var(--space-12);
+  }
+  .resource-callout__title { font-size: var(--text-2xl); font-weight: 800; letter-spacing: -0.03em; margin: var(--space-3) 0; }
+  .resource-callout__desc { color: var(--color-text-muted); line-height: 1.6; margin-bottom: var(--space-6); max-width: 600px; }
+  .faq-list { border-radius: var(--radius-xl); overflow: hidden; border: 1px solid var(--color-border); background: var(--color-white); }
+  .faq-item { border-bottom: 1px solid var(--color-border); padding-inline: var(--space-8); }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-item summary { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding-block: var(--space-6); font-weight: 600; cursor: pointer; list-style: none; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-answer { padding-bottom: var(--space-7); color: var(--color-text-muted); line-height: 1.7; }
+  @media (max-width: 768px) { .resource-callout { padding: var(--space-8); } }
+</style>

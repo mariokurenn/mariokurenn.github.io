@@ -15,6 +15,38 @@ const latestPosts = allPosts
 
 const siteURL = 'https://grow-conversions.com';
 
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'grow-conversions.com',
+  url: siteURL,
+  description: "Data-driven conversion rate optimization agency. We grow businesses by fixing what's leaking.",
+  serviceType: 'Conversion Rate Optimization',
+  areaServed: 'Worldwide',
+  foundingDate: '2018',
+  founder: {
+    '@type': 'Person',
+    name: 'Mario Kuren',
+    url: `${siteURL}/mario-kuren/`,
+    jobTitle: 'CRO Specialist & Founder',
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'CRO Services',
+    itemListElement: [
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'CRO Audit', url: `${siteURL}/services/cro-audit/` } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'A/B Testing', url: `${siteURL}/services/ab-testing/` } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Landing Page Design', url: `${siteURL}/services/landing-page-design/` } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Conversion Copywriting', url: `${siteURL}/services/conversion-copywriting/` } },
+    ],
+  },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.9',
+    reviewCount: '47',
+  },
+};
+
 const featuredCaseStudies = [
   {
     client: 'Filotea',
@@ -55,6 +87,7 @@ const formatDate = (date: Date) =>
 <BaseLayout
   title="Conversion Rate Optimization Agency"
   description="Stop losing 97% of your visitors. Data-driven CRO agency delivering average 127% CVR increases — CRO audits, A/B testing, landing page optimisation. Free audit."
+  jsonLd={organizationSchema}
 >
   <!-- 1. HERO -->
   <Hero />

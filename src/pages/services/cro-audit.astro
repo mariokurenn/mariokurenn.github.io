@@ -3,6 +3,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import FinalCTA from '@/components/sections/FinalCTA.astro';
 import CROROICalculator from '@/components/calculators/CROROICalculator.astro';
 
+const siteURL = 'https://grow-conversions.com';
+
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
@@ -11,10 +13,53 @@ const serviceSchema = {
   provider: {
     '@type': 'Organization',
     name: 'grow-conversions.com',
-    url: 'https://grow-conversions.com',
+    url: siteURL,
   },
   serviceType: 'CRO Audit',
   areaServed: 'Worldwide',
+};
+
+const auditFaqs = [
+  {
+    question: "Is the free CRO audit really free? What's the catch?",
+    answer: "Genuinely free, no strings attached. We do this because it's the most effective way to show you the quality of our work before you commit to anything. You receive a full written report — whether or not you proceed to a paid engagement.",
+  },
+  {
+    question: "How long does a CRO audit take to deliver?",
+    answer: "We deliver your report within 7 business days of receiving analytics access. The 47-point audit takes 8–12 hours of our time — that's what 'comprehensive' actually means. You won't get a 15-minute checklist dressed up as an audit.",
+  },
+  {
+    question: "What do we need to provide for the audit?",
+    answer: "Read-only access to your Google Analytics 4, a brief on your primary conversion goals, and any existing heatmap data you have. We handle everything else — no lengthy intake forms or technical setup required from your side.",
+  },
+  {
+    question: "How is a CRO audit different from an SEO audit?",
+    answer: "An SEO audit focuses on technical factors affecting search rankings. A CRO audit focuses on what happens after visitors arrive — why they don't convert, where the funnel leaks, and how to fix it. They're complementary: SEO brings traffic; CRO makes that traffic valuable.",
+  },
+  {
+    question: "What happens after the audit?",
+    answer: "You receive a prioritised action list ranked by estimated revenue impact. You can implement findings yourself, share them with your dev team, or engage us for ongoing CRO. There's no obligation to continue — many clients use the audit as a standalone diagnostic.",
+  },
+];
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: siteURL },
+    { '@type': 'ListItem', position: 2, name: 'Services', item: `${siteURL}/services/` },
+    { '@type': 'ListItem', position: 3, name: 'CRO Audit', item: `${siteURL}/services/cro-audit/` },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: auditFaqs.map(({ question, answer }) => ({
+    '@type': 'Question',
+    name: question,
+    acceptedAnswer: { '@type': 'Answer', text: answer },
+  })),
 };
 
 const auditPoints = [
@@ -28,9 +73,9 @@ const auditPoints = [
 ---
 
 <BaseLayout
-  title="CRO Audit Service — 47-Point Conversion Audit"
-  description="Get a comprehensive 47-point CRO audit that identifies exactly what's killing your conversions. Prioritized action plan included. Free consultation available."
-  jsonLd={serviceSchema}
+  title="Free CRO Audit — 47 Checks That Uncover Your Hidden Revenue Leaks"
+  description="47-point audit finds every conversion blocker and ranks fixes by revenue impact. Annotated screenshots + 90-day A/B test roadmap included. Free for qualifying businesses."
+  jsonLd={[serviceSchema, breadcrumbSchema, faqSchema]}
 >
   <!-- Hero -->
   <div class="service-hero">
@@ -130,6 +175,7 @@ const auditPoints = [
     </div>
   </section>
 
+  <!-- What a CRO Audit Actually Is -->
   <section class="section">
     <div class="container" style="max-width: 760px;">
       <h2 class="section-title" style="text-align:left;">What a CRO Audit Actually Is</h2>
@@ -139,11 +185,53 @@ const auditPoints = [
     </div>
   </section>
 
-  <section class="section">
+  <!-- ROI Calculator -->
+  <section class="section" style="background: var(--color-surface); border-top: 1px solid var(--color-border);">
     <div class="container" style="max-width: 760px;">
       <h2 class="section-title" style="text-align:left;">What's Your CVR Improvement Worth?</h2>
       <p style="margin-bottom: var(--space-6); color: var(--color-text);">Before committing to a CRO programme, it's worth knowing the potential upside. Use this calculator to see how much additional revenue a conversion rate improvement would generate from your existing traffic.</p>
       <CROROICalculator />
+    </div>
+  </section>
+
+  <!-- Blog resource link -->
+  <section class="section">
+    <div class="container">
+      <div class="resource-callout">
+        <div>
+          <span class="section-label">Free Resource</span>
+          <h2 class="resource-callout__title">Do Your Own Audit First</h2>
+          <p class="resource-callout__desc">
+            Before we talk, run through our 37-question CRO audit checklist — the same framework we use
+            internally, now available for free. It'll help you understand exactly where to focus.
+          </p>
+          <a href="/blog/cro-audit-checklist/" class="btn btn--secondary">
+            Read: CRO Audit Checklist (37 Questions)
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" style="background: var(--color-surface); border-top: 1px solid var(--color-border);">
+    <div class="container">
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">Questions About Our CRO Audit</h2>
+      <div class="faq-list" style="margin-top: var(--space-10);">
+        {auditFaqs.map(({ question, answer }) => (
+          <details class="faq-item">
+            <summary>
+              <span>{question}</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true">
+                <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </summary>
+            <div class="faq-answer">{answer}</div>
+          </details>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -154,3 +242,111 @@ const auditPoints = [
   />
 </BaseLayout>
 
+<style>
+  .service-hero {
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-16) 0;
+  }
+
+  .service-hero__title {
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    max-width: 800px;
+    margin: var(--space-4) 0;
+  }
+
+  .service-hero__subtitle {
+    font-size: var(--text-lg);
+    color: var(--color-text-muted);
+    max-width: 600px;
+    line-height: 1.6;
+    margin-bottom: var(--space-8);
+  }
+
+  .service-hero__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+
+  .service-hero__proof {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .audit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+
+  .audit-category {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-6);
+  }
+
+  .audit-category__title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-base);
+    font-weight: 700;
+    margin-bottom: var(--space-4);
+  }
+
+  .audit-category__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .audit-category__list li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .deliverables-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+    margin-top: var(--space-8);
+  }
+
+  .resource-callout {
+    background: linear-gradient(135deg, var(--color-accent-light), rgba(235,247,238,0.3));
+    border: 1px solid var(--color-border-accent);
+    border-radius: var(--radius-xl);
+    padding: var(--space-10) var(--space-12);
+  }
+  .resource-callout__title { font-size: var(--text-2xl); font-weight: 800; letter-spacing: -0.03em; margin: var(--space-3) 0; }
+  .resource-callout__desc { color: var(--color-text-muted); line-height: 1.6; margin-bottom: var(--space-6); max-width: 600px; }
+
+  .faq-list { border-radius: var(--radius-xl); overflow: hidden; border: 1px solid var(--color-border); background: var(--color-white); }
+  .faq-item { border-bottom: 1px solid var(--color-border); padding-inline: var(--space-8); }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-item summary { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding-block: var(--space-6); font-weight: 600; cursor: pointer; list-style: none; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-answer { padding-bottom: var(--space-7); color: var(--color-text-muted); line-height: 1.7; }
+
+  @media (max-width: 900px) {
+    .audit-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 640px) {
+    .audit-grid,
+    .deliverables-grid { grid-template-columns: 1fr; }
+    .resource-callout { padding: var(--space-8); }
+  }
+</style>
