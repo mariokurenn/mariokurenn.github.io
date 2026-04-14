@@ -1,11 +1,72 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import FinalCTA from '@/components/sections/FinalCTA.astro';
+
+const siteURL = 'https://grow-conversions.com';
+
+const faqs = [
+  {
+    question: "How many A/B tests can you run each month?",
+    answer: "We typically run 3–6 concurrent tests depending on your traffic volume and number of testable pages. We prioritise by expected revenue impact — fewer, higher-leverage tests outperform a high volume of trivial ones every time.",
+  },
+  {
+    question: "How long does a typical A/B test take?",
+    answer: "Most tests run 14–28 days. We calculate exact sample sizes upfront — we never stop tests early or peek at mid-test results, which is how most teams accumulate false positives. Duration depends on your traffic volume and the minimum detectable effect we're targeting.",
+  },
+  {
+    question: "What if our site doesn't have enough traffic to A/B test?",
+    answer: "Below roughly 1,000 monthly conversions on the target page, standard A/B tests produce unreliable results. We focus instead on heuristic CRO — qualitative audits, session recordings, and direct implementation that produce real lifts without requiring statistical testing.",
+  },
+  {
+    question: "What elements do you test first?",
+    answer: "Headlines and value proposition first — highest leverage on any page. Then CTAs, hero sections, social proof placement, and checkout/form design. We always prioritise by traffic × estimated impact, so the exact sequence varies by your funnel.",
+  },
+  {
+    question: "Do you need developer access to run tests?",
+    answer: "Usually not. Most tests run through a tool (VWO, AB Tasty) that modifies pages via JavaScript — no code deployments needed. For server-side or complex tests, we coordinate with your dev team. The vast majority of CRO tests are tool-based.",
+  },
+];
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: siteURL },
+    { '@type': 'ListItem', position: 2, name: 'Services', item: `${siteURL}/services/` },
+    { '@type': 'ListItem', position: 3, name: 'A/B Testing', item: `${siteURL}/services/ab-testing/` },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(({ question, answer }) => ({
+    '@type': 'Question',
+    name: question,
+    acceptedAnswer: { '@type': 'Answer', text: answer },
+  })),
+};
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'A/B Testing Service',
+  description: 'Statistically rigorous A/B testing — correct sample sizes, full business cycles, 95%+ significance. 800+ tests run across 50+ businesses.',
+  provider: { '@type': 'Organization', name: 'grow-conversions.com', url: siteURL },
+  serviceType: 'A/B Testing & Conversion Rate Optimization',
+  areaServed: 'Worldwide',
+};
 ---
 
 <BaseLayout
+<<<<<<< Updated upstream
   title="A/B Testing Service — Split Testing Agency"
   description="We design, run, and analyze A/B tests that produce reliable, revenue-moving results. No false positives. No wasted cycles. Only data-backed wins."
+=======
+  title="A/B Testing Agency — 800+ Tests Run, Real Revenue Results"
+  description="Proper A/B testing: correct sample sizes, full business cycles, 95%+ significance. 800+ tests run across 50+ businesses. No false positives — only verified wins."
+  jsonLd={[breadcrumbSchema, faqSchema, serviceSchema]}
+>>>>>>> Stashed changes
 >
   <div class="service-hero">
     <div class="container">
@@ -19,23 +80,34 @@ import FinalCTA from '@/components/sections/FinalCTA.astro';
       <span class="section-label">Service</span>
       <h1 class="service-hero__title">A/B Testing That Actually Moves Revenue</h1>
       <p class="service-hero__subtitle">
-        Most teams run A/B tests wrong — they peek at results early, stop when they see a "winner,"
-        and implement changes based on statistical noise. We do it properly.
+        Most teams run A/B tests wrong — peeking at results early, stopping when they see a "winner,"
+        implementing changes based on statistical noise. We do it properly: 800+ tests, zero tolerance for false positives.
       </p>
-      <a href="/contact/" class="btn btn--primary btn--lg">Start Your Testing Program</a>
+      <div class="service-hero__actions">
+        <a href="/contact/" class="btn btn--primary btn--lg">Start Your Testing Program</a>
+        <div class="service-hero__proof">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>800+ tests run · 95%+ significance threshold · No false positives</span>
+        </div>
+      </div>
     </div>
   </div>
 
+  <!-- How it works -->
   <section class="section">
     <div class="container">
+      <span class="section-label">The Process</span>
       <h2 class="section-title">How Our A/B Testing Works</h2>
+      <p class="section-subtitle" style="margin-bottom: var(--space-12);">
+        Every test follows the same rigorous process — from research-backed hypothesis to statistically verified win.
+      </p>
       <div class="process-grid">
         {[
-          { step: '1', title: 'Research', desc: 'We audit your analytics, run heatmaps, and interview users to form data-backed hypotheses — not gut-feel guesses.' },
-          { step: '2', title: 'Design', desc: 'We design test variants based on psychological principles and CRO frameworks, with proper statistical power calculations upfront.' },
-          { step: '3', title: 'Run', desc: 'Tests run for the minimum required sample size and time — never stopped early, never peeked at mid-test results.' },
-          { step: '4', title: 'Analyze', desc: 'Full segment analysis: device, traffic source, new vs. returning. We extract learning whether the test wins or loses.' },
-          { step: '5', title: 'Implement', desc: 'Winners get implemented. Findings feed the next hypothesis. Your test log becomes a competitive moat over time.' },
+          { step: '1', title: 'Research', desc: 'We audit your analytics, run heatmaps, and study session recordings to form data-backed hypotheses — not gut-feel guesses.' },
+          { step: '2', title: 'Design', desc: 'Test variants are designed around psychological principles and CRO frameworks. Sample sizes are calculated before a single line is written.' },
+          { step: '3', title: 'Run', desc: 'Tests run for the required sample size and time — never stopped early, never peeked mid-test. We control for day-of-week effects and novelty bias.' },
+          { step: '4', title: 'Analyse', desc: 'Full segment analysis by device, traffic source, new vs. returning. We extract learning whether the test wins, loses, or is inconclusive.' },
+          { step: '5', title: 'Compound', desc: 'Winners get implemented. Every finding feeds the next hypothesis. After 50+ tests, your test log is a competitive moat no competitor can replicate.' },
         ].map(({ step, title, desc }) => (
           <div class="process-step-card">
             <div class="process-step-card__number">{step}</div>
@@ -47,12 +119,78 @@ import FinalCTA from '@/components/sections/FinalCTA.astro';
     </div>
   </section>
 
+<<<<<<< Updated upstream
   <section class="section">
     <div class="container" style="max-width: 760px;">
       <h2 class="section-title" style="text-align:left;">Why Most A/B Tests Fail</h2>
       <p style="margin-bottom: var(--space-6); color: var(--color-text);">The majority of A/B tests run by marketing teams produce no usable results — not because A/B testing doesn't work, but because tests are designed and stopped incorrectly. The most common mistakes: stopping a test the moment it hits 95% statistical significance (before the required sample size is reached), running tests for less than two full business cycles, and testing cosmetic changes instead of high-impact elements like headlines, value propositions, and form structure.</p>
       <p style="margin-bottom: var(--space-6); color: var(--color-text);">A properly run A/B test requires three things before it starts: a clear hypothesis grounded in data, a pre-calculated sample size based on your baseline conversion rate and the minimum detectable effect you care about, and a commitment to run the full duration regardless of what interim results show. Without these, you're not testing — you're generating noise.</p>
       <p style="color: var(--color-text);">When tests are done correctly, they compound. Each winning test raises your baseline CVR. Each losing test tells you something valuable about your audience. After 12–18 months of systematic testing, the gap between companies that test well and those that don't becomes decisive. We've run over 800 A/B tests across e-commerce, SaaS, and B2B. We know what moves the needle and what doesn't.</p>
+=======
+  <!-- What we test -->
+  <section class="section" style="background: var(--color-surface); border-top: 1px solid var(--color-border);">
+    <div class="container">
+      <span class="section-label">Test Coverage</span>
+      <h2 class="section-title">What We Test — and in What Order</h2>
+      <p class="section-subtitle" style="margin-bottom: var(--space-12);">
+        We always start where the data shows the biggest leverage — not where it's easiest to change something.
+      </p>
+      <div class="deliverables-grid">
+        {[
+          { title: 'Headlines & Value Proposition', description: 'The single highest-leverage element on any page. A headline rewrite that fundamentally improves message clarity consistently outperforms button colour tests.' },
+          { title: 'CTA Copy & Placement', description: 'Button text, position, size, and surrounding copy. First-person CTAs ("Start My Trial") outperform second-person ("Start Your Trial") in the majority of tests.' },
+          { title: 'Social Proof Architecture', description: 'Where testimonials are placed, which proof formats work for your audience, and how to position proof at the moment of maximum decision anxiety.' },
+          { title: 'Checkout & Form Optimisation', description: 'Field count, order, error messaging, guest checkout, and payment options. Checkout is typically where the biggest revenue leaks are — and where tests have the most impact.' },
+        ].map(({ title, description }) => (
+          <div class="card">
+            <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <h3 class="card__title">{title}</h3>
+            <p class="card__body">{description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog resource link -->
+  <section class="section">
+    <div class="container">
+      <div class="resource-callout">
+        <div class="resource-callout__content">
+          <span class="section-label">Free Guide</span>
+          <h2 class="resource-callout__title">Want to Understand A/B Testing Before We Talk?</h2>
+          <p class="resource-callout__desc">
+            Read our comprehensive guide on running A/B tests correctly — sample sizes, statistical significance,
+            segmentation, and the exact mistakes that produce false positives.
+          </p>
+          <a href="/blog/ab-testing-best-practices/" class="btn btn--secondary">
+            Read: A/B Testing Best Practices
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" style="background: var(--color-surface); border-top: 1px solid var(--color-border);">
+    <div class="container">
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">A/B Testing Questions, Answered</h2>
+      <div class="faq-list" style="margin-top: var(--space-10);">
+        {faqs.map(({ question, answer }) => (
+          <details class="faq-item">
+            <summary>
+              <span>{question}</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true">
+                <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </summary>
+            <div class="faq-answer">{answer}</div>
+          </details>
+        ))}
+      </div>
+>>>>>>> Stashed changes
     </div>
   </section>
 
@@ -63,3 +201,80 @@ import FinalCTA from '@/components/sections/FinalCTA.astro';
   />
 </BaseLayout>
 
+<<<<<<< Updated upstream
+=======
+<style>
+  .service-hero {
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-16) 0;
+  }
+  .service-hero__title {
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    max-width: 800px;
+    margin: var(--space-4) 0;
+  }
+  .service-hero__subtitle {
+    font-size: var(--text-lg);
+    color: var(--color-text-muted);
+    max-width: 640px;
+    line-height: 1.6;
+    margin-bottom: var(--space-8);
+  }
+  .service-hero__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+  .service-hero__proof {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--space-4);
+  }
+  .process-step-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-6);
+    text-align: center;
+  }
+  .process-step-card__number {
+    width: 40px; height: 40px;
+    border-radius: var(--radius-full);
+    background: var(--color-accent);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; color: white; margin: 0 auto var(--space-4);
+    font-size: var(--text-lg);
+  }
+  .process-step-card__title { font-size: var(--text-base); font-weight: 700; margin-bottom: var(--space-3); }
+  .process-step-card__desc { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.6; }
+  .deliverables-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-6); }
+  .resource-callout {
+    background: linear-gradient(135deg, var(--color-accent-light), rgba(235,247,238,0.3));
+    border: 1px solid var(--color-border-accent);
+    border-radius: var(--radius-xl);
+    padding: var(--space-10) var(--space-12);
+  }
+  .resource-callout__title { font-size: var(--text-2xl); font-weight: 800; letter-spacing: -0.03em; margin: var(--space-3) 0; }
+  .resource-callout__desc { color: var(--color-text-muted); line-height: 1.6; margin-bottom: var(--space-6); max-width: 600px; }
+  .faq-list { border-radius: var(--radius-xl); overflow: hidden; border: 1px solid var(--color-border); background: var(--color-white); }
+  .faq-item { border-bottom: 1px solid var(--color-border); padding-inline: var(--space-8); }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-item summary { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding-block: var(--space-6); font-weight: 600; cursor: pointer; list-style: none; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-answer { padding-bottom: var(--space-7); color: var(--color-text-muted); line-height: 1.7; }
+  @media (max-width: 1024px) { .process-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 768px) { .process-grid { grid-template-columns: 1fr; } .deliverables-grid { grid-template-columns: 1fr; } .resource-callout { padding: var(--space-8); } }
+</style>
+>>>>>>> Stashed changes

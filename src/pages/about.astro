@@ -4,6 +4,7 @@ import FinalCTA from '@/components/sections/FinalCTA.astro';
 
 const siteURL = 'https://grow-conversions.com';
 
+<<<<<<< Updated upstream
 const personSchema = [
   {
     '@context': 'https://schema.org',
@@ -35,6 +36,37 @@ const personSchema = [
   title="About — Mario, CRO Specialist & Founder"
   description="Meet Mario, founder of grow-conversions.com. CRO specialist with 8+ years of experience helping 50+ businesses grow revenue through data-driven optimization."
   jsonLd={personSchema as any}
+=======
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Mario Kuren',
+  jobTitle: 'CRO Specialist & Founder',
+  url: `${siteURL}/mario-kuren/`,
+  sameAs: [`${siteURL}/author/mario-kuren/`],
+  knowsAbout: ['Conversion Rate Optimization', 'A/B Testing', 'Landing Page Design', 'Conversion Copywriting', 'Google Analytics', 'Statistical Testing'],
+  worksFor: {
+    '@type': 'Organization',
+    name: 'grow-conversions.com',
+    url: siteURL,
+  },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: siteURL },
+    { '@type': 'ListItem', position: 2, name: 'About', item: `${siteURL}/about/` },
+  ],
+};
+---
+
+<BaseLayout
+  title="About Mario Kuren — CRO Specialist, 800+ A/B Tests, 50+ Clients"
+  description="Meet Mario Kuren, the CRO specialist behind grow-conversions.com. 8+ years, 800+ A/B tests, 50+ clients helped. He doesn't do cosmetic CRO — he does systematic optimization."
+  jsonLd={[personSchema, breadcrumbSchema]}
+>>>>>>> Stashed changes
 >
   <div class="about-page">
     <div class="about-hero">

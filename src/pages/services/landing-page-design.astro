@@ -7,7 +7,11 @@ const siteURL = 'https://grow-conversions.com';
 const faqs = [
   {
     question: "How long does it take to build a landing page?",
+<<<<<<< Updated upstream
     answer: "Most landing pages are delivered in 10–14 business days. This includes research, wireframing, copy, design, and development. Rush timelines are possible — ask us. We won't sacrifice conversion-critical research and review to ship faster.",
+=======
+    answer: "Most landing pages are delivered in 10–14 business days. This includes research, wireframing, copy, design, and development. Rush timelines are possible — ask us. We won't sacrifice conversion-critical testing and review to ship faster.",
+>>>>>>> Stashed changes
   },
   {
     question: "What's your process for writing the copy?",
@@ -59,8 +63,13 @@ const serviceSchema = {
 ---
 
 <BaseLayout
+<<<<<<< Updated upstream
   title="Landing Page Design — High-Converting Pages"
   description="We design landing pages built around your audience's psychology, not aesthetics. Every element is tested and optimized to maximize conversions."
+=======
+  title="Landing Page Design — We Build It, Test It, Until It Converts"
+  description="Landing pages designed around buyer psychology, not aesthetics. Every element is A/B tested. We've 4x'd conversion rates on pages clients thought were 'fine'."
+>>>>>>> Stashed changes
   jsonLd={[serviceSchema, breadcrumbSchema, faqSchema]}
 >
   <div class="service-hero">
@@ -90,16 +99,20 @@ const serviceSchema = {
     </div>
   </div>
 
+  <!-- What makes us different -->
   <section class="section">
     <div class="container">
       <span class="section-label">Our Approach</span>
       <h2 class="section-title">What Makes Our Landing Pages Different</h2>
-      <div class="grid-3" style="margin-top: var(--space-10);">
+      <p class="section-subtitle" style="margin-bottom: var(--space-12);">
+        Every page we build starts with buyer psychology research — not a template.
+      </p>
+      <div class="features-grid">
         {[
-          { title: 'Psychology-First Copy', desc: 'Every word is written to address a specific objection or pain point. We use customer voice-of-data research to write copy that resonates.' },
-          { title: 'Message Match', desc: 'Your ad says X, your landing page says X. No disconnect means lower bounce rates and higher conversion from the moment visitors land.' },
+          { title: 'Psychology-First Copy', desc: 'Every word is written to address a specific objection or pain point. We use customer voice-of-data research to write copy that resonates — in your buyer\'s exact language.' },
+          { title: 'Message Match', desc: 'Your ad says X, your landing page says X. No disconnect means lower bounce rates and higher conversions from the moment visitors land.' },
           { title: 'Above-the-Fold Mastery', desc: 'The first 5 seconds determine whether visitors stay or leave. We obsess over above-the-fold clarity, hierarchy, and CTA placement.' },
-          { title: 'Mobile-First Build', desc: 'Over 60% of traffic is mobile. We design mobile first, then expand to desktop — not the other way around.' },
+          { title: 'Mobile-First Build', desc: 'Over 60% of traffic is mobile. We design mobile-first, then expand to desktop — not the other way around.' },
           { title: 'Speed Optimized', desc: 'Every second of load time costs conversions. Our landing pages score 95+ on PageSpeed Insights on both mobile and desktop.' },
           { title: 'Built to Test', desc: 'Every landing page ships with a testing roadmap. Version 1 is just the start — we plan the A/B tests before we write a single line of code.' },
         ].map(({ title, desc }) => (
@@ -112,16 +125,53 @@ const serviceSchema = {
     </div>
   </section>
 
+<<<<<<< Updated upstream
   <!-- Blog resource link -->
   <section class="section" style="background: var(--color-surface); border-top: 1px solid var(--color-border);">
     <div class="container">
+=======
+  <!-- Process -->
+  <section class="section" style="background: var(--color-surface); border-top: 1px solid var(--color-border);">
+    <div class="container">
+      <span class="section-label">The Process</span>
+      <h2 class="section-title">How We Build a Conversion Landing Page</h2>
+      <p class="section-subtitle" style="margin-bottom: var(--space-12);">
+        From research to live — a process built to maximise conversion from the start.
+      </p>
+      <div class="process-grid">
+        {[
+          { step: '1', title: 'Research', desc: 'Customer reviews, support tickets, sales call analysis, and competitor teardowns. We understand your buyer before we write a single word.' },
+          { step: '2', title: 'Strategy', desc: 'Message hierarchy, CTA placement, social proof strategy, and objection map. Every element has a job before it has a design.' },
+          { step: '3', title: 'Copy & Wire', desc: 'Headline, sub-headline, body copy, and CTA written first. Wireframe built around the copy — not the other way around.' },
+          { step: '4', title: 'Design & Build', desc: 'Visual design applied to the wireframe. Developed in your tech stack. Integrated with your analytics and CRM.' },
+          { step: '5', title: 'Test & Iterate', desc: 'Delivered with a prioritised A/B test roadmap. We track results and improve — version 1 is the beginning, not the end.' },
+        ].map(({ step, title, desc }) => (
+          <div class="process-step-card">
+            <div class="process-step-card__number">{step}</div>
+            <h3 class="process-step-card__title">{title}</h3>
+            <p class="process-step-card__desc">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog resource link -->
+  <section class="section">
+    <div class="container">
+>>>>>>> Stashed changes
       <div class="resource-callout">
         <div>
           <span class="section-label">Free Guide</span>
           <h2 class="resource-callout__title">18 Rules for Landing Pages That Convert</h2>
           <p class="resource-callout__desc">
+<<<<<<< Updated upstream
             Read the 18 principles behind every high-converting landing page we've ever built.
             The same rules we use, explained in full — with examples.
+=======
+            Before we build your page, read the 18 principles behind every high-converting landing page
+            we've ever built. The same rules we use, explained in full — with examples.
+>>>>>>> Stashed changes
           </p>
           <a href="/blog/landing-page-best-practices/" class="btn btn--secondary">
             Read: Landing Page Best Practices (18 Rules)
@@ -133,7 +183,11 @@ const serviceSchema = {
   </section>
 
   <!-- FAQ -->
+<<<<<<< Updated upstream
   <section class="section" style="border-top: 1px solid var(--color-border);">
+=======
+  <section class="section" style="background: var(--color-surface); border-top: 1px solid var(--color-border);">
+>>>>>>> Stashed changes
     <div class="container">
       <span class="section-label">FAQ</span>
       <h2 class="section-title">Landing Page Design Questions, Answered</h2>
@@ -194,6 +248,36 @@ const serviceSchema = {
     font-size: var(--text-sm);
     color: var(--color-text-muted);
   }
+<<<<<<< Updated upstream
+=======
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--space-4);
+  }
+  .process-step-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-6);
+    text-align: center;
+  }
+  .process-step-card__number {
+    width: 40px; height: 40px;
+    border-radius: var(--radius-full);
+    background: var(--color-accent);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; color: white; margin: 0 auto var(--space-4);
+    font-size: var(--text-lg);
+  }
+  .process-step-card__title { font-size: var(--text-base); font-weight: 700; margin-bottom: var(--space-3); }
+  .process-step-card__desc { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.6; }
+>>>>>>> Stashed changes
   .resource-callout {
     background: linear-gradient(135deg, var(--color-accent-light), rgba(235,247,238,0.3));
     border: 1px solid var(--color-border-accent);
@@ -208,5 +292,16 @@ const serviceSchema = {
   .faq-item summary { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding-block: var(--space-6); font-weight: 600; cursor: pointer; list-style: none; }
   .faq-item summary::-webkit-details-marker { display: none; }
   .faq-answer { padding-bottom: var(--space-7); color: var(--color-text-muted); line-height: 1.7; }
+<<<<<<< Updated upstream
   @media (max-width: 768px) { .resource-callout { padding: var(--space-8); } }
+=======
+
+  @media (max-width: 1024px) { .process-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 900px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 768px) {
+    .process-grid { grid-template-columns: 1fr; }
+    .features-grid { grid-template-columns: 1fr; }
+    .resource-callout { padding: var(--space-8); }
+  }
+>>>>>>> Stashed changes
 </style>

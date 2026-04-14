@@ -2,11 +2,36 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Services from '@/components/sections/Services.astro';
 import FinalCTA from '@/components/sections/FinalCTA.astro';
+
+const siteURL = 'https://grow-conversions.com';
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: siteURL },
+    { '@type': 'ListItem', position: 2, name: 'Services', item: `${siteURL}/services/` },
+  ],
+};
+
+const serviceListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'CRO Services',
+  description: 'Conversion rate optimization services by grow-conversions.com',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'CRO Audit', url: `${siteURL}/services/cro-audit/` },
+    { '@type': 'ListItem', position: 2, name: 'A/B Testing', url: `${siteURL}/services/ab-testing/` },
+    { '@type': 'ListItem', position: 3, name: 'Landing Page Design', url: `${siteURL}/services/landing-page-design/` },
+    { '@type': 'ListItem', position: 4, name: 'Conversion Copywriting', url: `${siteURL}/services/conversion-copywriting/` },
+  ],
+};
 ---
 
 <BaseLayout
   title="CRO Services — Conversion Rate Optimization Agency"
   description="Data-driven CRO services: audits, A/B testing, landing page design, and conversion copywriting. We grow your revenue without increasing ad spend."
+  jsonLd={[breadcrumbSchema, serviceListSchema]}
 >
   <div class="services-page">
     <div class="page-header">

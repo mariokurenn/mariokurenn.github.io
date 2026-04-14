@@ -15,7 +15,11 @@ const faqs = [
   },
   {
     question: "What deliverables do we get?",
+<<<<<<< Updated upstream
     answer: "Depending on the engagement: full landing page copy (H1, sub-headline, sections, CTA), email sequences with subject lines, or product page copy. Everything is delivered in a structured document with headline variants and copy rationale — so you understand why each choice was made, and can test accordingly.",
+=======
+    answer: "Depending on the engagement: full landing page copy (H1, sub-headline, sections, CTA), email sequences with subject lines, or product page copy. Everything is delivered in a structured Google Doc with headline variants and copy rationale — so you understand why each choice was made, and can test accordingly.",
+>>>>>>> Stashed changes
   },
   {
     question: "Will the copy be tested?",
@@ -59,8 +63,13 @@ const serviceSchema = {
 ---
 
 <BaseLayout
+<<<<<<< Updated upstream
   title="Conversion Copywriting Service — Copy That Sells"
   description="We write headlines, CTAs, email sequences, and product copy that convert. Voice-of-customer research meets proven conversion copywriting frameworks."
+=======
+  title="Conversion Copywriting — Words That Turn Visitors Into Buyers"
+  description="Headlines, CTAs, and product copy backed by voice-of-customer research and A/B test data. Copy that converts — not copy that just sounds good."
+>>>>>>> Stashed changes
   jsonLd={[serviceSchema, breadcrumbSchema, faqSchema]}
 >
   <div class="service-hero">
@@ -76,37 +85,91 @@ const serviceSchema = {
       <h1 class="service-hero__title">Words That Move People to Act</h1>
       <p class="service-hero__subtitle">
         Most copy is written for the writer, not the reader. We write copy that speaks your customer's
-        language, addresses their real objections, and compels them to take action.
+        language, addresses their real objections, and compels them to take action — backed by data.
       </p>
-      <a href="/contact/" class="btn btn--primary btn--lg">Get a Copy Consultation</a>
+      <div class="service-hero__actions">
+        <a href="/contact/" class="btn btn--primary btn--lg">Get a Copy Consultation</a>
+        <div class="service-hero__proof">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          <span>Research-driven · A/B tested · Delivered with variant headlines</span>
+        </div>
+      </div>
     </div>
   </div>
 
+  <!-- Services -->
   <section class="section">
     <div class="container">
+      <span class="section-label">What We Write</span>
       <h2 class="section-title">Copywriting Services</h2>
-      <div class="grid-2" style="margin-top: var(--space-10);">
+      <p class="section-subtitle" style="margin-bottom: var(--space-10);">
+        Every format starts with research. Every draft includes test variants. Every word has a reason.
+      </p>
+      <div class="deliverables-grid">
         {[
-          { title: 'Landing Page Copy', desc: 'Hero headlines, sub-headlines, feature/benefit blocks, social proof, FAQ, and CTA copy — all tested and optimized.' },
-          { title: 'Email Sequences', desc: 'Welcome sequences, nurture campaigns, cart abandonment, and win-back flows that convert at industry-leading rates.' },
-          { title: 'Product & PDP Copy', desc: 'Product descriptions that overcome objections and sell benefits. Especially powerful for e-commerce with complex products.' },
-          { title: 'Ad Copy', desc: 'Facebook, Google, and LinkedIn ad copy that drives qualified clicks — not just clicks. Message-matched to your landing page.' },
-        ].map(({ title, desc }) => (
+          {
+            title: 'Landing Page Copy',
+            description: 'Hero headlines, sub-headlines, feature/benefit blocks, social proof, objection-handling, FAQ, and CTA copy — all researched, tested, and optimized for your specific audience.',
+          },
+          {
+            title: 'Email Sequences',
+            description: 'Welcome sequences, nurture campaigns, cart abandonment, and win-back flows written with the same research rigor as landing page copy. Subject lines A/B tested.',
+          },
+          {
+            title: 'Product & PDP Copy',
+            description: 'Product descriptions that overcome objections and sell outcomes, not features. Especially powerful for e-commerce with complex, high-consideration products.',
+          },
+          {
+            title: 'Ad Copy',
+            description: 'Facebook, Google, and LinkedIn ad copy that drives qualified clicks. Message-matched to your landing page — no disconnect between what the ad promises and what the page delivers.',
+          },
+        ].map(({ title, description }) => (
           <div class="card">
+            <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
             <h3 class="card__title">{title}</h3>
-            <p class="card__body">{desc}</p>
+            <p class="card__body">{description}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
+<<<<<<< Updated upstream
   <section class="section" style="background: var(--color-surface); border-top: 1px solid var(--color-border);">
     <div class="container" style="max-width: 760px;">
       <h2 class="section-title" style="text-align:left;">How We Write Copy That Converts</h2>
       <p style="margin-bottom: var(--space-6); color: var(--color-text);">Most copy is written by someone who knows the product deeply but doesn't know the customer. The result is copy full of features, technical language, and insider jargon that says nothing to a visitor arriving for the first time. Good conversion copy does one thing: makes the visitor feel immediately understood.</p>
       <p style="margin-bottom: var(--space-6); color: var(--color-text);">We start every copywriting engagement with voice-of-customer research — interviews with your best customers, analysis of your reviews and support tickets, and review of competitor messaging. The goal is to find the exact language your customers use to describe their problem and your solution. That language becomes the foundation of every headline and CTA we write.</p>
       <p style="color: var(--color-text);">The best landing page copy isn't written — it's assembled from what your customers have already said. A single phrase discovered in a customer interview, placed in the right position on your page, can outperform months of headline tests. We've seen homepage headline rewrites produce 20–40% increases in demo request rate without changing any other element on the page.</p>
+=======
+  <!-- What makes our copy different -->
+  <section class="section" style="background: var(--color-surface); border-top: 1px solid var(--color-border);">
+    <div class="container">
+      <span class="section-label">Our Process</span>
+      <h2 class="section-title">Research Before a Single Word Is Written</h2>
+      <p class="section-subtitle" style="margin-bottom: var(--space-12);">
+        Good copy doesn't come from talent. It comes from understanding your buyer better than your competitors do.
+      </p>
+      <div class="process-grid">
+        {[
+          { step: '1', title: 'VoC Research', desc: 'Mine customer reviews, support tickets, and sales call transcripts for the exact language your buyers use to describe their pain and desired outcome.' },
+          { step: '2', title: 'Objection Map', desc: 'Identify every reason a buyer might hesitate — and map the copy that neutralises each one before it becomes a reason to leave.' },
+          { step: '3', title: 'Message Architecture', desc: 'Design the information hierarchy: what\'s said first, what\'s said when doubt peaks, where proof lands, how the CTA closes.' },
+          { step: '4', title: 'Write & Variant', desc: 'Write the primary copy with headline variants and CTA alternatives. You have test hypotheses ready from day one.' },
+          { step: '5', title: 'Test & Refine', desc: 'Review A/B test results and iterate. Copy is never "done" — it improves with every data point.' },
+        ].map(({ step, title, desc }) => (
+          <div class="process-step-card">
+            <div class="process-step-card__number">{step}</div>
+            <h3 class="process-step-card__title">{title}</h3>
+            <p class="process-step-card__desc">{desc}</p>
+          </div>
+        ))}
+      </div>
+>>>>>>> Stashed changes
     </div>
   </section>
 
@@ -179,6 +242,45 @@ const serviceSchema = {
     line-height: 1.6;
     margin-bottom: var(--space-8);
   }
+<<<<<<< Updated upstream
+=======
+  .service-hero__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+  .service-hero__proof {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+  .deliverables-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-6); margin-top: var(--space-6); }
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--space-4);
+  }
+  .process-step-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-6);
+    text-align: center;
+  }
+  .process-step-card__number {
+    width: 40px; height: 40px;
+    border-radius: var(--radius-full);
+    background: var(--color-accent);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; color: white; margin: 0 auto var(--space-4);
+    font-size: var(--text-lg);
+  }
+  .process-step-card__title { font-size: var(--text-base); font-weight: 700; margin-bottom: var(--space-3); }
+  .process-step-card__desc { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.6; }
+>>>>>>> Stashed changes
   .resource-callout {
     background: linear-gradient(135deg, var(--color-accent-light), rgba(235,247,238,0.3));
     border: 1px solid var(--color-border-accent);
@@ -193,5 +295,15 @@ const serviceSchema = {
   .faq-item summary { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding-block: var(--space-6); font-weight: 600; cursor: pointer; list-style: none; }
   .faq-item summary::-webkit-details-marker { display: none; }
   .faq-answer { padding-bottom: var(--space-7); color: var(--color-text-muted); line-height: 1.7; }
+<<<<<<< Updated upstream
   @media (max-width: 768px) { .resource-callout { padding: var(--space-8); } }
+=======
+
+  @media (max-width: 1024px) { .process-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 768px) {
+    .process-grid { grid-template-columns: 1fr; }
+    .deliverables-grid { grid-template-columns: 1fr; }
+    .resource-callout { padding: var(--space-8); }
+  }
+>>>>>>> Stashed changes
 </style>

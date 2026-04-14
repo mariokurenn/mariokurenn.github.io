@@ -1,0 +1,867 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const recentPosts = allPosts
+  .sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime())
+  .slice(0, 3);
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Mario Kuren',
+  jobTitle: 'CRO Specialist',
+  url: 'https://grow-conversions.com/mario-kuren/',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'grow-conversions.com',
+    url: 'https://grow-conversions.com',
+  },
+};
+
+const stats = [
+  { value: '8+',   label: 'Years in CRO' },
+  { value: '800+', label: 'A/B Tests Run' },
+  { value: '50+',  label: 'Businesses Grown' },
+  { value: '127%', label: 'Avg CVR Increase' },
+];
+
+const services = [
+  {
+    title: 'CRO Audit',
+    href: '/services/cro-audit/',
+    desc: 'Deep-dive analysis of your entire funnel — analytics, UX, copy, trust signals. You get a prioritised action plan, not a slide deck full of fluff.',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>`,
+  },
+  {
+    title: 'A/B Testing',
+    href: '/services/ab-testing/',
+    desc: 'Statistically rigorous tests with proper sample sizes and zero peeking. Each test adds to a compound advantage your competitors can\'t copy.',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg>`,
+  },
+  {
+    title: 'Conversion Copywriting',
+    href: '/services/conversion-copywriting/',
+    desc: 'Copy built on voice-of-customer research that mirrors your buyer\'s exact language, fears, and desires — and moves them to act.',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>`,
+  },
+  {
+    title: 'Landing Page Design',
+    href: '/services/landing-page-design/',
+    desc: 'High-converting pages engineered around your specific offer, traffic source, and buyer psychology. Built to test and iterate fast.',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>`,
+  },
+];
+
+const results = [
+  {
+    metric: '+214%',
+    label: 'CVR increase',
+    context: 'E-commerce checkout redesign',
+    period: '90 days',
+  },
+  {
+    metric: '+89%',
+    label: 'Lead form completions',
+    context: 'SaaS free-trial landing page',
+    period: '60 days',
+  },
+  {
+    metric: '3.4×',
+    label: 'Revenue per visitor',
+    context: 'D2C supplement brand',
+    period: '6 months',
+  },
+];
+---
+
+<BaseLayout
+  title="Mario Kuren — CRO Specialist | grow-conversions.com"
+  description="Mario Kuren is a CRO specialist with 8+ years of experience and 800+ A/B tests. He helps growth-stage businesses increase revenue without increasing ad spend."
+  canonicalURL="https://grow-conversions.com/mario-kuren/"
+  jsonLd={personSchema}
+>
+
+  <!-- ─── HERO ─── -->
+  <section class="mk-hero">
+    <div class="container mk-hero__inner">
+      <div class="mk-hero__content">
+        <div class="mk-hero__eyebrow">
+          <span class="mk-badge">Available for new clients</span>
+        </div>
+
+        <h1 class="mk-hero__name">
+          Mario <span class="mk-name-accent">Kuren</span>
+        </h1>
+
+        <p class="mk-hero__role">CRO Specialist &amp; Founder of grow-conversions.com</p>
+
+        <p class="mk-hero__lead">
+          I help growth-stage businesses turn existing traffic into more revenue — through
+          data-driven conversion optimisation, rigorous A/B testing, and buyer psychology.
+          <strong>No guesswork. No fluff. Just results.</strong>
+        </p>
+
+        <div class="mk-hero__ctas">
+          <a href="/contact/" class="btn btn--primary mk-cta-primary">Book a Free Strategy Call</a>
+          <a href="/case-studies/" class="btn btn--ghost">See My Results →</a>
+        </div>
+
+        <div class="mk-hero__trust">
+          <span class="mk-trust__stars" aria-hidden="true">★★★★★</span>
+          <span class="mk-trust__text"><strong>4.9/5</strong> from 47 client reviews</span>
+        </div>
+      </div>
+
+      <div class="mk-hero__visual" aria-hidden="true">
+        <div class="mk-avatar-wrap">
+          <div class="mk-avatar">
+            <img
+              src="/images/avatars/mario-lg.webp"
+              alt="Mario Kuren"
+              width="320"
+              height="320"
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+          <div class="mk-avatar__badge">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+            CRO Certified
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── STATS STRIP ─── -->
+  <div class="mk-stats-strip">
+    <div class="container mk-stats-strip__inner">
+      {stats.map(({ value, label }) => (
+        <div class="mk-stat">
+          <span class="mk-stat__value">{value}</span>
+          <span class="mk-stat__label">{label}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- ─── ABOUT ─── -->
+  <section class="mk-about section">
+    <div class="container mk-about__inner">
+      <div class="mk-about__text">
+        <span class="section-label">My Story</span>
+        <h2 class="mk-section-title">I Learned CRO The Hard Way — So You Don't Have To</h2>
+        <div class="mk-prose">
+          <p>
+            In 2018 I was running an e-commerce store and spending €15,000/month on ads.
+            Traffic was there. Revenue wasn't. My conversion rate sat at 1.2% and I couldn't
+            figure out why.
+          </p>
+          <p>
+            I went deep on CRO — customer psychology, funnel architecture, statistical testing
+            methodology, heatmaps, session recordings, user interviews. Six months later the
+            store converted at 4.1%. Same ad budget. Three times the revenue.
+          </p>
+          <p>
+            That obsession became a career. I now run the same systematic approach for
+            growth-stage brands across e-commerce, SaaS, and lead generation —
+            with an average CVR increase of 127% within 90 days.
+          </p>
+        </div>
+        <div class="mk-creds">
+          <div class="mk-cred">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            CRO Certified — CXL Institute
+          </div>
+          <div class="mk-cred">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Google Analytics Certified
+          </div>
+          <div class="mk-cred">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            800+ A/B Tests Across 50+ Clients
+          </div>
+          <div class="mk-cred">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            E-commerce · SaaS · Lead Gen
+          </div>
+        </div>
+      </div>
+
+      <div class="mk-about__card">
+        <p class="mk-quote">
+          "Real CRO starts with obsessive understanding of your customer —
+          their fears, desires, objections, and decision triggers.
+          Everything else is just decoration."
+        </p>
+        <div class="mk-quote__sig">
+          <strong>Mario Kuren</strong>
+          <span>Founder, grow-conversions.com</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SERVICES ─── -->
+  <section class="mk-services section section--surface">
+    <div class="container">
+      <div class="mk-section-header">
+        <span class="section-label">What I Do</span>
+        <h2 class="mk-section-title">Services Built Around One Goal: More Revenue</h2>
+      </div>
+      <div class="mk-services__grid">
+        {services.map(({ title, href, desc, icon }) => (
+          <a href={href} class="mk-service-card">
+            <span class="mk-service-card__icon" set:html={icon} />
+            <h3 class="mk-service-card__title">{title}</h3>
+            <p class="mk-service-card__desc">{desc}</p>
+            <span class="mk-service-card__link">Learn more →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── RESULTS ─── -->
+  <section class="mk-results section">
+    <div class="container">
+      <div class="mk-section-header">
+        <span class="section-label">Client Results</span>
+        <h2 class="mk-section-title">Numbers That Actually Matter</h2>
+        <p class="mk-section-sub">
+          These aren't vanity metrics. Every number below is tied directly to revenue.
+        </p>
+      </div>
+      <div class="mk-results__grid">
+        {results.map(({ metric, label, context, period }) => (
+          <div class="mk-result-card">
+            <div class="mk-result-card__metric">{metric}</div>
+            <div class="mk-result-card__label">{label}</div>
+            <div class="mk-result-card__divider" aria-hidden="true"></div>
+            <div class="mk-result-card__context">{context}</div>
+            <div class="mk-result-card__period">In {period}</div>
+          </div>
+        ))}
+      </div>
+      <div class="mk-results__cta">
+        <a href="/case-studies/" class="btn btn--ghost">View All Case Studies →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROCESS ─── -->
+  <section class="mk-process section section--surface">
+    <div class="container">
+      <div class="mk-section-header">
+        <span class="section-label">How I Work</span>
+        <h2 class="mk-section-title">A Repeatable System, Not Random Tests</h2>
+      </div>
+      <ol class="mk-process__list">
+        {[
+          { step: '01', title: 'Diagnose', desc: 'Analytics audit, heatmaps, session recordings, and customer interviews to find exactly where and why visitors aren\'t converting.' },
+          { step: '02', title: 'Hypothesise', desc: 'Every test starts with a clear, evidence-backed hypothesis. No testing random ideas. No button colour roulette.' },
+          { step: '03', title: 'Test Rigorously', desc: 'Proper statistical significance, no peeking, full segment analysis. Your test results mean something because the process is airtight.' },
+          { step: '04', title: 'Compound', desc: 'Winners get implemented. Losers teach us something. Every test adds to a compound advantage that grows over time.' },
+        ].map(({ step, title, desc }) => (
+          <li class="mk-process__item">
+            <span class="mk-process__step" aria-hidden="true">{step}</span>
+            <div>
+              <h3 class="mk-process__title">{title}</h3>
+              <p class="mk-process__desc">{desc}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- ─── BLOG ─── -->
+  {recentPosts.length > 0 && (
+    <section class="mk-blog section">
+      <div class="container">
+        <div class="mk-section-header">
+          <span class="section-label">From the Blog</span>
+          <h2 class="mk-section-title">CRO Insights, No Filler</h2>
+        </div>
+        <div class="mk-blog__grid">
+          {recentPosts.map((post) => (
+            <a href={`/blog/${post.slug}/`} class="mk-post-card">
+              <span class="mk-post-card__category">{post.data.category}</span>
+              <h3 class="mk-post-card__title">{post.data.title}</h3>
+              <p class="mk-post-card__desc">{post.data.description}</p>
+              <span class="mk-post-card__read">Read article →</span>
+            </a>
+          ))}
+        </div>
+        <div class="mk-results__cta">
+          <a href="/blog/" class="btn btn--ghost">All Articles →</a>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- ─── FINAL CTA ─── -->
+  <section class="mk-cta-section">
+    <div class="container mk-cta-section__inner">
+      <h2 class="mk-cta-section__title">
+        Ready to Stop Leaving Revenue on the Table?
+      </h2>
+      <p class="mk-cta-section__sub">
+        The first call is free. We'll look at your funnel together and I'll tell you exactly
+        where the biggest opportunity is — even if we never work together.
+      </p>
+      <a href="/contact/" class="btn btn--primary mk-cta-primary">Book a Free Strategy Call</a>
+      <p class="mk-cta-section__note">No commitment. No sales pitch. Just honest CRO advice.</p>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* ── HERO ── */
+  .mk-hero {
+    padding: var(--space-20) 0 var(--space-16);
+    background: linear-gradient(160deg, #f0f7f3 0%, #ffffff 55%);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .mk-hero__inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--space-16);
+    align-items: center;
+  }
+
+  .mk-hero__eyebrow { margin-bottom: var(--space-5); }
+
+  .mk-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: #e6f4ec;
+    color: #14532d;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.875rem;
+    border-radius: var(--radius-full);
+    border: 1px solid #bbf7d0;
+  }
+
+  .mk-badge::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #16a34a;
+    flex-shrink: 0;
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.75); }
+  }
+
+  .mk-hero__name {
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1.0;
+    color: var(--color-heading);
+    margin-bottom: var(--space-3);
+  }
+
+  .mk-name-accent { color: var(--color-accent); }
+
+  .mk-hero__role {
+    font-size: var(--text-lg);
+    color: var(--color-text-muted);
+    font-weight: 500;
+    margin-bottom: var(--space-6);
+  }
+
+  .mk-hero__lead {
+    font-size: clamp(1rem, 2vw, 1.175rem);
+    color: var(--color-text);
+    line-height: 1.7;
+    max-width: 560px;
+    margin-bottom: var(--space-8);
+  }
+
+  .mk-hero__ctas {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-8);
+  }
+
+  .mk-cta-primary {
+    padding: 0.8rem 1.75rem;
+    font-size: var(--text-base);
+  }
+
+  .mk-hero__trust {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .mk-trust__stars { color: #FBBF24; letter-spacing: 1px; }
+
+  /* Avatar */
+  .mk-avatar-wrap { position: relative; }
+
+  .mk-avatar {
+    width: 300px;
+    height: 300px;
+    border-radius: 40% 60% 55% 45% / 45% 40% 60% 55%;
+    overflow: hidden;
+    background: var(--color-surface);
+    box-shadow: 0 24px 60px rgba(26, 127, 60, 0.18), 0 4px 16px rgba(0,0,0,0.08);
+    border: 4px solid white;
+  }
+
+  .mk-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .mk-avatar__badge {
+    position: absolute;
+    bottom: 16px;
+    left: -16px;
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 0.5rem 0.875rem;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    color: var(--color-heading);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    box-shadow: var(--shadow-md);
+  }
+
+  .mk-avatar__badge svg { color: var(--color-accent); }
+
+  /* ── STATS STRIP ── */
+  .mk-stats-strip {
+    background: var(--color-heading);
+    padding: var(--space-6) 0;
+  }
+
+  .mk-stats-strip__inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.08);
+  }
+
+  .mk-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-4) var(--space-6);
+    background: var(--color-heading);
+    gap: var(--space-1);
+  }
+
+  .mk-stat__value {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 900;
+    color: white;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  .mk-stat__label {
+    font-size: var(--text-xs);
+    color: rgba(255,255,255,0.55);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    text-align: center;
+  }
+
+  /* ── SHARED ── */
+  .mk-section-header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+  }
+
+  .mk-section-title {
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 900;
+    letter-spacing: -0.035em;
+    color: var(--color-heading);
+    margin-top: var(--space-2);
+    line-height: 1.2;
+  }
+
+  .mk-section-sub {
+    color: var(--color-text-muted);
+    font-size: var(--text-lg);
+    margin-top: var(--space-3);
+    max-width: 540px;
+    margin-inline: auto;
+  }
+
+  /* ── ABOUT ── */
+  .mk-about__inner {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: var(--space-16);
+    align-items: start;
+  }
+
+  .mk-about .section-label { margin-bottom: var(--space-2); display: block; }
+
+  .mk-about .mk-section-title {
+    text-align: left;
+    margin-bottom: var(--space-6);
+  }
+
+  .mk-prose p {
+    color: var(--color-text);
+    line-height: 1.75;
+    margin-bottom: var(--space-4);
+    font-size: var(--text-lg);
+  }
+
+  .mk-creds {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-top: var(--space-8);
+  }
+
+  .mk-cred {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-heading);
+  }
+
+  .mk-quote {
+    font-size: 1.175rem;
+    font-weight: 600;
+    line-height: 1.65;
+    color: var(--color-heading);
+    font-style: italic;
+    position: relative;
+    padding: var(--space-8);
+    background: var(--color-surface);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-accent);
+    margin: 0;
+  }
+
+  .mk-quote::before {
+    content: '\201C';
+    font-size: 5rem;
+    color: var(--color-accent);
+    opacity: 0.15;
+    position: absolute;
+    top: -0.5rem;
+    left: 1rem;
+    line-height: 1;
+    font-style: normal;
+  }
+
+  .mk-quote__sig {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: var(--space-5);
+    padding: 0 var(--space-8);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .mk-quote__sig strong {
+    color: var(--color-heading);
+    font-weight: 700;
+  }
+
+  /* ── SERVICES ── */
+  .mk-services__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+  }
+
+  .mk-service-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-7);
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    text-decoration: none;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+  }
+
+  .mk-service-card:hover {
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-accent);
+    transform: translateY(-2px);
+  }
+
+  .mk-service-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: #e6f4ec;
+    border-radius: var(--radius-lg);
+    color: var(--color-accent);
+    flex-shrink: 0;
+  }
+
+  .mk-service-card__title {
+    font-size: var(--text-xl);
+    font-weight: 800;
+    color: var(--color-heading);
+    letter-spacing: -0.02em;
+  }
+
+  .mk-service-card__desc {
+    font-size: var(--text-base);
+    color: var(--color-text-muted);
+    line-height: 1.65;
+    flex: 1;
+  }
+
+  .mk-service-card__link {
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-top: auto;
+  }
+
+  /* ── RESULTS ── */
+  .mk-results__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+    margin-bottom: var(--space-10);
+  }
+
+  .mk-result-card {
+    text-align: center;
+    padding: var(--space-10) var(--space-6);
+    background: linear-gradient(145deg, #f0f7f3, #ffffff);
+    border: 1px solid #bbf7d0;
+    border-radius: var(--radius-xl);
+  }
+
+  .mk-result-card__metric {
+    font-size: clamp(2.5rem, 5vw, 3.75rem);
+    font-weight: 900;
+    color: var(--color-accent);
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+
+  .mk-result-card__label {
+    font-size: var(--text-base);
+    font-weight: 700;
+    color: var(--color-heading);
+    margin-top: var(--space-2);
+  }
+
+  .mk-result-card__divider {
+    width: 32px;
+    height: 2px;
+    background: var(--color-border);
+    margin: var(--space-4) auto;
+    border-radius: 2px;
+  }
+
+  .mk-result-card__context {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  .mk-result-card__period {
+    font-size: var(--text-xs);
+    color: var(--color-text-subtle);
+    margin-top: var(--space-1);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+  }
+
+  .mk-results__cta { text-align: center; }
+
+  /* ── PROCESS ── */
+  .mk-process__list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+    margin-top: var(--space-4);
+    counter-reset: none;
+  }
+
+  .mk-process__item {
+    display: flex;
+    gap: var(--space-5);
+    padding: var(--space-7);
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    align-items: flex-start;
+  }
+
+  .mk-process__step {
+    font-size: 2.25rem;
+    font-weight: 900;
+    color: var(--color-accent);
+    opacity: 0.18;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    flex-shrink: 0;
+    width: 52px;
+  }
+
+  .mk-process__title {
+    font-size: var(--text-xl);
+    font-weight: 800;
+    color: var(--color-heading);
+    margin-bottom: var(--space-2);
+  }
+
+  .mk-process__desc {
+    color: var(--color-text-muted);
+    line-height: 1.65;
+  }
+
+  /* ── BLOG ── */
+  .mk-blog__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+    margin-bottom: var(--space-10);
+  }
+
+  .mk-post-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-6);
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    text-decoration: none;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .mk-post-card:hover {
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-accent);
+  }
+
+  .mk-post-card__category {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+
+  .mk-post-card__title {
+    font-size: var(--text-lg);
+    font-weight: 800;
+    color: var(--color-heading);
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+  }
+
+  .mk-post-card__desc {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .mk-post-card__read {
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-top: auto;
+  }
+
+  /* ── FINAL CTA ── */
+  .mk-cta-section {
+    background: var(--color-heading);
+    padding: var(--space-20) 0;
+    text-align: center;
+  }
+
+  .mk-cta-section__inner { max-width: 680px; }
+
+  .mk-cta-section__title {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    font-weight: 900;
+    color: white;
+    letter-spacing: -0.04em;
+    line-height: 1.15;
+    margin-bottom: var(--space-4);
+  }
+
+  .mk-cta-section__sub {
+    font-size: var(--text-lg);
+    color: rgba(255,255,255,0.65);
+    line-height: 1.65;
+    margin-bottom: var(--space-8);
+  }
+
+  .mk-cta-section .mk-cta-primary {
+    background: var(--color-accent);
+    font-size: var(--text-lg);
+    padding: 1rem 2.25rem;
+  }
+
+  .mk-cta-section .mk-cta-primary:hover {
+    background: var(--color-accent-hover);
+  }
+
+  .mk-cta-section__note {
+    margin-top: var(--space-4);
+    font-size: var(--text-sm);
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .mk-hero__inner { grid-template-columns: 1fr; }
+    .mk-hero__visual { display: none; }
+    .mk-about__inner { grid-template-columns: 1fr; }
+    .mk-services__grid { grid-template-columns: 1fr; }
+    .mk-results__grid { grid-template-columns: 1fr; }
+    .mk-process__list { grid-template-columns: 1fr; }
+    .mk-blog__grid { grid-template-columns: 1fr; }
+    .mk-stats-strip__inner { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 480px) {
+    .mk-stats-strip__inner { grid-template-columns: repeat(2, 1fr); }
+    .mk-hero__ctas { flex-direction: column; }
+  }
+</style>
