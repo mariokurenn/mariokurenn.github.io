@@ -351,4 +351,4 @@ No. Pre-significance implementation is one of the most common mistakes. You're a
 
 ---
 
-Running a rigorous testing program and want support? [Book a free strategy call →](/contact/) — we'll review your current testing setup and show you what we'd test first and why.
+Running a rigorous testing program and want support? Our [A/B testing service](/services/ab-testing/) covers hypothesis development, test design, and full segment analysis — not just tool access. [Book a free strategy call →](/contact/)

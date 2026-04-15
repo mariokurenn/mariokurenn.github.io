@@ -233,4 +233,4 @@ The math is simple: a 70% cart abandonment rate means you're converting less tha
 
 ---
 
-Need help auditing your checkout flow? [Book a free CRO audit →](/contact/) and we'll walk through your specific funnel.
+Need help auditing your checkout flow? Our [CRO audit service](/services/cro-audit/) diagnoses exactly where your checkout is leaking revenue and gives you a prioritised fix list. [Book a free audit →](/contact/)

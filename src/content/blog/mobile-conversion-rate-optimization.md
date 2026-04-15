@@ -199,4 +199,4 @@ If mobile CVR is below 50% of desktop, run 20 mobile session recordings before w
 
 For a structured approach to CRO across all devices and traffic levels, see [What Is CRO](/blog/what-is-conversion-rate-optimization/).
 
-Want a mobile audit of your specific site? [Book a free CRO audit](/contact/) — we'll review your mobile funnel and give you the 3–5 highest-impact fixes.
+Want a mobile audit of your specific site? Our [CRO audit service](/services/cro-audit/) includes mobile-specific analysis — segmented session recordings, touch target review, and a prioritised list of the 3–5 highest-impact fixes. [Book a free audit](/contact/)

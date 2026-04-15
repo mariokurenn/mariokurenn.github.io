@@ -260,4 +260,4 @@ For any of these tools: check your consent management platform (CMP) setup. Reco
 
 Whichever tool you use, the tool is only as useful as the process you have for acting on the data. Session recordings that no one watches and heatmaps that aren't connected to hypotheses don't improve conversion rates.
 
-Want help setting up a proper CRO research stack for your site? [Book a free audit](/contact/).
+Want help setting up a proper CRO research stack for your site? Our [CRO audit service](/services/cro-audit/) includes a full qualitative and quantitative analysis — the right tools, configured correctly, connected to a real optimization process. [Book a free audit](/contact/).

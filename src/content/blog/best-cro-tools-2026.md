@@ -250,4 +250,4 @@ Invest in tools. Invest more in expertise.
 
 ---
 
-Working on your CRO stack and want a second opinion on your setup? [Book a free consultation →](/contact/) — we'll review what you have and tell you what's missing.
+Working on your CRO stack and want a second opinion on your setup? Our [CRO audit](/services/cro-audit/) includes a full analysis of your research methodology, tool configuration, and conversion gaps. [Book a free consultation →](/contact/)

@@ -214,4 +214,4 @@ That's the math of systematic CRO.
 
 ---
 
-Want a professional eye on your specific store? [Book a free ecommerce CRO audit →](/contact/)
+Want a professional eye on your specific store? Our [CRO audit service](/services/cro-audit/) identifies the exact friction points costing you sales. [Book a free ecommerce CRO audit →](/contact/)

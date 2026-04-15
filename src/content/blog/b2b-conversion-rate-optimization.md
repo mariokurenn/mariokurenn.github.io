@@ -203,4 +203,4 @@ If you're starting from scratch, this is the order:
 
 You don't need to run A/B tests to implement most of these. They're corrections, not experiments — obvious improvements based on known friction patterns.
 
-If you want an external pair of eyes on your B2B funnel, [book a free audit](/contact/) and we'll review your highest-impact pages before we speak.
+If you want an external pair of eyes on your B2B funnel, our [CRO audit service](/services/cro-audit/) covers your demo page, pricing page, and funnel drop-offs in full. [Book a free audit](/contact/) and we'll review your highest-impact pages before we speak.

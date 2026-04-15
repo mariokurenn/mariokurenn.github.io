@@ -220,4 +220,4 @@ The page is working — visitors are engaging and moving forward. No urgent acti
 
 For a full walkthrough of how to use analytics data to identify conversion problems, see [What Is CRO](/blog/what-is-conversion-rate-optimization/) and [Conversion Rate Benchmarks](/blog/conversion-rate-benchmarks-by-industry/).
 
-Want us to audit your funnel and identify exactly where sessions are ending and why? [Book a free CRO audit](/contact/).
+Want us to audit your funnel and identify exactly where sessions are ending and why? Our [CRO audit service](/services/cro-audit/) maps every drop-off point and gives you a prioritised action list. [Book a free CRO audit](/contact/).

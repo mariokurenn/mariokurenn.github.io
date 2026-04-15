@@ -27,9 +27,13 @@ const organizationSchema = {
   founder: {
     '@type': 'Person',
     name: 'Mario Kuren',
-    url: `${siteURL}/mario-kuren/`,
+    url: `${siteURL}/author/mario-kuren/`,
     jobTitle: 'CRO Specialist & Founder',
   },
+  sameAs: [
+    'https://www.linkedin.com/in/mariokuren',
+    'https://kurensolutions.com',
+  ],
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'CRO Services',

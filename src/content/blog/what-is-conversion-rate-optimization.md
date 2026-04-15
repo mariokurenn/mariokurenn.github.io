@@ -359,4 +359,4 @@ To run meaningful A/B tests, you typically need at least 500–1,000 conversions
 
 ---
 
-Ready to stop leaving revenue on the table? [Get a free CRO audit →](/contact/) — we'll identify your three biggest conversion leaks and tell you exactly how to fix them.
+Ready to stop leaving revenue on the table? Our [CRO audit service](/services/cro-audit/) identifies your three biggest conversion leaks and builds the roadmap to fix them. [Book a free audit →](/contact/)
