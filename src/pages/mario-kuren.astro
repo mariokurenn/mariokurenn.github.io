@@ -11,13 +11,27 @@ const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Mario Kuren',
-  jobTitle: 'CRO Specialist',
-  url: 'https://grow-conversions.com/mario-kuren/',
+  jobTitle: 'CRO Specialist & Founder',
+  url: 'https://grow-conversions.com/author/mario-kuren/',
+  sameAs: [
+    'https://grow-conversions.com/mario-kuren/',
+    'https://kurensolutions.com',
+    'https://www.linkedin.com/in/mariokuren',
+  ],
   worksFor: {
     '@type': 'Organization',
     name: 'grow-conversions.com',
     url: 'https://grow-conversions.com',
   },
+  knowsAbout: [
+    'Conversion Rate Optimization',
+    'A/B Testing',
+    'Landing Page Design',
+    'Conversion Copywriting',
+    'Web Analytics',
+    'User Behaviour Analysis',
+  ],
+  description: 'Mario Kuren is a CRO specialist and founder of grow-conversions.com. He has run 800+ A/B tests across 50+ businesses in e-commerce, SaaS, and lead generation, delivering an average 127% CVR increase within 90 days.',
 };
 
 const stats = [
