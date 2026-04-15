@@ -351,4 +351,10 @@ No. Pre-significance implementation is one of the most common mistakes. You're a
 
 ---
 
+**Further reading:**
+- [How Long Should You Run an A/B Test?](/blog/how-long-to-run-ab-test/) — sample size, runtime rules, and why "it hit 95% significance" isn't enough
+- [7 A/B Testing Mistakes That Invalidate Your Results](/blog/ab-testing-mistakes/) — the structural errors that silently produce false winners
+
+---
+
 Running a rigorous testing program and want support? Our [A/B testing service](/services/ab-testing/) covers hypothesis development, test design, and full segment analysis — not just tool access. [Book a free strategy call →](/contact/)

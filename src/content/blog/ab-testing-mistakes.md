@@ -197,7 +197,7 @@ That's it. It sounds boring. It is boring. Boring, rigorous testing produces com
 
 I review [A/B testing programs](/services/ab-testing/) and give you an honest assessment: what's producing real signal, what's noise, and what tests you should actually be running next. Most programs have at least 3 structural issues that are silently invalidating results.
 
-Also read: [A/B Testing Best Practices](/blog/ab-testing-best-practices/) — the full framework for running your first valid test.
+Also read: [A/B Testing Best Practices](/blog/ab-testing-best-practices/) — the full framework for running your first valid test. And [Best CRO Tools in 2026](/blog/best-cro-tools-2026/) — the testing tools worth using, reviewed honestly.
 
 [Get a Free CRO Audit →](/contact/)
 

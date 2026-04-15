@@ -191,6 +191,12 @@ The best-performing sites don't choose — they make CRO and SEO work together:
 
 ---
 
+**Further reading:**
+- [Conversion Rate Benchmarks by Industry [2026]](/blog/conversion-rate-benchmarks-by-industry/) — know your baseline CVR before deciding where to invest
+- [Landing Page Best Practices: 18 Rules](/blog/landing-page-best-practices/) — improve CVR on the pages your SEO traffic lands on
+
+---
+
 **Not sure whether CRO or SEO is your bottleneck?**
 
 A CRO audit answers the question with data — not guesswork. I'll analyze your funnel, identify your biggest revenue leaks, and tell you exactly where to invest next.

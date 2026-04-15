@@ -260,4 +260,10 @@ For any of these tools: check your consent management platform (CMP) setup. Reco
 
 Whichever tool you use, the tool is only as useful as the process you have for acting on the data. Session recordings that no one watches and heatmaps that aren't connected to hypotheses don't improve conversion rates.
 
+**Further reading:**
+- [Best CRO Tools in 2026: Honest Reviews](/blog/best-cro-tools-2026/) — the full CRO tool stack beyond heatmaps, including A/B testing platforms and analytics
+- [Voice of Customer Research for CRO](/blog/voice-of-customer-research/) — how to turn session recordings into hypotheses that actually win
+
+---
+
 Want help setting up a proper CRO research stack for your site? Our [CRO audit service](/services/cro-audit/) includes a full qualitative and quantitative analysis — the right tools, configured correctly, connected to a real optimization process. [Book a free audit](/contact/).

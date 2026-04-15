@@ -26,6 +26,7 @@ const blogPostSchema = {
   description,
   author: {
     '@type': 'Person',
+    '@id': authorURL,
     name: author,
     url: authorURL,
     jobTitle: 'CRO Specialist & Founder',
@@ -33,6 +34,7 @@ const blogPostSchema = {
   },
   publisher: {
     '@type': 'Organization',
+    '@id': `${siteURL}/#organization`,
     name: 'grow-conversions.com',
     url: siteURL,
     logo: {

@@ -203,4 +203,6 @@ If you're starting from scratch, this is the order:
 
 You don't need to run A/B tests to implement most of these. They're corrections, not experiments — obvious improvements based on known friction patterns.
 
+For the research process that surfaces what stops B2B prospects from converting, see [Voice of Customer Research for CRO](/blog/voice-of-customer-research/) — the highest-ROI CRO activity most B2B teams skip.
+
 If you want an external pair of eyes on your B2B funnel, our [CRO audit service](/services/cro-audit/) covers your demo page, pricing page, and funnel drop-offs in full. [Book a free audit](/contact/) and we'll review your highest-impact pages before we speak.

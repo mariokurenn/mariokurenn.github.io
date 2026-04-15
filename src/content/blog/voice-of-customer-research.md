@@ -234,4 +234,10 @@ VoC research isn't a one-time project. Customer language evolves as your market 
 **Every 6 months:** Conduct 5–8 customer interviews, mine recent reviews
 **Annually:** Full VoC audit — compare this year's language against last year's and update copy accordingly
 
+**Further reading:**
+- [CRO Audit Checklist: 37 Questions](/blog/cro-audit-checklist/) — the systematic framework that puts VoC findings to work
+- [A/B Testing Best Practices](/blog/ab-testing-best-practices/) — how to turn VoC insights into valid, testable hypotheses
+
+---
+
 Want help building a VoC research programme for your site? VoC research is the foundation of every [CRO audit](/services/cro-audit/) we run. [Book a free audit](/contact/) and we'll identify the highest-ROI research methods for your specific situation.

@@ -197,6 +197,6 @@ If you haven't segmented your analytics by device, start there. You may have a m
 
 If mobile CVR is below 50% of desktop, run 20 mobile session recordings before writing any hypotheses. The recordings will show you the specific friction points faster than any audit checklist.
 
-For a structured approach to CRO across all devices and traffic levels, see [What Is CRO](/blog/what-is-conversion-rate-optimization/).
+For a structured approach to CRO across all devices and traffic levels, see [What Is CRO](/blog/what-is-conversion-rate-optimization/). For the full ecommerce optimization playbook, see [How to Improve Ecommerce Conversion Rate: 21 Proven Tactics](/blog/how-to-improve-ecommerce-conversion-rate/).
 
 Want a mobile audit of your specific site? Our [CRO audit service](/services/cro-audit/) includes mobile-specific analysis — segmented session recordings, touch target review, and a prioritised list of the 3–5 highest-impact fixes. [Book a free audit](/contact/)
