@@ -4,30 +4,28 @@ import { getCollection } from 'astro:content';
 const SITE = 'https://grow-conversions.com';
 
 const staticPages = [
-  { url: '/', priority: '1.0', changefreq: 'weekly' },
-  { url: '/about/', priority: '0.7', changefreq: 'monthly' },
-  { url: '/author/mario-kuren/', priority: '0.8', changefreq: 'monthly' },
-  { url: '/mario-kuren/', priority: '0.7', changefreq: 'monthly' },
-  { url: '/contact/', priority: '0.8', changefreq: 'monthly' },
-  { url: '/services/', priority: '0.9', changefreq: 'monthly' },
-  { url: '/services/cro-audit/', priority: '0.8', changefreq: 'monthly' },
-  { url: '/services/ab-testing/', priority: '0.8', changefreq: 'monthly' },
-  { url: '/services/landing-page-design/', priority: '0.8', changefreq: 'monthly' },
-  { url: '/services/conversion-copywriting/', priority: '0.8', changefreq: 'monthly' },
-  { url: '/case-studies/', priority: '0.8', changefreq: 'weekly' },
-  { url: '/blog/', priority: '0.9', changefreq: 'daily' },
-  { url: '/cro-glossary/', priority: '0.9', changefreq: 'weekly' },
-  { url: '/blog/category/cro-strategy/', priority: '0.7', changefreq: 'weekly' },
-  { url: '/blog/category/a-b-testing/', priority: '0.7', changefreq: 'weekly' },
-  { url: '/blog/category/landing-pages/', priority: '0.7', changefreq: 'weekly' },
+  { url: '/', priority: '1.0', changefreq: 'weekly', lastmod: '2026-04-15' },
+  { url: '/about/', priority: '0.7', changefreq: 'monthly', lastmod: '2026-04-15' },
+  { url: '/author/mario-kuren/', priority: '0.8', changefreq: 'monthly', lastmod: '2026-04-15' },
+  { url: '/mario-kuren/', priority: '0.7', changefreq: 'monthly', lastmod: '2026-04-15' },
+  { url: '/contact/', priority: '0.8', changefreq: 'monthly', lastmod: '2026-04-15' },
+  { url: '/services/', priority: '0.9', changefreq: 'monthly', lastmod: '2026-04-15' },
+  { url: '/services/cro-audit/', priority: '0.8', changefreq: 'monthly', lastmod: '2026-04-15' },
+  { url: '/services/ab-testing/', priority: '0.8', changefreq: 'monthly', lastmod: '2026-04-15' },
+  { url: '/services/landing-page-design/', priority: '0.8', changefreq: 'monthly', lastmod: '2026-04-15' },
+  { url: '/services/conversion-copywriting/', priority: '0.8', changefreq: 'monthly', lastmod: '2026-04-15' },
+  { url: '/case-studies/', priority: '0.8', changefreq: 'weekly', lastmod: '2026-03-01' },
+  { url: '/blog/', priority: '0.9', changefreq: 'daily', lastmod: '2026-04-15' },
+  { url: '/cro-glossary/', priority: '0.9', changefreq: 'weekly', lastmod: '2026-03-01' },
+  { url: '/blog/category/cro-strategy/', priority: '0.7', changefreq: 'weekly', lastmod: '2026-04-15' },
+  { url: '/blog/category/a-b-testing/', priority: '0.7', changefreq: 'weekly', lastmod: '2026-04-15' },
+  { url: '/blog/category/landing-pages/', priority: '0.7', changefreq: 'weekly', lastmod: '2026-04-15' },
 ];
 
 export const GET: APIRoute = async () => {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
   const glossaryTerms = await getCollection('glossary');
   const caseStudies = await getCollection('case-studies');
-
-  const today = new Date().toISOString().split('T')[0];
 
   const postEntries = posts.map((post) => ({
     url: `/blog/${post.slug}/`,
@@ -51,7 +49,7 @@ export const GET: APIRoute = async () => {
   }));
 
   const allPages = [
-    ...staticPages.map((p) => ({ ...p, lastmod: today })),
+    ...staticPages,
     ...postEntries,
     ...glossaryEntries,
     ...caseEntries,
