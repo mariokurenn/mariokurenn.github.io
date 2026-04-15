@@ -1,5 +1,6 @@
 ---
 title: "Landing Page Best Practices: 18 Rules for Pages That Actually Convert"
+seoTitle: "Landing Page Best Practices: 18 Rules"
 description: "18 landing page best practices used by top-converting pages. Psychology principles and actionable changes you can implement today to boost conversions."
 publishDate: "2026-02-20"
 updatedDate: "2026-04-10"

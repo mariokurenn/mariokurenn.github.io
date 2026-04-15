@@ -1,5 +1,6 @@
 ---
 title: "CRO Audit Checklist: 37 Questions to Find Every Conversion Leak"
+seoTitle: "CRO Audit Checklist: 37 Questions [Free]"
 description: "37-point CRO audit checklist covering analytics, UX, landing pages, trust signals, and checkout. Find exactly what's blocking your conversions."
 publishDate: "2026-03-28"
 updatedDate: "2026-04-10"

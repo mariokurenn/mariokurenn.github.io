@@ -1,5 +1,6 @@
 ---
 title: "Cart Abandonment: 16 Proven Tactics to Recover Lost Ecommerce Revenue"
+seoTitle: "Cart Abandonment Recovery: 16 Proven Tactics"
 description: "70% of shoppers abandon their cart. These 16 tactics reduce abandonment and recover lost sales — backed by data from Baymard Institute and real A/B tests."
 publishDate: "2026-04-01"
 updatedDate: "2026-04-10"

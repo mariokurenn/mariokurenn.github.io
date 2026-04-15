@@ -1,5 +1,6 @@
 ---
 title: "Conversion Rate Benchmarks by Industry: 2026 Complete Data"
+seoTitle: "Conversion Rate Benchmarks by Industry [2026]"
 description: "What is a good conversion rate? Industry benchmarks for ecommerce, SaaS, lead gen, and more. Stop comparing yourself to the wrong number."
 publishDate: "2026-04-05"
 updatedDate: "2026-04-10"

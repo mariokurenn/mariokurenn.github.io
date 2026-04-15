@@ -1,5 +1,6 @@
 ---
 title: "How to Improve Ecommerce Conversion Rate: 21 Proven Tactics (2026)"
+seoTitle: "How to Improve Ecommerce Conversion Rate"
 description: "21 data-backed tactics to improve your ecommerce conversion rate. From checkout optimization to social proof — each tactic is validated by A/B test data."
 publishDate: "2026-03-25"
 updatedDate: "2026-04-10"

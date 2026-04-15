@@ -1,5 +1,6 @@
 ---
 title: "A/B Testing Best Practices: How to Run Tests That Actually Mean Something"
+seoTitle: "A/B Testing Best Practices [2026 Guide]"
 description: "Run statistically valid A/B tests that produce reliable results. Avoid the common mistakes that waste months of effort and generate false positive winners."
 publishDate: "2026-02-01"
 updatedDate: "2026-04-10"

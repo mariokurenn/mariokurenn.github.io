@@ -1,5 +1,6 @@
 ---
 title: "Best CRO Tools in 2026: Honest Review After 800+ A/B Tests"
+seoTitle: "Best CRO Tools 2026: Honest Reviews"
 description: "CRO tools actually worth paying for in 2026. Honest reviews of A/B testing, heatmaps, and analytics tools — from someone who uses them daily."
 publishDate: "2026-04-08"
 updatedDate: "2026-04-10"

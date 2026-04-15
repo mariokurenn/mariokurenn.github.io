@@ -1,5 +1,6 @@
 ---
 title: "CRO vs SEO: Which Should You Prioritize First?"
+seoTitle: "CRO vs SEO: Which Should You Prioritize?"
 description: "CRO and SEO both grow revenue — but they work differently, and the wrong sequence wastes budget. Learn which to prioritize based on your current situation."
 publishDate: "2026-04-28"
 author: "Mario Kuren"
