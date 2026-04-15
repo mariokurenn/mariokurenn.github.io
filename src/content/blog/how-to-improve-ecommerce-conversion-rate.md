@@ -8,6 +8,8 @@ author: "Mario"
 category: "CRO Strategy"
 tags: ["ecommerce", "conversion rate", "cro", "checkout", "a/b testing"]
 seoKeyword: "how to improve ecommerce conversion rate"
+image: "/images/blog/how-to-improve-ecommerce-conversion-rate.webp"
+imageAlt: "Ecommerce conversion funnel narrowing from wide traffic pool to sharp checkout point with recoverable revenue gaps highlighted"
 draft: false
 ---
 

@@ -8,6 +8,8 @@ author: "Mario"
 category: "CRO Strategy"
 tags: ["cro audit", "checklist", "conversion optimization", "ux audit"]
 seoKeyword: "cro audit checklist"
+image: "/images/blog/cro-audit-checklist.webp"
+imageAlt: "Structured checklist grid with a magnifying glass revealing hidden conversion gaps on a website"
 draft: false
 ---
 

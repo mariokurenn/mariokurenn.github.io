@@ -8,6 +8,8 @@ author: "Mario"
 category: "CRO Strategy"
 tags: ["cart abandonment", "checkout optimization", "ecommerce", "conversion rate"]
 seoKeyword: "cart abandonment"
+image: "/images/blog/cart-abandonment-recovery.webp"
+imageAlt: "Shopping cart at a fork in the road with one path leading to checkout completion and others leading away"
 draft: false
 ---
 

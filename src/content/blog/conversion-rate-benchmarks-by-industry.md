@@ -8,6 +8,9 @@ author: "Mario"
 category: "Analytics"
 tags: ["conversion rate benchmarks", "industry data", "analytics", "cro"]
 seoKeyword: "conversion rate benchmarks by industry"
+image: "/images/blog/conversion-rate-benchmarks-by-industry.webp"
+imageHero: "/images/blog/conversion-rate-benchmarks-by-industry.svg"
+imageAlt: "Bar chart comparing conversion rate benchmarks across ecommerce, SaaS, and lead generation industries"
 draft: false
 ---
 
