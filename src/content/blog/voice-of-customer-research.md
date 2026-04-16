@@ -10,6 +10,22 @@ imageHero: "/images/blog/voice-of-customer-research.webp"
 imageAlt: "Abstract visualization of customer voices converging into a single clear insight"
 category: "CRO Strategy"
 tags: ["voice of customer", "user research", "cro strategy", "conversion optimization"]
+howTo:
+  name: "How to Run Voice of Customer Research for CRO"
+  description: "A practical process for collecting and using customer language to improve website conversion rate."
+  steps:
+    - name: "Mine existing customer language"
+      text: "Start with what you already have: read every review on your product pages, Google Business Profile, Trustpilot, and G2. Scan customer support tickets and live chat logs from the last 90 days. Note the exact words customers use to describe their problem, their hesitation before buying, and what convinced them to purchase. This is your highest-signal, zero-cost starting point."
+    - name: "Run an on-site exit survey"
+      text: "Set up a single-question exit survey on your highest-exit pages: 'What's stopping you from [completing this step] today?' Use a tool like Hotjar, Typeform, or a simple embedded form. Aim for 50–100 responses before drawing conclusions. Don't ask multiple questions — one question maximizes response rate and keeps answers focused."
+    - name: "Survey recent customers"
+      text: "Email customers who purchased in the last 30–90 days with three questions: 'What were you trying to accomplish when you found us?', 'What nearly stopped you from buying?', and 'What finally convinced you to buy?' The answers to question two and three are your highest-value CRO inputs — they reveal real objections and the messages that already work."
+    - name: "Conduct 5 customer interviews"
+      text: "Schedule 30-minute calls with 5 recent customers. Use open-ended questions: 'Walk me through what was happening when you decided you needed [product/service].' Listen more than you talk. The goal is to hear the words customers use to describe their problem — not to validate your assumptions. Five interviews consistently reveal patterns that surveys miss."
+    - name: "Analyse for patterns and objections"
+      text: "Group all collected language by theme: motivations (why they came), hesitations (what nearly stopped them), and triggers (what made them act). Identify the words and phrases that appear across multiple sources. These recurring phrases are your highest-confidence headline and copy material — customers have already proven they resonate."
+    - name: "Apply findings to copy and page structure"
+      text: "Rewrite headlines using the exact language customers use to describe their problem. Address the top three hesitations explicitly on product pages and landing pages — ideally adjacent to the CTA. Use testimonials that echo the motivations and objections you identified. Test pages rewritten with VoC language against original copy — this is consistently one of the highest-lift A/B tests in CRO."
 faqs:
   - question: "What is voice of customer research?"
     answer: "Voice of customer (VoC) research is the process of systematically collecting and analysing your customers' own words — their motivations, objections, frustrations, and desired outcomes — and using that language to improve your website, product, and marketing. It includes surveys, customer interviews, review mining, live chat analysis, and session recordings. The goal is to understand why visitors do or don't convert, in their own words rather than from data alone."

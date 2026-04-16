@@ -12,6 +12,17 @@ image: "/images/blog/conversion-rate-benchmarks-by-industry.webp"
 imageHero: "/images/blog/conversion-rate-benchmarks-by-industry.svg"
 imageAlt: "Bar chart comparing conversion rate benchmarks across ecommerce, SaaS, and lead generation industries"
 draft: false
+faqs:
+  - question: "What is a good conversion rate?"
+    answer: "A good conversion rate depends entirely on industry and offer type. For ecommerce, the average is 2.5–3.0%; top 25% performers convert at 4%+; top 10% at 6%+. For SaaS free trial pages, 3–8% is average; 15%+ is top-tier. For lead generation landing pages, 5–15% is typical; 30%+ is exceptional. The most meaningful benchmark is your own historical baseline — a 50% improvement on your current rate is more valuable than matching an industry average."
+  - question: "What is the average ecommerce conversion rate?"
+    answer: "The average ecommerce conversion rate is 2.5–3.0% based on IRP Commerce, Littledata, and Shopify benchmark data from 2024–2026. The bottom quartile of stores converts under 0.7%; the top 25% converts at 4%+; and the top 1% of stores converts at 10%+. These figures use sessions-based measurement. If your analytics tool measures users rather than sessions, your reported rate will typically appear slightly higher."
+  - question: "Why is my conversion rate lower than the industry benchmark?"
+    answer: "Common reasons your conversion rate falls below benchmarks: (1) traffic quality — if you're driving top-of-funnel or awareness traffic, conversion rates will be structurally lower than benchmarks drawn from high-intent traffic; (2) measurement differences — sessions vs. users vs. visitors give different numbers for the same site; (3) offer type — benchmarks aggregate many product types; premium or high-consideration products convert lower by nature; (4) checkout friction — unnecessary steps, forced account creation, and unexpected fees directly suppress CVR. Run a CRO audit to identify which factors apply."
+  - question: "What is the conversion rate for B2B vs B2C?"
+    answer: "B2B conversion rates are structurally lower than B2C because the sales cycle is longer and involves multiple stakeholders. B2B lead generation landing pages average 2–5% for form submissions; high-intent demo request pages can reach 8–12%. B2C ecommerce averages 2.5–3.0% for purchase completions. B2B 'conversions' (demo requests, contact forms, content downloads) represent earlier funnel stages than B2C purchases, so direct comparison is not meaningful without accounting for what the conversion actually represents."
+  - question: "How do I calculate my conversion rate?"
+    answer: "Conversion rate is calculated as: (Number of Conversions ÷ Number of Visitors) × 100. For example, if your checkout page receives 5,000 sessions and 150 orders complete, your conversion rate is (150 ÷ 5,000) × 100 = 3.0%. The denominator matters: use sessions for comparison with Shopify benchmarks, unique users for comparison with Google Analytics benchmarks. Comparing rates calculated on different denominators produces misleading conclusions."
 ---
 
 "What's a good conversion rate?" is the most-asked question in CRO — and the most misleading one.

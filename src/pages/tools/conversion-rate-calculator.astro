@@ -1,0 +1,288 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import CVRCalculator from '@/components/calculators/CVRCalculator.astro';
+
+const siteURL = 'https://grow-conversions.com';
+const pageURL = `${siteURL}/tools/conversion-rate-calculator/`;
+
+const schemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'Conversion Rate Calculator',
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Web Browser',
+    description: 'Free conversion rate calculator. Enter your sessions, conversions, and average order value to calculate your CVR and see the revenue impact of improving it.',
+    url: pageURL,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+    provider: { '@type': 'Organization', name: 'grow-conversions.com', url: siteURL },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteURL },
+      { '@type': 'ListItem', position: 2, name: 'CRO Tools', item: `${siteURL}/tools/` },
+      { '@type': 'ListItem', position: 3, name: 'Conversion Rate Calculator', item: pageURL },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'How do you calculate conversion rate?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Conversion rate is calculated as (Number of Conversions ÷ Number of Sessions) × 100. For example, if 10,000 people visited your site and 250 completed a purchase, your conversion rate is (250 ÷ 10,000) × 100 = 2.5%. Use sessions as the denominator to match Shopify and most e-commerce benchmark data.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'What is a good conversion rate?',
+        acceptedAnswer: { '@type': 'Answer', text: 'A good conversion rate depends on industry. E-commerce averages 2.5–3.0%; top 25% of stores reach 4%+. SaaS free trial pages average 3–8%; top performers reach 15%+. Lead generation landing pages average 5–15%. The most meaningful benchmark is your own historical baseline — a 50% improvement on your current rate is worth more than matching an industry average.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'How much is a 1% conversion rate improvement worth?',
+        acceptedAnswer: { '@type': 'Answer', text: 'The revenue value of a 1% absolute CVR improvement depends on your traffic and average order value. Formula: Extra Monthly Revenue = Monthly Sessions × 0.01 × Average Order Value. For a site with 10,000 monthly sessions and an €80 AOV, a 1% CVR improvement (e.g. from 2% to 3%) generates an additional €8,000/month. Use the calculator above to see your exact numbers.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Why is my conversion rate low?',
+        acceptedAnswer: { '@type': 'Answer', text: 'The most common causes of a low conversion rate are: (1) friction in the checkout or sign-up flow — unnecessary steps, forced account creation, or unexpected costs; (2) insufficient trust signals — no reviews, security badges, or clear returns policy near the conversion action; (3) weak value proposition — the headline does not clearly communicate what the visitor gets and why it is better; (4) traffic quality — high-funnel traffic from awareness campaigns converts structurally lower than high-intent traffic. A CRO audit typically surfaces 5–10 specific blockers.' },
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Conversion Rate Calculator — Free CVR & Revenue Impact Tool"
+  description="Calculate your conversion rate and see the exact revenue impact of improving it. Free CVR calculator — enter sessions, conversions, and AOV for instant results."
+  jsonLd={schemas}
+>
+  <div class="tool-page">
+    <div class="tool-page__hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+          <a href="/tools/">CRO Tools</a>
+          <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+          <span class="breadcrumbs__current" aria-current="page">Conversion Rate Calculator</span>
+        </nav>
+        <h1 class="tool-page__title">Conversion Rate Calculator</h1>
+        <p class="tool-page__intro">
+          <strong>Conversion rate</strong> is the percentage of visitors who complete a desired action — a purchase, form submission, or sign-up.
+          The formula is <strong>(Conversions ÷ Sessions) × 100</strong>. This calculator gives you your current CVR,
+          compares it against industry benchmarks, and shows you exactly how much additional revenue each percentage
+          point of improvement is worth.
+        </p>
+      </div>
+    </div>
+
+    <div class="container tool-page__body">
+
+      <CVRCalculator />
+
+      <div class="tool-page__content">
+        <h2>How to Use This Calculator</h2>
+        <ol class="tool-steps">
+          <li><strong>Enter your monthly sessions</strong> — use your analytics platform (GA4, Shopify, or your server logs). Sessions-based CVR matches most industry benchmarks.</li>
+          <li><strong>Enter your monthly conversions</strong> — the number of completed purchases, form submissions, or sign-ups (your primary conversion event).</li>
+          <li><strong>Enter your average order value</strong> — optional, but required to see revenue impact projections. For lead gen, use average deal value.</li>
+          <li><strong>Select your industry</strong> — the calculator compares your CVR against the industry average and shows how much revenue 10%, 25%, 50%, and 100% improvements would be worth.</li>
+        </ol>
+
+        <h2>What Your Results Mean</h2>
+        <p>
+          The calculator shows your CVR against the industry benchmark and — if you entered an AOV — projects the incremental revenue from improving it. These projections assume all other variables (traffic, AOV) stay constant.
+        </p>
+        <p>
+          A <strong>10% relative improvement</strong> (e.g. from 2.0% to 2.2%) is a realistic target from a single focused optimization.
+          A <strong>25–50% improvement</strong> is achievable from a structured 3–6 month CRO programme.
+          A <strong>100% improvement</strong> (doubling your CVR) is the benchmark for a mature, test-led programme — it represents what the
+          <a href="/case-studies/">top performers in our case study data</a> achieve over 6–18 months.
+        </p>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="tool-faqs">
+          <details>
+            <summary>How do you calculate conversion rate?</summary>
+            <p>Conversion rate = (Conversions ÷ Sessions) × 100. If 250 people out of 10,000 visitors completed a purchase, CVR = 2.5%. Use sessions (not unique users) to align with standard e-commerce benchmarks from Shopify and IRP Commerce.</p>
+          </details>
+          <details>
+            <summary>What is a good conversion rate?</summary>
+            <p>E-commerce: 2.5–3.0% average; 4%+ top quartile; 6%+ top decile. SaaS free trial pages: 3–8% average; 15%+ top tier. Lead gen landing pages: 5–15% average; 30%+ exceptional. Your own baseline trend matters most — focus on improving your rate, not matching arbitrary benchmarks.</p>
+          </details>
+          <details>
+            <summary>How much is a 1% conversion rate improvement worth?</summary>
+            <p>Extra monthly revenue = Sessions × 0.01 × AOV. A site with 10,000 monthly sessions and €80 AOV gains €8,000/month from a 1-point CVR lift. Annualized that is €96,000 — from the same traffic spend.</p>
+          </details>
+          <details>
+            <summary>Why is my conversion rate low?</summary>
+            <p>Most commonly: checkout friction (unexpected costs, forced account creation), insufficient trust signals near the CTA, unclear value proposition in the headline, or mismatched traffic. A <a href="/services/cro-audit/">CRO audit</a> surfaces the specific blockers for your site with estimated revenue impact per fix.</p>
+          </details>
+        </div>
+
+        <div class="tool-page__related">
+          <h2>Related Tools & Resources</h2>
+          <ul>
+            <li><a href="/tools/cro-roi-calculator/">CRO ROI Calculator</a> — see the full revenue impact of a CRO programme</li>
+            <li><a href="/blog/conversion-rate-benchmarks-by-industry/">Conversion Rate Benchmarks by Industry</a> — detailed benchmarks for e-commerce, SaaS, lead gen, and more</li>
+            <li><a href="/blog/how-to-calculate-conversion-rate/">How to Calculate Conversion Rate</a> — the complete guide with GA4 setup instructions</li>
+            <li><a href="/blog/how-to-improve-ecommerce-conversion-rate/">21 Tactics to Improve Ecommerce Conversion Rate</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tool-page__cta">
+        <h2>Want to Know Why Your CVR Is Where It Is?</h2>
+        <p>A free CRO audit identifies every conversion blocker on your highest-traffic pages — with a prioritized fix list and estimated revenue impact per item.</p>
+        <a href="/contact/" class="btn btn--primary">Get a Free CRO Audit</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .tool-page__hero {
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-14) 0 var(--space-10);
+  }
+
+  .tool-page__title {
+    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-4);
+  }
+
+  .tool-page__intro {
+    font-size: var(--text-lg);
+    color: var(--color-text-muted);
+    max-width: 680px;
+    line-height: 1.65;
+  }
+
+  .tool-page__body {
+    padding-top: var(--space-10);
+    padding-bottom: var(--space-16);
+    max-width: 780px;
+  }
+
+  .tool-page__content {
+    margin-top: var(--space-10);
+  }
+
+  .tool-page__content h2 {
+    font-size: var(--text-xl);
+    font-weight: 800;
+    margin-top: var(--space-10);
+    margin-bottom: var(--space-4);
+  }
+
+  .tool-page__content p {
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin-bottom: var(--space-4);
+  }
+
+  .tool-steps {
+    padding-left: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    color: var(--color-text-muted);
+    line-height: 1.65;
+  }
+
+  .tool-faqs {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .tool-faqs details {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .tool-faqs summary {
+    font-weight: 600;
+    color: var(--color-heading);
+    cursor: pointer;
+    font-size: var(--text-sm);
+  }
+
+  .tool-faqs p {
+    margin-top: var(--space-3);
+    font-size: var(--text-sm);
+    margin-bottom: 0;
+  }
+
+  .tool-page__related {
+    margin-top: var(--space-10);
+    padding: var(--space-6);
+    background: var(--color-surface);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-border);
+  }
+
+  .tool-page__related h2 {
+    font-size: var(--text-base) !important;
+    margin-top: 0 !important;
+    margin-bottom: var(--space-3) !important;
+  }
+
+  .tool-page__related ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding-left: var(--space-4);
+  }
+
+  .tool-page__related li {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .tool-page__related a {
+    color: var(--color-accent);
+    font-weight: 500;
+  }
+
+  .tool-page__cta {
+    margin-top: var(--space-12);
+    padding: var(--space-8) var(--space-10);
+    background: var(--color-accent);
+    border-radius: var(--radius-xl);
+    color: white;
+  }
+
+  .tool-page__cta h2 {
+    font-size: var(--text-xl);
+    font-weight: 800;
+    color: white;
+    margin-bottom: var(--space-3);
+  }
+
+  .tool-page__cta p {
+    color: rgba(255,255,255,0.85);
+    line-height: 1.6;
+    margin-bottom: var(--space-5);
+    max-width: 520px;
+  }
+
+  .tool-page__cta .btn--primary {
+    background: white;
+    color: var(--color-accent);
+  }
+
+  .tool-page__cta .btn--primary:hover {
+    background: var(--color-heading);
+    color: white;
+  }
+</style>

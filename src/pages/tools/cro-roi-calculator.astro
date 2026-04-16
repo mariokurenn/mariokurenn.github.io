@@ -1,0 +1,172 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import CROROICalculator from '@/components/calculators/CROROICalculator.astro';
+
+const siteURL = 'https://grow-conversions.com';
+const pageURL = `${siteURL}/tools/cro-roi-calculator/`;
+
+const schemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'CRO ROI Calculator',
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Web Browser',
+    description: 'Free CRO ROI calculator. See the exact revenue impact of improving your conversion rate — monthly and annually — before committing to a CRO programme.',
+    url: pageURL,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+    provider: { '@type': 'Organization', name: 'grow-conversions.com', url: siteURL },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteURL },
+      { '@type': 'ListItem', position: 2, name: 'CRO Tools', item: `${siteURL}/tools/` },
+      { '@type': 'ListItem', position: 3, name: 'CRO ROI Calculator', item: pageURL },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'What is a realistic ROI for CRO?',
+        acceptedAnswer: { '@type': 'Answer', text: 'CRO ROI varies widely by site, but well-run programmes consistently deliver 5:1 to 20:1 returns on investment. A realistic baseline expectation from a structured 3–6 month CRO engagement is a 15–30% relative improvement in conversion rate on targeted pages. For a business with €50,000/month in revenue and a 25% CVR improvement, that represents €12,500/month in incremental revenue — or €150,000/year — from the same traffic spend.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Is CRO more cost-effective than paid traffic?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Yes, in most cases. CRO improvements are permanent — a higher conversion rate applies to every future visitor, making every future marketing investment more efficient. A business spending €10,000/month on paid traffic that doubles its CVR from 2% to 4% generates the same revenue uplift as doubling the ad budget — at zero additional media spend. CRO also compounds: each improvement makes subsequent traffic spend more efficient.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'How long does CRO take to produce results?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Quick-fix CRO improvements — removing checkout friction, adding trust signals, simplifying forms — can produce measurable CVR improvement within 2–4 weeks. A/B test-validated changes require a minimum of 14 days per test plus time to reach statistical significance. Most businesses in a structured CRO programme see meaningful CVR improvements (15–30% relative lift) within 60–90 days, with compounding gains as the test programme matures.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'What does a CRO programme cost?',
+        acceptedAnswer: { '@type': 'Answer', text: 'CRO programme costs range from €2,000–5,000 for a one-time audit with recommendations, to €3,000–8,000/month for a full managed programme including ongoing testing, analysis, and implementation. The ROI calculation is straightforward: if your programme costs €4,000/month and produces a 20% CVR improvement worth €12,000/month in incremental revenue, the net monthly gain is €8,000. Use the calculator above with your own numbers to build the business case.' },
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="CRO ROI Calculator — What Is a Conversion Rate Improvement Worth?"
+  description="Free CRO ROI calculator. Enter your monthly visitors, current CVR, and AOV to see the exact revenue impact of improving your conversion rate — before you invest."
+  jsonLd={schemas}
+>
+  <div class="tool-page">
+    <div class="tool-page__hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+          <a href="/tools/">CRO Tools</a>
+          <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+          <span class="breadcrumbs__current" aria-current="page">CRO ROI Calculator</span>
+        </nav>
+        <h1 class="tool-page__title">CRO ROI Calculator</h1>
+        <p class="tool-page__intro">
+          What is a conversion rate improvement actually worth to your business? This calculator takes your traffic,
+          current CVR, and average order value and shows you the exact monthly and annual revenue impact of improving
+          your conversion rate by 10%, 25%, 50%, or 100%. Use it to build the business case for CRO investment —
+          or to set realistic targets for your next optimisation programme.
+        </p>
+      </div>
+    </div>
+
+    <div class="container tool-page__body">
+
+      <CROROICalculator />
+
+      <div class="tool-page__content">
+        <h2>How to Use This Calculator</h2>
+        <ol class="tool-steps">
+          <li><strong>Monthly visitors</strong> — your site's total monthly sessions or unique visitors from GA4. For a page-level calculation, use that page's monthly sessions.</li>
+          <li><strong>Current conversion rate</strong> — your current CVR as a percentage. Use the <a href="/tools/conversion-rate-calculator/">Conversion Rate Calculator</a> to calculate this if needed.</li>
+          <li><strong>Average order / lead value</strong> — average transaction value for e-commerce, or average deal value for B2B lead generation. Use a realistic closed-deal value, not pipeline value.</li>
+          <li><strong>CVR improvement target</strong> — select a realistic improvement scenario. +10% (conservative) = what a single optimisation often delivers. +25% (realistic) = a 3–6 month structured programme. +50–100% = a mature, long-running test programme.</li>
+        </ol>
+
+        <h2>What Are Realistic CVR Improvements?</h2>
+        <p>
+          Based on data from our client engagements, here's what different types of CRO work typically delivers:
+        </p>
+        <ul class="tool-list">
+          <li><strong>Single fix (one friction point removed)</strong> — 5–15% relative CVR improvement on the affected page</li>
+          <li><strong>3-month structured programme (3–5 validated tests)</strong> — 15–30% relative improvement on targeted pages</li>
+          <li><strong>6–12 month ongoing programme</strong> — 40–80% cumulative improvement as learnings compound</li>
+          <li><strong>Full site transformation</strong> — 100%+ improvement is achievable, as our <a href="/case-studies/">case studies</a> show, over 12–18 months of systematic work</li>
+        </ul>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="tool-faqs">
+          <details>
+            <summary>What is a realistic ROI for CRO?</summary>
+            <p>Well-run CRO programmes consistently deliver 5:1 to 20:1 returns. A realistic baseline for a structured 3–6 month engagement is 15–30% relative CVR improvement on targeted pages. Use the calculator with your actual numbers to get a specific projection.</p>
+          </details>
+          <details>
+            <summary>Is CRO more cost-effective than paid traffic?</summary>
+            <p>Yes. A CVR improvement is permanent and applies to every future visitor — making every future ad spend more efficient. Doubling CVR from 2% to 4% generates the same revenue as doubling the ad budget, at zero additional media cost. The two are not mutually exclusive, but CRO should always come first.</p>
+          </details>
+          <details>
+            <summary>How long does CRO take to produce results?</summary>
+            <p>Quick fixes: 2–4 weeks. A/B test-validated changes: 14+ days per test. Full programme results: 60–90 days for meaningful initial improvement, compounding thereafter. Most clients see the first measurable CVR lift within the first month of a structured engagement.</p>
+          </details>
+          <details>
+            <summary>What does a CRO programme cost?</summary>
+            <p>One-time audit: €2,000–5,000. Ongoing managed programme: €3,000–8,000/month. The ROI calculation is: (Incremental monthly revenue × 12) ÷ Annual programme cost. If a €4,000/month programme delivers a 25% CVR improvement worth €12,000/month, that's a 3:1 monthly ROI and a 36:1 annual ROI after accounting for the programme cost.</p>
+          </details>
+        </div>
+
+        <div class="tool-page__related">
+          <h2>Related Tools & Resources</h2>
+          <ul>
+            <li><a href="/tools/conversion-rate-calculator/">Conversion Rate Calculator</a> — calculate your current CVR</li>
+            <li><a href="/tools/cart-abandonment-rate-calculator/">Cart Abandonment Calculator</a> — quantify abandonment losses</li>
+            <li><a href="/services/cro-audit/">CRO Audit Service</a> — identify what's blocking your conversions</li>
+            <li><a href="/case-studies/">Client Case Studies</a> — real CVR improvements with before/after data</li>
+            <li><a href="/blog/what-is-conversion-rate-optimization/">What Is CRO?</a> — the complete guide</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tool-page__cta">
+        <h2>Ready to Turn These Numbers Into Reality?</h2>
+        <p>A free CRO audit shows you exactly where your site is leaking conversions, what fixing each issue is worth, and where to start. No fluff — just a prioritized fix list with revenue estimates.</p>
+        <a href="/contact/" class="btn btn--primary">Get a Free CRO Audit</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .tool-page__hero { background: var(--color-surface); border-bottom: 1px solid var(--color-border); padding: var(--space-14) 0 var(--space-10); }
+  .tool-page__title { font-size: clamp(1.75rem, 3.5vw, 2.75rem); font-weight: 900; letter-spacing: -0.04em; margin-top: var(--space-4); margin-bottom: var(--space-4); }
+  .tool-page__intro { font-size: var(--text-lg); color: var(--color-text-muted); max-width: 680px; line-height: 1.65; }
+  .tool-page__body { padding-top: var(--space-10); padding-bottom: var(--space-16); max-width: 780px; }
+  .tool-page__content { margin-top: var(--space-10); }
+  .tool-page__content h2 { font-size: var(--text-xl); font-weight: 800; margin-top: var(--space-10); margin-bottom: var(--space-4); }
+  .tool-page__content p { color: var(--color-text-muted); line-height: 1.7; margin-bottom: var(--space-4); }
+  .tool-steps { padding-left: var(--space-6); display: flex; flex-direction: column; gap: var(--space-3); color: var(--color-text-muted); line-height: 1.65; }
+  .tool-list { padding-left: var(--space-6); display: flex; flex-direction: column; gap: var(--space-2); color: var(--color-text-muted); line-height: 1.65; margin-bottom: var(--space-4); }
+  .tool-faqs { display: flex; flex-direction: column; gap: var(--space-2); }
+  .tool-faqs details { border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-3) var(--space-4); }
+  .tool-faqs summary { font-weight: 600; color: var(--color-heading); cursor: pointer; font-size: var(--text-sm); }
+  .tool-faqs p { margin-top: var(--space-3); font-size: var(--text-sm); margin-bottom: 0; }
+  .tool-page__related { margin-top: var(--space-10); padding: var(--space-6); background: var(--color-surface); border-radius: var(--radius-xl); border: 1px solid var(--color-border); }
+  .tool-page__related h2 { font-size: var(--text-base) !important; margin-top: 0 !important; margin-bottom: var(--space-3) !important; }
+  .tool-page__related ul { display: flex; flex-direction: column; gap: var(--space-2); padding-left: var(--space-4); }
+  .tool-page__related li { font-size: var(--text-sm); color: var(--color-text-muted); }
+  .tool-page__related a { color: var(--color-accent); font-weight: 500; }
+  .tool-page__cta { margin-top: var(--space-12); padding: var(--space-8) var(--space-10); background: var(--color-accent); border-radius: var(--radius-xl); color: white; }
+  .tool-page__cta h2 { font-size: var(--text-xl); font-weight: 800; color: white; margin-bottom: var(--space-3); }
+  .tool-page__cta p { color: rgba(255,255,255,0.85); line-height: 1.6; margin-bottom: var(--space-5); max-width: 520px; }
+  .tool-page__cta .btn--primary { background: white; color: var(--color-accent); }
+  .tool-page__cta .btn--primary:hover { background: var(--color-heading); color: white; }
+</style>

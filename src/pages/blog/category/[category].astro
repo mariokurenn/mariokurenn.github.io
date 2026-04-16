@@ -19,36 +19,84 @@ export async function getStaticPaths() {
 }
 
 const { category, posts } = Astro.props;
+const categorySlug = Astro.params.category as string;
+const siteURL = 'https://grow-conversions.com';
 
 const formatDate = (date: Date) =>
   new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).format(date);
 
-const categoryDescriptions: Record<string, string> = {
-  'A/B Testing': `A/B testing — also called split testing — is the practice of showing two versions of a page, element, or flow to different segments of your audience simultaneously, then measuring which version drives more conversions. It's the closest thing to a controlled experiment that most businesses can run on their own website.
+const categoryMeta: Record<string, { title: string; metaDescription: string; description: string }> = {
+  'A/B Testing': {
+    title: 'A/B Testing Guides — Split Testing Strategy & Best Practices',
+    metaDescription: 'A/B testing guides from a specialist who has run 800+ tests. Learn proper sample sizes, test duration rules, common mistakes, and which tools actually produce reliable data.',
+    description: `A/B testing — also called split testing — is the practice of showing two versions of a page, element, or flow to different segments of your audience simultaneously, then measuring which version drives more conversions. It's the closest thing to a controlled experiment that most businesses can run on their own website.
 
 Done correctly, A/B testing removes guesswork from conversion optimisation. Instead of debating whether the headline should say "Start your free trial" or "Get started free," you test both and let your actual visitors decide. The version that converts more wins — not the one the founder preferred, not the one the designer liked, but the one that works.
 
 The challenge is that most teams run A/B tests incorrectly. They test too early (before reaching statistical significance), stop tests too early (the peeking problem), or test cosmetic changes that never move the needle. A button colour change rarely has a meaningful impact on revenue. A headline rewrite, a restructured pricing page, or a simplified checkout flow often does.
 
 The articles in this category cover the mechanics of rigorous A/B testing: how long to run a test, what sample sizes you actually need, which mistakes silently invalidate most tests, and which tools work best for different platforms and team sizes. If you're running tests and not seeing consistent winners, start here.`,
+  },
 
-  'Landing Pages': `A landing page is any page a visitor arrives on after clicking an ad, email, or link — but in the context of conversion optimisation, it usually refers to a dedicated page built with a single goal: get the visitor to take one specific action.
+  'Landing Pages': {
+    title: 'Landing Page Optimization — Design, Copy & Conversion Guides',
+    metaDescription: 'Landing page best practices, conversion psychology, and structural principles that separate high-converting pages from average ones. Design, copy, and mobile optimization guides.',
+    description: `A landing page is any page a visitor arrives on after clicking an ad, email, or link — but in the context of conversion optimisation, it usually refers to a dedicated page built with a single goal: get the visitor to take one specific action.
 
 Landing pages are the highest-leverage pages on most websites. Unlike a homepage, which serves multiple audiences and goals, a landing page is focused. It has one offer, one call to action, and no navigation links competing for attention. That focus is why well-optimised landing pages consistently outperform general site pages for paid traffic — and why a poorly optimised landing page is one of the most expensive mistakes in digital marketing.
 
 The difference between a 2% converting landing page and a 6% converting landing page isn't luck or design taste. It's message match (does the headline mirror what the ad said?), offer clarity (does the visitor immediately understand what they get?), trust signals (is there social proof near the CTA?), and friction reduction (is the form as short as it can be while still qualifying leads?).
 
 The articles in this category cover landing page best practices, conversion psychology, and the specific structural elements that separate high-converting pages from average ones.`,
+  },
 
-  'CRO Strategy': `Conversion rate optimisation strategy covers the decisions that determine whether your CRO programme produces compound results or isolated wins that don't add up. The tools matter less than the framework: how you prioritise pages to optimise, which research methods you use to form hypotheses, how you document learnings so they build on each other, and how you decide when to test versus when to simply fix.
+  'CRO Strategy': {
+    title: 'CRO Strategy Guides — Conversion Rate Optimization Frameworks',
+    metaDescription: 'CRO strategy guides for marketers and founders. Audit frameworks, industry benchmarks, low-traffic tactics, and the systematic optimization process that compounds over time.',
+    description: `Conversion rate optimisation strategy covers the decisions that determine whether your CRO programme produces compound results or isolated wins that don't add up. The tools matter less than the framework: how you prioritise pages to optimise, which research methods you use to form hypotheses, how you document learnings so they build on each other, and how you decide when to test versus when to simply fix.
 
 The articles in this category cover the strategic layer of CRO — from understanding what conversion rate optimisation actually is and how it differs from SEO, to benchmarking your current rates against industry data, to knowing how to run effective CRO when you don't yet have the traffic to A/B test reliably. Whether you're setting up your first optimisation programme or auditing an existing one, the right strategy is the difference between a programme that compounds and one that plateaus.`,
+  },
+
+  'Analytics': {
+    title: 'CRO Analytics & Metrics — Conversion Data Guides',
+    metaDescription: 'How to calculate, benchmark, and improve conversion rates using Google Analytics 4, heatmaps, and session recordings. Data guides for marketers who want to measure what matters.',
+    description: `You can't improve what you don't measure — but measuring the wrong things is just as dangerous as measuring nothing. Most teams track conversion rate as a single number when the real signal is in the segments: by device, traffic source, page, and audience cohort.
+
+The articles in this category cover the analytical layer of CRO: how to calculate conversion rates correctly, what benchmarks actually mean for your industry, which tools give you reliable data, and how to move from raw numbers to actionable conclusions. Whether you're setting up Google Analytics 4 for the first time or trying to understand why your bounce rate is rising, start here.`,
+  },
 };
+
+const meta = categoryMeta[category] ?? {
+  title: `${category} — CRO Articles`,
+  metaDescription: `Articles about ${category} — conversion rate optimization insights backed by data and real-world testing experience.`,
+  description: '',
+};
+
+const categoryPageSchema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: meta.title,
+    description: meta.metaDescription,
+    url: `${siteURL}/blog/category/${categorySlug}/`,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteURL },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${siteURL}/blog/` },
+      { '@type': 'ListItem', position: 3, name: category, item: `${siteURL}/blog/category/${categorySlug}/` },
+    ],
+  },
+];
 ---
 
 <BaseLayout
-  title={`${category} — CRO Blog`}
-  description={`Articles about ${category} — conversion rate optimization insights backed by data and real-world testing experience.`}
+  title={meta.title}
+  description={meta.metaDescription}
+  jsonLd={categoryPageSchema}
 >
   <div class="blog-index">
     <div class="blog-index__header">
@@ -62,9 +110,9 @@ The articles in this category cover the strategic layer of CRO — from understa
         </nav>
         <h1 class="blog-index__title">{category}</h1>
         <p class="blog-index__subtitle">{posts.length} article{posts.length !== 1 ? 's' : ''} in this category</p>
-        {categoryDescriptions[category] && (
+        {meta.description && (
           <div class="blog-index__description">
-            {categoryDescriptions[category].split('\n\n').map((para) => (
+            {meta.description.split('\n\n').map((para) => (
               <p>{para}</p>
             ))}
           </div>

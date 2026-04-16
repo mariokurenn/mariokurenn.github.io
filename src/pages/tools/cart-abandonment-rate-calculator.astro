@@ -1,0 +1,170 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import CartAbandonmentCalculator from '@/components/calculators/CartAbandonmentCalculator.astro';
+
+const siteURL = 'https://grow-conversions.com';
+const pageURL = `${siteURL}/tools/cart-abandonment-rate-calculator/`;
+
+const schemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'Cart Abandonment Rate Calculator',
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Web Browser',
+    description: 'Free cart abandonment calculator. See exactly how much revenue cart abandonment is costing your ecommerce store monthly and annually — and what recovering 10%, 20%, or 30% of abandoned carts is worth.',
+    url: pageURL,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+    provider: { '@type': 'Organization', name: 'grow-conversions.com', url: siteURL },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteURL },
+      { '@type': 'ListItem', position: 2, name: 'CRO Tools', item: `${siteURL}/tools/` },
+      { '@type': 'ListItem', position: 3, name: 'Cart Abandonment Rate Calculator', item: pageURL },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'What is the average cart abandonment rate?',
+        acceptedAnswer: { '@type': 'Answer', text: 'The average cart abandonment rate is 70.19% according to Baymard Institute data from over 57,000 shoppers (2024). This means roughly 7 out of every 10 shoppers who add an item to their cart leave without completing the purchase. Luxury and fashion stores see rates above 80%. Digital products and subscriptions typically see rates of 60–65%.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'How do you calculate cart abandonment rate?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Cart abandonment rate = (1 − (Completed Transactions ÷ Carts Initiated)) × 100. For example, if 1,000 shoppers added items to their cart and 300 completed a purchase, abandonment rate = (1 − 300/1,000) × 100 = 70%. In Google Analytics 4, this can be calculated from the add_to_cart and purchase events in your funnel exploration report.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'How do you reduce cart abandonment rate?',
+        acceptedAnswer: { '@type': 'Answer', text: 'The highest-impact tactics to reduce cart abandonment: (1) show full pricing including shipping and taxes before checkout — unexpected costs cause 48% of abandonment (Baymard); (2) offer guest checkout — forced account creation causes 24%; (3) simplify the checkout form — remove every unnecessary field; (4) add trust signals (security badges, returns policy) near the payment step; (5) set up abandoned cart email sequences with the first email sent within 1 hour of abandonment.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'What is a good cart abandonment rate?',
+        acceptedAnswer: { '@type': 'Answer', text: 'A cart abandonment rate below 60% is considered strong performance — well below the 70.19% industry average. Rates between 65–70% are average. Rates above 75% indicate significant checkout friction. The benchmark varies by category: luxury goods, high-consideration purchases, and B2B products naturally see higher abandonment rates because purchase decisions take longer.' },
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Cart Abandonment Rate Calculator — See What It's Costing You"
+  description="Free cart abandonment calculator. Enter your sessions, add-to-cart rate, and AOV to see exactly how much revenue cart abandonment costs monthly — and what recovery is worth."
+  jsonLd={schemas}
+>
+  <div class="tool-page">
+    <div class="tool-page__hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+          <a href="/tools/">CRO Tools</a>
+          <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+          <span class="breadcrumbs__current" aria-current="page">Cart Abandonment Calculator</span>
+        </nav>
+        <h1 class="tool-page__title">Cart Abandonment Rate Calculator</h1>
+        <p class="tool-page__intro">
+          The average <strong>cart abandonment rate is 70.19%</strong> (Baymard Institute, 2024) — meaning 7 out of every
+          10 shoppers who add something to their cart leave without buying. Most ecommerce teams know their abandonment
+          rate. Few have calculated what it actually costs in euros per month. This calculator does that in seconds.
+        </p>
+      </div>
+    </div>
+
+    <div class="container tool-page__body">
+
+      <CartAbandonmentCalculator />
+
+      <div class="tool-page__content">
+        <h2>How to Use This Calculator</h2>
+        <ol class="tool-steps">
+          <li><strong>Monthly website sessions</strong> — total sessions to your store, from GA4 or Shopify analytics.</li>
+          <li><strong>Add-to-cart rate</strong> — the percentage of sessions that result in an add-to-cart event. Industry average is 8–10%. Find yours in GA4 under Ecommerce purchases → Add to carts ÷ Sessions.</li>
+          <li><strong>Cart abandonment rate</strong> — the percentage of initiated carts that are not completed. Industry average is 68–72%. GA4 funnel exploration: sessions with add_to_cart minus sessions with purchase, divided by sessions with add_to_cart.</li>
+          <li><strong>Average order value</strong> — your average completed transaction value. Pull from your Shopify or GA4 ecommerce report.</li>
+        </ol>
+
+        <h2>What the Results Show</h2>
+        <p>
+          The calculator shows your monthly revenue lost to abandonment, the number of carts started and abandoned, and
+          the revenue available from recovering 10%, 20%, and 30% of abandoned carts. Recovering 10–15% of abandoned
+          carts is realistic with a well-structured email recovery sequence and exit-intent optimization.
+        </p>
+        <p>
+          For context: the average ecommerce store with 20,000 monthly sessions, an 8% add-to-cart rate, 70% abandonment
+          rate, and €80 AOV is losing over €71,000/month to cart abandonment. Recovering 15% of that is worth €10,000/month
+          — or €128,000 annually — without spending a single euro more on traffic.
+        </p>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="tool-faqs">
+          <details>
+            <summary>What is the average cart abandonment rate?</summary>
+            <p>70.19% according to Baymard Institute (2024). Luxury and fashion: 80%+. Digital products and subscriptions: 60–65%. If you're above 75%, checkout friction is the likely cause.</p>
+          </details>
+          <details>
+            <summary>How do you calculate cart abandonment rate?</summary>
+            <p>Cart abandonment rate = (1 − Completed Transactions ÷ Carts Initiated) × 100. In GA4: add_to_cart events ÷ purchase events gives the ratio of initiated vs completed carts. Use the funnel exploration report for the most accurate view.</p>
+          </details>
+          <details>
+            <summary>How do you reduce cart abandonment?</summary>
+            <p>Top tactics: (1) show full pricing before checkout — unexpected costs cause 48% of abandonment; (2) offer guest checkout — forced registration causes 24%; (3) simplify checkout forms; (4) add trust signals at the payment step; (5) send the first abandonment recovery email within 1 hour. See the full guide: <a href="/blog/cart-abandonment-recovery/">16 Cart Abandonment Recovery Tactics</a>.</p>
+          </details>
+          <details>
+            <summary>What is a good cart abandonment rate?</summary>
+            <p>Below 60% is strong — well below the 70.19% industry average. 65–70% is average. Above 75% signals meaningful checkout friction worth fixing. Compare within your own category — luxury goods structurally abandon at higher rates than impulse or low-ticket items.</p>
+          </details>
+        </div>
+
+        <div class="tool-page__related">
+          <h2>Related Tools & Resources</h2>
+          <ul>
+            <li><a href="/tools/conversion-rate-calculator/">Conversion Rate Calculator</a> — calculate overall CVR and revenue impact</li>
+            <li><a href="/blog/cart-abandonment-recovery/">16 Cart Abandonment Recovery Tactics</a> — the full guide to reducing and recovering abandonment</li>
+            <li><a href="/blog/how-to-improve-ecommerce-conversion-rate/">21 Tactics to Improve Ecommerce Conversion Rate</a></li>
+            <li><a href="/cro-glossary/cart-abandonment/">Cart Abandonment — CRO Glossary</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tool-page__cta">
+        <h2>Want to Know What's Causing Your Abandonment?</h2>
+        <p>A free CRO audit identifies the specific checkout friction points driving your abandonment rate — with a prioritized fix list and estimated revenue impact per fix.</p>
+        <a href="/contact/" class="btn btn--primary">Get a Free CRO Audit</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .tool-page__hero { background: var(--color-surface); border-bottom: 1px solid var(--color-border); padding: var(--space-14) 0 var(--space-10); }
+  .tool-page__title { font-size: clamp(1.75rem, 3.5vw, 2.75rem); font-weight: 900; letter-spacing: -0.04em; margin-top: var(--space-4); margin-bottom: var(--space-4); }
+  .tool-page__intro { font-size: var(--text-lg); color: var(--color-text-muted); max-width: 680px; line-height: 1.65; }
+  .tool-page__body { padding-top: var(--space-10); padding-bottom: var(--space-16); max-width: 780px; }
+  .tool-page__content { margin-top: var(--space-10); }
+  .tool-page__content h2 { font-size: var(--text-xl); font-weight: 800; margin-top: var(--space-10); margin-bottom: var(--space-4); }
+  .tool-page__content p { color: var(--color-text-muted); line-height: 1.7; margin-bottom: var(--space-4); }
+  .tool-steps { padding-left: var(--space-6); display: flex; flex-direction: column; gap: var(--space-3); color: var(--color-text-muted); line-height: 1.65; }
+  .tool-faqs { display: flex; flex-direction: column; gap: var(--space-2); }
+  .tool-faqs details { border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-3) var(--space-4); }
+  .tool-faqs summary { font-weight: 600; color: var(--color-heading); cursor: pointer; font-size: var(--text-sm); }
+  .tool-faqs p { margin-top: var(--space-3); font-size: var(--text-sm); margin-bottom: 0; }
+  .tool-page__related { margin-top: var(--space-10); padding: var(--space-6); background: var(--color-surface); border-radius: var(--radius-xl); border: 1px solid var(--color-border); }
+  .tool-page__related h2 { font-size: var(--text-base) !important; margin-top: 0 !important; margin-bottom: var(--space-3) !important; }
+  .tool-page__related ul { display: flex; flex-direction: column; gap: var(--space-2); padding-left: var(--space-4); }
+  .tool-page__related li { font-size: var(--text-sm); color: var(--color-text-muted); }
+  .tool-page__related a { color: var(--color-accent); font-weight: 500; }
+  .tool-page__cta { margin-top: var(--space-12); padding: var(--space-8) var(--space-10); background: var(--color-accent); border-radius: var(--radius-xl); color: white; }
+  .tool-page__cta h2 { font-size: var(--text-xl); font-weight: 800; color: white; margin-bottom: var(--space-3); }
+  .tool-page__cta p { color: rgba(255,255,255,0.85); line-height: 1.6; margin-bottom: var(--space-5); max-width: 520px; }
+  .tool-page__cta .btn--primary { background: white; color: var(--color-accent); }
+  .tool-page__cta .btn--primary:hover { background: var(--color-heading); color: white; }
+</style>

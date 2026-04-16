@@ -11,6 +11,35 @@ seoKeyword: "cro audit checklist"
 image: "/images/blog/cro-audit-checklist.webp"
 imageAlt: "Structured checklist grid with a magnifying glass revealing hidden conversion gaps on a website"
 draft: false
+howTo:
+  name: "How to Run a CRO Audit"
+  description: "A systematic process for auditing a website's conversion rate — from analytics setup through to a prioritized fix list."
+  steps:
+    - name: "Verify your analytics foundation"
+      text: "Before auditing anything else, confirm that Google Analytics 4 is tracking conversions correctly, your funnel visualization is configured, and micro-conversions (add to cart, form start, pricing page view) are being captured. Auditing based on incomplete data produces incorrect priorities."
+    - name: "Identify your highest-impact pages"
+      text: "Pull a report of your top pages by: (1) highest traffic with lowest conversion rate, and (2) pages in the critical conversion path (homepage, landing pages, product pages, checkout). These are your audit targets — not every page on the site."
+    - name: "Audit analytics and funnel drop-off"
+      text: "For each target page, identify the exact step where visitors drop off most. Use GA4 Exploration funnels to pinpoint the drop-off step. A page-level exit rate of 70%+ is a flag. A checkout step with 50%+ drop-off is a critical blocker."
+    - name: "Run qualitative research"
+      text: "Install a heatmap and session recording tool (Hotjar or Microsoft Clarity) on your target pages if not already running. Watch 20–30 session recordings per page. Run a single-question exit survey: 'What stopped you from [completing your goal] today?' The answers will surface objections that analytics cannot."
+    - name: "Evaluate UX and friction"
+      text: "Review each target page for: above-the-fold clarity (does the visitor immediately understand the offer?), CTA visibility and specificity, form length, trust signals near the conversion action, mobile layout, and page load speed. Score each as pass/fail."
+    - name: "Assess copy and value proposition"
+      text: "Check whether the headline states a specific benefit (not a feature), whether the description answers 'what do I get?' and 'why should I trust you?', and whether the CTA text is action-specific ('Start Free Trial' not 'Submit'). Weak copy is one of the highest-leverage fixes in CRO."
+    - name: "Prioritize findings by revenue impact"
+      text: "Score each identified issue by: estimated traffic impact (how many visitors does this affect?), estimated CVR uplift if fixed (low/medium/high), and implementation effort (low/medium/high). Use the ICE or PIE framework to rank. Fix the highest-traffic, highest-impact, lowest-effort issues first."
+faqs:
+  - question: "What is a CRO audit?"
+    answer: "A CRO audit is a systematic evaluation of a website to identify what is preventing visitors from converting — whether that's completing a purchase, submitting a form, or starting a trial. A CRO audit examines analytics data (where visitors drop off), qualitative research (why they leave), UX and friction points, copywriting and value proposition clarity, trust signals, and technical performance. The output is a prioritized list of conversion improvements ranked by estimated revenue impact."
+  - question: "How long does a CRO audit take?"
+    answer: "A self-conducted CRO audit of a single website typically takes 4–8 hours depending on site complexity. A professional CRO audit covering analytics, qualitative research, UX, copy, and technical performance for a full site takes 2–5 days. The audit checklist in this guide is designed to be completed in one focused session for each priority page — estimate 30–60 minutes per page if you're thorough."
+  - question: "What should a CRO audit include?"
+    answer: "A complete CRO audit should cover six areas: (1) analytics and data foundation — is tracking set up correctly and are conversion goals firing accurately?; (2) funnel analysis — where are visitors dropping off in the conversion path?; (3) qualitative research — heatmaps, session recordings, and exit surveys to understand why; (4) UX and friction — form length, checkout steps, mobile layout, page speed; (5) copy and value proposition — headline clarity, CTA specificity, trust signals; (6) technical performance — Core Web Vitals, mobile rendering, broken elements."
+  - question: "What is the difference between a CRO audit and a UX audit?"
+    answer: "A UX audit evaluates the usability and experience of a site based on design principles and user research. A CRO audit is specifically focused on identifying what is preventing conversions — purchases, leads, sign-ups — and prioritizing fixes by revenue impact. CRO audits use UX evaluation as one component, but every finding must be tied to a business metric. A UX audit might flag that a page feels cluttered; a CRO audit would quantify how much that friction is costing in lost revenue."
+  - question: "How do I prioritize findings from a CRO audit?"
+    answer: "Use the ICE or PIE framework to prioritize CRO audit findings. ICE scores each issue on Impact (how much will fixing this improve CVR?), Confidence (how certain are you this is a real problem?), and Ease (how hard is this to implement?). Score each 1–10 and multiply. PIE uses Potential (CVR uplift potential), Importance (how much traffic does this affect?), and Ease. Start with issues that score high on all three — the changes that will move the most revenue for the least effort."
 ---
 
 Most websites have 5–10 critical conversion blockers. The challenge isn't fixing them — it's finding them.

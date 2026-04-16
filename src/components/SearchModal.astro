@@ -1,0 +1,482 @@
+---
+// No server-side props needed — purely client-side
+---
+
+<div id="search-modal" class="sm-overlay" aria-modal="true" aria-label="Search" role="dialog" hidden>
+  <div class="sm-backdrop" id="sm-backdrop"></div>
+  <div class="sm-panel">
+
+    <!-- Input row -->
+    <div class="sm-input-row">
+      <svg class="sm-input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+      </svg>
+      <input
+        id="sm-input"
+        type="search"
+        class="sm-input"
+        placeholder="Search guides, glossary, services…"
+        autocomplete="off"
+        spellcheck="false"
+        aria-label="Search"
+        aria-autocomplete="list"
+        aria-controls="sm-results"
+      />
+      <kbd class="sm-esc-hint">Esc</kbd>
+    </div>
+
+    <!-- Results -->
+    <div id="sm-results" class="sm-results" role="listbox">
+      <!-- Quick links shown before typing -->
+      <div class="sm-quick" id="sm-quick">
+        <p class="sm-section-label">Quick links</p>
+        <div class="sm-quick-grid">
+          <a href="/blog/" class="sm-quick-link">
+            <span class="sm-quick-icon">📝</span>All Articles
+          </a>
+          <a href="/cro-glossary/" class="sm-quick-link">
+            <span class="sm-quick-icon">📖</span>CRO Glossary
+          </a>
+          <a href="/services/cro-audit/" class="sm-quick-link">
+            <span class="sm-quick-icon">🔍</span>CRO Audit
+          </a>
+          <a href="/services/ab-testing/" class="sm-quick-link">
+            <span class="sm-quick-icon">⚗️</span>A/B Testing
+          </a>
+          <a href="/services/landing-page-design/" class="sm-quick-link">
+            <span class="sm-quick-icon">🎯</span>Landing Pages
+          </a>
+          <a href="/contact/" class="sm-quick-link">
+            <span class="sm-quick-icon">💬</span>Free Audit
+          </a>
+        </div>
+      </div>
+
+      <!-- Dynamic results injected here -->
+      <div id="sm-dynamic"></div>
+    </div>
+
+    <!-- Footer -->
+    <div class="sm-footer">
+      <span><kbd>↑↓</kbd> navigate</span>
+      <span><kbd>↵</kbd> open</span>
+      <span><kbd>Esc</kbd> close</span>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // --- Pagefind lazy loader ---
+  // Uses new Function to bypass Vite's static import analysis — pagefind.js
+  // is generated post-build and doesn't exist in dev mode.
+  let pf: any = null;
+  async function getPagefind() {
+    if (pf) return pf;
+    try {
+      const load = new Function('path', 'return import(path)');
+      pf = await load('/pagefind/pagefind.js');
+      await pf.init();
+    } catch {
+      pf = null;
+    }
+    return pf;
+  }
+
+  // --- DOM refs ---
+  const modal   = document.getElementById('search-modal')!;
+  const backdrop = document.getElementById('sm-backdrop')!;
+  const input   = document.getElementById('sm-input') as HTMLInputElement;
+  const quick   = document.getElementById('sm-quick')!;
+  const dynamic = document.getElementById('sm-dynamic')!;
+  const trigger = document.getElementById('search-trigger')!;
+
+  let activeIdx = -1;
+  let debounceTimer: ReturnType<typeof setTimeout>;
+
+  // --- Open / Close ---
+  function openModal() {
+    modal.removeAttribute('hidden');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => input.focus(), 50);
+    activeIdx = -1;
+  }
+
+  function closeModal() {
+    modal.setAttribute('hidden', '');
+    document.body.style.overflow = '';
+    input.value = '';
+    dynamic.innerHTML = '';
+    quick.style.display = '';
+    activeIdx = -1;
+  }
+
+  trigger?.addEventListener('click', openModal);
+  backdrop.addEventListener('click', closeModal);
+
+  // Cmd+K / Ctrl+K
+  document.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      modal.hasAttribute('hidden') ? openModal() : closeModal();
+    }
+    if (e.key === 'Escape' && !modal.hasAttribute('hidden')) closeModal();
+  });
+
+  // --- Classify result by URL ---
+  type Group = 'Blog Posts' | 'Glossary' | 'Services' | 'Pages';
+
+  function classify(url: string): { group: Group; icon: string } | null {
+    if (/\/blog\/(?!category)[^/]+\/$/.test(url)) return { group: 'Blog Posts', icon: '📄' };
+    if (/\/cro-glossary\/[^/]+\/$/.test(url))     return { group: 'Glossary',   icon: '📖' };
+    if (/\/services\/[^/]+\/$/.test(url))          return { group: 'Services',   icon: '⚙️' };
+    if (/^\/(about|contact|mario-kuren|author)\/?/.test(url)) return { group: 'Pages', icon: '🔗' };
+    return null;
+  }
+
+  // --- Render results ---
+  function renderResults(groups: Record<string, { url: string; title: string; excerpt: string; icon: string }[]>) {
+    const entries = Object.entries(groups);
+    if (entries.length === 0) {
+      dynamic.innerHTML = `<p class="sm-empty">No results found.</p>`;
+      return;
+    }
+
+    let html = '';
+    let itemIdx = 0;
+    for (const [group, items] of entries) {
+      html += `<div class="sm-group"><p class="sm-section-label">${group}</p>`;
+      for (const item of items) {
+        html += `
+          <a href="${item.url}" class="sm-result" role="option" data-idx="${itemIdx}" tabindex="-1">
+            <span class="sm-result-icon" aria-hidden="true">${item.icon}</span>
+            <span class="sm-result-body">
+              <span class="sm-result-title">${item.title}</span>
+              ${item.excerpt ? `<span class="sm-result-excerpt">${item.excerpt}</span>` : ''}
+            </span>
+          </a>`;
+        itemIdx++;
+      }
+      html += '</div>';
+    }
+    dynamic.innerHTML = html;
+
+    // Click to close
+    dynamic.querySelectorAll('.sm-result').forEach(el => {
+      el.addEventListener('click', closeModal);
+    });
+  }
+
+  // --- Search ---
+  async function doSearch(query: string) {
+    const trimmed = query.trim();
+
+    if (!trimmed) {
+      dynamic.innerHTML = '';
+      quick.style.display = '';
+      activeIdx = -1;
+      return;
+    }
+
+    quick.style.display = 'none';
+
+    const engine = await getPagefind();
+    if (!engine) {
+      dynamic.innerHTML = `<p class="sm-empty">Search index loading — try after deploy.</p>`;
+      return;
+    }
+
+    const search = await engine.search(trimmed);
+    const raw = await Promise.all(search.results.slice(0, 12).map((r: any) => r.data()));
+
+    const groups: Record<string, { url: string; title: string; excerpt: string; icon: string }[]> = {};
+
+    for (const r of raw) {
+      const c = classify(r.url);
+      if (!c) continue;
+      if (!groups[c.group]) groups[c.group] = [];
+      if (groups[c.group].length >= 4) continue;
+      groups[c.group].push({
+        url: r.url,
+        title: r.meta?.title ?? r.url,
+        excerpt: r.excerpt ?? '',
+        icon: c.icon,
+      });
+    }
+
+    // Preferred group order
+    const ordered: typeof groups = {};
+    for (const g of ['Blog Posts', 'Glossary', 'Services', 'Pages'] as Group[]) {
+      if (groups[g]) ordered[g] = groups[g];
+    }
+
+    renderResults(ordered);
+    activeIdx = -1;
+  }
+
+  // --- Input handler ---
+  input.addEventListener('input', () => {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => doSearch(input.value), 220);
+  });
+
+  // --- Keyboard navigation ---
+  input.addEventListener('keydown', (e) => {
+    const items = Array.from(dynamic.querySelectorAll<HTMLAnchorElement>('.sm-result'));
+    if (!items.length) return;
+
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      activeIdx = Math.min(activeIdx + 1, items.length - 1);
+      setActive(items);
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      activeIdx = Math.max(activeIdx - 1, -1);
+      setActive(items);
+    } else if (e.key === 'Enter' && activeIdx >= 0) {
+      e.preventDefault();
+      items[activeIdx]?.click();
+    }
+  });
+
+  function setActive(items: HTMLAnchorElement[]) {
+    items.forEach((el, i) => el.classList.toggle('sm-result--active', i === activeIdx));
+    if (activeIdx >= 0) items[activeIdx]?.scrollIntoView({ block: 'nearest' });
+  }
+</script>
+
+<style>
+  .sm-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: clamp(4rem, 10vh, 9rem);
+    padding-inline: var(--space-4);
+  }
+
+  .sm-overlay[hidden] { display: none; }
+
+  .sm-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.55);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    animation: sm-fade-in 0.15s ease;
+  }
+
+  .sm-panel {
+    position: relative;
+    width: 100%;
+    max-width: 620px;
+    background: var(--color-white, #fff);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl, 16px);
+    box-shadow: 0 24px 64px rgba(15, 23, 42, 0.18), 0 4px 16px rgba(15, 23, 42, 0.1);
+    overflow: hidden;
+    animation: sm-slide-in 0.15s ease;
+    display: flex;
+    flex-direction: column;
+    max-height: 80vh;
+  }
+
+  /* Input row */
+  .sm-input-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-5);
+    border-bottom: 1px solid var(--color-border);
+    flex-shrink: 0;
+  }
+
+  .sm-input-icon { color: var(--color-text-muted); flex-shrink: 0; }
+
+  .sm-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: var(--text-base);
+    font-family: inherit;
+    color: var(--color-heading);
+    min-width: 0;
+  }
+
+  .sm-input::placeholder { color: var(--color-text-muted); }
+  .sm-input::-webkit-search-cancel-button { display: none; }
+
+  .sm-esc-hint {
+    font-size: 11px;
+    color: var(--color-text-subtle, #94a3b8);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: 2px 6px;
+    flex-shrink: 0;
+  }
+
+  /* Results scrollable area */
+  .sm-results {
+    overflow-y: auto;
+    flex: 1;
+    min-height: 0;
+  }
+
+  /* Quick links */
+  .sm-quick {
+    padding: var(--space-4) var(--space-5);
+  }
+
+  .sm-quick-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+  }
+
+  .sm-quick-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    text-decoration: none;
+    transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .sm-quick-link:hover {
+    background: var(--color-surface);
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  .sm-quick-icon { font-size: 13px; flex-shrink: 0; }
+
+  /* Section label */
+  .sm-section-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-subtle, #94a3b8);
+    padding: var(--space-3) var(--space-5) var(--space-1);
+  }
+
+  /* Groups */
+  .sm-group { padding-bottom: var(--space-2); }
+
+  /* Result rows */
+  .sm-result {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-5);
+    text-decoration: none;
+    transition: background var(--transition-fast);
+    cursor: pointer;
+  }
+
+  .sm-result:hover,
+  .sm-result--active {
+    background: var(--color-surface);
+  }
+
+  .sm-result-icon {
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .sm-result-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  .sm-result-title {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-heading);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .sm-result-excerpt {
+    font-size: 12px;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Mark (search highlight) */
+  .sm-result-excerpt :global(mark) {
+    background: rgba(26, 127, 60, 0.15);
+    color: var(--color-accent);
+    border-radius: 2px;
+    padding: 0 1px;
+  }
+
+  /* Empty */
+  .sm-empty {
+    padding: var(--space-8) var(--space-5);
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+  }
+
+  /* Footer */
+  .sm-footer {
+    display: flex;
+    gap: var(--space-5);
+    padding: var(--space-3) var(--space-5);
+    border-top: 1px solid var(--color-border);
+    flex-shrink: 0;
+  }
+
+  .sm-footer span {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-size: 11px;
+    color: var(--color-text-subtle, #94a3b8);
+  }
+
+  .sm-footer kbd {
+    font-size: 10px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 3px;
+    padding: 1px 4px;
+    font-family: inherit;
+  }
+
+  @keyframes sm-fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  @keyframes sm-slide-in {
+    from { opacity: 0; transform: translateY(-8px) scale(0.98); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  @media (max-width: 480px) {
+    .sm-overlay { padding-top: 0; align-items: flex-end; }
+    .sm-panel { max-width: 100%; border-radius: var(--radius-xl) var(--radius-xl) 0 0; max-height: 90vh; }
+    .sm-quick-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>

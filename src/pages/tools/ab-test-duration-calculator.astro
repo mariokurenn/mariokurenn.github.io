@@ -1,0 +1,171 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ABTestDurationCalculator from '@/components/calculators/ABTestDurationCalculator.astro';
+
+const siteURL = 'https://grow-conversions.com';
+const pageURL = `${siteURL}/tools/ab-test-duration-calculator/`;
+
+const schemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'A/B Test Duration Calculator',
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Web Browser',
+    description: 'Free A/B test duration calculator. Enter your daily traffic, baseline CVR, and target improvement to find out exactly how many days to run your test.',
+    url: pageURL,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+    provider: { '@type': 'Organization', name: 'grow-conversions.com', url: siteURL },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteURL },
+      { '@type': 'ListItem', position: 2, name: 'CRO Tools', item: `${siteURL}/tools/` },
+      { '@type': 'ListItem', position: 3, name: 'A/B Test Duration Calculator', item: pageURL },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'How long should an A/B test run?',
+        acceptedAnswer: { '@type': 'Answer', text: 'An A/B test should run for a minimum of 14 days (two full business cycles) AND until each variant reaches the pre-calculated minimum sample size — whichever takes longer. Running fewer than 14 days misses weekday/weekend behavioral variation that affects most sites. Stopping early when results look significant is the peeking problem, which inflates false positive rates from 5% to 26% or higher.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'What is the peeking problem in A/B testing?',
+        acceptedAnswer: { '@type': 'Answer', text: 'The peeking problem occurs when you check test results before reaching the pre-calculated end date and stop the test early because it looks statistically significant. This inflates the false positive rate dramatically — a test designed for 5% false positives (95% confidence) can produce false positives 26%+ of the time when stopped early. The fix is to calculate your end date before starting the test and commit to it regardless of interim results.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Can an A/B test run too long?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Yes. Tests running longer than 90 days risk seasonal contamination — behavioral changes due to seasonality, external events, or product changes that had nothing to do with the variant. If a test requires more than 90 days to reach statistical significance, it usually means the MDE is too small for your traffic level. Options: increase MDE (detect bigger effects), drive more traffic to the page, or focus the test on a higher-traffic page.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Why must an A/B test run for at least two weeks?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Most websites have significantly different visitor behavior on weekdays versus weekends. A test that runs only Monday through Friday captures a fundamentally different audience than one that includes weekend traffic. Running for at least 14 days (two full 7-day cycles) ensures both weekday and weekend behavior are represented in both variants equally, producing results that reflect the full range of your actual audience.' },
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="A/B Test Duration Calculator — How Long Should You Run Your Test?"
+  description="Calculate exactly how many days to run your A/B test. Free duration calculator based on your daily traffic, baseline CVR, and minimum detectable effect."
+  jsonLd={schemas}
+>
+  <div class="tool-page">
+    <div class="tool-page__hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+          <a href="/tools/">CRO Tools</a>
+          <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+          <span class="breadcrumbs__current" aria-current="page">A/B Test Duration Calculator</span>
+        </nav>
+        <h1 class="tool-page__title">A/B Test Duration Calculator</h1>
+        <p class="tool-page__intro">
+          How long should you run an A/B test? The answer depends on your daily traffic, baseline conversion rate,
+          and the size of improvement you want to detect. This calculator gives you a specific end date — not a vague
+          "run until significant." Commit to the calculated duration before you start. Stopping early is the single
+          most common cause of false positives in A/B testing.
+        </p>
+      </div>
+    </div>
+
+    <div class="container tool-page__body">
+
+      <ABTestDurationCalculator />
+
+      <div class="tool-page__content">
+        <h2>How to Use This Calculator</h2>
+        <ol class="tool-steps">
+          <li><strong>Baseline conversion rate</strong> — your current CVR on the page you're testing. Pull from GA4 or your A/B testing tool for the last 30 days.</li>
+          <li><strong>Minimum detectable effect</strong> — the relative improvement you want to detect. 15–20% is a practical default. Lower MDE = longer required test duration.</li>
+          <li><strong>Daily visitors to the page</strong> — not site-wide traffic. Use the specific page's daily average from your analytics. Divide monthly sessions by 30 for a quick estimate.</li>
+          <li><strong>Number of variants</strong> — 2 for a standard A/B test (control + one variant). More variants require proportionally more traffic and time.</li>
+        </ol>
+
+        <h2>The Two Rules for Test Duration</h2>
+        <p>
+          A valid A/B test must satisfy <em>both</em> of these conditions before you declare a result:
+        </p>
+        <ol class="tool-steps">
+          <li><strong>Minimum sample size reached</strong> — each variant has received the number of visitors calculated by the <a href="/tools/ab-test-sample-size-calculator/">Sample Size Calculator</a>.</li>
+          <li><strong>Minimum 14 days elapsed</strong> — always, regardless of sample size. Weekend/weekday behavioral differences make sub-two-week tests unreliable.</li>
+        </ol>
+        <p>
+          If your calculator result shows fewer than 14 days, the tool automatically raises it to 14. If it shows more than 90 days, consider increasing your MDE or testing on a higher-traffic page.
+        </p>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="tool-faqs">
+          <details>
+            <summary>How long should an A/B test run?</summary>
+            <p>Minimum 14 days AND until the pre-calculated sample size is reached — whichever is longer. Stopping early inflates false positive rates from 5% to 26%+. Calculate your end date before starting, set a calendar reminder, and do not look at results until then.</p>
+          </details>
+          <details>
+            <summary>What is the peeking problem?</summary>
+            <p>Checking results before the end date and stopping when they look significant. A 95% confidence test that is peeked at repeatedly can produce false positives more than 26% of the time — 5× the intended rate. Fix: commit to the end date calculated before the test starts.</p>
+          </details>
+          <details>
+            <summary>Can a test run too long?</summary>
+            <p>Yes — tests over 90 days risk seasonal contamination. If you need more than 90 days, either increase your MDE or run the test on a higher-traffic page. Better to detect a 20% improvement confidently than to chase a 5% improvement across 4 months.</p>
+          </details>
+          <details>
+            <summary>Why must tests run for at least 2 weeks?</summary>
+            <p>Most sites have meaningfully different behavior on weekdays vs. weekends. A test that runs only 5–7 days captures an unrepresentative slice of your audience. 14 days ensures both weekday and weekend patterns are captured in both variants equally.</p>
+          </details>
+        </div>
+
+        <div class="tool-page__related">
+          <h2>Related Tools & Resources</h2>
+          <ul>
+            <li><a href="/tools/ab-test-sample-size-calculator/">A/B Test Sample Size Calculator</a> — calculate required visitors per variant</li>
+            <li><a href="/blog/how-long-to-run-ab-test/">How Long to Run an A/B Test</a> — the complete guide with worked examples</li>
+            <li><a href="/blog/ab-testing-best-practices/">A/B Testing Best Practices</a> — every best practice from 800+ tests</li>
+            <li><a href="/blog/ab-testing-mistakes/">A/B Testing Mistakes That Invalidate Results</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tool-page__cta">
+        <h2>Not Sure What to Test First?</h2>
+        <p>A free CRO audit identifies your highest-leverage test candidates — pages with the most traffic, worst CVR, and clearest hypotheses — so you spend your testing budget where it counts.</p>
+        <a href="/contact/" class="btn btn--primary">Get a Free CRO Audit</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .tool-page__hero { background: var(--color-surface); border-bottom: 1px solid var(--color-border); padding: var(--space-14) 0 var(--space-10); }
+  .tool-page__title { font-size: clamp(1.75rem, 3.5vw, 2.75rem); font-weight: 900; letter-spacing: -0.04em; margin-top: var(--space-4); margin-bottom: var(--space-4); }
+  .tool-page__intro { font-size: var(--text-lg); color: var(--color-text-muted); max-width: 680px; line-height: 1.65; }
+  .tool-page__body { padding-top: var(--space-10); padding-bottom: var(--space-16); max-width: 780px; }
+  .tool-page__content { margin-top: var(--space-10); }
+  .tool-page__content h2 { font-size: var(--text-xl); font-weight: 800; margin-top: var(--space-10); margin-bottom: var(--space-4); }
+  .tool-page__content p { color: var(--color-text-muted); line-height: 1.7; margin-bottom: var(--space-4); }
+  .tool-steps { padding-left: var(--space-6); display: flex; flex-direction: column; gap: var(--space-3); color: var(--color-text-muted); line-height: 1.65; }
+  .tool-faqs { display: flex; flex-direction: column; gap: var(--space-2); }
+  .tool-faqs details { border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-3) var(--space-4); }
+  .tool-faqs summary { font-weight: 600; color: var(--color-heading); cursor: pointer; font-size: var(--text-sm); }
+  .tool-faqs p { margin-top: var(--space-3); font-size: var(--text-sm); margin-bottom: 0; }
+  .tool-page__related { margin-top: var(--space-10); padding: var(--space-6); background: var(--color-surface); border-radius: var(--radius-xl); border: 1px solid var(--color-border); }
+  .tool-page__related h2 { font-size: var(--text-base) !important; margin-top: 0 !important; margin-bottom: var(--space-3) !important; }
+  .tool-page__related ul { display: flex; flex-direction: column; gap: var(--space-2); padding-left: var(--space-4); }
+  .tool-page__related li { font-size: var(--text-sm); color: var(--color-text-muted); }
+  .tool-page__related a { color: var(--color-accent); font-weight: 500; }
+  .tool-page__cta { margin-top: var(--space-12); padding: var(--space-8) var(--space-10); background: var(--color-accent); border-radius: var(--radius-xl); color: white; }
+  .tool-page__cta h2 { font-size: var(--text-xl); font-weight: 800; color: white; margin-bottom: var(--space-3); }
+  .tool-page__cta p { color: rgba(255,255,255,0.85); line-height: 1.6; margin-bottom: var(--space-5); max-width: 520px; }
+  .tool-page__cta .btn--primary { background: white; color: var(--color-accent); }
+  .tool-page__cta .btn--primary:hover { background: var(--color-heading); color: white; }
+</style>

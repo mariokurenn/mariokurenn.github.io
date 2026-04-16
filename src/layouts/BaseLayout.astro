@@ -29,7 +29,7 @@ const websiteSchema = {
     '@type': 'SearchAction',
     target: {
       '@type': 'EntryPoint',
-      urlTemplate: 'https://grow-conversions.com/blog/?q={search_term_string}',
+      urlTemplate: 'https://grow-conversions.com/search/?q={search_term_string}',
     },
     'query-input': 'required name=search_term_string',
   },
@@ -92,7 +92,7 @@ const resolvedJsonLd = seoProps.jsonLd
   <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <Header />
-    <main id="main-content">
+    <main id="main-content" data-pagefind-body>
       <slot />
     </main>
     <Footer />

@@ -10,6 +10,22 @@ imageHero: "/images/blog/mobile-conversion-rate-optimization.webp"
 imageAlt: "Mobile device with upward growth curve representing mobile conversion rate improvement"
 category: "CRO Strategy"
 tags: ["mobile cro", "mobile conversion rate", "mobile optimization", "conversion rate optimization"]
+howTo:
+  name: "How to Optimize Mobile Conversion Rate"
+  description: "A step-by-step process to close the mobile conversion gap — from diagnosing where mobile visitors drop off to implementing the highest-impact fixes."
+  steps:
+    - name: "Segment mobile and desktop CVR in analytics"
+      text: "In GA4, segment your conversion funnel by device type. Identify the specific steps where mobile CVR diverges from desktop most sharply. This tells you whether your mobile problem is at product discovery, product page, cart, or checkout — and prevents you from fixing the wrong thing."
+    - name: "Test core interactions on a real device"
+      text: "Don't rely solely on responsive design previews. Test your site on a real mid-range Android device (the most common mobile hardware globally) and the latest iPhone. Tap every CTA, complete the checkout on mobile, fill in every form. Identify interactions that are technically functional but practically difficult."
+    - name: "Fix above-the-fold experience on mobile"
+      text: "On mobile, the first screen is all you get to hold attention. Confirm that the headline, value proposition, and primary CTA are all visible without scrolling. Hero images should not push the CTA below the fold. Navigation should not dominate screen space. If the visitor can't see what the page is about and what to do next in the first screen, fix that first."
+    - name: "Simplify and enlarge tap targets"
+      text: "Minimum tap target size is 44×44px (Apple HIG) or 48×48dp (Google Material). Check all CTAs, navigation links, form inputs, and interactive elements. Ensure there is at least 8px spacing between adjacent tap targets. Small or closely-spaced tap targets cause misclicks, frustration, and abandonment — especially in checkout forms."
+    - name: "Optimize form inputs for mobile keyboards"
+      text: "Set the correct input type for each field: `type='email'` for email (shows @ keyboard), `type='tel'` for phone (shows number pad), `type='number'` for numeric fields. Use autocomplete attributes (name, email, address-line1, cc-number) to enable browser and OS autofill. Every unnecessary keypress on mobile increases form abandonment."
+    - name: "Reduce checkout to the minimum on mobile"
+      text: "Mobile checkout has higher friction than desktop by default. Minimize the number of steps and fields. Offer Apple Pay, Google Pay, or other one-touch payment methods — these can increase mobile checkout completion by 20–30% by eliminating card entry friction entirely. Test the full checkout flow on mobile after any change."
 faqs:
   - question: "What is the average mobile conversion rate?"
     answer: "Mobile e-commerce conversion rates average 1.5–2.5%, compared to 3.5–5.0% for desktop. This gap has narrowed over the years but persists across industries. For B2B lead generation, mobile CVR is typically 1.0–2.5% vs desktop 2.5–5.0%. The gap is largest in high-consideration purchases (software, B2B services, high-ticket e-commerce) and smallest in impulse categories (food delivery, entertainment, low-cost consumables)."

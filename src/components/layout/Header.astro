@@ -1,10 +1,13 @@
 ---
+import SearchModal from '@/components/SearchModal.astro';
+
 const navLinks = [
    { href: '/about/', label: 'About' },
   { href: '/services/', label: 'Services' },
   { href: '/case-studies/', label: 'Case Studies' },
   { href: '/blog/', label: 'Blog' },
   { href: '/cro-glossary/', label: 'Glossary' },
+  { href: '/tools/', label: 'Tools' },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -63,6 +66,11 @@ const currentPath = Astro.url.pathname;
     </nav>
 
     <div class="header__actions">
+      <button id="search-trigger" class="header__search-btn" aria-label="Search (⌘K)">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+        </svg>
+      </button>
       <a href="/contact/" class="btn btn--primary header__cta">Get Free Audit</a>
       <button class="header__menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu">
         <span class="header__burger" aria-hidden="true"></span>
@@ -83,6 +91,8 @@ const currentPath = Astro.url.pathname;
     </nav>
   </div>
 </header>
+
+<SearchModal />
 
 <!-- Sticky CTA Bar -->
 <div class="sticky-cta" id="sticky-cta" aria-hidden="true">
@@ -273,6 +283,21 @@ const currentPath = Astro.url.pathname;
     align-items: center;
     gap: var(--space-3);
     margin-left: auto;
+  }
+
+  .header__search-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px; height: 34px;
+    border-radius: var(--radius-md);
+    color: var(--color-text-muted);
+    transition: color var(--transition-fast), background var(--transition-fast);
+  }
+
+  .header__search-btn:hover {
+    color: var(--color-heading);
+    background: var(--color-surface);
   }
 
   .header__cta {

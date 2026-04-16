@@ -1,0 +1,221 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SampleSizeCalculator from '@/components/calculators/SampleSizeCalculator.astro';
+
+const siteURL = 'https://grow-conversions.com';
+const pageURL = `${siteURL}/tools/ab-test-sample-size-calculator/`;
+
+const schemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'A/B Test Sample Size Calculator',
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Web Browser',
+    description: 'Free A/B test sample size calculator. Enter your baseline conversion rate, minimum detectable effect, and confidence level to find out how many visitors you need per variant.',
+    url: pageURL,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+    provider: { '@type': 'Organization', name: 'grow-conversions.com', url: siteURL },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteURL },
+      { '@type': 'ListItem', position: 2, name: 'CRO Tools', item: `${siteURL}/tools/` },
+      { '@type': 'ListItem', position: 3, name: 'A/B Test Sample Size Calculator', item: pageURL },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'How many visitors do I need for an A/B test?',
+        acceptedAnswer: { '@type': 'Answer', text: 'The required sample size depends on your baseline conversion rate, the minimum detectable effect (MDE), statistical power (typically 80%), and significance threshold (typically 95%). As a practical example: at a 3% baseline CVR targeting a 15% relative improvement (detecting a 3.45% CVR), you need approximately 8,000–10,000 visitors per variant. Use a sample size calculator with your specific inputs — generic rules of thumb produce incorrect results.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'What is minimum detectable effect (MDE) in A/B testing?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Minimum detectable effect (MDE) is the smallest relative improvement you want your test to be able to detect. If your baseline CVR is 3% and your MDE is 15%, you\'re designing the test to detect a variant CVR of 3.45% or higher. A smaller MDE requires a larger sample size. Most CRO practitioners use 10–20% MDE as a practical starting point — smaller MDEs require very large sample sizes and are only practical for high-traffic pages.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'What happens if I run an A/B test with too few visitors?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Running an A/B test with an insufficient sample size inflates the false positive rate — the probability of declaring a winner when none exists. At 95% significance with adequate sample size, false positives occur 5% of the time. Stopping early when a test "looks significant" with inadequate sample can push the false positive rate to 26% or higher. Under-powered tests produce unreliable results that lead to shipping changes that don\'t actually improve conversion.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'What is statistical significance in A/B testing?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Statistical significance at 95% means there is a 5% probability the observed difference between control and variant occurred by random chance. It does not confirm the magnitude of the improvement or guarantee real-world revenue impact — it only confirms the measured difference is likely not noise. Always pair statistical significance with adequate sample size (statistical power) — a result can be statistically significant but based on too little data to be reliable.' },
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="A/B Test Sample Size Calculator — Free Tool for Statistically Valid Tests"
+  description="Calculate exactly how many visitors you need per variant for a statistically valid A/B test. Free sample size calculator with MDE, confidence level, and power settings."
+  jsonLd={schemas}
+>
+  <div class="tool-page">
+    <div class="tool-page__hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+          <a href="/tools/">CRO Tools</a>
+          <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+          <span class="breadcrumbs__current" aria-current="page">A/B Test Sample Size Calculator</span>
+        </nav>
+        <h1 class="tool-page__title">A/B Test Sample Size Calculator</h1>
+        <p class="tool-page__intro">
+          <strong>Sample size</strong> is the number of visitors each variant needs before your A/B test results can be trusted.
+          Running a test without calculating sample size first is the most common mistake in CRO — it produces false positives
+          that send teams shipping changes that don't actually improve conversion. Enter your baseline CVR and target
+          improvement to find out how many visitors you need per variant.
+        </p>
+      </div>
+    </div>
+
+    <div class="container tool-page__body">
+
+      <SampleSizeCalculator />
+
+      <div class="tool-page__content">
+        <h2>How to Use This Calculator</h2>
+        <ol class="tool-steps">
+          <li><strong>Baseline conversion rate</strong> — your current CVR on the page you're testing. Get this from your analytics platform for the last 30–90 days.</li>
+          <li><strong>Minimum detectable effect (MDE)</strong> — the smallest relative improvement you want to detect. 10–20% is typical. A smaller MDE means a larger required sample size. If you're testing a major redesign, 20%+ is reasonable. Testing a minor copy change, 10% is more appropriate.</li>
+          <li><strong>Statistical confidence</strong> — 95% is the industry standard (5% false positive risk). Use 99% only for irreversible changes. 90% is acceptable for low-stakes tests on low-traffic pages.</li>
+          <li><strong>Statistical power</strong> — 80% is standard (20% false negative risk). Use 90% when missing a true winner is especially costly.</li>
+        </ol>
+
+        <h2>Understanding the Results</h2>
+        <p>
+          The calculator returns the sample size <em>per variant</em>. Total visitors needed = sample size × number of variants.
+          For a standard A/B test (control vs one variant), double the per-variant number.
+        </p>
+        <p>
+          The MDE comparison table shows how sample size changes at different MDE levels — useful for deciding what effect size is realistic given your traffic volume.
+          Pair this result with the <a href="/tools/ab-test-duration-calculator/">A/B Test Duration Calculator</a> to find out how many days the test will take.
+        </p>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="tool-faqs">
+          <details>
+            <summary>How many visitors do I need for an A/B test?</summary>
+            <p>It depends on baseline CVR, MDE, power, and confidence. At 3% baseline CVR, 15% MDE, 95% confidence, 80% power: ~8,000–10,000 visitors per variant. Use the calculator above — generic rules of thumb produce wrong results for your specific scenario.</p>
+          </details>
+          <details>
+            <summary>What is minimum detectable effect (MDE)?</summary>
+            <p>MDE is the smallest relative improvement you want to detect. 10% MDE on a 3% baseline means you're designing the test to detect a variant CVR of 3.3%+. Smaller MDE = larger required sample = longer test. Most practitioners start at 15–20% MDE as a practical baseline.</p>
+          </details>
+          <details>
+            <summary>What happens if I test with too few visitors?</summary>
+            <p>Your false positive rate explodes. At 95% significance with proper sample size, 5% of tests show a winner that isn't real. Stopping early when a test looks good can push that rate to 26%+. Under-powered tests waste time and ship changes that don't convert.</p>
+          </details>
+          <details>
+            <summary>What is statistical significance in A/B testing?</summary>
+            <p>95% significance means there's a 5% probability the observed difference happened by chance. It doesn't confirm the improvement is real or large — it only says it's probably not noise. Always reach both significance AND your pre-calculated sample size before declaring a winner.</p>
+          </details>
+        </div>
+
+        <div class="tool-page__related">
+          <h2>Related Tools & Resources</h2>
+          <ul>
+            <li><a href="/tools/ab-test-duration-calculator/">A/B Test Duration Calculator</a> — convert your sample size into days based on daily traffic</li>
+            <li><a href="/blog/ab-testing-best-practices/">A/B Testing Best Practices</a> — how to run tests that actually produce reliable results</li>
+            <li><a href="/blog/ab-testing-mistakes/">A/B Testing Mistakes</a> — the errors that invalidate most A/B tests</li>
+            <li><a href="/cro-glossary/statistical-significance/">Statistical Significance — CRO Glossary</a></li>
+            <li><a href="/cro-glossary/minimum-detectable-effect/">Minimum Detectable Effect — CRO Glossary</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tool-page__cta">
+        <h2>Need Help Running Rigorous A/B Tests?</h2>
+        <p>I've run 800+ A/B tests. A free CRO audit includes a full assessment of your testing setup, sample size methodology, and highest-leverage test candidates.</p>
+        <a href="/contact/" class="btn btn--primary">Get a Free CRO Audit</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .tool-page__hero {
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-14) 0 var(--space-10);
+  }
+  .tool-page__title {
+    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-4);
+  }
+  .tool-page__intro {
+    font-size: var(--text-lg);
+    color: var(--color-text-muted);
+    max-width: 680px;
+    line-height: 1.65;
+  }
+  .tool-page__body {
+    padding-top: var(--space-10);
+    padding-bottom: var(--space-16);
+    max-width: 780px;
+  }
+  .tool-page__content { margin-top: var(--space-10); }
+  .tool-page__content h2 {
+    font-size: var(--text-xl);
+    font-weight: 800;
+    margin-top: var(--space-10);
+    margin-bottom: var(--space-4);
+  }
+  .tool-page__content p {
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin-bottom: var(--space-4);
+  }
+  .tool-steps {
+    padding-left: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    color: var(--color-text-muted);
+    line-height: 1.65;
+  }
+  .tool-faqs { display: flex; flex-direction: column; gap: var(--space-2); }
+  .tool-faqs details {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-3) var(--space-4);
+  }
+  .tool-faqs summary { font-weight: 600; color: var(--color-heading); cursor: pointer; font-size: var(--text-sm); }
+  .tool-faqs p { margin-top: var(--space-3); font-size: var(--text-sm); margin-bottom: 0; }
+  .tool-page__related {
+    margin-top: var(--space-10);
+    padding: var(--space-6);
+    background: var(--color-surface);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-border);
+  }
+  .tool-page__related h2 { font-size: var(--text-base) !important; margin-top: 0 !important; margin-bottom: var(--space-3) !important; }
+  .tool-page__related ul { display: flex; flex-direction: column; gap: var(--space-2); padding-left: var(--space-4); }
+  .tool-page__related li { font-size: var(--text-sm); color: var(--color-text-muted); }
+  .tool-page__related a { color: var(--color-accent); font-weight: 500; }
+  .tool-page__cta {
+    margin-top: var(--space-12);
+    padding: var(--space-8) var(--space-10);
+    background: var(--color-accent);
+    border-radius: var(--radius-xl);
+    color: white;
+  }
+  .tool-page__cta h2 { font-size: var(--text-xl); font-weight: 800; color: white; margin-bottom: var(--space-3); }
+  .tool-page__cta p { color: rgba(255,255,255,0.85); line-height: 1.6; margin-bottom: var(--space-5); max-width: 520px; }
+  .tool-page__cta .btn--primary { background: white; color: var(--color-accent); }
+  .tool-page__cta .btn--primary:hover { background: var(--color-heading); color: white; }
+</style>
