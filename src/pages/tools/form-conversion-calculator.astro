@@ -1,0 +1,182 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import FormConversionCalculator from '@/components/calculators/FormConversionCalculator.astro';
+
+const siteURL = 'https://grow-conversions.com';
+const pageURL = `${siteURL}/tools/form-conversion-calculator/`;
+
+const schemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'Form Conversion Rate Calculator',
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Web Browser',
+    description: 'Free form conversion calculator. Enter page visitors, form starts, completions, close rate, and deal value to find your form\'s CVR, revenue impact, and where drop-off is costing you most.',
+    url: pageURL,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+    provider: { '@type': 'Organization', name: 'grow-conversions.com', url: siteURL },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteURL },
+      { '@type': 'ListItem', position: 2, name: 'CRO Tools', item: `${siteURL}/tools/` },
+      { '@type': 'ListItem', position: 3, name: 'Form Conversion Rate Calculator', item: pageURL },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'What is a good form conversion rate?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Form conversion rates vary widely by context. Contact / quote request forms on B2B pages: 1–5% of page visitors. Demo request forms: 2–8%. Lead magnet / download forms: 5–15%. E-commerce checkout completion: 35–55% of checkout starts. If your form\'s page-to-completion rate is below 2%, there is almost always a fixable friction issue — too many fields, confusing labels, or a form that appears too early in the consideration journey.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'What causes form abandonment?',
+        acceptedAnswer: { '@type': 'Answer', text: 'The top causes of form abandonment are: too many fields (especially asking for information not needed at that stage), ambiguous or intimidating labels, unexpected required fields discovered mid-form, poor mobile experience (small tap targets, keyboard covering input), lack of trust signals near the submit button, and unclear value — the visitor doesn\'t know what happens after they submit. Reducing a form from 8 fields to 4 typically increases completion rate by 30–50%.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'How many fields should a lead generation form have?',
+        acceptedAnswer: { '@type': 'Answer', text: 'The research is clear: fewer fields = higher completion rate. Forms with 3–4 fields convert significantly better than 7+ field forms. Ask only for information you genuinely need to qualify and contact the lead. Name and email (or just email) are sufficient for a first-touch lead form — collect additional details in the follow-up conversation or a second step. Every additional required field reduces completion rate by approximately 5–10%.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'How do I track form conversion rate in GA4?',
+        acceptedAnswer: { '@type': 'Answer', text: 'In GA4, set up a custom event for form_submit (GA4 may capture this automatically via enhanced measurement). Create a funnel exploration with steps: page_view (for the form page) → form_start (when a user first interacts with the form) → form_submit. This shows you both the page-to-start rate (how many visitors engage with the form at all) and the start-to-completion rate (how many who start, finish).' },
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Form Conversion Rate Calculator — Find Your Form's Revenue Leak"
+  description="Free form conversion calculator for B2B lead gen and e-commerce. Enter page visitors, form starts, completions, and deal value to find your CVR, revenue impact, and where to fix drop-off."
+  jsonLd={schemas}
+>
+  <div class="tool-page">
+    <div class="tool-page__hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+          <a href="/tools/">CRO Tools</a>
+          <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+          <span class="breadcrumbs__current" aria-current="page">Form Conversion Rate Calculator</span>
+        </nav>
+        <h1 class="tool-page__title">Form Conversion Rate Calculator</h1>
+        <p class="tool-page__intro">
+          Most form drop-off happens in two places: visitors who never start the form, and visitors who start
+          but abandon before submitting. This calculator separates both rates, shows you the revenue impact of
+          each, and tells you which one — improving form starts or improving form completions — is worth more
+          money to fix first.
+        </p>
+      </div>
+    </div>
+
+    <div class="container tool-page__body">
+
+      <FormConversionCalculator />
+
+      <div class="tool-page__content">
+        <h2>How to Use This Calculator</h2>
+        <ol class="tool-steps">
+          <li><strong>Page Visitors</strong> — monthly sessions to the page containing your form. Get from GA4 → Pages and Screens, filtered to your specific form page.</li>
+          <li><strong>Form Starts</strong> — number of visitors who clicked into or began filling the form. In GA4, this is the form_start event (enabled via Enhanced Measurement). Approximate if unavailable: use 25–40% of page visitors as a rough starting estimate.</li>
+          <li><strong>Form Completions</strong> — successful submissions. In GA4, this is form_submit, or the thank-you page view, or your CRM lead count for the period.</li>
+          <li><strong>Lead-to-Close Rate</strong> — the percentage of form submissions that become paying customers. Get this from your CRM. If unknown, use 10–25% for B2B, 30–50% for high-intent e-commerce enquiries.</li>
+          <li><strong>Average Deal Value</strong> — your average contract or order value per closed deal.</li>
+        </ol>
+
+        <h2>Why Separate Form Starts from Completions?</h2>
+        <p>
+          Low start rate = a content and positioning problem. Visitors are reading your page but the form
+          itself — its position, length, or the ask it makes — isn't compelling them to engage. Fix: move the
+          form higher, reduce apparent length, change the CTA headline, add social proof next to the form.
+        </p>
+        <p>
+          Low completion rate = a friction problem. Visitors are motivated enough to start but hit
+          resistance mid-form. Fix: remove fields, clarify labels, add inline validation, reassure on privacy,
+          add trust signals, ensure mobile-friendly input.
+        </p>
+
+        <h2>Form Optimisation Benchmarks</h2>
+        <ul class="tool-list">
+          <li><strong>Page → Form Start rate:</strong> Below 15% = form isn't visible enough or the ask is too big for this stage of the journey</li>
+          <li><strong>Form Start → Completion rate:</strong> Below 50% = high friction (too many fields, poor UX, unclear next steps)</li>
+          <li><strong>Page → Lead CVR:</strong> Below 2% for B2B lead gen = significant opportunity</li>
+          <li><strong>Field count sweet spot:</strong> 3–4 fields. Each additional required field reduces completion rate ~7–10%</li>
+        </ul>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="tool-faqs">
+          <details>
+            <summary>What is a good form conversion rate?</summary>
+            <p>Contact/quote forms on B2B pages: 1–5% of page visitors. Demo forms: 2–8%. Lead magnets: 5–15%. If you're below 2% page-to-submission, there's almost always a fixable friction issue — usually too many fields or a form that appears too late in the page.</p>
+          </details>
+          <details>
+            <summary>What causes form abandonment?</summary>
+            <p>The main causes: too many fields, confusing or intimidating labels, unexpected required fields discovered mid-form, poor mobile experience, and no trust signals near the submit button. Reducing from 8 fields to 4 typically increases completion by 30–50%.</p>
+          </details>
+          <details>
+            <summary>How many fields should a form have?</summary>
+            <p>Ask only for what you genuinely need to take the next step. For first-touch B2B leads: name + email (2 fields). For quote requests: name, email, company, project type (4 fields). Each additional required field costs ~7–10% completion rate. Collect the rest in the follow-up conversation.</p>
+          </details>
+          <details>
+            <summary>How do I track form starts vs completions in GA4?</summary>
+            <p>Enable Enhanced Measurement in GA4 (Admin → Data Streams → Enhanced Measurement → toggle Forms). This captures form_start and form_submit events automatically. Build a funnel in Explore with page_view → form_start → form_submit to see both drop-off rates for any specific form page.</p>
+          </details>
+        </div>
+
+        <div class="tool-page__related">
+          <h2>Related Tools & Resources</h2>
+          <ul>
+            <li><a href="/tools/conversion-rate-calculator/">Conversion Rate Calculator</a> — calculate page-level CVR</li>
+            <li><a href="/tools/landing-page-roi-calculator/">Landing Page ROI Calculator</a> — ad spend + CVR impact</li>
+            <li><a href="/tools/checkout-funnel-calculator/">Checkout Funnel Calculator</a> — e-commerce step-by-step drop-off</li>
+            <li><a href="/blog/what-is-conversion-rate-optimization/">What Is CRO?</a> — the complete CRO guide</li>
+            <li><a href="/services/cro-audit/">CRO Audit</a> — expert diagnosis of what's suppressing your form CVR</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tool-page__cta">
+        <h2>Your Form Has a Revenue Number. Let's Fix It.</h2>
+        <p>The calculator above shows what your form is worth at different completion rates. A CRO audit pinpoints the specific friction — too many fields, wrong position, missing trust signals — and tells you what to change first for the biggest lift.</p>
+        <a href="/contact/" class="btn btn--primary">Get a Free CRO Audit</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .tool-page__hero { background: var(--color-surface); border-bottom: 1px solid var(--color-border); padding: var(--space-14) 0 var(--space-10); }
+  .tool-page__title { font-size: clamp(1.75rem, 3.5vw, 2.75rem); font-weight: 900; letter-spacing: -0.04em; margin-top: var(--space-4); margin-bottom: var(--space-4); }
+  .tool-page__intro { font-size: var(--text-lg); color: var(--color-text-muted); max-width: 680px; line-height: 1.65; }
+  .tool-page__body { padding-top: var(--space-10); padding-bottom: var(--space-16); max-width: 780px; }
+  .tool-page__content { margin-top: var(--space-10); }
+  .tool-page__content h2 { font-size: var(--text-xl); font-weight: 800; margin-top: var(--space-10); margin-bottom: var(--space-4); }
+  .tool-page__content p { color: var(--color-text-muted); line-height: 1.7; margin-bottom: var(--space-4); }
+  .tool-steps { padding-left: var(--space-6); display: flex; flex-direction: column; gap: var(--space-3); color: var(--color-text-muted); line-height: 1.65; }
+  .tool-list { padding-left: var(--space-6); display: flex; flex-direction: column; gap: var(--space-2); color: var(--color-text-muted); line-height: 1.65; margin-bottom: var(--space-4); }
+  .tool-faqs { display: flex; flex-direction: column; gap: var(--space-2); }
+  .tool-faqs details { border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-3) var(--space-4); }
+  .tool-faqs summary { font-weight: 600; color: var(--color-heading); cursor: pointer; font-size: var(--text-sm); }
+  .tool-faqs p { margin-top: var(--space-3); font-size: var(--text-sm); margin-bottom: 0; }
+  .tool-page__related { margin-top: var(--space-10); padding: var(--space-6); background: var(--color-surface); border-radius: var(--radius-xl); border: 1px solid var(--color-border); }
+  .tool-page__related h2 { font-size: var(--text-base) !important; margin-top: 0 !important; margin-bottom: var(--space-3) !important; }
+  .tool-page__related ul { display: flex; flex-direction: column; gap: var(--space-2); padding-left: var(--space-4); }
+  .tool-page__related li { font-size: var(--text-sm); color: var(--color-text-muted); }
+  .tool-page__related a { color: var(--color-accent); font-weight: 500; }
+  .tool-page__cta { margin-top: var(--space-12); padding: var(--space-8) var(--space-10); background: var(--color-accent); border-radius: var(--radius-xl); color: white; }
+  .tool-page__cta h2 { font-size: var(--text-xl); font-weight: 800; color: white; margin-bottom: var(--space-3); }
+  .tool-page__cta p { color: rgba(255,255,255,0.85); line-height: 1.6; margin-bottom: var(--space-5); max-width: 520px; }
+  .tool-page__cta .btn--primary { background: white; color: var(--color-accent); }
+  .tool-page__cta .btn--primary:hover { background: var(--color-heading); color: white; }
+</style>

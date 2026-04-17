@@ -1,0 +1,138 @@
+---
+// Customer Lifetime Value (CLV) Calculator
+---
+
+<div class="calc-highlight">
+  <span class="calc-highlight-badge">Free Tool</span>
+  <span class="calc-highlight-text">Know exactly what a customer is worth before you bid on traffic</span>
+</div>
+<div class="calc-wrap calc-wrap--featured" id="clv-calculator">
+  <div class="calc-header">
+    <div class="calc-icon">♾</div>
+    <div>
+      <h3 class="calc-title">Customer Lifetime Value Calculator</h3>
+      <p class="calc-subtitle">Calculate CLV, your maximum profitable CAC, and revenue scenarios at different retention rates</p>
+    </div>
+  </div>
+
+  <div class="calc-body">
+    <div class="calc-inputs">
+      <div class="calc-field">
+        <label for="clv-aov">Average Order Value (€)</label>
+        <input type="number" id="clv-aov" placeholder="e.g. 95" min="0.01" step="0.01" />
+      </div>
+      <div class="calc-field">
+        <label for="clv-freq">Purchase Frequency (orders/year)</label>
+        <input type="number" id="clv-freq" placeholder="e.g. 3.5" min="0.1" step="0.1" />
+      </div>
+      <div class="calc-field">
+        <label for="clv-lifespan">Customer Lifespan (years)</label>
+        <input type="number" id="clv-lifespan" placeholder="e.g. 2.5" min="0.1" step="0.1" />
+      </div>
+      <div class="calc-field">
+        <label for="clv-margin">Gross Margin (%)</label>
+        <input type="number" id="clv-margin" placeholder="e.g. 45" min="1" max="100" step="1" />
+      </div>
+      <div class="calc-field">
+        <label for="clv-cac-ratio">Target CAC:CLV Ratio</label>
+        <select id="clv-cac-ratio">
+          <option value="3">3:1 (standard — safe)</option>
+          <option value="2" selected>2:1 (aggressive — growth)</option>
+          <option value="1.5">1.5:1 (very aggressive)</option>
+          <option value="5">5:1 (conservative)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="calc-results" id="clv-results" style="display:none">
+      <div class="calc-result-primary">
+        <span class="calc-result-label">Customer Lifetime Value</span>
+        <span class="calc-result-value" id="clv-output">—</span>
+      </div>
+      <div class="calc-result-grid">
+        <div class="calc-result-card">
+          <span class="calc-result-card-label">Revenue per Customer</span>
+          <span class="calc-result-card-value" id="clv-gross-revenue">—</span>
+        </div>
+        <div class="calc-result-card calc-result-card--green">
+          <span class="calc-result-card-label">Gross Profit per Customer</span>
+          <span class="calc-result-card-value" id="clv-gross-profit">—</span>
+        </div>
+        <div class="calc-result-card calc-result-card--green">
+          <span class="calc-result-card-label">Max Profitable CAC</span>
+          <span class="calc-result-card-value" id="clv-max-cac">—</span>
+        </div>
+        <div class="calc-result-card">
+          <span class="calc-result-card-label">Revenue / 100 Customers</span>
+          <span class="calc-result-card-value" id="clv-100">—</span>
+        </div>
+      </div>
+
+      <div style="margin-top:var(--space-4)">
+        <p style="font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--color-text-muted);margin-bottom:var(--space-2)">CLV Sensitivity — Lifespan Scenarios</p>
+        <div class="calc-scenario-table" id="clv-scenarios"></div>
+      </div>
+
+      <p class="calc-note" id="clv-note"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function calcCLV() {
+    const aov = parseFloat((document.getElementById('clv-aov') as HTMLInputElement).value);
+    const freq = parseFloat((document.getElementById('clv-freq') as HTMLInputElement).value);
+    const lifespan = parseFloat((document.getElementById('clv-lifespan') as HTMLInputElement).value);
+    const margin = parseFloat((document.getElementById('clv-margin') as HTMLInputElement).value) / 100;
+    const cacRatio = parseFloat((document.getElementById('clv-cac-ratio') as HTMLSelectElement).value);
+
+    if (!aov || !freq || !lifespan || !margin) return;
+
+    const annualRevenue = aov * freq;
+    const totalRevenue = annualRevenue * lifespan;
+    const clv = totalRevenue * margin;
+    const maxCac = clv / cacRatio;
+
+    document.getElementById('clv-output')!.textContent = '€' + Math.round(clv).toLocaleString();
+    document.getElementById('clv-gross-revenue')!.textContent = '€' + Math.round(totalRevenue).toLocaleString();
+    document.getElementById('clv-gross-profit')!.textContent = '€' + Math.round(clv).toLocaleString();
+    document.getElementById('clv-max-cac')!.textContent = '€' + Math.round(maxCac).toLocaleString();
+    document.getElementById('clv-100')!.textContent = '€' + Math.round(totalRevenue * 100).toLocaleString();
+
+    // Scenario table
+    const scenarios = [0.5, 1, lifespan, lifespan * 1.5, lifespan * 2].filter((v, i, a) => a.indexOf(v) === i).sort((a,b)=>a-b);
+    const cols = 5;
+    const scenEl = document.getElementById('clv-scenarios') as HTMLElement;
+    const headerRow = `<div class="calc-scenario-row calc-scenario-row--header" style="grid-template-columns:repeat(${cols},1fr)">
+      <div class="calc-scenario-cell">Lifespan</div>
+      <div class="calc-scenario-cell">CLV</div>
+      <div class="calc-scenario-cell">Max CAC</div>
+      <div class="calc-scenario-cell">Revenue</div>
+      <div class="calc-scenario-cell">Profit</div>
+    </div>`;
+    let rows = '';
+    scenarios.forEach(ls => {
+      const rev = annualRevenue * ls;
+      const profit = rev * margin;
+      const cac = profit / cacRatio;
+      const isCurrent = Math.abs(ls - lifespan) < 0.01;
+      rows += `<div class="calc-scenario-row${isCurrent?' calc-scenario-row--current':''}" style="grid-template-columns:repeat(${cols},1fr)">
+        <div class="calc-scenario-cell">${ls.toFixed(1)}y${isCurrent?' ←':''}</div>
+        <div class="calc-scenario-cell calc-scenario-cell--green">€${Math.round(profit).toLocaleString()}</div>
+        <div class="calc-scenario-cell">€${Math.round(cac).toLocaleString()}</div>
+        <div class="calc-scenario-cell">€${Math.round(rev).toLocaleString()}</div>
+        <div class="calc-scenario-cell">€${Math.round(profit).toLocaleString()}</div>
+      </div>`;
+    });
+    scenEl.innerHTML = headerRow + rows;
+
+    document.getElementById('clv-note')!.textContent = `With a ${(cacRatio)}:1 CLV:CAC target ratio, your max profitable customer acquisition cost is €${Math.round(maxCac).toLocaleString()}. If you're paying more than this per acquisition, you're acquiring customers at a loss.`;
+
+    document.getElementById('clv-results')!.style.display = 'block';
+  }
+
+  ['clv-aov','clv-freq','clv-lifespan','clv-margin'].forEach(id => {
+    document.getElementById(id)?.addEventListener('input', calcCLV);
+  });
+  document.getElementById('clv-cac-ratio')?.addEventListener('change', calcCLV);
+</script>

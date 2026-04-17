@@ -1,0 +1,179 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ABTestSignificanceCalculator from '@/components/calculators/ABTestSignificanceCalculator.astro';
+
+const siteURL = 'https://grow-conversions.com';
+const pageURL = `${siteURL}/tools/ab-test-significance-calculator/`;
+
+const schemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'A/B Test Statistical Significance Calculator',
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Web Browser',
+    description: 'Free A/B test significance calculator. Enter control and variant results to get confidence level, z-score, p-value, and a clear verdict on whether your test has a winner.',
+    url: pageURL,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+    provider: { '@type': 'Organization', name: 'grow-conversions.com', url: siteURL },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteURL },
+      { '@type': 'ListItem', position: 2, name: 'CRO Tools', item: `${siteURL}/tools/` },
+      { '@type': 'ListItem', position: 3, name: 'A/B Test Significance Calculator', item: pageURL },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'What is statistical significance in A/B testing?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Statistical significance tells you the probability that the difference between your control and variant is real, not random noise. At 95% confidence, there is only a 5% chance the result occurred by chance. This is the standard threshold for declaring a winner in most A/B testing programmes.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'What confidence level do I need to declare a winner?',
+        acceptedAnswer: { '@type': 'Answer', text: 'The industry standard is 95% confidence (p-value < 0.05). For high-risk or high-revenue changes, use 99%. For low-stakes tests (email subject lines, micro-copy), 90% is sometimes acceptable. Never ship a variant based on a result below 90% — the false positive rate becomes too high.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'What is a p-value in A/B testing?',
+        acceptedAnswer: { '@type': 'Answer', text: 'The p-value is the probability of observing a difference this large (or larger) by chance if there was actually no real difference between control and variant. A p-value of 0.05 means there\'s a 5% chance your result is a false positive. Lower p-values = stronger evidence that the difference is real.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Can I stop my test as soon as it reaches 95% significance?',
+        acceptedAnswer: { '@type': 'Answer', text: 'No. You must also reach your pre-planned sample size AND run for at least 2 full weeks. Stopping early when significance is reached — known as "peeking" — inflates the false positive rate above 30%. Pre-commit to a stopping date before you launch. Use our A/B Test Duration Calculator to determine when your test should end.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'What is the difference between one-tailed and two-tailed tests?',
+        acceptedAnswer: { '@type': 'Answer', text: 'A two-tailed test (used here) tests whether the variant is different from the control in either direction — better or worse. A one-tailed test only checks for improvement. Always use two-tailed tests unless you have a very strong reason to believe the variant cannot perform worse — which is rare. One-tailed tests make it easier to reach significance but also easier to be wrong.' },
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="A/B Test Statistical Significance Calculator — Free & Instant"
+  description="Free A/B test significance calculator. Enter your control and variant results to instantly see confidence level, z-score, p-value, and a clear pass/fail verdict."
+  jsonLd={schemas}
+>
+  <div class="tool-page">
+    <div class="tool-page__hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+          <a href="/tools/">CRO Tools</a>
+          <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+          <span class="breadcrumbs__current" aria-current="page">A/B Test Significance Calculator</span>
+        </nav>
+        <h1 class="tool-page__title">A/B Test Statistical Significance Calculator</h1>
+        <p class="tool-page__intro">
+          Enter your control and variant visitor/conversion numbers and get an instant verdict: is your result
+          statistically significant? The calculator uses a two-tailed z-test for difference in proportions — the
+          correct method for A/B testing conversion rates — and shows you confidence level, z-score, p-value,
+          and whether you have a winner.
+        </p>
+      </div>
+    </div>
+
+    <div class="container tool-page__body">
+
+      <ABTestSignificanceCalculator />
+
+      <div class="tool-page__content">
+        <h2>How to Use This Calculator</h2>
+        <ol class="tool-steps">
+          <li><strong>Control (A)</strong> — enter the number of visitors and conversions for your original version. Get this from your A/B testing tool or GA4 Funnel Exploration report.</li>
+          <li><strong>Variant (B)</strong> — enter the visitors and conversions for your test variant. Make sure both are from the same date range.</li>
+          <li><strong>Read the verdict</strong> — the calculator shows confidence level, relative lift, and a clear pass/fail/borderline result. Green = 95%+ confidence. Yellow = 90–94% (keep running). Red = below 90% (not significant).</li>
+          <li><strong>Check your sample size</strong> — significance alone is not enough. Use the <a href="/tools/ab-test-sample-size-calculator/">Sample Size Calculator</a> to confirm you've reached your pre-planned minimum before acting on this result.</li>
+        </ol>
+
+        <h2>What the Numbers Mean</h2>
+        <ul class="tool-list">
+          <li><strong>Confidence Level</strong> — the probability that the difference is real. 95%+ is the standard threshold for declaring a winner.</li>
+          <li><strong>Relative Lift</strong> — the percentage improvement of variant over control. A +15% relative lift means the variant converts 15% better than the baseline.</li>
+          <li><strong>Absolute Difference (pp)</strong> — the raw difference in conversion rate, in percentage points. A 2% vs 2.3% CVR = 0.3pp absolute difference.</li>
+          <li><strong>Z-score</strong> — the number of standard deviations the result sits from the null hypothesis. Above ±1.96 = 95% significance (two-tailed).</li>
+          <li><strong>p-value</strong> — the probability the result occurred by chance. Below 0.05 = significant at 95% confidence.</li>
+        </ul>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="tool-faqs">
+          <details>
+            <summary>What confidence level do I need to declare a winner?</summary>
+            <p>95% is the industry standard (p-value &lt; 0.05). For high-revenue decisions, use 99%. For low-stakes tests, 90% is the absolute minimum. Never ship based on anything below 90%.</p>
+          </details>
+          <details>
+            <summary>Can I stop my test as soon as it hits 95% significance?</summary>
+            <p>No. You must also reach your pre-planned sample size AND run for at least 14 days to capture day-of-week variation. Stopping early (peeking) inflates false positives above 30%. Plan your end date before launch and stick to it.</p>
+          </details>
+          <details>
+            <summary>What is the p-value?</summary>
+            <p>The probability that a result this extreme could have occurred by chance if there was actually no difference between control and variant. p = 0.05 means 5% chance of a false positive. Lower = stronger evidence.</p>
+          </details>
+          <details>
+            <summary>Why two-tailed instead of one-tailed?</summary>
+            <p>A two-tailed test checks whether the variant is different in either direction — better or worse. Since variants can and do hurt performance, always use two-tailed. One-tailed tests inflate significance and increase the chance of shipping a losing variant.</p>
+          </details>
+          <details>
+            <summary>My result is significant but the lift is tiny — should I ship it?</summary>
+            <p>Statistical significance ≠ practical significance. A 0.1pp absolute lift might be significant with large enough traffic, but it's probably not worth the implementation effort. Consider your minimum detectable effect (MDE) — if the lift is below your MDE threshold, treat it as a null result and move to a bigger test.</p>
+          </details>
+        </div>
+
+        <div class="tool-page__related">
+          <h2>Related Tools & Resources</h2>
+          <ul>
+            <li><a href="/tools/ab-test-sample-size-calculator/">A/B Test Sample Size Calculator</a> — how many visitors do you need?</li>
+            <li><a href="/tools/ab-test-duration-calculator/">A/B Test Duration Calculator</a> — how long should your test run?</li>
+            <li><a href="/blog/how-long-to-run-ab-test/">How Long to Run an A/B Test</a> — the full guide on test duration</li>
+            <li><a href="/blog/ab-testing-mistakes/">A/B Testing Mistakes That Invalidate Results</a> — errors to avoid</li>
+            <li><a href="/blog/ab-testing-best-practices/">A/B Testing Best Practices</a> — the full framework</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tool-page__cta">
+        <h2>Not Sure What to Test Next?</h2>
+        <p>Knowing whether a test won is step one. Knowing what to test, in what order, to maximise revenue impact — that's the hard part. A CRO audit builds the prioritised test roadmap so every experiment has the highest possible upside.</p>
+        <a href="/contact/" class="btn btn--primary">Get a Free CRO Audit</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .tool-page__hero { background: var(--color-surface); border-bottom: 1px solid var(--color-border); padding: var(--space-14) 0 var(--space-10); }
+  .tool-page__title { font-size: clamp(1.75rem, 3.5vw, 2.75rem); font-weight: 900; letter-spacing: -0.04em; margin-top: var(--space-4); margin-bottom: var(--space-4); }
+  .tool-page__intro { font-size: var(--text-lg); color: var(--color-text-muted); max-width: 680px; line-height: 1.65; }
+  .tool-page__body { padding-top: var(--space-10); padding-bottom: var(--space-16); max-width: 780px; }
+  .tool-page__content { margin-top: var(--space-10); }
+  .tool-page__content h2 { font-size: var(--text-xl); font-weight: 800; margin-top: var(--space-10); margin-bottom: var(--space-4); }
+  .tool-page__content p { color: var(--color-text-muted); line-height: 1.7; margin-bottom: var(--space-4); }
+  .tool-steps { padding-left: var(--space-6); display: flex; flex-direction: column; gap: var(--space-3); color: var(--color-text-muted); line-height: 1.65; }
+  .tool-list { padding-left: var(--space-6); display: flex; flex-direction: column; gap: var(--space-2); color: var(--color-text-muted); line-height: 1.65; margin-bottom: var(--space-4); }
+  .tool-faqs { display: flex; flex-direction: column; gap: var(--space-2); }
+  .tool-faqs details { border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-3) var(--space-4); }
+  .tool-faqs summary { font-weight: 600; color: var(--color-heading); cursor: pointer; font-size: var(--text-sm); }
+  .tool-faqs p { margin-top: var(--space-3); font-size: var(--text-sm); margin-bottom: 0; }
+  .tool-page__related { margin-top: var(--space-10); padding: var(--space-6); background: var(--color-surface); border-radius: var(--radius-xl); border: 1px solid var(--color-border); }
+  .tool-page__related h2 { font-size: var(--text-base) !important; margin-top: 0 !important; margin-bottom: var(--space-3) !important; }
+  .tool-page__related ul { display: flex; flex-direction: column; gap: var(--space-2); padding-left: var(--space-4); }
+  .tool-page__related li { font-size: var(--text-sm); color: var(--color-text-muted); }
+  .tool-page__related a { color: var(--color-accent); font-weight: 500; }
+  .tool-page__cta { margin-top: var(--space-12); padding: var(--space-8) var(--space-10); background: var(--color-accent); border-radius: var(--radius-xl); color: white; }
+  .tool-page__cta h2 { font-size: var(--text-xl); font-weight: 800; color: white; margin-bottom: var(--space-3); }
+  .tool-page__cta p { color: rgba(255,255,255,0.85); line-height: 1.6; margin-bottom: var(--space-5); max-width: 520px; }
+  .tool-page__cta .btn--primary { background: white; color: var(--color-accent); }
+  .tool-page__cta .btn--primary:hover { background: var(--color-heading); color: white; }
+</style>

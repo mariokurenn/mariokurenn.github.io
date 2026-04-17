@@ -1,0 +1,192 @@
+---
+// A/B Test Statistical Significance Calculator
+---
+
+<div class="calc-highlight">
+  <span class="calc-highlight-badge">Free Tool</span>
+  <span class="calc-highlight-text">Is your A/B test result statistically significant? Find out instantly.</span>
+</div>
+<div class="calc-wrap calc-wrap--featured" id="ab-significance-calculator">
+  <div class="calc-header">
+    <div class="calc-icon">σ</div>
+    <div>
+      <h3 class="calc-title">A/B Test Significance Calculator</h3>
+      <p class="calc-subtitle">Enter your test results to calculate statistical significance, confidence level, and whether you have a real winner</p>
+    </div>
+  </div>
+
+  <div class="calc-body">
+    <div class="calc-compare-block">
+      <div class="calc-compare-panel">
+        <div class="calc-compare-panel-label">Control (A)</div>
+        <div class="calc-inputs" style="margin-top:0">
+          <div class="calc-field">
+            <label for="sig-control-visitors">Visitors</label>
+            <input type="number" id="sig-control-visitors" placeholder="e.g. 2400" min="1" />
+          </div>
+          <div class="calc-field">
+            <label for="sig-control-conv">Conversions</label>
+            <input type="number" id="sig-control-conv" placeholder="e.g. 72" min="0" />
+          </div>
+          <div class="calc-field" style="margin-top:var(--space-2)">
+            <span class="calc-compare-panel-label" style="margin-bottom:2px">CVR</span>
+            <span class="calc-compare-cvr" id="sig-control-cvr">—</span>
+          </div>
+        </div>
+      </div>
+      <div class="calc-compare-panel calc-compare-panel--variant">
+        <div class="calc-compare-panel-label">Variant (B)</div>
+        <div class="calc-inputs" style="margin-top:0">
+          <div class="calc-field">
+            <label for="sig-variant-visitors">Visitors</label>
+            <input type="number" id="sig-variant-visitors" placeholder="e.g. 2380" min="1" />
+          </div>
+          <div class="calc-field">
+            <label for="sig-variant-conv">Conversions</label>
+            <input type="number" id="sig-variant-conv" placeholder="e.g. 86" min="0" />
+          </div>
+          <div class="calc-field" style="margin-top:var(--space-2)">
+            <span class="calc-compare-panel-label" style="margin-bottom:2px">CVR</span>
+            <span class="calc-compare-cvr" id="sig-variant-cvr">—</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="calc-results" id="sig-results" style="display:none">
+      <div id="sig-verdict" class="calc-verdict" style="display:none">
+        <span class="calc-verdict-icon" id="sig-verdict-icon"></span>
+        <div class="calc-verdict-text">
+          <div id="sig-verdict-title"></div>
+          <div class="calc-verdict-sub" id="sig-verdict-sub"></div>
+        </div>
+      </div>
+
+      <div class="calc-confidence-bar-wrap">
+        <div class="calc-confidence-bar-label">
+          <span>Confidence Level</span>
+          <span id="sig-confidence-pct">—</span>
+        </div>
+        <div class="calc-confidence-bar">
+          <div class="calc-confidence-fill" id="sig-confidence-fill" style="width:0%;background:#ccc"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:var(--color-text-muted);margin-top:4px">
+          <span>0%</span><span style="color:#e53e3e">90%</span><span style="color:#d97706">95%</span><span style="color:#1A7F3C">99%</span><span>100%</span>
+        </div>
+      </div>
+
+      <div class="calc-result-grid">
+        <div class="calc-result-card">
+          <span class="calc-result-card-label">Relative Lift</span>
+          <span class="calc-result-card-value" id="sig-lift">—</span>
+        </div>
+        <div class="calc-result-card">
+          <span class="calc-result-card-label">Absolute Diff</span>
+          <span class="calc-result-card-value" id="sig-abs-diff">—</span>
+        </div>
+        <div class="calc-result-card">
+          <span class="calc-result-card-label">Z-score</span>
+          <span class="calc-result-card-value" id="sig-zscore">—</span>
+        </div>
+        <div class="calc-result-card">
+          <span class="calc-result-card-label">p-value</span>
+          <span class="calc-result-card-value" id="sig-pvalue">—</span>
+        </div>
+      </div>
+      <p class="calc-note" id="sig-note"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Abramowitz & Stegun normal CDF approximation (error < 7.5×10⁻⁸)
+  function normCDF(x: number): number {
+    const a1=0.254829592, a2=-0.284496736, a3=1.421413741, a4=-1.453152027, a5=1.061405429, p=0.3275911;
+    const sign = x < 0 ? -1 : 1;
+    const t = 1 / (1 + p * Math.abs(x) / Math.sqrt(2));
+    const poly = ((((a5*t + a4)*t + a3)*t + a2)*t + a1)*t;
+    const val = 1 - poly * Math.exp(-x*x/2);
+    return 0.5 * (1 + sign * val);
+  }
+
+  function calcSig() {
+    const nA = parseFloat((document.getElementById('sig-control-visitors') as HTMLInputElement).value);
+    const cA = parseFloat((document.getElementById('sig-control-conv') as HTMLInputElement).value);
+    const nB = parseFloat((document.getElementById('sig-variant-visitors') as HTMLInputElement).value);
+    const cB = parseFloat((document.getElementById('sig-variant-conv') as HTMLInputElement).value);
+
+    // Update live CVR displays
+    const pA = nA > 0 && cA >= 0 ? cA / nA : NaN;
+    const pB = nB > 0 && cB >= 0 ? cB / nB : NaN;
+
+    (document.getElementById('sig-control-cvr') as HTMLElement).textContent = isNaN(pA) ? '—' : (pA*100).toFixed(2) + '%';
+    (document.getElementById('sig-variant-cvr') as HTMLElement).textContent = isNaN(pB) ? '—' : (pB*100).toFixed(2) + '%';
+
+    if (!nA || !nB || isNaN(cA) || isNaN(cB) || pA < 0 || pB < 0) return;
+    if (cA > nA || cB > nB) return;
+
+    // Pooled z-test
+    const pPooled = (cA + cB) / (nA + nB);
+    const se = Math.sqrt(pPooled * (1 - pPooled) * (1/nA + 1/nB));
+    if (se === 0) return;
+    const z = (pB - pA) / se;
+    const pValue = 2 * (1 - normCDF(Math.abs(z))); // two-tailed
+    const confidence = (1 - pValue) * 100;
+
+    const lift = pA > 0 ? ((pB - pA) / pA) * 100 : 0;
+    const absDiff = (pB - pA) * 100;
+
+    // Update displays
+    document.getElementById('sig-lift')!.textContent = (lift >= 0 ? '+' : '') + lift.toFixed(1) + '%';
+    document.getElementById('sig-abs-diff')!.textContent = (absDiff >= 0 ? '+' : '') + absDiff.toFixed(2) + 'pp';
+    document.getElementById('sig-zscore')!.textContent = z.toFixed(3);
+    document.getElementById('sig-pvalue')!.textContent = pValue < 0.001 ? '<0.001' : pValue.toFixed(4);
+    document.getElementById('sig-confidence-pct')!.textContent = confidence.toFixed(1) + '%';
+
+    // Confidence bar
+    const fill = document.getElementById('sig-confidence-fill') as HTMLElement;
+    fill.style.width = Math.min(confidence, 100) + '%';
+    if (confidence >= 99) fill.style.backgroundColor = '#1A7F3C';
+    else if (confidence >= 95) fill.style.backgroundColor = '#d97706';
+    else if (confidence >= 90) fill.style.backgroundColor = '#e53e3e';
+    else fill.style.backgroundColor = '#cbd5e0';
+
+    // Verdict
+    const verdictEl = document.getElementById('sig-verdict') as HTMLElement;
+    const iconEl = document.getElementById('sig-verdict-icon') as HTMLElement;
+    const titleEl = document.getElementById('sig-verdict-title') as HTMLElement;
+    const subEl = document.getElementById('sig-verdict-sub') as HTMLElement;
+    verdictEl.style.display = 'flex';
+
+    if (confidence >= 95 && lift > 0) {
+      verdictEl.className = 'calc-verdict calc-verdict--win';
+      iconEl.textContent = '✓';
+      titleEl.textContent = `Variant B wins at ${confidence.toFixed(1)}% confidence`;
+      subEl.textContent = `${lift.toFixed(1)}% relative lift is statistically significant — safe to implement.`;
+    } else if (confidence >= 95 && lift < 0) {
+      verdictEl.className = 'calc-verdict calc-verdict--fail';
+      iconEl.textContent = '✗';
+      titleEl.textContent = `Variant B loses at ${confidence.toFixed(1)}% confidence`;
+      subEl.textContent = `The variant performs significantly worse. Do not implement.`;
+    } else if (confidence >= 90) {
+      verdictEl.className = 'calc-verdict calc-verdict--borderline';
+      iconEl.textContent = '~';
+      titleEl.textContent = `Borderline — ${confidence.toFixed(1)}% confidence (need 95%+)`;
+      subEl.textContent = `Continue the test. You need more data before making a decision.`;
+    } else {
+      verdictEl.className = 'calc-verdict calc-verdict--fail';
+      iconEl.textContent = '?';
+      titleEl.textContent = `Not significant — ${confidence.toFixed(1)}% confidence`;
+      subEl.textContent = `No reliable difference detected. Keep running the test.`;
+    }
+
+    const noteEl = document.getElementById('sig-note') as HTMLElement;
+    noteEl.textContent = `Two-tailed z-test for difference in proportions. Requires both variants to have reached your pre-planned sample size before interpreting results.`;
+
+    document.getElementById('sig-results')!.style.display = 'block';
+  }
+
+  ['sig-control-visitors','sig-control-conv','sig-variant-visitors','sig-variant-conv'].forEach(id => {
+    document.getElementById(id)?.addEventListener('input', calcSig);
+  });
+</script>

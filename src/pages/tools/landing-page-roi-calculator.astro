@@ -1,0 +1,168 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import LandingPageROICalculator from '@/components/calculators/LandingPageROICalculator.astro';
+
+const siteURL = 'https://grow-conversions.com';
+const pageURL = `${siteURL}/tools/landing-page-roi-calculator/`;
+
+const schemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'Landing Page ROI Calculator',
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Web Browser',
+    description: 'Free landing page ROI calculator. Enter ad spend, clicks, CVR, and deal value to calculate current CPA, ROAS, and the revenue impact of CVR improvements across 4 scenarios.',
+    url: pageURL,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+    provider: { '@type': 'Organization', name: 'grow-conversions.com', url: siteURL },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteURL },
+      { '@type': 'ListItem', position: 2, name: 'CRO Tools', item: `${siteURL}/tools/` },
+      { '@type': 'ListItem', position: 3, name: 'Landing Page ROI Calculator', item: pageURL },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'What is a good landing page conversion rate?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Average landing page CVR varies by industry and traffic source: paid search landing pages average 2.35% overall, with the top 25% converting at 5.31%+. SaaS free trial pages: 2–8%. E-commerce product landing pages: 1–4%. B2B lead generation: 1–5%. The benchmark that matters most is your own historical CVR — a 25% improvement on your current rate will always outperform chasing an industry average.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'What is ROAS and what is a good ROAS?',
+        acceptedAnswer: { '@type': 'Answer', text: 'ROAS (Return on Ad Spend) = Revenue ÷ Ad Spend. A ROAS of 4x means you generate €4 in revenue for every €1 spent on ads. What\'s "good" depends on your margins — a 4x ROAS on a 50% margin product is profitable; the same ROAS on a 20% margin product is not. The target ROAS formula is: 1 ÷ Gross Margin. For 40% margins, your break-even ROAS is 2.5x; target 4x+ for healthy profit.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'What is CPA in advertising?',
+        acceptedAnswer: { '@type': 'Answer', text: 'CPA (Cost Per Acquisition) = Ad Spend ÷ Number of Conversions. It\'s the average cost of acquiring one paying customer or lead through your paid channel. CPA is directly tied to landing page CVR — if you double your CVR, you halve your CPA with the same budget. This is why landing page optimisation is often more valuable than bidding adjustments for improving paid media efficiency.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'How much can landing page optimisation improve CVR?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Landing page CVR improvements of 20–50% are achievable for most under-optimised pages through structural changes — clearer headline, stronger social proof, simplified form, faster load time, better mobile experience. Pages built without systematic CRO often have CVRs 40–60% below what they could achieve. A single well-run A/B test can produce 10–30% relative improvement.' },
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Landing Page ROI Calculator — CPA, ROAS & CVR Impact"
+  description="Free landing page ROI calculator. Enter your ad spend, clicks, CVR, and deal value to see current CPA, ROAS, and the revenue impact of improving your landing page by 10–100%."
+  jsonLd={schemas}
+>
+  <div class="tool-page">
+    <div class="tool-page__hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+          <a href="/tools/">CRO Tools</a>
+          <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+          <span class="breadcrumbs__current" aria-current="page">Landing Page ROI Calculator</span>
+        </nav>
+        <h1 class="tool-page__title">Landing Page ROI Calculator</h1>
+        <p class="tool-page__intro">
+          Your landing page CVR directly controls your CPA and ROAS. A 25% improvement in CVR cuts your CPA by
+          20% and increases revenue by 25% — without spending an extra euro on ads. This calculator shows you
+          your current metrics and exactly what each CVR improvement scenario is worth.
+        </p>
+      </div>
+    </div>
+
+    <div class="container tool-page__body">
+
+      <LandingPageROICalculator />
+
+      <div class="tool-page__content">
+        <h2>How to Use This Calculator</h2>
+        <ol class="tool-steps">
+          <li><strong>Monthly Ad Spend</strong> — total spend on the campaign driving traffic to this landing page. Use one campaign or ad group, not blended account spend.</li>
+          <li><strong>Monthly Clicks / Visitors</strong> — clicks from your ad platform (Google Ads, Meta Ads) or sessions from GA4 for this specific landing page.</li>
+          <li><strong>Current Landing Page CVR</strong> — conversions ÷ visitors × 100. Use the same time period as your spend. For accuracy, use GA4 goal completions for this specific page, not platform-reported conversions (which may include view-throughs).</li>
+          <li><strong>Value per Conversion</strong> — average revenue per conversion. For e-commerce: AOV. For B2B lead gen: average deal value × close rate.</li>
+        </ol>
+
+        <h2>CPA and ROAS: The Relationship with CVR</h2>
+        <ul class="tool-list">
+          <li><strong>CPA = Ad Spend ÷ Conversions.</strong> Double your CVR = halve your CPA. This is why landing page CRO always beats media buying optimisation for efficiency.</li>
+          <li><strong>ROAS = Revenue ÷ Ad Spend.</strong> Break-even ROAS = 1 ÷ Gross Margin. Target ROAS should be 2× your break-even minimum.</li>
+          <li><strong>The multiplier effect:</strong> A 25% CVR improvement on a €5,000/month campaign with €200 CPA reduces CPA to €160 — and increases revenue by 25% with zero extra spend.</li>
+          <li><strong>Why CVR varies by traffic source:</strong> Paid social traffic typically converts 50–70% lower than branded search because intent is lower. Always calculate landing page CVR per traffic source, not blended.</li>
+        </ul>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="tool-faqs">
+          <details>
+            <summary>What is a good landing page conversion rate?</summary>
+            <p>Paid search averages 2.35%; top quartile converts at 5.31%+. B2B lead gen averages 1–5%. The number that matters is yours vs. your historical baseline — a 25% improvement on your current rate is more valuable than hitting an industry average.</p>
+          </details>
+          <details>
+            <summary>What is a good ROAS?</summary>
+            <p>Break-even ROAS = 1 ÷ Gross Margin. At 40% margins, you need 2.5x ROAS just to break even on ad spend. Target 4x+ for healthy profitability. Higher CVR directly raises ROAS — use the scenario table above to model it.</p>
+          </details>
+          <details>
+            <summary>How much can landing page optimisation realistically improve CVR?</summary>
+            <p>Pages built without structured CRO typically sit 40–60% below achievable CVR. Structured A/B testing produces 10–30% per test. Over a 6-month programme, 50–100% cumulative improvement is achievable on most paid traffic landing pages.</p>
+          </details>
+          <details>
+            <summary>Should I optimise my landing page before scaling ad spend?</summary>
+            <p>Yes. Scaling a poorly-converting landing page multiplies wasted spend. Optimise to at least 3× your current CVR benchmarks before increasing budget. The scenario table above shows you the exact revenue value of getting CVR right before you scale.</p>
+          </details>
+        </div>
+
+        <div class="tool-page__related">
+          <h2>Related Tools & Resources</h2>
+          <ul>
+            <li><a href="/tools/conversion-rate-calculator/">Conversion Rate Calculator</a> — calculate exact CVR</li>
+            <li><a href="/tools/ab-test-significance-calculator/">A/B Test Significance Calculator</a> — validate your test results</li>
+            <li><a href="/tools/cro-roi-calculator/">CRO ROI Calculator</a> — full-site revenue impact of CVR improvements</li>
+            <li><a href="/blog/how-to-improve-ecommerce-conversion-rate/">21 Ways to Improve CVR</a> — the full optimisation playbook</li>
+            <li><a href="/services/cro-audit/">CRO Audit Service</a> — diagnose what's suppressing your landing page CVR</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tool-page__cta">
+        <h2>Stop Paying for Traffic That Doesn't Convert</h2>
+        <p>If your landing page CVR is below 3%, you're probably leaving 40–60% of potential revenue on the table. A CRO audit identifies the specific friction points — and gives you the fixes, in priority order, with revenue estimates attached.</p>
+        <a href="/contact/" class="btn btn--primary">Get a Free CRO Audit</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .tool-page__hero { background: var(--color-surface); border-bottom: 1px solid var(--color-border); padding: var(--space-14) 0 var(--space-10); }
+  .tool-page__title { font-size: clamp(1.75rem, 3.5vw, 2.75rem); font-weight: 900; letter-spacing: -0.04em; margin-top: var(--space-4); margin-bottom: var(--space-4); }
+  .tool-page__intro { font-size: var(--text-lg); color: var(--color-text-muted); max-width: 680px; line-height: 1.65; }
+  .tool-page__body { padding-top: var(--space-10); padding-bottom: var(--space-16); max-width: 780px; }
+  .tool-page__content { margin-top: var(--space-10); }
+  .tool-page__content h2 { font-size: var(--text-xl); font-weight: 800; margin-top: var(--space-10); margin-bottom: var(--space-4); }
+  .tool-page__content p { color: var(--color-text-muted); line-height: 1.7; margin-bottom: var(--space-4); }
+  .tool-steps { padding-left: var(--space-6); display: flex; flex-direction: column; gap: var(--space-3); color: var(--color-text-muted); line-height: 1.65; }
+  .tool-list { padding-left: var(--space-6); display: flex; flex-direction: column; gap: var(--space-2); color: var(--color-text-muted); line-height: 1.65; margin-bottom: var(--space-4); }
+  .tool-faqs { display: flex; flex-direction: column; gap: var(--space-2); }
+  .tool-faqs details { border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-3) var(--space-4); }
+  .tool-faqs summary { font-weight: 600; color: var(--color-heading); cursor: pointer; font-size: var(--text-sm); }
+  .tool-faqs p { margin-top: var(--space-3); font-size: var(--text-sm); margin-bottom: 0; }
+  .tool-page__related { margin-top: var(--space-10); padding: var(--space-6); background: var(--color-surface); border-radius: var(--radius-xl); border: 1px solid var(--color-border); }
+  .tool-page__related h2 { font-size: var(--text-base) !important; margin-top: 0 !important; margin-bottom: var(--space-3) !important; }
+  .tool-page__related ul { display: flex; flex-direction: column; gap: var(--space-2); padding-left: var(--space-4); }
+  .tool-page__related li { font-size: var(--text-sm); color: var(--color-text-muted); }
+  .tool-page__related a { color: var(--color-accent); font-weight: 500; }
+  .tool-page__cta { margin-top: var(--space-12); padding: var(--space-8) var(--space-10); background: var(--color-accent); border-radius: var(--radius-xl); color: white; }
+  .tool-page__cta h2 { font-size: var(--text-xl); font-weight: 800; color: white; margin-bottom: var(--space-3); }
+  .tool-page__cta p { color: rgba(255,255,255,0.85); line-height: 1.6; margin-bottom: var(--space-5); max-width: 520px; }
+  .tool-page__cta .btn--primary { background: white; color: var(--color-accent); }
+  .tool-page__cta .btn--primary:hover { background: var(--color-heading); color: white; }
+</style>

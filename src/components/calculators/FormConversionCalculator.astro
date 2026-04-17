@@ -1,0 +1,134 @@
+---
+// Form Conversion Rate & Revenue Calculator
+---
+
+<div class="calc-highlight">
+  <span class="calc-highlight-badge">Free Tool</span>
+  <span class="calc-highlight-text">Quantify exactly how much your form drop-off is costing you</span>
+</div>
+<div class="calc-wrap calc-wrap--featured" id="form-conversion-calculator">
+  <div class="calc-header">
+    <div class="calc-icon">✍</div>
+    <div>
+      <h3 class="calc-title">Form Conversion Rate Calculator</h3>
+      <p class="calc-subtitle">Enter your form funnel numbers to find where you're losing leads — and the revenue impact of fixing it</p>
+    </div>
+  </div>
+
+  <div class="calc-body">
+    <div class="calc-inputs">
+      <div class="calc-field">
+        <label for="fc-page-visitors">Page Visitors (monthly)</label>
+        <input type="number" id="fc-page-visitors" placeholder="e.g. 4500" min="1" />
+      </div>
+      <div class="calc-field">
+        <label for="fc-form-starts">Form Starts (clicked into form)</label>
+        <input type="number" id="fc-form-starts" placeholder="e.g. 1200" min="0" />
+      </div>
+      <div class="calc-field">
+        <label for="fc-form-completions">Form Completions (submitted)</label>
+        <input type="number" id="fc-form-completions" placeholder="e.g. 480" min="0" />
+      </div>
+      <div class="calc-field">
+        <label for="fc-close-rate">Lead-to-Close Rate (%)</label>
+        <input type="number" id="fc-close-rate" placeholder="e.g. 20" min="0.1" max="100" step="0.1" />
+      </div>
+      <div class="calc-field">
+        <label for="fc-deal-value">Average Deal / Order Value (€)</label>
+        <input type="number" id="fc-deal-value" placeholder="e.g. 1800" min="1" />
+      </div>
+    </div>
+
+    <div class="calc-results" id="fc-results" style="display:none">
+      <div class="calc-result-primary">
+        <span class="calc-result-label">Monthly Revenue from Form</span>
+        <span class="calc-result-value" id="fc-revenue">—</span>
+      </div>
+
+      <div class="calc-result-grid">
+        <div class="calc-result-card">
+          <span class="calc-result-card-label">Page → Form Start</span>
+          <span class="calc-result-card-value" id="fc-start-rate">—</span>
+        </div>
+        <div class="calc-result-card">
+          <span class="calc-result-card-label">Start → Completion</span>
+          <span class="calc-result-card-value" id="fc-completion-rate">—</span>
+        </div>
+        <div class="calc-result-card calc-result-card--green">
+          <span class="calc-result-card-label">Page-to-Lead CVR</span>
+          <span class="calc-result-card-value" id="fc-page-cvr">—</span>
+        </div>
+        <div class="calc-result-card calc-result-card--green">
+          <span class="calc-result-card-label">Monthly Closed Deals</span>
+          <span class="calc-result-card-value" id="fc-deals">—</span>
+        </div>
+      </div>
+
+      <div class="calc-compare-block" style="margin-top:var(--space-5)">
+        <div class="calc-compare-panel">
+          <div class="calc-compare-panel-label">Fix Form Start Rate (+20%)</div>
+          <div class="calc-compare-cvr" id="fc-fix-start-rev">—</div>
+          <div class="calc-compare-detail" id="fc-fix-start-detail">extra/month</div>
+        </div>
+        <div class="calc-compare-panel calc-compare-panel--variant">
+          <div class="calc-compare-panel-label">Fix Completion Rate (+20%)</div>
+          <div class="calc-compare-cvr" id="fc-fix-comp-rev">—</div>
+          <div class="calc-compare-detail" id="fc-fix-comp-detail">extra/month</div>
+        </div>
+      </div>
+
+      <p class="calc-note" id="fc-note"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function calcFormConversion() {
+    const pageVisitors = parseFloat((document.getElementById('fc-page-visitors') as HTMLInputElement).value);
+    const formStarts = parseFloat((document.getElementById('fc-form-starts') as HTMLInputElement).value);
+    const formCompletions = parseFloat((document.getElementById('fc-form-completions') as HTMLInputElement).value);
+    const closeRate = parseFloat((document.getElementById('fc-close-rate') as HTMLInputElement).value) / 100;
+    const dealValue = parseFloat((document.getElementById('fc-deal-value') as HTMLInputElement).value);
+
+    if (!pageVisitors || !formStarts || !formCompletions || !closeRate || !dealValue) return;
+
+    const startRate = formStarts / pageVisitors;
+    const completionRate = formCompletions / formStarts;
+    const pageCVR = formCompletions / pageVisitors;
+    const deals = formCompletions * closeRate;
+    const revenue = deals * dealValue;
+
+    document.getElementById('fc-revenue')!.textContent = '€' + Math.round(revenue).toLocaleString();
+    document.getElementById('fc-start-rate')!.textContent = (startRate * 100).toFixed(1) + '%';
+    document.getElementById('fc-completion-rate')!.textContent = (completionRate * 100).toFixed(1) + '%';
+    document.getElementById('fc-page-cvr')!.textContent = (pageCVR * 100).toFixed(2) + '%';
+    document.getElementById('fc-deals')!.textContent = Math.round(deals).toLocaleString();
+
+    // Scenario: fix form start rate by +20% relative
+    const newStartRate = startRate * 1.2;
+    const newStartCompletions = pageVisitors * newStartRate * completionRate;
+    const newStartRevenue = newStartCompletions * closeRate * dealValue;
+    const extraFromStart = newStartRevenue - revenue;
+
+    // Scenario: fix completion rate by +20% relative
+    const newCompRate = completionRate * 1.2;
+    const newCompCompletions = formStarts * newCompRate;
+    const newCompRevenue = newCompCompletions * closeRate * dealValue;
+    const extraFromComp = newCompRevenue - revenue;
+
+    document.getElementById('fc-fix-start-rev')!.textContent = '+€' + Math.round(extraFromStart).toLocaleString();
+    document.getElementById('fc-fix-start-detail')!.textContent = `(${(newStartRate*100).toFixed(1)}% start rate vs ${(startRate*100).toFixed(1)}% now)`;
+    document.getElementById('fc-fix-comp-rev')!.textContent = '+€' + Math.round(extraFromComp).toLocaleString();
+    document.getElementById('fc-fix-comp-detail')!.textContent = `(${(newCompRate*100).toFixed(1)}% completion vs ${(completionRate*100).toFixed(1)}% now)`;
+
+    // Identify which fix is bigger
+    const biggerFix = extraFromComp > extraFromStart ? 'form completion' : 'form start';
+    document.getElementById('fc-note')!.textContent = `Your biggest opportunity is improving the ${biggerFix} rate. Every 1% absolute improvement in your page-to-lead CVR is worth approximately €${Math.round(pageVisitors * 0.01 * closeRate * dealValue).toLocaleString()}/month.`;
+
+    document.getElementById('fc-results')!.style.display = 'block';
+  }
+
+  ['fc-page-visitors','fc-form-starts','fc-form-completions','fc-close-rate','fc-deal-value'].forEach(id => {
+    document.getElementById(id)?.addEventListener('input', calcFormConversion);
+  });
+</script>

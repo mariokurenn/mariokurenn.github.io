@@ -1,0 +1,170 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import CheckoutFunnelCalculator from '@/components/calculators/CheckoutFunnelCalculator.astro';
+
+const siteURL = 'https://grow-conversions.com';
+const pageURL = `${siteURL}/tools/checkout-funnel-calculator/`;
+
+const schemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'Checkout Funnel Drop-off Calculator',
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Web Browser',
+    description: 'Free checkout funnel calculator. Enter visitors at each step — product page, add to cart, checkout start, payment, purchase — to find where you\'re losing the most revenue and what fixing it is worth.',
+    url: pageURL,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+    provider: { '@type': 'Organization', name: 'grow-conversions.com', url: siteURL },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteURL },
+      { '@type': 'ListItem', position: 2, name: 'CRO Tools', item: `${siteURL}/tools/` },
+      { '@type': 'ListItem', position: 3, name: 'Checkout Funnel Calculator', item: pageURL },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'What is a normal checkout drop-off rate?',
+        acceptedAnswer: { '@type': 'Answer', text: 'A typical e-commerce funnel loses 60–80% of visitors between product page and purchase. Add-to-cart rates average 8–10% of product page visitors. Checkout-to-purchase conversion averages 35–50%. If you\'re significantly below these benchmarks at any step, that step is your priority fix.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Where do most checkouts drop off?',
+        acceptedAnswer: { '@type': 'Answer', text: 'The biggest drop-off typically occurs at two points: between product page and add-to-cart (70–85% drop), and between payment entry and purchase completion (25–40% drop). The payment step drop is often caused by unexpected costs, trust concerns, or payment friction. The product page drop is usually price, unclear value proposition, or missing trust signals.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'How do I find my checkout funnel data in GA4?',
+        acceptedAnswer: { '@type': 'Answer', text: 'In GA4, go to Explore → Funnel Exploration. Set your steps as: view_item → add_to_cart → begin_checkout → add_payment_info → purchase. Set the date range to at least 30 days. Filter by device type to see mobile vs desktop drop-off separately — mobile typically drops off 15–20% more at the payment step.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'What is the most common cause of checkout abandonment?',
+        acceptedAnswer: { '@type': 'Answer', text: 'According to Baymard Institute research, the top causes are: unexpected shipping or tax costs at checkout (48%), forced account creation (24%), overly complex checkout process (22%), lack of trust with payment details (18%), and inability to see total cost upfront (17%). All five are directly fixable through checkout optimisation.' },
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Checkout Funnel Drop-off Calculator — Find Your Biggest Revenue Leak"
+  description="Free checkout funnel calculator. Enter visitors at each step to see where you're losing the most customers, the revenue impact, and what a 10% fix at each step is worth."
+  jsonLd={schemas}
+>
+  <div class="tool-page">
+    <div class="tool-page__hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+          <a href="/tools/">CRO Tools</a>
+          <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+          <span class="breadcrumbs__current" aria-current="page">Checkout Funnel Calculator</span>
+        </nav>
+        <h1 class="tool-page__title">Checkout Funnel Drop-off Calculator</h1>
+        <p class="tool-page__intro">
+          Most e-commerce stores know their conversion rate. Very few know exactly which step of their checkout
+          is leaking the most revenue. Enter your funnel numbers — product page through to purchase — and this
+          calculator shows you where the biggest drop-off is, how much revenue it's costing you monthly, and
+          what a 10% fix at that step would recover.
+        </p>
+      </div>
+    </div>
+
+    <div class="container tool-page__body">
+
+      <CheckoutFunnelCalculator />
+
+      <div class="tool-page__content">
+        <h2>How to Use This Calculator</h2>
+        <ol class="tool-steps">
+          <li><strong>Get your funnel data from GA4</strong> — go to Explore → Funnel Exploration. Use events: view_item, add_to_cart, begin_checkout, add_payment_info, purchase. Use 30+ days of data.</li>
+          <li><strong>Enter visitors at each step</strong> — product page visitors is your starting point. Work down through each step. You don't need all 5 — enter what you have.</li>
+          <li><strong>Enter your average order value</strong> — use your actual average from Shopify, WooCommerce, or GA4 e-commerce reports.</li>
+          <li><strong>Read the funnel visualisation</strong> — the red highlighted row is your biggest drop-off. The bar chart shows proportional traffic at each step. The summary cards show total lost revenue and what a 10% improvement at the worst step would recover.</li>
+        </ol>
+
+        <h2>Checkout Funnel Benchmarks</h2>
+        <ul class="tool-list">
+          <li><strong>Product page → Add to Cart:</strong> Average 8–12%. Below 6% = product page problem (price, images, trust signals, description)</li>
+          <li><strong>Add to Cart → Checkout Start:</strong> Average 35–50%. Below 30% = cart page friction (unexpected costs, forced account creation)</li>
+          <li><strong>Checkout Start → Payment:</strong> Average 60–75%. Below 55% = checkout form friction (too many fields, confusing layout)</li>
+          <li><strong>Payment → Purchase:</strong> Average 70–85%. Below 65% = trust or payment method problem (missing security signals, limited payment options)</li>
+          <li><strong>End-to-end (Product → Purchase):</strong> Average 1.5–3%. Top quartile: 5%+</li>
+        </ul>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="tool-faqs">
+          <details>
+            <summary>What is a normal checkout drop-off rate?</summary>
+            <p>Losing 60–80% of visitors between product page and purchase is typical. The key is understanding which step drops more than expected for your industry. Use the benchmarks above to identify outliers.</p>
+          </details>
+          <details>
+            <summary>Where do most checkouts drop off?</summary>
+            <p>The two biggest leak points: product page → add to cart (where 70–85% of visitors leave), and payment entry → purchase (where unexpected costs and trust concerns cause 25–40% to abandon). Your funnel data will show which applies to you.</p>
+          </details>
+          <details>
+            <summary>How do I get this data from GA4?</summary>
+            <p>GA4 Explore → Funnel Exploration. Steps: view_item → add_to_cart → begin_checkout → add_payment_info → purchase. Run for 30+ days, broken down by device type. Mobile drop-off is typically 15–20% higher at the payment step.</p>
+          </details>
+          <details>
+            <summary>What fixes the biggest checkout drop-off?</summary>
+            <p>Depends on the step. Product page: better images, clearer price/value, shipping cost visibility. Cart: guest checkout, show total cost. Checkout form: reduce fields, progress indicators. Payment: trust badges, more payment methods, BNPL options. See <a href="/blog/cart-abandonment-rate/">Cart Abandonment Rate</a> for the full 12-fix breakdown.</p>
+          </details>
+        </div>
+
+        <div class="tool-page__related">
+          <h2>Related Tools & Resources</h2>
+          <ul>
+            <li><a href="/tools/cart-abandonment-rate-calculator/">Cart Abandonment Rate Calculator</a> — overall abandonment impact</li>
+            <li><a href="/tools/cro-roi-calculator/">CRO ROI Calculator</a> — revenue value of CVR improvements</li>
+            <li><a href="/blog/cart-abandonment-rate/">Cart Abandonment Rate: 12 Proven Fixes</a> — the full optimisation guide</li>
+            <li><a href="/blog/cart-abandonment-recovery/">Cart Abandonment Recovery Tactics</a> — win back abandoners</li>
+            <li><a href="/services/cro-audit/">CRO Audit Service</a> — expert diagnosis of your checkout friction</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tool-page__cta">
+        <h2>Know Which Step Is Leaking — Now Fix It</h2>
+        <p>The calculator shows where you're losing revenue. A CRO audit shows you exactly why — the specific friction points causing that drop, and a prioritised fix list starting with the highest-revenue impact item.</p>
+        <a href="/contact/" class="btn btn--primary">Get a Free CRO Audit</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .tool-page__hero { background: var(--color-surface); border-bottom: 1px solid var(--color-border); padding: var(--space-14) 0 var(--space-10); }
+  .tool-page__title { font-size: clamp(1.75rem, 3.5vw, 2.75rem); font-weight: 900; letter-spacing: -0.04em; margin-top: var(--space-4); margin-bottom: var(--space-4); }
+  .tool-page__intro { font-size: var(--text-lg); color: var(--color-text-muted); max-width: 680px; line-height: 1.65; }
+  .tool-page__body { padding-top: var(--space-10); padding-bottom: var(--space-16); max-width: 780px; }
+  .tool-page__content { margin-top: var(--space-10); }
+  .tool-page__content h2 { font-size: var(--text-xl); font-weight: 800; margin-top: var(--space-10); margin-bottom: var(--space-4); }
+  .tool-page__content p { color: var(--color-text-muted); line-height: 1.7; margin-bottom: var(--space-4); }
+  .tool-steps { padding-left: var(--space-6); display: flex; flex-direction: column; gap: var(--space-3); color: var(--color-text-muted); line-height: 1.65; }
+  .tool-list { padding-left: var(--space-6); display: flex; flex-direction: column; gap: var(--space-2); color: var(--color-text-muted); line-height: 1.65; margin-bottom: var(--space-4); }
+  .tool-faqs { display: flex; flex-direction: column; gap: var(--space-2); }
+  .tool-faqs details { border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-3) var(--space-4); }
+  .tool-faqs summary { font-weight: 600; color: var(--color-heading); cursor: pointer; font-size: var(--text-sm); }
+  .tool-faqs p { margin-top: var(--space-3); font-size: var(--text-sm); margin-bottom: 0; }
+  .tool-page__related { margin-top: var(--space-10); padding: var(--space-6); background: var(--color-surface); border-radius: var(--radius-xl); border: 1px solid var(--color-border); }
+  .tool-page__related h2 { font-size: var(--text-base) !important; margin-top: 0 !important; margin-bottom: var(--space-3) !important; }
+  .tool-page__related ul { display: flex; flex-direction: column; gap: var(--space-2); padding-left: var(--space-4); }
+  .tool-page__related li { font-size: var(--text-sm); color: var(--color-text-muted); }
+  .tool-page__related a { color: var(--color-accent); font-weight: 500; }
+  .tool-page__cta { margin-top: var(--space-12); padding: var(--space-8) var(--space-10); background: var(--color-accent); border-radius: var(--radius-xl); color: white; }
+  .tool-page__cta h2 { font-size: var(--text-xl); font-weight: 800; color: white; margin-bottom: var(--space-3); }
+  .tool-page__cta p { color: rgba(255,255,255,0.85); line-height: 1.6; margin-bottom: var(--space-5); max-width: 520px; }
+  .tool-page__cta .btn--primary { background: white; color: var(--color-accent); }
+  .tool-page__cta .btn--primary:hover { background: var(--color-heading); color: white; }
+</style>

@@ -1,0 +1,133 @@
+---
+// Landing Page ROI Calculator
+---
+
+<div class="calc-highlight">
+  <span class="calc-highlight-badge">Free Tool</span>
+  <span class="calc-highlight-text">See how small CVR improvements transform your ad spend into profit</span>
+</div>
+<div class="calc-wrap calc-wrap--featured" id="lp-roi-calculator">
+  <div class="calc-header">
+    <div class="calc-icon">📈</div>
+    <div>
+      <h3 class="calc-title">Landing Page ROI Calculator</h3>
+      <p class="calc-subtitle">Enter your ad spend, CVR, and deal value to see CPA, ROAS, and revenue across multiple improvement scenarios</p>
+    </div>
+  </div>
+
+  <div class="calc-body">
+    <div class="calc-inputs">
+      <div class="calc-field">
+        <label for="lp-spend">Monthly Ad Spend (€)</label>
+        <input type="number" id="lp-spend" placeholder="e.g. 5000" min="1" />
+      </div>
+      <div class="calc-field">
+        <label for="lp-clicks">Monthly Clicks / Visitors</label>
+        <input type="number" id="lp-clicks" placeholder="e.g. 3200" min="1" />
+      </div>
+      <div class="calc-field">
+        <label for="lp-cvr">Current Landing Page CVR (%)</label>
+        <input type="number" id="lp-cvr" placeholder="e.g. 2.4" min="0.01" max="100" step="0.01" />
+      </div>
+      <div class="calc-field">
+        <label for="lp-value">Value per Conversion (€)</label>
+        <input type="number" id="lp-value" placeholder="e.g. 220" min="0.01" step="0.01" />
+      </div>
+    </div>
+
+    <div class="calc-results" id="lp-results" style="display:none">
+      <div class="calc-result-primary">
+        <span class="calc-result-label">Current Monthly Revenue</span>
+        <span class="calc-result-value" id="lp-current-rev">—</span>
+      </div>
+
+      <div class="calc-result-grid">
+        <div class="calc-result-card">
+          <span class="calc-result-card-label">Current CPA</span>
+          <span class="calc-result-card-value" id="lp-cpa">—</span>
+        </div>
+        <div class="calc-result-card">
+          <span class="calc-result-card-label">Current ROAS</span>
+          <span class="calc-result-card-value" id="lp-roas">—</span>
+        </div>
+        <div class="calc-result-card">
+          <span class="calc-result-card-label">Monthly Conversions</span>
+          <span class="calc-result-card-value" id="lp-conv">—</span>
+        </div>
+        <div class="calc-result-card">
+          <span class="calc-result-card-label">Cost per Click</span>
+          <span class="calc-result-card-value" id="lp-cpc">—</span>
+        </div>
+      </div>
+
+      <div style="margin-top:var(--space-5)">
+        <p style="font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--color-text-muted);margin-bottom:var(--space-2)">Revenue Impact — CVR Improvement Scenarios</p>
+        <div class="calc-scenario-table" id="lp-scenarios"></div>
+      </div>
+
+      <p class="calc-note" id="lp-note"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function calcLPROI() {
+    const spend = parseFloat((document.getElementById('lp-spend') as HTMLInputElement).value);
+    const clicks = parseFloat((document.getElementById('lp-clicks') as HTMLInputElement).value);
+    const cvr = parseFloat((document.getElementById('lp-cvr') as HTMLInputElement).value) / 100;
+    const value = parseFloat((document.getElementById('lp-value') as HTMLInputElement).value);
+
+    if (!spend || !clicks || !cvr || !value) return;
+
+    const currentConv = clicks * cvr;
+    const currentRevenue = currentConv * value;
+    const cpa = spend / currentConv;
+    const roas = currentRevenue / spend;
+    const cpc = spend / clicks;
+
+    document.getElementById('lp-current-rev')!.textContent = '€' + Math.round(currentRevenue).toLocaleString();
+    document.getElementById('lp-cpa')!.textContent = '€' + cpa.toFixed(2);
+    document.getElementById('lp-roas')!.textContent = roas.toFixed(2) + 'x';
+    document.getElementById('lp-conv')!.textContent = Math.round(currentConv).toLocaleString();
+    document.getElementById('lp-cpc')!.textContent = '€' + cpc.toFixed(2);
+
+    // Scenario table: 5 improvement levels
+    const improvements = [0, 10, 25, 50, 100];
+    const cols = 5;
+    const scenEl = document.getElementById('lp-scenarios') as HTMLElement;
+    const header = `<div class="calc-scenario-row calc-scenario-row--header" style="grid-template-columns:repeat(${cols},1fr)">
+      <div class="calc-scenario-cell">CVR</div>
+      <div class="calc-scenario-cell">Conv/mo</div>
+      <div class="calc-scenario-cell">Revenue</div>
+      <div class="calc-scenario-cell">CPA</div>
+      <div class="calc-scenario-cell">ROAS</div>
+    </div>`;
+    let rows = '';
+    improvements.forEach(pct => {
+      const newCVR = cvr * (1 + pct / 100);
+      const newConv = clicks * newCVR;
+      const newRev = newConv * value;
+      const newCPA = spend / newConv;
+      const newROAS = newRev / spend;
+      const isCurrent = pct === 0;
+      rows += `<div class="calc-scenario-row${isCurrent?' calc-scenario-row--current':''}" style="grid-template-columns:repeat(${cols},1fr)">
+        <div class="calc-scenario-cell">${(newCVR*100).toFixed(2)}%${isCurrent?' (now)':' (+'+pct+'%)'}</div>
+        <div class="calc-scenario-cell">${Math.round(newConv).toLocaleString()}</div>
+        <div class="calc-scenario-cell calc-scenario-cell--green">€${Math.round(newRev).toLocaleString()}</div>
+        <div class="calc-scenario-cell">€${newCPA.toFixed(0)}</div>
+        <div class="calc-scenario-cell">${newROAS.toFixed(2)}x</div>
+      </div>`;
+    });
+    scenEl.innerHTML = header + rows;
+
+    // Best scenario note
+    const uplift25 = Math.round(clicks * cvr * 1.25 * value - currentRevenue);
+    document.getElementById('lp-note')!.textContent = `A 25% CVR improvement on this landing page would generate an extra €${uplift25.toLocaleString()}/month from the same ad spend — no increase in budget required.`;
+
+    document.getElementById('lp-results')!.style.display = 'block';
+  }
+
+  ['lp-spend','lp-clicks','lp-cvr','lp-value'].forEach(id => {
+    document.getElementById(id)?.addEventListener('input', calcLPROI);
+  });
+</script>

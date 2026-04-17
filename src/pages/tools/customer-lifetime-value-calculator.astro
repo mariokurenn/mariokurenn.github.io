@@ -1,0 +1,179 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import CLVCalculator from '@/components/calculators/CLVCalculator.astro';
+
+const siteURL = 'https://grow-conversions.com';
+const pageURL = `${siteURL}/tools/customer-lifetime-value-calculator/`;
+
+const schemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'Customer Lifetime Value Calculator',
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Web Browser',
+    description: 'Free CLV calculator. Calculate customer lifetime value, max profitable CAC, and revenue scenarios across different retention rates. Essential for setting acquisition budgets and CRO investment decisions.',
+    url: pageURL,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+    provider: { '@type': 'Organization', name: 'grow-conversions.com', url: siteURL },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteURL },
+      { '@type': 'ListItem', position: 2, name: 'CRO Tools', item: `${siteURL}/tools/` },
+      { '@type': 'ListItem', position: 3, name: 'Customer Lifetime Value Calculator', item: pageURL },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'What is Customer Lifetime Value (CLV)?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Customer Lifetime Value (CLV or LTV) is the total gross profit a business expects to earn from a single customer over the entire duration of the relationship. CLV = Average Order Value × Purchase Frequency × Customer Lifespan × Gross Margin. Knowing your CLV sets your maximum profitable customer acquisition cost (CAC) and determines how aggressively you can bid on traffic.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'What is a good CLV:CAC ratio?',
+        acceptedAnswer: { '@type': 'Answer', text: 'A 3:1 CLV:CAC ratio is the standard benchmark — you earn €3 in lifetime profit for every €1 spent acquiring the customer. Below 2:1, the business is likely unprofitable once operating costs are included. Above 5:1 suggests you may be underinvesting in acquisition and leaving growth on the table. SaaS businesses typically target 3:1; e-commerce varies by category and margin.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'How do I calculate my customer lifespan?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Customer lifespan = 1 ÷ churn rate. If 20% of your customers stop buying each year, your average lifespan is 1 ÷ 0.20 = 5 years. For e-commerce, you can also calculate it empirically: look at cohort data and find the median number of years customers remain active. Most e-commerce customers have a 1–3 year lifespan; subscription businesses often see 3–7 years.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'How does CLV affect CRO decisions?',
+        acceptedAnswer: { '@type': 'Answer', text: 'CLV is the foundation of CRO investment decisions. If your CLV is €400, you can profitably spend up to €133 to acquire a customer (3:1 ratio). If CRO increases your first-purchase CVR from 2% to 3%, that effectively reduces your CAC by 33% — allowing you to either increase profit or reinvest in more traffic. Higher CLV also justifies deeper CRO investments because each incremental conversion is worth more.' },
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Customer Lifetime Value Calculator (CLV/LTV) — Free Tool"
+  description="Free CLV calculator. Enter AOV, purchase frequency, lifespan, and margin to calculate customer lifetime value, maximum profitable CAC, and retention sensitivity scenarios."
+  jsonLd={schemas}
+>
+  <div class="tool-page">
+    <div class="tool-page__hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+          <a href="/tools/">CRO Tools</a>
+          <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+          <span class="breadcrumbs__current" aria-current="page">Customer Lifetime Value Calculator</span>
+        </nav>
+        <h1 class="tool-page__title">Customer Lifetime Value (CLV) Calculator</h1>
+        <p class="tool-page__intro">
+          Customer lifetime value determines how much you can afford to spend acquiring a customer — and therefore
+          how aggressively you can invest in traffic and CRO. This calculator gives you CLV, gross profit per
+          customer, maximum profitable CAC at different ratio targets, and a sensitivity table showing how CLV
+          changes with retention.
+        </p>
+      </div>
+    </div>
+
+    <div class="container tool-page__body">
+
+      <CLVCalculator />
+
+      <div class="tool-page__content">
+        <h2>How to Use This Calculator</h2>
+        <ol class="tool-steps">
+          <li><strong>Average Order Value (AOV)</strong> — your average transaction value. Find it in Shopify, WooCommerce, or GA4 → Monetisation → E-commerce purchases.</li>
+          <li><strong>Purchase Frequency</strong> — average number of orders per customer per year. If your customers average 2 orders in 18 months, that's 1.33 orders/year.</li>
+          <li><strong>Customer Lifespan</strong> — how long the average customer remains active. Use cohort analysis, or calculate as 1 ÷ annual churn rate.</li>
+          <li><strong>Gross Margin</strong> — your margin after direct costs (COGS). For e-commerce, typically 30–60%. For SaaS, 70–85%.</li>
+          <li><strong>CLV:CAC Ratio</strong> — your target ratio. 3:1 is standard; 2:1 is aggressive growth mode.</li>
+        </ol>
+
+        <h2>CLV Formula Explained</h2>
+        <ul class="tool-list">
+          <li><strong>Revenue per customer:</strong> AOV × Purchase Frequency × Lifespan</li>
+          <li><strong>CLV (gross profit):</strong> Revenue per customer × Gross Margin %</li>
+          <li><strong>Max CAC:</strong> CLV ÷ Target CLV:CAC Ratio</li>
+          <li><strong>Example:</strong> €85 AOV × 3 orders/year × 2.5 years × 40% margin = €255 CLV. At 3:1, max CAC = €85.</li>
+        </ul>
+
+        <h2>CLV:CAC Benchmarks by Business Type</h2>
+        <ul class="tool-list">
+          <li><strong>E-commerce (fashion, beauty):</strong> CLV:CAC of 3:1 target; typically 1–3 year lifespan</li>
+          <li><strong>E-commerce (consumables, subscriptions):</strong> 3–5:1 possible; lifespan 2–5+ years</li>
+          <li><strong>SaaS:</strong> 3:1 minimum; well-run SaaS achieves 5–7:1 with low churn</li>
+          <li><strong>B2B services:</strong> Higher CLV (€5,000–€50,000+) but longer sales cycles; 5:1+ is achievable</li>
+          <li><strong>Below 2:1:</strong> Unprofitable after operating costs — prioritise retention and AOV before scaling acquisition</li>
+        </ul>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="tool-faqs">
+          <details>
+            <summary>What is CLV and why does it matter?</summary>
+            <p>CLV (Customer Lifetime Value) is the total profit you expect from a single customer. It sets your maximum profitable acquisition cost — if you don't know your CLV, you can't know whether your CAC is sustainable. It's the single most important number for growth decisions.</p>
+          </details>
+          <details>
+            <summary>What is a good CLV:CAC ratio?</summary>
+            <p>3:1 is the benchmark — €3 lifetime profit per €1 spent acquiring the customer. Below 2:1 is typically unprofitable. Above 5:1 suggests underinvestment in acquisition. Adjust the ratio target in the calculator to model different growth strategies.</p>
+          </details>
+          <details>
+            <summary>How do I improve CLV?</summary>
+            <p>Four levers: increase AOV (bundles, upsells), increase purchase frequency (email sequences, subscription offers), extend lifespan (loyalty programmes, retention campaigns), and improve margin (pricing, supplier negotiation, product mix). CRO primarily affects the first two by removing friction from repeat purchase flows.</p>
+          </details>
+          <details>
+            <summary>How does CLV connect to CRO investment?</summary>
+            <p>Higher CLV justifies higher CRO investment because each incremental conversion is worth more. If your CLV is €400 and CRO increases monthly conversions by 50, that's €20,000 in incremental lifetime revenue — from one campaign. Use the <a href="/tools/cro-roi-calculator/">CRO ROI Calculator</a> alongside CLV to build the full business case.</p>
+          </details>
+        </div>
+
+        <div class="tool-page__related">
+          <h2>Related Tools & Resources</h2>
+          <ul>
+            <li><a href="/tools/cro-roi-calculator/">CRO ROI Calculator</a> — revenue impact of CVR improvements</li>
+            <li><a href="/tools/conversion-rate-calculator/">Conversion Rate Calculator</a> — calculate your current CVR</li>
+            <li><a href="/tools/cart-abandonment-rate-calculator/">Cart Abandonment Calculator</a> — quantify abandonment losses</li>
+            <li><a href="/blog/what-is-conversion-rate-optimization/">What Is CRO?</a> — the full CRO guide</li>
+            <li><a href="/services/cro-audit/">CRO Audit Service</a> — turn your CLV into a test roadmap</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tool-page__cta">
+        <h2>High CLV, Low CVR? That's the Biggest Missed Opportunity in CRO.</h2>
+        <p>When your customers are worth €300+ each, a 1% CVR improvement doesn't just sound good — it's worth thousands per month. A CRO audit finds exactly what's blocking those conversions and prioritises fixes by revenue impact.</p>
+        <a href="/contact/" class="btn btn--primary">Get a Free CRO Audit</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .tool-page__hero { background: var(--color-surface); border-bottom: 1px solid var(--color-border); padding: var(--space-14) 0 var(--space-10); }
+  .tool-page__title { font-size: clamp(1.75rem, 3.5vw, 2.75rem); font-weight: 900; letter-spacing: -0.04em; margin-top: var(--space-4); margin-bottom: var(--space-4); }
+  .tool-page__intro { font-size: var(--text-lg); color: var(--color-text-muted); max-width: 680px; line-height: 1.65; }
+  .tool-page__body { padding-top: var(--space-10); padding-bottom: var(--space-16); max-width: 780px; }
+  .tool-page__content { margin-top: var(--space-10); }
+  .tool-page__content h2 { font-size: var(--text-xl); font-weight: 800; margin-top: var(--space-10); margin-bottom: var(--space-4); }
+  .tool-page__content p { color: var(--color-text-muted); line-height: 1.7; margin-bottom: var(--space-4); }
+  .tool-steps { padding-left: var(--space-6); display: flex; flex-direction: column; gap: var(--space-3); color: var(--color-text-muted); line-height: 1.65; }
+  .tool-list { padding-left: var(--space-6); display: flex; flex-direction: column; gap: var(--space-2); color: var(--color-text-muted); line-height: 1.65; margin-bottom: var(--space-4); }
+  .tool-faqs { display: flex; flex-direction: column; gap: var(--space-2); }
+  .tool-faqs details { border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-3) var(--space-4); }
+  .tool-faqs summary { font-weight: 600; color: var(--color-heading); cursor: pointer; font-size: var(--text-sm); }
+  .tool-faqs p { margin-top: var(--space-3); font-size: var(--text-sm); margin-bottom: 0; }
+  .tool-page__related { margin-top: var(--space-10); padding: var(--space-6); background: var(--color-surface); border-radius: var(--radius-xl); border: 1px solid var(--color-border); }
+  .tool-page__related h2 { font-size: var(--text-base) !important; margin-top: 0 !important; margin-bottom: var(--space-3) !important; }
+  .tool-page__related ul { display: flex; flex-direction: column; gap: var(--space-2); padding-left: var(--space-4); }
+  .tool-page__related li { font-size: var(--text-sm); color: var(--color-text-muted); }
+  .tool-page__related a { color: var(--color-accent); font-weight: 500; }
+  .tool-page__cta { margin-top: var(--space-12); padding: var(--space-8) var(--space-10); background: var(--color-accent); border-radius: var(--radius-xl); color: white; }
+  .tool-page__cta h2 { font-size: var(--text-xl); font-weight: 800; color: white; margin-bottom: var(--space-3); }
+  .tool-page__cta p { color: rgba(255,255,255,0.85); line-height: 1.6; margin-bottom: var(--space-5); max-width: 520px; }
+  .tool-page__cta .btn--primary { background: white; color: var(--color-accent); }
+  .tool-page__cta .btn--primary:hover { background: var(--color-heading); color: white; }
+</style>

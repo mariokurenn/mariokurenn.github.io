@@ -12,6 +12,13 @@ const tools = [
     tags: ['CVR', 'Revenue Impact', 'Benchmarks'],
   },
   {
+    href: '/tools/ab-test-significance-calculator/',
+    icon: 'σ',
+    title: 'A/B Test Significance Calculator',
+    description: 'Enter control and variant results to get confidence level, z-score, p-value, and a clear pass/fail verdict on your test.',
+    tags: ['Statistics', 'A/B Testing', 'Significance'],
+  },
+  {
     href: '/tools/ab-test-sample-size-calculator/',
     icon: 'n',
     title: 'A/B Test Sample Size Calculator',
@@ -26,11 +33,39 @@ const tools = [
     tags: ['Test Duration', 'A/B Testing', 'Planning'],
   },
   {
+    href: '/tools/checkout-funnel-calculator/',
+    icon: '⬇',
+    title: 'Checkout Funnel Calculator',
+    description: 'Enter visitors at each funnel step to visualise where you\'re losing the most customers and what fixing it is worth.',
+    tags: ['Ecommerce', 'Funnel', 'Drop-off'],
+  },
+  {
     href: '/tools/cart-abandonment-rate-calculator/',
     icon: '🛒',
     title: 'Cart Abandonment Calculator',
     description: 'See exactly how much revenue cart abandonment is costing you monthly and annually — and what recovery is worth.',
     tags: ['Ecommerce', 'Cart Recovery', 'Revenue'],
+  },
+  {
+    href: '/tools/landing-page-roi-calculator/',
+    icon: '📈',
+    title: 'Landing Page ROI Calculator',
+    description: 'Calculate CPA, ROAS, and the revenue impact of improving your landing page CVR across 4 improvement scenarios.',
+    tags: ['Paid Ads', 'CPA', 'ROAS'],
+  },
+  {
+    href: '/tools/customer-lifetime-value-calculator/',
+    icon: '♾',
+    title: 'Customer Lifetime Value Calculator',
+    description: 'Calculate CLV, max profitable CAC, and revenue sensitivity at different retention rates.',
+    tags: ['CLV', 'CAC', 'Retention'],
+  },
+  {
+    href: '/tools/form-conversion-calculator/',
+    icon: '✍',
+    title: 'Form Conversion Calculator',
+    description: 'Find where your form is losing leads — and the revenue impact of improving start rate vs completion rate.',
+    tags: ['Lead Gen', 'Forms', 'B2B'],
   },
   {
     href: '/tools/cro-roi-calculator/',
@@ -54,7 +89,7 @@ const collectionSchema = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
   name: 'Free CRO Calculators & Tools',
-  description: 'Free conversion rate optimization calculators. Calculate CVR, A/B test sample size, test duration, cart abandonment revenue loss, and CRO ROI.',
+  description: 'Free conversion rate optimization calculators. Calculate CVR, A/B test significance, sample size, test duration, checkout funnel drop-off, CLV, landing page ROI, form CVR, and more.',
   url: `${siteURL}/tools/`,
 };
 ---
@@ -74,7 +109,7 @@ const collectionSchema = {
         </nav>
         <h1 class="tools-hero__title">Free CRO Calculators</h1>
         <p class="tools-hero__subtitle">
-          Five calculators built for marketers and founders running conversion rate optimization programmes.
+          Ten free calculators built for marketers and founders running conversion rate optimization programmes.
           No sign-up. No email gate. Just the numbers.
         </p>
       </div>
