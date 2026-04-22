@@ -97,6 +97,148 @@ const resolvedJsonLd = seoProps.jsonLd
     </main>
     <Footer />
     <CookieConsent />
+    <script>
+    (function () {
+      if (!('modelContext' in navigator)) return;
+
+      function normCDF(x) {
+        const a1=0.254829592,a2=-0.284496736,a3=1.421413741,a4=-1.453152027,a5=1.061405429,p=0.3275911;
+        const s=x<0?-1:1,t=1/(1+p*Math.abs(x)/Math.sqrt(2));
+        const poly=((((a5*t+a4)*t+a3)*t+a2)*t+a1)*t;
+        return 0.5*(1+s*(1-poly*Math.exp(-x*x/2)));
+      }
+      function inverseCDF(p) {
+        const c=[-7.784894002430293e-3,-3.223964580411365e-1,-2.400758277161838,- 2.549732539343734,4.374664141464968,2.938163982698783];
+        const d=[7.784695709041462e-3,3.224671290700398e-1,2.445134137142996,3.754408661907416];
+        const a=[0,-3.969683028665376e1,2.209460984245205e2,-2.759285104469687e2,1.383577518672690e2,-3.066479806614716e1,2.506628277459239];
+        const b=[0,-5.447609879822406e1,1.615858368580409e2,-1.556989798598866e2,6.680131188771972e1,-1.328068155288572e1];
+        const pL=0.02425,pH=1-pL;let q,r;
+        if(p<pL){q=Math.sqrt(-2*Math.log(p));return(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);}
+        if(p<=pH){q=p-0.5;r=q*q;return(((((a[1]*r+a[2])*r+a[3])*r+a[4])*r+a[5])*r+a[6])*q/(((((b[1]*r+b[2])*r+b[3])*r+b[4])*r+b[5])*r+1);}
+        q=Math.sqrt(-2*Math.log(1-p));return-(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);
+      }
+      function r(n,dp){return parseFloat(n.toFixed(dp));}
+
+      navigator.modelContext.provideContext({
+        tools: [
+          {
+            name: 'calculate_conversion_rate',
+            description: 'Calculate website conversion rate (CVR) from conversions and visitors.',
+            inputSchema: { type:'object', required:['conversions','visitors'], properties:{ conversions:{type:'number'}, visitors:{type:'number'}, aov:{type:'number'} } },
+            execute: async ({conversions,visitors,aov}) => {
+              const cvr=(conversions/visitors)*100;
+              const out={cvr:r(cvr,4),cvrFormatted:cvr.toFixed(2)+'%',conversions,visitors};
+              if(aov){out.monthlyRevenue=Math.round(conversions*aov);out.revenuePerVisitor=r((conversions*aov)/visitors,4);}
+              return out;
+            },
+          },
+          {
+            name: 'calculate_ab_test_significance',
+            description: 'Calculate A/B test statistical significance using a two-tailed z-test.',
+            inputSchema: { type:'object', required:['controlVisitors','controlConversions','variantVisitors','variantConversions'], properties:{ controlVisitors:{type:'number'}, controlConversions:{type:'number'}, variantVisitors:{type:'number'}, variantConversions:{type:'number'} } },
+            execute: async ({controlVisitors,controlConversions,variantVisitors,variantConversions}) => {
+              const pA=controlConversions/controlVisitors,pB=variantConversions/variantVisitors;
+              const pP=(controlConversions+variantConversions)/(controlVisitors+variantVisitors);
+              const se=Math.sqrt(pP*(1-pP)*(1/controlVisitors+1/variantVisitors));
+              const z=(pB-pA)/se,pVal=2*(1-normCDF(Math.abs(z))),conf=(1-pVal)*100;
+              const lift=pA>0?((pB-pA)/pA)*100:0;
+              let verdict;
+              if(conf>=95&&lift>0)verdict='WINNER — Variant B wins at 95%+ confidence. Safe to implement.';
+              else if(conf>=95&&lift<0)verdict='LOSER — Variant B loses significantly. Do not implement.';
+              else if(conf>=90)verdict='BORDERLINE — 90-95% confidence. Keep running the test.';
+              else verdict='NOT_SIGNIFICANT — Below 90% confidence. No reliable difference detected.';
+              return{controlCVR:(pA*100).toFixed(2)+'%',variantCVR:(pB*100).toFixed(2)+'%',relativeLift:(lift>=0?'+':'')+lift.toFixed(1)+'%',confidenceLevel:conf.toFixed(1)+'%',zScore:r(z,3),pValue:r(pVal,4),verdict};
+            },
+          },
+          {
+            name: 'calculate_ab_test_sample_size',
+            description: 'Calculate minimum visitors per variant for a statistically valid A/B test.',
+            inputSchema: { type:'object', required:['baselineCVR','mde'], properties:{ baselineCVR:{type:'number'}, mde:{type:'number'}, significance:{type:'number',default:95}, power:{type:'number',default:80} } },
+            execute: async ({baselineCVR,mde,significance=95,power=80}) => {
+              const p1=baselineCVR/100,p2=p1*(1+mde/100);
+              const za=inverseCDF(1-(1-significance/100)/2),zb=inverseCDF(1-(1-power/100));
+              const num=Math.pow(za*Math.sqrt(2*((p1+p2)/2)*(1-(p1+p2)/2))+zb*Math.sqrt(p1*(1-p1)+p2*(1-p2)),2);
+              const n=Math.ceil(num/Math.pow(p2-p1,2));
+              return{sampleSizePerVariant:n,totalSampleSize:n*2,baselineCVR:baselineCVR+'%',targetCVR:(p2*100).toFixed(2)+'%',mde:mde+'% relative lift'};
+            },
+          },
+          {
+            name: 'calculate_ab_test_duration',
+            description: 'Calculate how many days an A/B test must run. Enforces 14-day minimum.',
+            inputSchema: { type:'object', required:['baselineCVR','mde','dailyVisitors'], properties:{ baselineCVR:{type:'number'}, mde:{type:'number'}, dailyVisitors:{type:'number'}, significance:{type:'number',default:95}, power:{type:'number',default:80} } },
+            execute: async ({baselineCVR,mde,dailyVisitors,significance=95,power=80}) => {
+              const p1=baselineCVR/100,p2=p1*(1+mde/100);
+              const za=inverseCDF(1-(1-significance/100)/2),zb=inverseCDF(1-(1-power/100));
+              const n=Math.ceil(Math.pow(za*Math.sqrt(2*((p1+p2)/2)*(1-(p1+p2)/2))+zb*Math.sqrt(p1*(1-p1)+p2*(1-p2)),2)/Math.pow(p2-p1,2));
+              const raw=Math.ceil(n/(dailyVisitors/2)),days=Math.max(raw,14);
+              return{minimumDays:days,sampleSizePerVariant:n,dailyVisitors,note:raw<14?'Extended to 14-day minimum for day-of-week coverage.':'Based on sample size at '+dailyVisitors+' daily visitors.'};
+            },
+          },
+          {
+            name: 'calculate_checkout_funnel',
+            description: 'Analyse checkout funnel drop-off and identify the biggest revenue leak.',
+            inputSchema: { type:'object', required:['productPageVisitors','purchases','aov'], properties:{ productPageVisitors:{type:'number'}, addToCart:{type:'number'}, checkoutStart:{type:'number'}, paymentStep:{type:'number'}, purchases:{type:'number'}, aov:{type:'number'} } },
+            execute: async ({productPageVisitors,addToCart,checkoutStart,paymentStep,purchases,aov}) => {
+              const steps=[{n:'Product Page',v:productPageVisitors},...(addToCart?[{n:'Add to Cart',v:addToCart}]:[]),...(checkoutStart?[{n:'Checkout Start',v:checkoutStart}]:[]),...(paymentStep?[{n:'Payment Step',v:paymentStep}]:[]),{n:'Purchase',v:purchases}];
+              let leakIdx=0,leakDrop=0;
+              for(let i=1;i<steps.length;i++){const d=steps[i-1].v-steps[i].v;if(d>leakDrop){leakDrop=d;leakIdx=i;}}
+              const rev=Math.round(purchases*aov),rec=Math.round(leakDrop*0.1*aov*(purchases/(steps[leakIdx].v||1)));
+              return{endToEndCVR:r((purchases/productPageVisitors)*100,2)+'%',currentMonthlyRevenue:'€'+rev.toLocaleString(),biggestLeak:steps[leakIdx-1].n+' → '+steps[leakIdx].n+' ('+leakDrop.toLocaleString()+' visitors lost)',recoveryAt10pctFix:'+€'+rec.toLocaleString()+'/month'};
+            },
+          },
+          {
+            name: 'calculate_cart_abandonment',
+            description: 'Calculate cart abandonment rate and monthly revenue lost.',
+            inputSchema: { type:'object', required:['cartsInitiated','completedPurchases','aov'], properties:{ cartsInitiated:{type:'number'}, completedPurchases:{type:'number'}, aov:{type:'number'} } },
+            execute: async ({cartsInitiated,completedPurchases,aov}) => {
+              const abandoned=cartsInitiated-completedPurchases,lost=Math.round(abandoned*aov),rate=((abandoned/cartsInitiated)*100);
+              return{abandonmentRate:r(rate,2)+'%',abandonedCarts:abandoned,lostRevenue:'€'+lost.toLocaleString()+'/month',recoveryAt10pct:'+€'+Math.round(lost*0.10).toLocaleString()+'/month',recoveryAt20pct:'+€'+Math.round(lost*0.20).toLocaleString()+'/month',recoveryAt30pct:'+€'+Math.round(lost*0.30).toLocaleString()+'/month'};
+            },
+          },
+          {
+            name: 'calculate_landing_page_roi',
+            description: 'Calculate landing page CPA, ROAS, and revenue impact of CVR improvements.',
+            inputSchema: { type:'object', required:['monthlyAdSpend','monthlyClicks','currentCVR','valuePerConversion'], properties:{ monthlyAdSpend:{type:'number'}, monthlyClicks:{type:'number'}, currentCVR:{type:'number'}, valuePerConversion:{type:'number'} } },
+            execute: async ({monthlyAdSpend,monthlyClicks,currentCVR,valuePerConversion}) => {
+              const cvr=currentCVR/100,conv=Math.round(monthlyClicks*cvr),rev=Math.round(conv*valuePerConversion);
+              const scenarios=[10,25,50,100].map(pct=>{const nc=cvr*(1+pct/100),nv=Math.round(monthlyClicks*nc),nr=Math.round(nv*valuePerConversion);return{improvement:'+'+pct+'%',newCVR:(nc*100).toFixed(2)+'%',conversions:nv,revenue:'€'+nr.toLocaleString(),extraRevenue:'+€'+(nr-rev).toLocaleString()+'/month'};});
+              return{currentCVR:currentCVR+'%',currentConversions:conv,currentRevenue:'€'+rev.toLocaleString(),cpa:'€'+r(monthlyAdSpend/conv,2),roas:r(rev/monthlyAdSpend,2)+'x',scenarios};
+            },
+          },
+          {
+            name: 'calculate_clv',
+            description: 'Calculate Customer Lifetime Value (CLV/LTV) and max profitable CAC.',
+            inputSchema: { type:'object', required:['aov','purchaseFrequency','customerLifespan','grossMargin'], properties:{ aov:{type:'number'}, purchaseFrequency:{type:'number'}, customerLifespan:{type:'number'}, grossMargin:{type:'number'}, clvCacRatio:{type:'number',default:3} } },
+            execute: async ({aov,purchaseFrequency,customerLifespan,grossMargin,clvCacRatio=3}) => {
+              const totalRev=aov*purchaseFrequency*customerLifespan,clv=Math.round(totalRev*(grossMargin/100));
+              return{clv:'€'+clv.toLocaleString(),maxProfitableCAC:'€'+Math.round(clv/clvCacRatio).toLocaleString()+' (at '+clvCacRatio+':1 CLV:CAC)',annualRevenuePerCustomer:'€'+Math.round(aov*purchaseFrequency).toLocaleString(),revenuePerCustomer:'€'+Math.round(totalRev).toLocaleString()};
+            },
+          },
+          {
+            name: 'calculate_form_conversion',
+            description: 'Calculate form funnel metrics and compare impact of fixing start vs completion rate.',
+            inputSchema: { type:'object', required:['pageVisitors','formStarts','formCompletions','closeRate','dealValue'], properties:{ pageVisitors:{type:'number'}, formStarts:{type:'number'}, formCompletions:{type:'number'}, closeRate:{type:'number'}, dealValue:{type:'number'} } },
+            execute: async ({pageVisitors,formStarts,formCompletions,closeRate,dealValue}) => {
+              const sr=(formStarts/pageVisitors)*100,cr=(formCompletions/formStarts)*100,rev=Math.round(formCompletions*(closeRate/100)*dealValue);
+              const fse=Math.round(pageVisitors*(sr*1.2/100)*(cr/100)*(closeRate/100)*dealValue)-rev;
+              const fce=Math.round(formStarts*(cr*1.2/100)*(closeRate/100)*dealValue)-rev;
+              return{pageToStartRate:r(sr,1)+'%',startToCompletionRate:r(cr,1)+'%',monthlyLeads:formCompletions,monthlyRevenue:'€'+rev.toLocaleString(),biggestOpportunity:fce>fse?'Fix form completion rate':'Fix form start rate',fixStartRateBy20pct:'+€'+fse.toLocaleString()+'/month',fixCompletionRateBy20pct:'+€'+fce.toLocaleString()+'/month'};
+            },
+          },
+          {
+            name: 'calculate_cro_roi',
+            description: 'Calculate monthly and annual incremental revenue from a CVR improvement.',
+            inputSchema: { type:'object', required:['monthlyVisitors','currentCVR','aov','cvrImprovementPct'], properties:{ monthlyVisitors:{type:'number'}, currentCVR:{type:'number'}, aov:{type:'number'}, cvrImprovementPct:{type:'number'} } },
+            execute: async ({monthlyVisitors,currentCVR,aov,cvrImprovementPct}) => {
+              const cvr=currentCVR/100,ncvr=cvr*(1+cvrImprovementPct/100);
+              const cur=Math.round(monthlyVisitors*cvr*aov),nxt=Math.round(monthlyVisitors*ncvr*aov),extra=nxt-cur;
+              return{currentCVR:currentCVR+'%',newCVR:(ncvr*100).toFixed(2)+'%',currentMonthlyRevenue:'€'+cur.toLocaleString(),newMonthlyRevenue:'€'+nxt.toLocaleString(),additionalRevenuePerMonth:'+€'+extra.toLocaleString(),additionalRevenuePerYear:'+€'+(extra*12).toLocaleString()};
+            },
+          },
+        ],
+      });
+    })();
+    </script>
   </body>
 </html>
 
