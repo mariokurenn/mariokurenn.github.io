@@ -8,6 +8,7 @@
  * 5. MCP Streamable HTTP endpoint at /mcp — 10 real CRO calculators
  * 6. Universal Commerce Protocol (UCP) profile at /.well-known/ucp
  * 7. Agentic Commerce Protocol (ACP) discovery at /.well-known/acp.json
+ * 8. Web Bot Auth JWKS directory at /.well-known/http-message-signatures-directory
  */
 
 const SITE = 'https://grow-conversions.com';
@@ -17,6 +18,7 @@ const LINK_HEADER = [
   `<${SITE}/.well-known/mcp/server-card.json>; rel="mcp-server-card"`,
   `<${SITE}/.well-known/ucp>; rel="ucp-profile"`,
   `<${SITE}/.well-known/acp.json>; rel="acp-discovery"`,
+  `<${SITE}/.well-known/http-message-signatures-directory>; rel="http-message-signatures-directory"`,
   `<${SITE}/.well-known/agent-skills/index.json>; rel="agent-skills"`,
   `<${SITE}/llms.txt>; rel="describedby"; type="text/plain"`,
   `<${SITE}/sitemap.xml>; rel="sitemap"; type="application/xml"`,
@@ -124,6 +126,45 @@ const ACP_DISCOVERY = JSON.stringify({
     supported_locales: ['en-US'],
   },
 });
+
+// Web Bot Auth — Ed25519 signing key for /.well-known/http-message-signatures-directory
+// The directory response is self-signed per RFC 9421 on every request (timestamps change).
+const BOT_KEY_X = 'NxdAEiSJ3f882sSehjw7PXjid6w4SI5dl801Xg7Kik0';
+const BOT_KEY_D = '5uj-o2-f1K72sFzvshf0kZjVwL_aNIugibkBgTS9QGo';
+const BOT_KEY_THUMBPRINT = 'G0Q5NaB7rD4dkATbGYedzhyfhUtVgZX3kbNpcOEQ7hk';
+const JWKS_DIRECTORY = JSON.stringify({ keys: [{ kty: 'OKP', crv: 'Ed25519', x: BOT_KEY_X }] });
+
+let _botSignKey = null;
+async function getBotSignKey() {
+  if (_botSignKey) return _botSignKey;
+  _botSignKey = await crypto.subtle.importKey(
+    'jwk',
+    { kty: 'OKP', crv: 'Ed25519', x: BOT_KEY_X, d: BOT_KEY_D },
+    { name: 'Ed25519' },
+    false,
+    ['sign'],
+  );
+  return _botSignKey;
+}
+
+async function handleWebBotAuth() {
+  const created = Math.floor(Date.now() / 1000);
+  const expires = created + 86400;
+  const params = `("@authority");created=${created};expires=${expires};keyid="${BOT_KEY_THUMBPRINT}";tag="http-message-signatures-directory"`;
+  const sigBase = `"@authority": grow-conversions.com\n"@signature-params": ${params}`;
+  const key = await getBotSignKey();
+  const sigBytes = await crypto.subtle.sign('Ed25519', key, new TextEncoder().encode(sigBase));
+  const sigB64 = btoa(String.fromCharCode(...new Uint8Array(sigBytes)));
+  return new Response(JWKS_DIRECTORY, {
+    headers: {
+      'Content-Type': 'application/http-message-signatures-directory+json',
+      'Signature-Input': `sig1=${params}`,
+      'Signature': `sig1=:${sigB64}:`,
+      'Cache-Control': 'public, max-age=3600',
+      'Access-Control-Allow-Origin': '*',
+    },
+  });
+}
 
 // MCP tool definitions (sent in tools/list response)
 const MCP_TOOLS = [
@@ -324,6 +365,11 @@ export default {
       return new Response(ACP_DISCOVERY, {
         headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Cache-Control': 'public, max-age=3600' },
       });
+    }
+
+    // Web Bot Auth JWKS directory (self-signed per RFC 9421)
+    if (url.pathname === '/.well-known/http-message-signatures-directory') {
+      return handleWebBotAuth();
     }
 
     // MCP protocol endpoint
