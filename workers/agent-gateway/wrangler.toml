@@ -1,0 +1,7 @@
+name = "grow-conversions-agent-gateway"
+main = "src/index.js"
+compatibility_date = "2025-04-01"
+
+routes = [
+  { pattern = "grow-conversions.com/*", zone_name = "grow-conversions.com" }
+]
