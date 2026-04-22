@@ -6,6 +6,7 @@
  * 3. RFC 9727 API catalog at /.well-known/api-catalog
  * 4. MCP Server Card (SEP-1649) at /.well-known/mcp/server-card.json
  * 5. MCP Streamable HTTP endpoint at /mcp — 10 real CRO calculators
+ * 6. Universal Commerce Protocol (UCP) profile at /.well-known/ucp
  */
 
 const SITE = 'https://grow-conversions.com';
@@ -13,6 +14,7 @@ const SITE = 'https://grow-conversions.com';
 const LINK_HEADER = [
   `<${SITE}/.well-known/api-catalog>; rel="api-catalog"`,
   `<${SITE}/.well-known/mcp/server-card.json>; rel="mcp-server-card"`,
+  `<${SITE}/.well-known/ucp>; rel="ucp-profile"`,
   `<${SITE}/.well-known/agent-skills/index.json>; rel="agent-skills"`,
   `<${SITE}/llms.txt>; rel="describedby"; type="text/plain"`,
   `<${SITE}/sitemap.xml>; rel="sitemap"; type="application/xml"`,
@@ -50,6 +52,58 @@ const MCP_SERVER_CARD = JSON.stringify({
   },
   transport: [{ type: 'http', url: `${SITE}/mcp` }],
   capabilities: { tools: {} },
+});
+
+// Universal Commerce Protocol (UCP) profile — https://ucp.dev/specification/overview/
+const UCP_PROFILE = JSON.stringify({
+  ucp: {
+    version: '2026-04-08',
+    services: {
+      'com.grow-conversions.cro': [
+        {
+          version: '2026-04-08',
+          spec: `${SITE}/.well-known/mcp/server-card.json`,
+          transport: 'mcp',
+          endpoint: `${SITE}/mcp`,
+          schema: `${SITE}/.well-known/agent-skills/index.json`,
+        },
+      ],
+    },
+    capabilities: {
+      'com.grow-conversions.cro.calculators': [
+        {
+          version: '2026-04-08',
+          spec: `${SITE}/tools/`,
+          schema: `${SITE}/.well-known/agent-skills/index.json`,
+        },
+      ],
+      'com.grow-conversions.services.audit': [
+        {
+          version: '2026-04-08',
+          spec: `${SITE}/services/cro-audit/`,
+          schema: `${SITE}/.well-known/agent-skills/index.json`,
+        },
+      ],
+      'com.grow-conversions.services.abtesting': [
+        {
+          version: '2026-04-08',
+          spec: `${SITE}/services/ab-testing/`,
+          schema: `${SITE}/.well-known/agent-skills/index.json`,
+        },
+      ],
+    },
+  },
+  signing_keys: [
+    {
+      kid: 'grow-conversions-2026',
+      kty: 'EC',
+      crv: 'P-256',
+      x: 'WfmhQske2ykfCzLm7PjBzGNiiZyMQgLmY3voniQVcMw',
+      y: 'by0mHqBI99pLHtoh-7stjA8hhjFnJ69dYeYkvbkzDIA',
+      use: 'sig',
+      alg: 'ES256',
+    },
+  ],
 });
 
 // MCP tool definitions (sent in tools/list response)
@@ -236,6 +290,13 @@ export default {
     if (url.pathname === '/.well-known/mcp/server-card.json') {
       return new Response(MCP_SERVER_CARD, {
         headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Cache-Control': 'public, max-age=86400' },
+      });
+    }
+
+    // Universal Commerce Protocol profile
+    if (url.pathname === '/.well-known/ucp') {
+      return new Response(UCP_PROFILE, {
+        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Cache-Control': 'public, max-age=3600' },
       });
     }
 
