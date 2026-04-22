@@ -8,10 +8,56 @@
 const SITE = 'https://grow-conversions.com';
 
 const LINK_HEADER = [
+  `<${SITE}/.well-known/api-catalog>; rel="api-catalog"`,
   `<${SITE}/.well-known/agent-skills/index.json>; rel="agent-skills"`,
   `<${SITE}/llms.txt>; rel="describedby"; type="text/plain"`,
   `<${SITE}/sitemap.xml>; rel="sitemap"; type="application/xml"`,
 ].join(', ');
+
+// RFC 9727 API catalog — application/linkset+json
+const API_CATALOG = JSON.stringify({
+  linkset: [
+    {
+      anchor: `${SITE}/.well-known/agent-skills/`,
+      'service-desc': [
+        {
+          href: `${SITE}/.well-known/agent-skills/index.json`,
+          type: 'application/json',
+          title: 'Agent Skills Discovery Index (RFC v0.2.0)',
+        },
+      ],
+      'service-doc': [
+        {
+          href: `${SITE}/tools/`,
+          type: 'text/html',
+          title: 'CRO Calculator Tools — Documentation & Usage',
+        },
+      ],
+      status: [
+        {
+          href: `${SITE}/.well-known/agent-skills/index.json`,
+        },
+      ],
+    },
+    {
+      anchor: `${SITE}/tools/`,
+      'service-desc': [
+        {
+          href: `${SITE}/.well-known/agent-skills/index.json`,
+          type: 'application/json',
+          title: '10 CRO Calculator Tool Definitions with inputSchema',
+        },
+      ],
+      'service-doc': [
+        {
+          href: `${SITE}/tools/`,
+          type: 'text/html',
+          title: 'Free CRO Calculators — grow-conversions.com',
+        },
+      ],
+    },
+  ],
+});
 
 // File extensions that should never be processed — pass straight to origin
 const ASSET_EXT = new Set([
@@ -22,6 +68,19 @@ const ASSET_EXT = new Set([
 export default {
   async fetch(request) {
     const url = new URL(request.url);
+
+    // Serve RFC 9727 API catalog
+    if (url.pathname === '/.well-known/api-catalog') {
+      return new Response(API_CATALOG, {
+        status: 200,
+        headers: {
+          'Content-Type': 'application/linkset+json',
+          'Access-Control-Allow-Origin': '*',
+          'Cache-Control': 'public, max-age=86400',
+          'Link': `<${SITE}/.well-known/api-catalog>; rel="api-catalog"`,
+        },
+      });
+    }
 
     // Pass assets straight through — no processing needed
     const ext = url.pathname.match(/\.([a-z0-9]+)(?:\?|#|$)/i)?.[1]?.toLowerCase();
