@@ -1,0 +1,16 @@
+{
+  "name": "ab-test-sample-size-calculator",
+  "type": "tool",
+  "description": "Calculates the minimum number of visitors needed per variant for a statistically valid A/B test. Uses baseline CVR, minimum detectable effect (MDE), significance level, and statistical power.",
+  "url": "https://grow-conversions.com/tools/ab-test-sample-size-calculator/",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "baselineCVR": { "type": "number", "description": "Current conversion rate as a percentage (e.g. 2.5)" },
+      "mde": { "type": "number", "description": "Minimum detectable effect as a relative percentage improvement (e.g. 15 for 15% relative lift)" },
+      "significance": { "type": "number", "description": "Statistical significance level as a percentage (default 95)", "default": 95 },
+      "power": { "type": "number", "description": "Statistical power as a percentage (default 80)", "default": 80 }
+    },
+    "required": ["baselineCVR", "mde"]
+  }
+}

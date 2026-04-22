@@ -2,6 +2,20 @@
 
 > Conversion rate optimization (CRO) resources for marketers and founders. Expert guides, A/B testing frameworks, landing page best practices, and a CRO glossary — written by Mario Kuren, CRO specialist.
 
+## Free CRO Tools (Interactive Calculators)
+- /tools/ — Hub page listing all 10 free CRO calculators
+- /tools/conversion-rate-calculator/ — Calculate CVR from conversions and visitors
+- /tools/ab-test-significance-calculator/ — Two-tailed z-test: confidence, p-value, pass/fail verdict
+- /tools/ab-test-sample-size-calculator/ — Minimum visitors needed per variant
+- /tools/ab-test-duration-calculator/ — Minimum days to run a valid test
+- /tools/checkout-funnel-calculator/ — Step-by-step funnel drop-off and revenue leak
+- /tools/cart-abandonment-rate-calculator/ — Abandonment rate and monthly revenue lost
+- /tools/landing-page-roi-calculator/ — CPA, ROAS, and CVR improvement scenarios
+- /tools/customer-lifetime-value-calculator/ — CLV, max CAC, and retention sensitivity
+- /tools/form-conversion-calculator/ — Form start vs completion rate and revenue impact
+- /tools/cro-roi-calculator/ — Monthly and annual revenue impact of CVR improvements
+- /.well-known/agent-skills/index.json — Machine-readable skill definitions for all 10 calculators (Agent Skills Discovery RFC v0.2.0)
+
 ## Blog
 - /blog/ — CRO articles, A/B testing guides, landing page best practices
 

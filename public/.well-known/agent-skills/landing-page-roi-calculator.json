@@ -1,0 +1,16 @@
+{
+  "name": "landing-page-roi-calculator",
+  "type": "tool",
+  "description": "Calculates landing page CPA, ROAS, monthly conversions and revenue from ad spend and CVR inputs. Shows a 5-row scenario table comparing revenue impact of 0%, 10%, 25%, 50%, and 100% CVR improvements.",
+  "url": "https://grow-conversions.com/tools/landing-page-roi-calculator/",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "monthlyAdSpend": { "type": "number", "description": "Monthly ad spend in EUR" },
+      "monthlyClicks": { "type": "number", "description": "Monthly clicks or visitors from the campaign" },
+      "currentCVR": { "type": "number", "description": "Current landing page conversion rate as a percentage" },
+      "valuePerConversion": { "type": "number", "description": "Revenue value per conversion in EUR (AOV for ecommerce, deal value × close rate for B2B)" }
+    },
+    "required": ["monthlyAdSpend", "monthlyClicks", "currentCVR", "valuePerConversion"]
+  }
+}

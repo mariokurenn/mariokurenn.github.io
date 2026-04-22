@@ -1,0 +1,16 @@
+{
+  "name": "ab-test-significance-calculator",
+  "type": "tool",
+  "description": "Calculates statistical significance of A/B test results using a two-tailed z-test for difference in proportions. Returns confidence level, z-score, p-value, relative lift, and a pass/fail/borderline verdict.",
+  "url": "https://grow-conversions.com/tools/ab-test-significance-calculator/",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "controlVisitors": { "type": "number", "description": "Number of visitors in control group (A)" },
+      "controlConversions": { "type": "number", "description": "Number of conversions in control group (A)" },
+      "variantVisitors": { "type": "number", "description": "Number of visitors in variant group (B)" },
+      "variantConversions": { "type": "number", "description": "Number of conversions in variant group (B)" }
+    },
+    "required": ["controlVisitors", "controlConversions", "variantVisitors", "variantConversions"]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "cart-abandonment-rate-calculator",
+  "type": "tool",
+  "description": "Calculates cart abandonment rate, monthly revenue lost to abandonment, and recovery revenue scenarios at 10%, 20%, and 30% recovery rates. Essential for quantifying the business impact of cart recovery initiatives.",
+  "url": "https://grow-conversions.com/tools/cart-abandonment-rate-calculator/",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "cartsInitiated": { "type": "number", "description": "Monthly sessions where a cart was started (add to cart events)" },
+      "completedPurchases": { "type": "number", "description": "Monthly completed purchases" },
+      "aov": { "type": "number", "description": "Average order value in EUR" }
+    },
+    "required": ["cartsInitiated", "completedPurchases", "aov"]
+  }
+}

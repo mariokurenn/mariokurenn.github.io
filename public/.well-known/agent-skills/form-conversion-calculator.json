@@ -1,0 +1,17 @@
+{
+  "name": "form-conversion-calculator",
+  "type": "tool",
+  "description": "Calculates form conversion funnel metrics: page-to-start rate, start-to-completion rate, overall page CVR, monthly closed deals, and revenue. Compares impact of improving form start rate vs completion rate by 20% to identify the higher-value fix.",
+  "url": "https://grow-conversions.com/tools/form-conversion-calculator/",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "pageVisitors": { "type": "number", "description": "Monthly page visitors" },
+      "formStarts": { "type": "number", "description": "Visitors who interacted with the form (form_start events)" },
+      "formCompletions": { "type": "number", "description": "Successful form submissions" },
+      "closeRate": { "type": "number", "description": "Lead-to-customer close rate as a percentage" },
+      "dealValue": { "type": "number", "description": "Average deal or order value in EUR" }
+    },
+    "required": ["pageVisitors", "formStarts", "formCompletions", "closeRate", "dealValue"]
+  }
+}

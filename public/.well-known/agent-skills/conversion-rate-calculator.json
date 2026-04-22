@@ -1,0 +1,15 @@
+{
+  "name": "conversion-rate-calculator",
+  "type": "tool",
+  "description": "Calculates website conversion rate (CVR) from conversions and visitors. Returns CVR percentage, revenue impact of improvements, and contextual benchmarks by industry.",
+  "url": "https://grow-conversions.com/tools/conversion-rate-calculator/",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "conversions": { "type": "number", "description": "Number of completed conversions in the period" },
+      "visitors": { "type": "number", "description": "Total sessions or visitors in the same period" },
+      "aov": { "type": "number", "description": "Average order or lead value in EUR" }
+    },
+    "required": ["conversions", "visitors"]
+  }
+}

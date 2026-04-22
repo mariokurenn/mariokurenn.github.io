@@ -31,3 +31,6 @@ User-agent: Amazonbot
 Allow: /
 
 Sitemap: https://grow-conversions.com/sitemap.xml
+
+# Content Signals — AI usage preferences (https://contentsignals.org/)
+Content-Signal: ai-train=no, search=yes, ai-input=yes

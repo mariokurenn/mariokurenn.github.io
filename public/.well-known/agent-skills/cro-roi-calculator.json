@@ -1,0 +1,16 @@
+{
+  "name": "cro-roi-calculator",
+  "type": "tool",
+  "description": "Calculates the monthly and annual revenue impact of a conversion rate improvement. Takes current traffic, CVR, AOV, and a target improvement percentage, and returns incremental revenue, new CVR, and extra conversions per month.",
+  "url": "https://grow-conversions.com/tools/cro-roi-calculator/",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "monthlyVisitors": { "type": "number", "description": "Monthly sessions or visitors" },
+      "currentCVR": { "type": "number", "description": "Current conversion rate as a percentage" },
+      "aov": { "type": "number", "description": "Average order or lead value in EUR" },
+      "cvrImprovementPct": { "type": "number", "description": "Target relative CVR improvement as a percentage (e.g. 25 for +25%)" }
+    },
+    "required": ["monthlyVisitors", "currentCVR", "aov", "cvrImprovementPct"]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "customer-lifetime-value-calculator",
+  "type": "tool",
+  "description": "Calculates Customer Lifetime Value (CLV/LTV), gross profit per customer, maximum profitable CAC at a chosen CLV:CAC ratio, and a sensitivity table showing CLV across multiple lifespan scenarios.",
+  "url": "https://grow-conversions.com/tools/customer-lifetime-value-calculator/",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "aov": { "type": "number", "description": "Average order value in EUR" },
+      "purchaseFrequency": { "type": "number", "description": "Average orders per customer per year" },
+      "customerLifespan": { "type": "number", "description": "Average customer lifespan in years" },
+      "grossMargin": { "type": "number", "description": "Gross margin as a percentage (e.g. 45 for 45%)" },
+      "clvCacRatio": { "type": "number", "description": "Target CLV:CAC ratio (default 3 for 3:1)", "default": 3 }
+    },
+    "required": ["aov", "purchaseFrequency", "customerLifespan", "grossMargin"]
+  }
+}

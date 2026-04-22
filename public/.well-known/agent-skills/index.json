@@ -1,0 +1,75 @@
+{
+  "$schema": "https://agentskills.io/schema/v0.2.0/index.json",
+  "skills": [
+    {
+      "name": "conversion-rate-calculator",
+      "type": "tool",
+      "description": "Calculates website conversion rate (CVR) from conversions and visitors. Returns CVR percentage, revenue impact of improvements, and contextual benchmarks by industry.",
+      "url": "https://grow-conversions.com/.well-known/agent-skills/conversion-rate-calculator.json",
+      "digest": "sha256:0d11783f614681f7c109a5ed419c7e7f137b23bca489717bcd6eab95202dfef1"
+    },
+    {
+      "name": "ab-test-significance-calculator",
+      "type": "tool",
+      "description": "Calculates statistical significance of A/B test results using a two-tailed z-test. Returns confidence level, z-score, p-value, relative lift, and a pass/fail/borderline verdict.",
+      "url": "https://grow-conversions.com/.well-known/agent-skills/ab-test-significance-calculator.json",
+      "digest": "sha256:efa1c6218f2beaf792a7468dc81144de231953df9510b7b5d6d738caeb3288db"
+    },
+    {
+      "name": "ab-test-sample-size-calculator",
+      "type": "tool",
+      "description": "Calculates the minimum visitors needed per variant for a statistically valid A/B test given baseline CVR, MDE, significance, and power.",
+      "url": "https://grow-conversions.com/.well-known/agent-skills/ab-test-sample-size-calculator.json",
+      "digest": "sha256:ae96d0675ab1548123bbe9cde97afb7da5c29997a2da81e3a8923dce33d1f548"
+    },
+    {
+      "name": "ab-test-duration-calculator",
+      "type": "tool",
+      "description": "Calculates how many days an A/B test must run to reach required sample size. Enforces the 14-day minimum for day-of-week coverage and flags low-traffic scenarios.",
+      "url": "https://grow-conversions.com/.well-known/agent-skills/ab-test-duration-calculator.json",
+      "digest": "sha256:5e20aed3146467b774f643b672a366cbf800e0686067eb29e7a0aa70648b05a5"
+    },
+    {
+      "name": "checkout-funnel-calculator",
+      "type": "tool",
+      "description": "Analyses e-commerce checkout funnel drop-off across up to 5 steps. Identifies the biggest revenue leak and estimates recovery value of a 10% fix.",
+      "url": "https://grow-conversions.com/.well-known/agent-skills/checkout-funnel-calculator.json",
+      "digest": "sha256:cfe72287ae2ee1c6e2c5e1ac33e4ac9af507e4c34948188b3361e2e8e0171d3d"
+    },
+    {
+      "name": "cart-abandonment-rate-calculator",
+      "type": "tool",
+      "description": "Calculates cart abandonment rate, monthly revenue lost, and recovery scenarios at 10%, 20%, and 30% recovery rates.",
+      "url": "https://grow-conversions.com/.well-known/agent-skills/cart-abandonment-rate-calculator.json",
+      "digest": "sha256:cd1dc33dce512cbb8b6c85bb049e3c86b85f0324580308238f9bd4c8c9c2fdc6"
+    },
+    {
+      "name": "landing-page-roi-calculator",
+      "type": "tool",
+      "description": "Calculates landing page CPA, ROAS, and revenue from ad spend and CVR inputs. Shows scenario table comparing revenue impact of 0–100% CVR improvements.",
+      "url": "https://grow-conversions.com/.well-known/agent-skills/landing-page-roi-calculator.json",
+      "digest": "sha256:fde6cab00d030067361d871bf44b07e673ca390e2ff824eedb4d5fd04c4615cc"
+    },
+    {
+      "name": "customer-lifetime-value-calculator",
+      "type": "tool",
+      "description": "Calculates CLV/LTV, max profitable CAC at a chosen ratio, and a sensitivity table across multiple customer lifespan scenarios.",
+      "url": "https://grow-conversions.com/.well-known/agent-skills/customer-lifetime-value-calculator.json",
+      "digest": "sha256:30aebfd0e770a7d141198e3c97412cd9099a06e35d71eec7ef8da628fc1a4f87"
+    },
+    {
+      "name": "form-conversion-calculator",
+      "type": "tool",
+      "description": "Calculates form funnel metrics — page-to-start and start-to-completion rates — and compares revenue impact of improving each to identify the higher-value fix.",
+      "url": "https://grow-conversions.com/.well-known/agent-skills/form-conversion-calculator.json",
+      "digest": "sha256:67053958222c6f533d10cc26aa2b80cae8d67b0c6289727eb16659bdabdac835"
+    },
+    {
+      "name": "cro-roi-calculator",
+      "type": "tool",
+      "description": "Calculates monthly and annual incremental revenue from a conversion rate improvement given current traffic, CVR, AOV, and target improvement percentage.",
+      "url": "https://grow-conversions.com/.well-known/agent-skills/cro-roi-calculator.json",
+      "digest": "sha256:764e22012f229564e800fc5f5cc681d491b8538f11da4e1caa522c510ce5926d"
+    }
+  ]
+}

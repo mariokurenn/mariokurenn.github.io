@@ -1,0 +1,16 @@
+{
+  "name": "ab-test-duration-calculator",
+  "type": "tool",
+  "description": "Calculates how many days an A/B test must run to reach the required sample size. Returns minimum test duration in days, enforces the 14-day minimum for day-of-week coverage, and flags low-traffic scenarios.",
+  "url": "https://grow-conversions.com/tools/ab-test-duration-calculator/",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "baselineCVR": { "type": "number", "description": "Current conversion rate as a percentage" },
+      "mde": { "type": "number", "description": "Minimum detectable effect as a relative percentage improvement" },
+      "dailyVisitors": { "type": "number", "description": "Average daily unique visitors to the page being tested" },
+      "trafficSplit": { "type": "number", "description": "Percentage of traffic allocated to the test (default 100)", "default": 100 }
+    },
+    "required": ["baselineCVR", "mde", "dailyVisitors"]
+  }
+}
