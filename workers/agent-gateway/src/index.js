@@ -7,6 +7,7 @@
  * 4. MCP Server Card (SEP-1649) at /.well-known/mcp/server-card.json
  * 5. MCP Streamable HTTP endpoint at /mcp — 10 real CRO calculators
  * 6. Universal Commerce Protocol (UCP) profile at /.well-known/ucp
+ * 7. Agentic Commerce Protocol (ACP) discovery at /.well-known/acp.json
  */
 
 const SITE = 'https://grow-conversions.com';
@@ -15,6 +16,7 @@ const LINK_HEADER = [
   `<${SITE}/.well-known/api-catalog>; rel="api-catalog"`,
   `<${SITE}/.well-known/mcp/server-card.json>; rel="mcp-server-card"`,
   `<${SITE}/.well-known/ucp>; rel="ucp-profile"`,
+  `<${SITE}/.well-known/acp.json>; rel="acp-discovery"`,
   `<${SITE}/.well-known/agent-skills/index.json>; rel="agent-skills"`,
   `<${SITE}/llms.txt>; rel="describedby"; type="text/plain"`,
   `<${SITE}/sitemap.xml>; rel="sitemap"; type="application/xml"`,
@@ -104,6 +106,23 @@ const UCP_PROFILE = JSON.stringify({
       alg: 'ES256',
     },
   ],
+});
+
+// Agentic Commerce Protocol (ACP) discovery — https://agenticcommerce.dev
+const ACP_DISCOVERY = JSON.stringify({
+  protocol: {
+    name: 'acp',
+    version: '2026-01-30',
+    supported_versions: ['2026-01-30'],
+    documentation_url: `${SITE}/tools/`,
+  },
+  api_base_url: `${SITE}/mcp`,
+  transports: ['mcp'],
+  capabilities: {
+    services: ['checkout'],
+    supported_currencies: ['eur'],
+    supported_locales: ['en-US'],
+  },
 });
 
 // MCP tool definitions (sent in tools/list response)
@@ -296,6 +315,13 @@ export default {
     // Universal Commerce Protocol profile
     if (url.pathname === '/.well-known/ucp') {
       return new Response(UCP_PROFILE, {
+        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Cache-Control': 'public, max-age=3600' },
+      });
+    }
+
+    // Agentic Commerce Protocol discovery
+    if (url.pathname === '/.well-known/acp.json') {
+      return new Response(ACP_DISCOVERY, {
         headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Cache-Control': 'public, max-age=3600' },
       });
     }
