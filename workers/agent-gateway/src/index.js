@@ -9,12 +9,15 @@
  * 6. Universal Commerce Protocol (UCP) profile at /.well-known/ucp
  * 7. Agentic Commerce Protocol (ACP) discovery at /.well-known/acp.json
  * 8. Web Bot Auth JWKS directory at /.well-known/http-message-signatures-directory
+ * 9. OAuth 2.0 AS metadata (RFC 8414) at /.well-known/oauth-authorization-server
+ * 10. OAuth Protected Resource metadata (RFC 9728) at /.well-known/oauth-protected-resource
  */
 
 const SITE = 'https://grow-conversions.com';
 
 const LINK_HEADER = [
   `<${SITE}/.well-known/api-catalog>; rel="api-catalog"`,
+  `<${SITE}/.well-known/oauth-authorization-server>; rel="oauth-authorization-server"`,
   `<${SITE}/.well-known/mcp/server-card.json>; rel="mcp-server-card"`,
   `<${SITE}/.well-known/ucp>; rel="ucp-profile"`,
   `<${SITE}/.well-known/acp.json>; rel="acp-discovery"`,
@@ -125,6 +128,34 @@ const ACP_DISCOVERY = JSON.stringify({
     supported_currencies: ['eur'],
     supported_locales: ['en-US'],
   },
+});
+
+// OAuth 2.0 Authorization Server metadata — RFC 8414
+const OAUTH_AS_METADATA = JSON.stringify({
+  issuer: SITE,
+  authorization_endpoint: `${SITE}/oauth/authorize`,
+  token_endpoint: `${SITE}/oauth/token`,
+  jwks_uri: `${SITE}/.well-known/jwks.json`,
+  grant_types_supported: ['client_credentials'],
+  response_types_supported: ['token'],
+  token_endpoint_auth_methods_supported: ['client_secret_basic'],
+  scopes_supported: ['cro:tools:read'],
+  service_documentation: `${SITE}/tools/`,
+});
+
+// JWKS for OAuth token verification — reuses the Web Bot Auth Ed25519 key
+// (populated after BOT_KEY_X/BOT_KEY_THUMBPRINT are declared below)
+function makeJWKS(x, kid) {
+  return JSON.stringify({ keys: [{ kty: 'OKP', crv: 'Ed25519', x, use: 'sig', alg: 'EdDSA', kid }] });
+}
+
+// OAuth Protected Resource metadata — RFC 9728
+const OAUTH_PRM = JSON.stringify({
+  resource: `${SITE}/mcp`,
+  authorization_servers: [SITE],
+  scopes_supported: ['cro:tools:read'],
+  bearer_methods_supported: ['header'],
+  resource_documentation: `${SITE}/tools/`,
 });
 
 // Web Bot Auth — Ed25519 signing key for /.well-known/http-message-signatures-directory
@@ -370,6 +401,47 @@ export default {
     // Web Bot Auth JWKS directory (self-signed per RFC 9421)
     if (url.pathname === '/.well-known/http-message-signatures-directory') {
       return handleWebBotAuth();
+    }
+
+    // OAuth 2.0 AS metadata (RFC 8414)
+    if (url.pathname === '/.well-known/oauth-authorization-server') {
+      return new Response(OAUTH_AS_METADATA, {
+        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Cache-Control': 'public, max-age=3600' },
+      });
+    }
+
+    // OAuth JWKS — public key for token verification
+    if (url.pathname === '/.well-known/jwks.json') {
+      return new Response(makeJWKS(BOT_KEY_X, BOT_KEY_THUMBPRINT), {
+        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Cache-Control': 'public, max-age=86400' },
+      });
+    }
+
+    // OAuth Protected Resource metadata (RFC 9728)
+    if (url.pathname === '/.well-known/oauth-protected-resource') {
+      return new Response(OAUTH_PRM, {
+        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Cache-Control': 'public, max-age=3600' },
+      });
+    }
+
+    // OAuth token endpoint — client_credentials only; no clients registered yet
+    if (url.pathname === '/oauth/token' && request.method === 'POST') {
+      return new Response(JSON.stringify({ error: 'invalid_client', error_description: 'No client credentials registered.' }), {
+        status: 401,
+        headers: {
+          'Content-Type': 'application/json',
+          'WWW-Authenticate': `Bearer realm="grow-conversions", resource_metadata="${SITE}/.well-known/oauth-protected-resource"`,
+          'Access-Control-Allow-Origin': '*',
+        },
+      });
+    }
+
+    // OAuth authorize endpoint — user auth not supported; machine-to-machine only
+    if (url.pathname === '/oauth/authorize') {
+      return new Response(JSON.stringify({ error: 'unsupported_response_type', error_description: 'Interactive authorization is not supported. Use client_credentials at /oauth/token.' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+      });
     }
 
     // MCP protocol endpoint
