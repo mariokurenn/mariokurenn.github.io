@@ -8,9 +8,11 @@ interface Props {
   relatedPosts?: CollectionEntry<'blog'>[];
   prevPost?: { slug: string; title: string } | null;
   nextPost?: { slug: string; title: string } | null;
+  headings?: { depth: number; slug: string; text: string }[];
 }
 
-const { post, readingTime, relatedPosts = [], prevPost = null, nextPost = null } = Astro.props;
+const { post, readingTime, relatedPosts = [], prevPost = null, nextPost = null, headings = [] } = Astro.props;
+const tocHeadings = headings.filter(h => h.depth === 2 || h.depth === 3);
 const { title, description, publishDate, updatedDate, author, category, tags, image, imageHero, imageAlt, seoKeyword, seoTitle, canonicalURL, faqs, howTo } = post.data;
 const heroImage = imageHero ?? image;
 
@@ -125,22 +127,30 @@ const formatRelDate = (date: Date) =>
   <div class="reading-progress" id="reading-progress" aria-hidden="true" role="progressbar" aria-label="Reading progress"></div>
 
   <!-- Mobile TOC -->
-  <div class="mobile-toc" id="mobile-toc" aria-hidden="true">
-    <div class="mobile-toc__backdrop" id="mobile-toc-backdrop"></div>
-    <div class="mobile-toc__drawer" role="dialog" aria-label="Table of contents">
-      <div class="mobile-toc__header">
-        <span class="mobile-toc__title">On this page</span>
-        <button class="mobile-toc__close" id="mobile-toc-close" aria-label="Close table of contents">✕</button>
+  {tocHeadings.length > 0 && (
+    <>
+      <div class="mobile-toc" id="mobile-toc" aria-hidden="true">
+        <div class="mobile-toc__backdrop" id="mobile-toc-backdrop"></div>
+        <div class="mobile-toc__drawer" role="dialog" aria-label="Table of contents">
+          <div class="mobile-toc__header">
+            <span class="mobile-toc__title">On this page</span>
+            <button class="mobile-toc__close" id="mobile-toc-close" aria-label="Close table of contents">✕</button>
+          </div>
+          <nav id="mobile-toc-nav" aria-label="Page sections">
+            {tocHeadings.map(h => (
+              <a href={`#${h.slug}`} class={`toc-h${h.depth}`}>{h.text}</a>
+            ))}
+          </nav>
+        </div>
       </div>
-      <nav id="mobile-toc-nav" aria-label="Page sections"></nav>
-    </div>
-  </div>
-  <button class="mobile-toc__trigger" id="mobile-toc-trigger" aria-label="Open table of contents" aria-expanded="false">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-      <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="15" y2="12"/><line x1="3" y1="18" x2="18" y2="18"/>
-    </svg>
-    Contents
-  </button>
+      <button class="mobile-toc__trigger" id="mobile-toc-trigger" aria-label="Open table of contents" aria-expanded="false">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="15" y2="12"/><line x1="3" y1="18" x2="18" y2="18"/>
+        </svg>
+        Contents
+      </button>
+    </>
+  )}
 
   <article class="blog-post" itemscope itemtype="https://schema.org/BlogPosting">
     <!-- Header -->
@@ -211,12 +221,16 @@ const formatRelDate = (date: Date) =>
     <div class="blog-post__layout container">
       <!-- Sidebar: TOC + sticky CTA -->
       <aside class="blog-post__toc" aria-label="Table of contents">
-        <div class="toc">
-          <p class="toc__title">On this page</p>
-          <nav id="toc-nav" aria-label="Page sections">
-            <!-- JS populated -->
-          </nav>
-        </div>
+        {tocHeadings.length > 0 && (
+          <div class="toc">
+            <p class="toc__title">On this page</p>
+            <nav id="toc-nav" aria-label="Page sections">
+              {tocHeadings.map(h => (
+                <a href={`#${h.slug}`} class={`toc-h${h.depth}`}>{h.text}</a>
+              ))}
+            </nav>
+          </div>
+        )}
 
         <!-- Sidebar CTA -->
         <div class="sidebar-cta">
@@ -236,7 +250,7 @@ const formatRelDate = (date: Date) =>
       </aside>
 
       <!-- Article body -->
-      <div class="blog-post__body" style="min-width:0;overflow-x:hidden;">
+      <div class="blog-post__body" style="min-width:0;overflow-x:clip;">
         <div class="prose" itemprop="articleBody">
           <slot />
         </div>
@@ -992,22 +1006,11 @@ const formatRelDate = (date: Date) =>
     }, { passive: true });
   }
 
-  // Build TOC from headings
+  // Scroll spy
   const tocNav = document.getElementById('toc-nav');
   const headings = document.querySelectorAll<HTMLElement>('.prose h2, .prose h3');
 
   if (tocNav && headings.length > 0) {
-    headings.forEach((heading) => {
-      if (!heading.id) return;
-      const level = heading.tagName === 'H2' ? 'h2' : 'h3';
-      const link = document.createElement('a');
-      link.href = `#${heading.id}`;
-      link.textContent = heading.textContent ?? '';
-      link.className = `toc-${level}`;
-      tocNav.appendChild(link);
-    });
-
-    // Scroll spy
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -1022,17 +1025,14 @@ const formatRelDate = (date: Date) =>
     headings.forEach((h) => observer.observe(h));
   }
 
-  // Mobile TOC
+  // Mobile TOC drawer
   const mobileToc = document.getElementById('mobile-toc') as HTMLElement | null;
   const mobileTocNav = document.getElementById('mobile-toc-nav') as HTMLElement | null;
   const mobileTocTrigger = document.getElementById('mobile-toc-trigger') as HTMLButtonElement | null;
   const mobileTocClose = document.getElementById('mobile-toc-close') as HTMLButtonElement | null;
   const mobileTocBackdrop = document.getElementById('mobile-toc-backdrop') as HTMLElement | null;
 
-  if (mobileToc && mobileTocNav && tocNav) {
-    // Clone links from desktop TOC into mobile TOC
-    mobileTocNav.innerHTML = tocNav.innerHTML;
-
+  if (mobileToc && mobileTocNav) {
     const openToc = () => {
       mobileToc.setAttribute('aria-hidden', 'false');
       mobileTocTrigger?.setAttribute('aria-expanded', 'true');
@@ -1049,7 +1049,6 @@ const formatRelDate = (date: Date) =>
     mobileTocClose?.addEventListener('click', closeToc);
     mobileTocBackdrop?.addEventListener('click', closeToc);
 
-    // Close on link click
     mobileTocNav.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', closeToc);
     });

@@ -28,7 +28,7 @@ export async function getStaticPaths() {
 }
 
 const { post, relatedPosts, prevPost, nextPost } = Astro.props;
-const { Content } = await post.render();
+const { Content, headings } = await post.render();
 
 // Estimate reading time (avg 200 words/min)
 const wordCount = post.body.trim().split(/\s+/).length;
@@ -41,6 +41,7 @@ const readingTime = Math.max(1, Math.ceil(wordCount / 200));
   relatedPosts={relatedPosts}
   prevPost={prevPost}
   nextPost={nextPost}
+  headings={headings}
 >
   <Content />
 </BlogLayout>
