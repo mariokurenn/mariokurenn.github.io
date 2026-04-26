@@ -1,7 +1,7 @@
 ---
 title: "10 Best Hotjar Alternatives in 2026 (Free & Paid Options Compared)"
 seoTitle: "10 Best Hotjar Alternatives in 2026 (Free & Paid)"
-description: "10 best Hotjar alternatives in 2026 — free and paid — compared for heatmaps, session recordings, GDPR compliance, and mobile analytics. Find the right tool for your team."
+description: "10 best Hotjar alternatives in 2026 — free and paid — compared for heatmaps, session recordings, GDPR compliance, and mobile analytics."
 publishDate: 2026-03-25
 updatedDate: 2026-04-26
 author: "Mario Kuren"
