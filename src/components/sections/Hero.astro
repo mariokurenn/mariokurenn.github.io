@@ -94,15 +94,15 @@
       <p class="hero__logos-lbl">Proven with e-commerce, SaaS, and lead-gen businesses</p>
       <div class="hero__logos-row">
         {[
-          '/images/logos/client-1.png',
-          '/images/logos/client-2.svg',
-          '/images/logos/client-3.png',
-          '/images/logos/client-4.png',
-          '/images/logos/client-5.webp',
-          '/images/logos/client-6.png',
-        ].map((src) => (
+          { src: '/images/logos/client-1.png', alt: 'Client 1 logo' },
+          { src: '/images/logos/client-2.svg', alt: 'Client 2 logo' },
+          { src: '/images/logos/client-3.png', alt: 'Client 3 logo' },
+          { src: '/images/logos/client-4.png', alt: 'Client 4 logo' },
+          { src: '/images/logos/client-5.webp', alt: 'Client 5 logo' },
+          { src: '/images/logos/client-6.png', alt: 'Client 6 logo' },
+        ].map(({ src, alt }) => (
           <div class="hero__logo">
-            <img src={src} alt="" loading="eager" decoding="async" />
+            <img src={src} alt={alt} loading="eager" decoding="async" />
           </div>
         ))}
       </div>
