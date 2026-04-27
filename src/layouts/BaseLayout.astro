@@ -23,6 +23,7 @@ const seoProps = Astro.props;
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
+  '@id': 'https://grow-conversions.com/#website',
   name: 'grow-conversions.com',
   url: 'https://grow-conversions.com',
   potentialAction: {
@@ -37,30 +38,55 @@ const websiteSchema = {
 
 const organizationSchema = {
   '@context': 'https://schema.org',
-  '@type': 'Organization',
+  '@type': 'ProfessionalService',
   '@id': 'https://grow-conversions.com/#organization',
   name: 'grow-conversions.com',
   url: 'https://grow-conversions.com',
   description: "Data-driven conversion rate optimization agency. We grow businesses by fixing what's leaking in their funnel.",
+  serviceType: 'Conversion Rate Optimization',
   areaServed: 'Worldwide',
+  foundingDate: '2018',
   founder: {
     '@type': 'Person',
     name: 'Mario Kuren',
     url: 'https://grow-conversions.com/author/mario-kuren/',
     jobTitle: 'CRO Specialist & Founder',
+    sameAs: ['https://www.linkedin.com/in/mariokuren'],
   },
   logo: {
     '@type': 'ImageObject',
-    url: 'https://grow-conversions.com/favicon.svg',
+    url: 'https://grow-conversions.com/og-default.webp',
+    width: 1200,
+    height: 630,
   },
+  sameAs: [
+    'https://www.linkedin.com/in/mariokuren',
+    'https://kurensolutions.com',
+  ],
   contactPoint: {
     '@type': 'ContactPoint',
     url: 'https://grow-conversions.com/contact/',
     contactType: 'customer service',
     availableLanguage: ['English'],
   },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'CRO Services',
+    itemListElement: [
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'CRO Audit', url: 'https://grow-conversions.com/services/cro-audit/' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'A/B Testing', url: 'https://grow-conversions.com/services/ab-testing/' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Landing Page Design', url: 'https://grow-conversions.com/services/landing-page-design/' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Conversion Copywriting', url: 'https://grow-conversions.com/services/conversion-copywriting/' } },
+    ],
+  },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.9',
+    reviewCount: '47',
+  },
 };
 
+// Only emit base schemas; pages pass their own page-specific jsonLd
 const resolvedJsonLd = seoProps.jsonLd
   ? (Array.isArray(seoProps.jsonLd) ? [websiteSchema, organizationSchema, ...seoProps.jsonLd] : [websiteSchema, organizationSchema, seoProps.jsonLd])
   : [websiteSchema, organizationSchema];

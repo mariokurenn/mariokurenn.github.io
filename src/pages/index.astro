@@ -15,42 +15,6 @@ const latestPosts = allPosts
 
 const siteURL = 'https://grow-conversions.com';
 
-const organizationSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
-  '@id': `${siteURL}/#organization`,
-  name: 'grow-conversions.com',
-  url: siteURL,
-  description: "Data-driven conversion rate optimization agency. We grow businesses by fixing what's leaking.",
-  serviceType: 'Conversion Rate Optimization',
-  areaServed: 'Worldwide',
-  foundingDate: '2018',
-  founder: {
-    '@type': 'Person',
-    name: 'Mario Kuren',
-    url: `${siteURL}/author/mario-kuren/`,
-    jobTitle: 'CRO Specialist & Founder',
-  },
-  sameAs: [
-    'https://www.linkedin.com/in/mariokuren',
-    'https://kurensolutions.com',
-  ],
-  hasOfferCatalog: {
-    '@type': 'OfferCatalog',
-    name: 'CRO Services',
-    itemListElement: [
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'CRO Audit', url: `${siteURL}/services/cro-audit/` } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'A/B Testing', url: `${siteURL}/services/ab-testing/` } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Landing Page Design', url: `${siteURL}/services/landing-page-design/` } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Conversion Copywriting', url: `${siteURL}/services/conversion-copywriting/` } },
-    ],
-  },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    reviewCount: '47',
-  },
-};
 
 const featuredCaseStudies = [
   {
@@ -92,7 +56,6 @@ const formatDate = (date: Date) =>
 <BaseLayout
   title="CRO Agency — Average 127% Conversion Lift | grow-conversions.com"
   description="97% of visitors leave without converting. We find exactly why — and fix it. CRO audits, A/B testing, landing page design. Average 127% CVR increase. Free audit."
-  jsonLd={organizationSchema}
 >
   <!-- 1. HERO -->
   <Hero />

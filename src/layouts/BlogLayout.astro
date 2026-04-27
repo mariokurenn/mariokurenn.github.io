@@ -41,7 +41,9 @@ const blogPostSchema = {
     url: siteURL,
     logo: {
       '@type': 'ImageObject',
-      url: `${siteURL}/favicon.svg`,
+      url: `${siteURL}/og-default.webp`,
+      width: 1200,
+      height: 630,
     },
   },
   datePublished: publishDate.toISOString(),
