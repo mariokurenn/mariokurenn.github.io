@@ -23,15 +23,15 @@ faqs:
 
 Most CRO advice is written for e-commerce: reduce cart abandonment, simplify checkout, add urgency. If you're running a B2B business, that advice is mostly useless to you.
 
-B2B has a different problem. Your buyer isn't making a €49 impulse purchase. They're making a €50,000 annual commitment that requires sign-off from a procurement team, a security review, and a VP who wasn't on the original call. The conversion you're optimising for isn't a transaction — it's the beginning of a sales process.
+B2B has a different problem. Your buyer isn't making a €49 impulse purchase. They're making a €50,000 annual commitment that needs sign-off from a procurement team, a security review, and a VP who wasn't even on the original call. The conversion you're optimising for isn't a transaction — it's the start of a sales process.
 
 I've spent six years running CRO programmes for B2B businesses, from SaaS platforms to professional services firms. The playbook is different. Here's what actually works.
 
 ## Why B2B Conversion Rate Optimization Is a Different Game
 
-In e-commerce, a visitor arrives, browses, adds to cart, and either buys or doesn't — often within a single session. The conversion happens entirely on your website.
+In e-commerce, a visitor arrives, browses, adds to cart, and either buys or doesn't — often within a single session. The whole thing happens on your website.
 
-In B2B, the website is rarely where the deal closes. It's where the first step happens: a demo request, a contact form submission, a content download. The actual sale happens off your site, over weeks or months, involving people who may never have visited your website.
+In B2B, the website is rarely where the deal closes. It's where the first step happens: a demo request, a contact form submission, a content download. The actual sale happens off your site, over weeks or months, involving people who may never have visited your website at all.
 
 This changes everything about how you approach CRO.
 
@@ -40,11 +40,11 @@ This changes everything about how you approach CRO.
 - Filtering out unqualified leads so your sales team isn't wasting time
 - Building enough trust that a cold visitor is willing to give you their time
 
-The mistake most B2B sites make: optimising for volume of leads instead of quality of leads. A contact form that converts at 8% but generates 80% unqualified leads is worse than one that converts at 3% and generates hot prospects.
+The mistake most B2B sites make: optimising for volume of leads instead of quality of leads. A contact form that converts at 8% but generates 80% unqualified leads is worse than one that converts at 3% and brings in hot prospects.
 
 ## B2B Conversion Rate Benchmarks
 
-Understanding where you stand requires the right benchmark. Not all B2B conversions are equal.
+You need the right benchmark to understand where you stand. Not all B2B conversions are equal.
 
 | Conversion Type | Average CVR | Top 25% |
 |---|---|---|
@@ -70,9 +70,9 @@ In most B2B purchases with a deal size above €10,000, the person filling in yo
 - **The budget holder** — approves spend, may never visit your site
 - **The gatekeeper** — procurement, legal, IT security
 
-Your website needs to serve all of them. The initiator needs to be convinced enough to start a conversation. The evaluator needs technical depth and integration information. The budget holder needs ROI evidence and risk mitigation (case studies, guarantees, security documentation).
+Your website needs to serve all of them. The initiator needs enough to start a conversation. The evaluator needs technical depth and integration information. The budget holder needs ROI evidence and risk mitigation — case studies, guarantees, security documentation.
 
-**Practical implication:** Don't just optimise your demo request form. Optimise the resources that enable your initial contact to sell internally — case studies with ROI data, security pages, compliance documentation, pricing transparency.
+**Practical implication:** Don't just optimise your demo request form. Optimise the resources that let your initial contact sell internally — case studies with ROI data, security pages, compliance documentation, pricing transparency.
 
 ## The 6 Highest-Impact B2B CRO Changes
 
@@ -101,11 +101,11 @@ If you can't publish exact prices, publish price ranges. "Starting from €X/mon
 
 ### 3. Reduce Form Fields to the Minimum Viable Set
 
-The most common B2B form field mistake: asking for information you don't need at this stage.
+The most common B2B form mistake: asking for information you don't need at this stage.
 
-You do not need the prospect's phone number, company size, annual revenue, and job title to book a 30-minute discovery call. You need their name, email, company name, and what they're trying to solve.
+You don't need the prospect's phone number, company size, annual revenue, and job title to book a 30-minute discovery call. You need their name, email, company name, and what they're trying to solve.
 
-Every field you add reduces form completion rate. A study by [Baymard Institute](https://baymard.com/) found that the average checkout form has 23.48 fields — more than twice what's necessary. B2B contact forms suffer the same problem.
+Every field you add reduces form completion rate. A study by [Baymard Institute](https://baymard.com/) found that the average checkout form has 23.48 fields — more than twice what's necessary. B2B contact forms have the same problem.
 
 Minimum viable B2B form:
 - Name ✓
@@ -117,7 +117,7 @@ That's it. Get the rest on the call.
 
 ### 4. Add Social Proof at the Point of Conversion
 
-Trust signals don't belong on your About page. They belong where the conversion decision is made — adjacent to your CTA.
+Trust signals don't belong on your About page. They belong where the conversion decision is made — right next to your CTA.
 
 **What works in B2B:**
 - Customer logos from recognisable companies (authority transfer)
@@ -150,7 +150,7 @@ For more on this, see [Landing Page Best Practices](/blog/landing-page-best-prac
 
 ### 6. Write Case Studies That Do the Selling
 
-Most B2B case studies are useless as conversion tools. They describe what happened without quantifying the outcome in terms the prospect cares about.
+Most B2B case studies are useless as conversion tools. They describe what happened without quantifying outcomes in terms the prospect actually cares about.
 
 A high-converting case study answers:
 - **Who is the client** (enough for the prospect to self-identify — "that's similar to us")
@@ -172,7 +172,7 @@ Different pages need different optimisation focus depending on where they sit in
 | Decision | Demo page, case studies, pricing | Convert to sales conversation | Demo completion rate |
 | Post-conversion | Onboarding, success pages | Reduce churn risk early | Activation rate |
 
-Most B2B CRO work focuses on the Consideration stage. But the highest-ROI interventions are often at the Decision stage — the pricing page and demo request page where intent is already established.
+Most B2B CRO work focuses on the Consideration stage. But the highest-ROI work is often at the Decision stage — the pricing page and demo request page where intent is already established.
 
 ## What to Measure in B2B CRO
 
@@ -193,7 +193,7 @@ For definitions of these metrics, see [What Is Conversion Rate Optimization](/bl
 
 ## Getting Started: B2B CRO Audit Priorities
 
-If you're starting from scratch, this is the order:
+If you're starting from scratch, work in this order:
 
 1. **Audit your demo/contact page first** — it's the closest to money
 2. **Review your pricing page** — are you publishing prices? Is there a clear CTA?
@@ -201,8 +201,8 @@ If you're starting from scratch, this is the order:
 4. **Add social proof** to your highest-traffic pages
 5. **Rewrite your homepage headline** with a benefit-led value proposition
 
-You don't need to run A/B tests to implement most of these. They're corrections, not experiments — obvious improvements based on known friction patterns.
+You don't need to run A/B tests to implement most of these. They're corrections, not experiments — obvious fixes based on known friction patterns that I've seen hold back dozens of B2B sites.
 
-For the research process that surfaces what stops B2B prospects from converting, see [Voice of Customer Research for CRO](/blog/voice-of-customer-research/) — the highest-ROI CRO activity most B2B teams skip.
+For the research process that surfaces what stops B2B prospects from converting, see [Voice of Customer Research for CRO](/blog/voice-of-customer-research/) — the highest-ROI CRO activity most B2B teams skip entirely.
 
 If you want an external pair of eyes on your B2B funnel, our [CRO audit service](/services/cro-audit/) covers your demo page, pricing page, and funnel drop-offs in full. [Book a free audit](/contact/) and we'll review your highest-impact pages before we speak.

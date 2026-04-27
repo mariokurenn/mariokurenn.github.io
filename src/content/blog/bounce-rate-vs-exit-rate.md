@@ -21,17 +21,17 @@ faqs:
     answer: "Exit rate is more actionable for conversion optimisation. It tells you specifically where sessions end in your funnel, which lets you identify the precise drop-off points to fix. Bounce rate is more useful for diagnosing traffic quality and page relevance — a high bounce rate on a paid traffic landing page suggests a message mismatch between your ad and your page. For CRO purposes, prioritise exit rate analysis on your key conversion pages."
 ---
 
-Your checkout has a 68% exit rate. Your homepage has a 72% bounce rate. Are these problems? Do they need fixing? Are they even measuring the same thing?
+Your checkout has a 68% exit rate. Your homepage has a 72% bounce rate. Are these problems? Do they need fixing? And are they even measuring the same thing?
 
-Most analytics dashboards show both metrics, and most marketers treat them as interchangeable. They're not. Using them interchangeably leads to wrong diagnoses, wasted A/B testing budget, and optimisation work on pages that don't actually have a problem.
+Most analytics dashboards show both metrics. Most marketers treat them as interchangeable. They're not. Confusing the two leads to wrong diagnoses, wasted A/B testing budget, and work poured into pages that don't actually have a problem.
 
-Here's exactly what each metric measures, how to tell when it signals a real problem, and what to do about it.
+Here's what each metric actually measures, how to tell when it signals something real, and what to do about it.
 
 ## What Is Bounce Rate?
 
 **Bounce rate** is the percentage of sessions in which a visitor views only one page and leaves without interacting further.
 
-A "bounce" is a single-page session. The visitor arrives on a page, reads it (or doesn't), and leaves — without clicking any links, visiting any other pages, or triggering any events on your site.
+A "bounce" is a single-page session. The visitor arrives, reads it (or doesn't), and leaves — no link clicks, no other pages visited, no events triggered.
 
 **Formula:**
 > Bounce rate = (Single-page sessions ÷ Total sessions) × 100
@@ -40,9 +40,9 @@ A "bounce" is a single-page session. The visitor arrives on a page, reads it (or
 
 ### What Bounce Rate Does NOT Measure
 
-Bounce rate does not measure whether a visitor read your content, how long they spent on the page, or whether they found what they were looking for. A visitor who spends 8 minutes reading a blog post and then closes the tab is counted as a bounce — even though they got exactly what they came for.
+Bounce rate doesn't tell you whether a visitor read your content, how long they stayed, or whether they found what they were looking for. Someone who spends 8 minutes reading a blog post and then closes the tab counts as a bounce — even though they got exactly what they came for.
 
-This is why a 90% bounce rate on a blog post is not necessarily a problem. The visitor came to read the article. They read it. Mission accomplished.
+That's why a 90% bounce rate on a blog post isn't necessarily a problem. The visitor came to read an article. They read it. Done.
 
 ## What Is Exit Rate?
 
@@ -55,7 +55,7 @@ Every page has an exit rate. Someone has to be the last page a visitor sees befo
 
 **Example:** Your checkout page receives 2,000 pageviews. 860 sessions end on that page. Exit rate = 43%.
 
-Crucially: those 860 exits could include visitors who bounced directly to checkout (single-page sessions) AND visitors who browsed 5 pages before abandoning at checkout. Exit rate captures both.
+Crucially: those 860 exits could include visitors who bounced directly to checkout (single-page sessions) AND visitors who browsed 5 pages before abandoning at checkout. Exit rate catches both.
 
 ## The Key Difference, Explained Simply
 
@@ -135,10 +135,10 @@ Exit rate is a problem when a page has a high exit rate AND it shouldn't be a se
 
 ## How to Diagnose a High Bounce Rate
 
-If a page that should drive clicks has a high bounce rate, the most likely causes:
+If a page that should drive clicks has a high bounce rate, here are the most likely culprits.
 
 **1. Message mismatch**
-The headline or content of the page doesn't match what the visitor expected based on the link or ad that brought them. They arrived, scanned, and left because it wasn't what they came for. Fix: align your headline with the traffic source. See [Landing Page Best Practices](/blog/landing-page-best-practices/) for the full message match framework.
+The headline or content doesn't match what the visitor expected based on the link or ad that brought them. They arrived, scanned, and left because it wasn't what they came for. Fix: align your headline with the traffic source. See [Landing Page Best Practices](/blog/landing-page-best-practices/) for the full message match framework.
 
 **2. Slow page load**
 Every 1-second delay increases bounce rate by approximately 8–12%. If mobile bounce rate is dramatically higher than desktop, page speed is the first thing to check.
@@ -154,16 +154,16 @@ The visitor read the content but there's no obvious CTA or next link. They finis
 If a funnel page has a high exit rate:
 
 **1. Unanswered objection**
-Something on the page is raising a concern that isn't resolved. Common examples: a price that appears without context, a form that asks for sensitive information without explaining why, shipping costs that appear late in checkout.
+Something on the page raises a concern that goes unresolved. Common examples: a price that appears without context, a form asking for sensitive information without explaining why, shipping costs that appear late in checkout.
 
 **2. Unexpected friction**
-A required form field that surprises the visitor, a mandatory account creation step, a payment method they don't have available.
+A required form field that surprises the visitor, a mandatory account creation step, a payment method they don't have available. I've seen checkout flows lose 20–30% of users at a single unexpected step.
 
 **3. Missing information**
-The visitor has a question your page doesn't answer. They exit to search for it — and often don't come back. Fix: use live chat data and survey responses to identify the most common pre-conversion questions and answer them on the page.
+The visitor has a question your page doesn't answer. They leave to search for it — and often don't come back. Use live chat data and survey responses to find the most common pre-conversion questions, then answer them directly on the page.
 
 **4. Technical errors**
-A broken form submit button, a payment processor that fails silently, an error message that appears without explanation. Check your session recordings on high-exit pages.
+A broken form submit button, a payment processor that fails silently, an error message with no explanation. Always check your session recordings on high-exit pages before assuming the copy is to blame.
 
 ## How to Find These Metrics in Google Analytics 4
 
@@ -207,16 +207,16 @@ For a detailed walkthrough of mobile-specific optimisation, see [Mobile CRO](/bl
 
 ## Using Both Metrics Together
 
-The most powerful analysis uses bounce rate and exit rate together to distinguish between two different problems:
+The most powerful analysis uses bounce rate and exit rate together to distinguish between two different problems.
 
 **High bounce rate + high exit rate on the same page:**
-The page is failing at the entry point — visitors are arriving and immediately leaving. The problem is likely message mismatch, slow load speed, or poor first impression.
+The page is failing at the entry point. Visitors arrive and leave immediately. The problem is likely message mismatch, slow load speed, or a poor first impression.
 
 **Low bounce rate + high exit rate on a funnel page:**
-Visitors are engaging with the site but dropping off specifically at this page. The problem is something on this page — an unanswered objection, unexpected friction, or missing information.
+Visitors are engaging with the site but dropping off at this specific page. Something here is the problem — an unanswered objection, unexpected friction, or missing information. This is where I'd start session recording analysis.
 
 **Low bounce rate + low exit rate:**
-The page is working — visitors are engaging and moving forward. No urgent action needed.
+The page is working. Visitors are engaging and moving forward. No urgent action needed.
 
 For a full walkthrough of how to use analytics data to identify conversion problems, see [What Is CRO](/blog/what-is-conversion-rate-optimization/) and [Conversion Rate Benchmarks](/blog/conversion-rate-benchmarks-by-industry/).
 

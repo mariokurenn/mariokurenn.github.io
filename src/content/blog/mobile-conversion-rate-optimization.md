@@ -39,9 +39,9 @@ faqs:
 
 Mobile accounts for over 60% of web traffic globally. For most e-commerce sites, it's 65–75%. And yet mobile converts at roughly half the rate of desktop.
 
-That's not a small problem. If your desktop converts at 4% and mobile at 2%, and mobile is 65% of your traffic, you're converting thousands of potential customers at half the rate you should be — from the traffic source that's growing fastest.
+That's not a small problem. If your desktop converts at 4% and mobile at 2%, and mobile is 65% of your traffic, you're losing thousands of potential customers at half the rate you should be converting them — from the traffic source that's growing fastest.
 
-I've done mobile CRO audits on dozens of sites. The same friction points appear repeatedly. Most are fixable without a redesign. Here's exactly what causes the gap and how to close it.
+I've done mobile CRO audits on dozens of sites. The same friction points appear every single time. Most are fixable without a redesign. Here's exactly what causes the gap and how to close it.
 
 ## The Mobile Conversion Gap: By the Numbers
 
@@ -61,7 +61,7 @@ In one SaaS audit I ran, mobile was 58% of traffic but only 14% of conversions. 
 
 Mobile sessions happen in interrupted, distracted environments — commuting, waiting in queues, multitasking. Desktop sessions happen at a desk, with full attention and a comfortable input device.
 
-High-consideration purchases (B2B software, expensive products, anything requiring comparison and research) are particularly affected. The decision may start on mobile but gets deferred to desktop. This is called the "research mobile, convert desktop" pattern, and it's real for many industries.
+High-consideration purchases (B2B software, expensive products, anything requiring comparison and research) are hit hardest. The decision might start on mobile but gets pushed to desktop. This is the "research mobile, convert desktop" pattern, and I've seen it confirmed in analytics data across dozens of clients.
 
 **What this means for CRO:** You can't eliminate context friction. You can design for it — shorter pages, faster loads, simpler decision paths, and clear "save for later" mechanisms that let mobile researchers continue on desktop.
 
@@ -88,13 +88,13 @@ Core Web Vitals on mobile are almost always worse than on desktop — test both 
 
 Trust signals designed for desktop — wide logo bars, multi-column testimonial layouts, security badge rows — often compress into illegible noise on mobile. Tiny trust badges no one can read don't build trust.
 
-Check your highest-converting trust elements on a real mobile device. If you can't read the testimonial or identify the logo, neither can your visitors.
+When I audit mobile sites, I check the trust section first. If you can't read the testimonial or identify the logo on a real phone, neither can your visitors.
 
 ### 5. Payment Friction
 
-On desktop, entering card details takes 20–30 seconds with a keyboard. On mobile, it takes 60–90 seconds of error-prone touchscreen typing — with high abandonment at every field.
+On desktop, entering card details takes 20–30 seconds with a keyboard. On mobile, it's 60–90 seconds of error-prone touchscreen typing — with high abandonment at every field.
 
-Sites without Apple Pay or Google Pay are giving up a significant chunk of mobile e-commerce conversions. The data from Stripe and PayPal consistently shows 20–40% higher mobile checkout completion rates when one-tap payment methods are available.
+Sites without Apple Pay or Google Pay are leaving mobile conversions on the table. Data from Stripe and PayPal consistently shows 20–40% higher mobile checkout completion rates when one-tap payment methods are available.
 
 ## The Mobile CRO Audit: What to Check
 
@@ -209,9 +209,9 @@ Remove navigation entirely from dedicated landing pages. A mobile landing page w
 
 ## What to Do Next
 
-If you haven't segmented your analytics by device, start there. You may have a mobile conversion problem you haven't quantified yet.
+If you haven't segmented your analytics by device, start there. You might have a mobile conversion problem you haven't quantified yet.
 
-If mobile CVR is below 50% of desktop, run 20 mobile session recordings before writing any hypotheses. The recordings will show you the specific friction points faster than any audit checklist.
+If mobile CVR is below 50% of desktop, watch 20 mobile session recordings before writing any hypotheses. The recordings will show you the specific friction points faster than any audit checklist.
 
 For a structured approach to CRO across all devices and traffic levels, see [What Is CRO](/blog/what-is-conversion-rate-optimization/). For the full ecommerce optimization playbook, see [How to Improve Ecommerce Conversion Rate: 21 Proven Tactics](/blog/how-to-improve-ecommerce-conversion-rate/).
 

@@ -44,7 +44,7 @@ faqs:
 
 Most websites have 5–10 critical conversion blockers. The challenge isn't fixing them — it's finding them.
 
-This checklist is the exact framework I use when auditing a new client's website. It's organized into six sections, designed to be completed in sequence. Work through it systematically and you'll emerge with a prioritized list of the highest-impact changes you can make.
+This checklist is the exact framework I use when auditing a new client's website. It's organized into six sections, designed to be completed in sequence. Work through it systematically and you'll end up with a prioritized list of the highest-impact changes you can make.
 
 **How to use this checklist:**
 
@@ -66,15 +66,15 @@ In GA4, set up an Exploration funnel from landing page → product page → cart
 
 **3. Are you tracking micro-conversions?**
 
-Beyond the final conversion, are you tracking: Add to Cart, Initiate Checkout, Email Capture, Click-to-Call? Micro-conversions let you optimize intermediate steps, not just the end result.
+Beyond the final conversion, are you tracking: Add to Cart, Initiate Checkout, Email Capture, Click-to-Call? Micro-conversions let you optimize intermediate steps — not just the end result.
 
 **4. Is your heatmap tool active on high-traffic pages?**
 
-Hotjar, Microsoft Clarity, or Mouseflow should be running on your homepage, main landing page, and product pages. Heatmaps reveal where users actually click (vs. where you think they click).
+Hotjar, Microsoft Clarity, or Mouseflow should be running on your homepage, main landing page, and product pages. Heatmaps reveal where users actually click — vs. where you think they click.
 
 **5. Are session recordings enabled?**
 
-Session recordings show you exactly what real users do on your site. Watch 20 sessions on your highest-exit pages. You'll see problems that no analytics report will show you.
+Session recordings show you exactly what real users do on your site. Watch 20 sessions on your highest-exit pages. You'll see problems that no analytics report will ever show you.
 
 **6. Are you running exit surveys?**
 
@@ -82,7 +82,7 @@ A simple one-question exit poll ("What stopped you from completing your purchase
 
 **7. Can you segment your data by device, traffic source, and new vs. returning visitors?**
 
-Aggregate conversion rates hide the truth. Your mobile CVR and desktop CVR should be analyzed separately. Your paid traffic CVR and organic CVR behave completely differently.
+Aggregate conversion rates hide the truth. Your mobile CVR and desktop CVR should be analyzed separately. Paid traffic and organic traffic behave completely differently — don't lump them together.
 
 ---
 
@@ -100,15 +100,15 @@ Features describe what you have. Outcomes describe what customers get. "Advanced
 
 **10. Is your unique selling proposition differentiated from competitors?**
 
-Open your site and three competitor sites side by side. Could you swap headlines between them? If yes, none of you are differentiated. Your USP should be specific to you.
+Open your site and three competitor sites side by side. Could you swap headlines between them? If yes, none of you are differentiated. Your USP should be specific to you — and only you.
 
 **11. Does your copy speak directly to your target customer's problem?**
 
-The best-converting copy uses the customer's exact language to describe their problem. Collect phrases from customer reviews, support tickets, and sales calls. Mirror that language back.
+The best-converting copy uses the customer's exact language to describe their problem. Collect phrases from reviews, support tickets, and sales calls. Mirror that language back.
 
 **12. Is there message match between your ads/emails and your landing pages?**
 
-If your ad says "Get 30% off", your landing page should say "Get 30% off" — not just vaguely reference a sale. Disconnect here is the #1 driver of high bounce rates from paid traffic.
+If your ad says "Get 30% off", your landing page should say "Get 30% off" — not just vaguely reference a sale. A disconnect here is the #1 driver of high bounce rates from paid traffic.
 
 **13. Does your above-the-fold content answer: What is it? Who is it for? Why should I care?**
 
@@ -122,7 +122,7 @@ Friction is invisible to site owners but painfully obvious to users.
 
 **14. Is your navigation clear and does it lead users toward conversion?**
 
-Navigation should guide users toward conversion, not distract them. Audit your nav: does every item serve a purpose? Are high-priority pages (pricing, services, contact) easily accessible?
+Navigation should guide users toward conversion — not pull them in ten directions. Audit your nav: does every item serve a purpose? Are high-priority pages (pricing, services, contact) easy to reach?
 
 **15. Is the primary CTA above the fold on every key page?**
 
@@ -138,15 +138,15 @@ Multiple CTAs create decision paralysis. Every page should have one primary acti
 
 **18. Does the site look professional and trustworthy on first impression?**
 
-Professional design is a trust signal. Outdated design, misaligned elements, and inconsistent branding all signal "this isn't a serious business." First impressions form in 50 milliseconds.
+Professional design is a trust signal. Outdated layouts, misaligned elements, and inconsistent branding all signal "this isn't a serious business." First impressions form in 50 milliseconds.
 
 **19. Is the site fully functional and conversion-optimized on mobile?**
 
-Test your entire purchase/signup flow on an actual mobile device (not just a browser emulator). Check: button tap targets, form behavior, image loading, sticky headers, checkout flow.
+Test your entire purchase/signup flow on an actual mobile device — not just a browser emulator. Check button tap targets, form behavior, image loading, sticky headers, and checkout flow.
 
 **20. Are forms as short as they can possibly be?**
 
-Every unnecessary field reduces conversion. Audit every form field: would you lose the sale without it? If no, remove it. You can collect additional info post-conversion.
+Every unnecessary field reduces conversion. Audit every form field: would you lose the sale without it? If no, remove it. You can collect more info after the conversion.
 
 **21. Does the site load in under 3 seconds on mobile?**
 
@@ -168,19 +168,19 @@ Don't bury reviews at the bottom of the page. Place them near decision points: n
 
 **24. Do you show trust seals and security indicators near the payment/signup step?**
 
-SSL padlock, secure payment logos, and money-back guarantee badges placed adjacent to the checkout button directly reduce payment anxiety.
+SSL padlock, secure payment logos, and money-back guarantee badges placed next to the checkout button directly reduce payment anxiety.
 
 **25. Do you display recognizable client logos or media mentions?**
 
-Social proof from brands users recognize transfers trust to your brand. Even one or two recognizable logos can meaningfully lift conversions.
+Social proof from brands users already know transfers trust to your brand. Even one or two recognizable logos can meaningfully lift conversions.
 
 **26. Is there a visible, generous return/cancellation policy?**
 
-The fear of being stuck with a bad purchase is a major conversion barrier. A prominent, reassuring returns policy (on the product page, not just in the footer) removes this barrier.
+Fear of being stuck with a bad purchase is a major conversion barrier. A prominent, reassuring returns policy — on the product page, not just buried in the footer — removes that barrier.
 
 **27. Is there a human face behind the business?**
 
-Personal brands and founder stories convert better than faceless corporate messaging. A photo, name, and brief bio of the person behind the business increases trust — especially for service businesses and small to mid-size e-commerce brands.
+Personal brands and founder stories convert better than faceless corporate messaging. A photo, name, and brief bio increases trust — especially for service businesses and small to mid-size e-commerce brands.
 
 **28. Are pricing and fees 100% transparent?**
 
@@ -198,11 +198,11 @@ Forced account creation causes 24% of users to abandon checkout (Baymard Institu
 
 **30. Does the checkout flow have minimal steps and distractions?**
 
-Remove navigation from checkout pages. Every link that takes users away from checkout is a potential exit. The optimal checkout is a distraction-free tunnel.
+Remove navigation from checkout pages. Every link that takes users away is a potential exit. The optimal checkout is a distraction-free tunnel — nothing to click except "complete order."
 
 **31. Are payment errors handled gracefully with clear guidance?**
 
-Failed payments are frustrating and often recoverable — if your error messages are helpful. "Your card was declined" is useless. "Your card was declined. Please check the card number and try again, or use a different payment method." keeps users in the flow.
+Failed payments are frustrating but often recoverable — if your error messages are actually helpful. "Your card was declined" is useless. "Your card was declined. Please check the card number and try again, or use a different payment method." keeps users in the flow.
 
 **32. Is the thank-you / confirmation page optimized for the next step?**
 
@@ -224,15 +224,15 @@ Every audit finding should generate a testable hypothesis: "Because we observed 
 
 **35. Are A/B tests run with statistical rigour?**
 
-Define success metrics before starting. Calculate required sample size before launching. Don't stop tests early. Reach 95%+ significance before declaring a winner. Document results even for losses.
+Define success metrics before starting. Calculate required sample size before launching. Don't stop tests early. Reach 95%+ significance before declaring a winner. Document results — even for losses.
 
 **36. Is there a test documentation log?**
 
-After 50+ tests, your accumulated learnings become a competitive advantage. Without documentation, you repeat mistakes and lose insights. A simple spreadsheet tracking hypothesis, dates, results, and learnings is enough.
+After 50+ tests, your accumulated learnings become a real competitive advantage. Without documentation, you repeat mistakes and lose insights. A simple spreadsheet tracking hypothesis, dates, results, and learnings is enough.
 
 **37. Are test results shared across the business?**
 
-CRO insights — what messaging works, what objections matter, what your audience responds to — are valuable beyond the conversion team. Share findings with marketing, product, and sales. Winning copy from A/B tests often becomes your best ad creative.
+CRO insights — what messaging works, what objections matter, what your audience actually responds to — are valuable beyond the conversion team. Share findings with marketing, product, and sales. Winning copy from A/B tests often becomes your best ad creative.
 
 ---
 

@@ -61,9 +61,7 @@ Both grow revenue. Neither replaces the other. The question is which one to do *
 
 **Driving traffic to a site that doesn't convert is like filling a bucket with a hole in it.** More water in doesn't help until you address the leak.
 
-Imagine you're filling a bucket with a hole in the bottom. You can pour water faster (more traffic via SEO) — but until you fix the hole (conversion rate), most of what you pour in escapes.
-
-The "fix the bucket first" argument is compelling — but it's not always correct. The decision depends on your current situation.
+Think of it this way. You're pouring water into a bucket with a hole in the bottom. You can pour faster — more traffic via SEO — but until you fix that hole, most of what goes in just escapes. The "fix the bucket first" argument is compelling. But it's not always correct. The right decision depends on where you actually are right now.
 
 ---
 
@@ -73,15 +71,11 @@ The "fix the bucket first" argument is compelling — but it's not always correc
 
 CRO requires data. Heatmaps need sessions to populate. A/B tests need traffic to reach significance. User behavior analytics need visitors to be meaningful.
 
-If you're under 500 monthly visitors, you don't have enough signal to do meaningful CRO. Qualitative research (user testing, surveys) still works, but it's limited without traffic patterns to validate against.
-
-In this case: invest in SEO to build your traffic base. Set a traffic threshold (1,000–2,000 sessions/month) before starting a formal CRO program.
+Under 500 monthly visitors, you don't have enough signal to do meaningful CRO. Qualitative research — user testing, surveys — still works, but it's limited without traffic patterns to validate against. So invest in SEO first. Set a traffic threshold of 1,000–2,000 sessions/month before starting a formal CRO program.
 
 **You're in a content-driven industry where traffic = authority.**
 
-For blogs, media sites, SaaS products with a content moat, or B2B companies where trust is built through education — SEO is infrastructure. Without it, you don't get the audience that eventually converts.
-
-Here, SEO and CRO run in parallel, but SEO is the priority investment because without authority, conversions can't scale.
+For blogs, media sites, SaaS products with a content moat, or B2B companies where trust is built through education — SEO is infrastructure. Without it, you don't get the audience that eventually converts. Here, SEO and CRO can run in parallel, but SEO is the priority investment because without authority, conversions can't scale.
 
 **Your product is genuinely undiscovered.**
 
@@ -157,7 +151,7 @@ CRO vs SEO isn't a binary decision — it's a sequencing decision. Here's the fr
 
 **CRO and SEO aren't competing investments — they amplify each other.** Better conversion UX improves the behavioral signals Google uses for ranking. Higher-intent organic traffic converts at rates paid traffic can't match. Run them in sequence, then in parallel, and both compound.
 
-The best-performing sites don't choose — they make CRO and SEO work together:
+The best-performing sites don't choose. They make CRO and SEO work together — and I've seen this pattern hold across very different business types.
 
 **CRO improves SEO signals:**
 - Lower [bounce rate](/blog/bounce-rate-vs-exit-rate/) (better UX = users stay longer) → positive ranking signal

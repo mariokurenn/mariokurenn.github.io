@@ -39,7 +39,7 @@ faqs:
 
 Analytics tells you *what* is happening on your site. Voice of customer research tells you *why*.
 
-You can see from your heatmaps that visitors scroll 60% down your pricing page and leave. You can see from your funnel data that 45% of visitors abandon the checkout at the payment step. What you can't see is whether they're leaving because the price is too high, because they don't trust the payment processor, because they have a question that isn't answered, or because they got distracted by a phone call.
+You can see from your heatmaps that visitors scroll 60% down your pricing page and leave. You can see from your funnel data that 45% of visitors abandon the checkout at the payment step. But you can't tell from those numbers whether they're leaving because the price is too high, because they don't trust the payment processor, because a question isn't answered, or because their phone rang.
 
 Voice of customer research answers the why. In six years of CRO work, it's the single highest-ROI activity I do on every new client engagement — and the one most teams skip because it feels less "data-driven" than running A/B tests.
 
@@ -51,7 +51,7 @@ Voice of customer (VoC) research is the systematic collection and analysis of yo
 
 It's called "voice of customer" for a specific reason: you're not interpreting customer behaviour. You're listening to customers directly and using their exact language.
 
-That language matters enormously for conversion. When a visitor lands on your page and reads copy that sounds exactly like how they'd describe their own problem, the psychological response is: *this is for me*. That recognition is what creates the emotional pull that moves someone from browsing to buying.
+That language matters enormously for conversion. When a visitor lands on your page and reads copy that sounds exactly like how they'd describe their own problem, the psychological response is: *this is for me*. That recognition is what creates the pull that moves someone from browsing to buying.
 
 The best landing page copy isn't written by copywriters. It's assembled from customer language and shaped by a copywriter who knows how to organise it.
 
@@ -122,7 +122,7 @@ Mine your reviews for these patterns. Then mine your *competitors'* reviews for 
 
 ### 4. Live Chat and Support Ticket Analysis
 
-Your support team is collecting VoC data every day. Most companies never analyse it for CRO purposes.
+Your support team is collecting VoC data every single day. Most companies never look at it for CRO purposes.
 
 What to look for:
 - Questions that repeat across multiple tickets (these are FAQ candidates — and signs that your page isn't answering them)

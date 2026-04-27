@@ -46,14 +46,14 @@ This guide covers 21 tactics to improve your ecommerce conversion rate, drawn fr
 
 ## Why Your Ecommerce Conversion Rate Isn't Moving
 
-Before jumping into tactics, understand the root cause. Most ecommerce CVR problems fall into one of four categories:
+Before jumping into tactics, diagnose the root cause. In my experience, most ecommerce CVR problems fall into one of four categories:
 
 1. **Friction** — Something is making the purchase harder than it needs to be
 2. **Anxiety** — Visitors don't trust you enough to hand over a credit card
 3. **Confusion** — They can't figure out what you're selling or why they should care
 4. **Wrong traffic** — You're attracting visitors who were never going to buy
 
-The tactics below address all four. Start by diagnosing which category is your biggest problem, then prioritize accordingly.
+The tactics below address all four. Start by figuring out which category is your biggest problem, then prioritize accordingly.
 
 ## Product Page Tactics
 
@@ -78,7 +78,7 @@ Eye tracking studies show visitors spend 72% of their time on product images bef
 
 Price anchoring increases perceived value. Show the original price crossed out next to the sale price. Show competitor prices. Show what you get vs. what you pay.
 
-The sequence matters: show value first, then price. Reveal price after you've stacked the benefits, not before.
+The sequence matters. Show value first, then price. Reveal price after you've stacked the benefits, not before.
 
 ### 4. Answer the Three Questions Above the Fold
 
@@ -109,7 +109,7 @@ Don't just put reviews at the bottom of the page where nobody reads them. Place 
 
 Cart abandonment averages 70% across ecommerce. The checkout flow itself is where most of that happens.
 
-Adding a progress bar ("Step 2 of 3") reduces abandonment by showing users how close they are to finishing. The sunk cost effect kicks in — people don't want to abandon progress.
+A progress bar — "Step 2 of 3" — reduces abandonment by showing users how close they are to finishing. The sunk cost effect kicks in: people don't want to walk away from progress they've already made.
 
 ### 8. Offer Guest Checkout Prominently
 
@@ -139,7 +139,7 @@ A/B test payment options — some audiences over-index on one method. Know your 
 
 Trust seals (SSL certificate, secure payment logos, money-back guarantee) placed directly adjacent to the checkout button reduce payment anxiety at the exact moment of decision.
 
-Tested placement matters: trust seals near the CTA outperform trust seals in the footer 3:1 in conversion impact.
+Placement matters. Trust seals near the CTA outperform trust seals in the footer 3:1 in conversion impact.
 
 ## Site-Wide & Technical Tactics
 
@@ -164,7 +164,7 @@ Quick wins: convert images to WebP, lazy load below-fold images, remove unused J
 
 ### 15. Use Exit-Intent Popups — The Right Way
 
-Exit-intent technology detects when a user is about to leave and triggers an overlay. When done right, it recovers 2–5% of abandoning visitors.
+Exit-intent technology detects when a user is about to leave and triggers an overlay. Done right, it recovers 2–5% of abandoning visitors.
 
 Done wrong, it's just annoying. The rules:
 - One popup per session, maximum

@@ -88,9 +88,9 @@ Here's the math every marketing team should understand:
 | +50% more traffic | 15,000 | 2% | £30,000 |
 | +50% higher CVR | 10,000 | 3% | £30,000 |
 
-The same revenue outcome — but the traffic route costs ongoing ad spend every month, while the CVR improvement is permanent. Once you move a conversion rate from 2% to 3%, every future visitor benefits from that improvement. Forever.
+Same revenue outcome. But the traffic route costs ongoing ad spend every month, while the CVR improvement is permanent. Once you move a conversion rate from 2% to 3%, every future visitor benefits from that change. Forever.
 
-The compounding effect is even more powerful over time:
+The compounding effect gets more powerful over time:
 
 | Quarter | CVR | Monthly Revenue (same traffic) |
 |---------|-----|-------------------------------|
@@ -99,7 +99,7 @@ The compounding effect is even more powerful over time:
 | Q3 | 3.1% (another win) | £31,000 |
 | Q4 | 3.8% (another win) | £38,000 |
 
-Three test wins over a year, with the same traffic and ad spend, produces a 90% revenue increase. This is why companies with serious CRO programs grow faster than companies that only invest in traffic acquisition.
+Three test wins over a year, same traffic and ad spend, produces a 90% revenue increase. This is why companies with serious CRO programs grow faster than those that only invest in traffic acquisition.
 
 ---
 
@@ -115,9 +115,9 @@ People often ask how CRO fits with their other marketing channels. Here's the ho
 | Paid Ads | Increases paid traffic | Cost-per-click | Immediate, stops when you stop paying |
 | CRO | Increases % of visitors who convert | Time + testing | Permanent once implemented |
 
-The three channels complement each other. SEO brings more organic visitors; CRO converts more of them. Paid ads bring targeted traffic; CRO ensures that expensive traffic actually generates revenue.
+The three channels complement each other. SEO brings more organic visitors; CRO converts more of them. Paid ads bring targeted traffic; CRO makes sure that expensive traffic actually generates revenue.
 
-A business doing only paid ads without CRO is leaving money on the table — they're paying for traffic and converting a fraction of what they could. A business doing only CRO without traffic growth has a ceiling. The combination is where the real leverage is.
+A business running paid ads without CRO is leaving money on the table — paying for traffic and converting a fraction of what's possible. A business doing only CRO without traffic growth has a ceiling. The combination is where the real leverage is.
 
 ---
 
@@ -159,7 +159,7 @@ The highest-leverage areas:
 - **Contact/booking pages** — friction reduction, reassurance copy
 - **Chat and chatbots** — real-time conversation before commitment
 
-Lead gen businesses should also optimize downstream — not just who fills out the form, but who converts to a client. High form fill rate + low close rate often means the *wrong* leads are converting, which is a targeting and qualifying problem, not a traffic problem.
+Lead gen businesses should also optimize downstream — not just who fills out the form, but who converts to a client. High form fill rate plus low close rate often means the *wrong* leads are converting. That's a targeting and qualifying problem, not a traffic problem.
 
 ---
 
@@ -267,7 +267,7 @@ Always start with a research-backed hypothesis. The test is how you prove or dis
 
 ### Mistake 4: Ignoring the Full Funnel
 
-A 10% lift on a product page means nothing if the checkout is converting at 30% of what it should. CRO optimization should start at the biggest leak in the funnel, not at the first page a user sees.
+A 10% lift on a product page means nothing if the checkout is converting at 30% of what it should. CRO work should start at the biggest leak in the funnel, not at the first page a user sees.
 
 Map your funnel, identify the step with the highest drop-off, and start there.
 

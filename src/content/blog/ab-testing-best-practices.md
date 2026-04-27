@@ -51,13 +51,13 @@ I've run over 800 A/B tests. About 70% of them didn't produce a statistically si
 
 That's not failure. That's what honest A/B testing looks like.
 
-The businesses that get real, compounding results from A/B testing aren't the ones who win more tests. They're the ones who run tests correctly — so their wins are real, their losses are informative, and their learnings accumulate into a genuine competitive advantage.
+The businesses that get real, compounding results from A/B testing aren't the ones who win more tests. They're the ones who run tests correctly — so their wins are real, their losses are informative, and their learnings stack into a genuine competitive advantage over time.
 
 This guide covers every best practice you need to run tests that actually mean something.
 
 ---
 
-Before best practices, understand the failure modes. They're more common than anyone in the CRO industry likes to admit:
+Before diving into best practices, understand the failure modes. They're more common than anyone in the CRO industry likes to admit:
 
 **Underpowered tests**: Not enough traffic or conversions to detect a real difference. The test reaches "significance" through noise, not signal.
 
@@ -71,7 +71,7 @@ Before best practices, understand the failure modes. They're more common than an
 
 **No documented hypothesis**: Testing changes without a clear hypothesis means wins can't be learned from or replicated. You win a single battle but don't build any strategic understanding.
 
-The result of all these failures: teams run tests for months, implement changes, see no revenue impact, and conclude that "A/B testing doesn't work for us." It doesn't work because it wasn't done correctly.
+The result of all these failures? Teams run tests for months, implement changes, see no revenue impact, and conclude "A/B testing doesn't work for us." It doesn't work because it wasn't done correctly.
 
 ---
 
@@ -94,7 +94,7 @@ Before running any test, use a sample size calculator to determine exactly how m
 
 A common mistake is setting MDE too low because you want to catch small improvements. But if you're at 3% CVR and you set MDE at 5% relative (0.15pp lift), you might need 80,000+ visitors per variant. If your page gets 10,000 visitors per month, that's a 16-month test. Not practical.
 
-**Rule of thumb**: If your hypothesis is well-grounded in user research, you should be expecting a meaningful lift. Set MDE at 15–20% relative minimum. If your test can only succeed with a 3% relative lift, you're testing the wrong thing.
+**Rule of thumb**: If your hypothesis is grounded in real user research, you should be expecting a meaningful lift. Set MDE at 15–20% relative minimum. If your test can only succeed with a 3% relative lift, you're testing the wrong thing.
 
 Free tools: Optimizely's sample size calculator, Evan Miller's A/B testing calculator, or VWO's built-in calculator.
 
@@ -104,7 +104,7 @@ Running a valid A/B test requires preparation before the test starts. Most faile
 
 This is the hardest discipline in A/B testing. Once a test is running, **don't look at results until you've hit your predetermined sample size.**
 
-The reason is statistical: conversion rates fluctuate naturally day-to-day. On day 4 of a test, your variant might be "winning" at 95% confidence. By day 14, it's at 60%. By day 21, it's at 72%.
+Here's why that matters. Conversion rates fluctuate naturally day-to-day. On day 4 of a test, your variant might be "winning" at 95% confidence. By day 14, it's at 60%. By day 21, it's at 72%.
 
 If you checked on day 4 and stopped, you'd implement based on noise, not signal. This is called the **peeking problem**.
 
@@ -127,7 +127,7 @@ Why? Conversion behavior varies by day of week. Monday shoppers behave different
 
 If your test runs Monday through Friday and wins, you've missed the weekend audience entirely. That's 2 days of weekly traffic — potentially your highest-converting days — not represented in your data.
 
-For businesses with significant seasonal patterns (retail before Christmas, tax software in April), also account for seasonal effects. A test run in December and another in February may produce different results for reasons unrelated to your change.
+For businesses with significant seasonal patterns (retail before Christmas, tax software in April), account for seasonal effects too. A test run in December and another in February may produce different results for reasons that have nothing to do with your change.
 
 Minimum duration rules:
 - **Standard**: 14 days (two full weeks, captures weekly patterns)
@@ -146,7 +146,7 @@ If you change the headline, hero image, CTA copy, and button colour simultaneous
 
 Sometimes you genuinely need to test a radically different page — new layout, new messaging architecture, new offer framing. This is a "challenger vs. champion" test, and it's legitimate.
 
-When the challenger wins, you then run follow-up tests isolating individual elements of the winning challenger to understand which specific changes drove the lift. You win the battle (better conversion rate) and then mine it for strategic insights.
+When the challenger wins, you then run follow-up tests isolating individual elements of the winning challenger to understand which specific changes drove the lift. You win the battle (better conversion rate) and then mine it for strategic insight.
 
 The rule isn't about being restrictive — it's about learning. When a test teaches you something generalizable about your audience, that insight is worth more than any single CVR lift.
 
@@ -158,11 +158,11 @@ A flat "B wins by 12%" result is the beginning of analysis, not the end.
 
 Always cut your test results by:
 
-**Device type**: Mobile users and desktop users often respond oppositely to the same change. A new form design that reduces desktop friction might be unusable on mobile. Implementing a "winner" site-wide without checking device segments is one of the most common expensive mistakes in CRO.
+**Device type**: Mobile users and desktop users often respond oppositely to the same change. A new form design that reduces desktop friction might be unusable on mobile. Implementing a "winner" site-wide without checking device segments is one of the most expensive mistakes in CRO — and I've seen it wipe out months of gains.
 
-**Traffic source**: Visitors from paid search arrive with high intent and specific expectations. Organic visitors are more exploratory. Email subscribers know your brand. These audiences have different needs, different anxiety levels, and different triggers for conversion.
+**Traffic source**: Visitors from paid search arrive with high intent and specific expectations. Organic visitors are more exploratory. Email subscribers already know your brand. These audiences have different needs, different anxiety levels, and different triggers for conversion.
 
-**New vs. returning visitors**: Returning visitors already know your brand and have overcome the initial trust barrier. What reassures a new visitor (detailed social proof, money-back guarantee) may be irrelevant friction for a returning buyer. A headline that wins for new visitors may underperform for returning ones.
+**New vs. returning visitors**: Returning visitors have already overcome the initial trust barrier. What reassures a new visitor — detailed social proof, a money-back guarantee — may be irrelevant friction for a returning buyer. A headline that wins for new visitors may underperform for returning ones.
 
 **User journey stage**: Where someone is in their buying journey changes what they need. A first-time visitor needs to understand your value proposition. A visitor on their third session, who has read your pricing page twice, needs a reason to commit today.
 
@@ -174,7 +174,7 @@ If you don't segment, you might implement a change that loses on mobile (60% of 
 
 Before launching a test, declare one metric that determines the winner. Not five. One.
 
-Why? Because with five metrics, there's a high probability one will show a "significant" result by chance — even if your variant made no real difference. This is called the multiple comparisons problem.
+Why? With five metrics, there's a high probability one will show a "significant" result by chance — even if your variant made no real difference. This is called the multiple comparisons problem.
 
 **Primary metric examples:**
 - Checkout completion rate (ecommerce)
@@ -187,22 +187,22 @@ Why? Because with five metrics, there's a high probability one will show a "sign
 - Time on page, scroll depth (engagement proxies)
 - Bounce rate (can be misleading)
 
-If your primary metric shows no significant difference but a secondary metric looks interesting, you have a new hypothesis to test — not a winner. Run another test specifically targeting that secondary metric as the primary goal.
+If your primary metric shows no significant difference but a secondary metric looks interesting, you've got a new hypothesis — not a winner. Run another test specifically targeting that secondary metric as the primary goal.
 
 ---
 
 ## Best Practice #7: Account for the Novelty Effect
 
-When users first encounter a new design, curiosity and novelty drive inflated engagement. Click rates go up, time-on-page increases. But this effect fades within 1–3 weeks as users habituate.
+When users first encounter a new design, curiosity drives inflated engagement. Click rates go up. Time-on-page increases. But that effect fades within 1–3 weeks as users habituate.
 
-If you stop a test during the novelty window, you'll declare a winner that has no lasting effect.
+Stop a test during the novelty window and you'll declare a winner that has no lasting effect.
 
 **Signs you're measuring novelty, not improvement:**
 - The variant wins big in week one, then the gap narrows significantly in week two
 - Engagement metrics (scroll depth, time on page) improve but conversion rate doesn't
 - Returning visitors are driving most of the lift
 
-**The fix**: Run tests for at least two full business cycles. If a variant shows a big win in week one that narrows in week two, extend the test to week three to see if the lift stabilizes or disappears.
+**The fix**: Run tests for at least two full business cycles. If a variant shows a big win in week one that narrows in week two, extend the test to week three to see whether the lift stabilizes or disappears entirely.
 
 ---
 
@@ -223,7 +223,7 @@ Typical funnel for ecommerce:
 | Checkout start | 420 | 40% |
 | Purchase | 210 | 50% |
 
-In this example, the cart-to-checkout step (75% drop-off) is the biggest leak, not the homepage. Optimizing the homepage is premature — the checkout experience is where the money is.
+In this example, the cart-to-checkout step (75% drop-off) is the biggest leak, not the homepage. Optimizing the homepage while that cart abandonment rate sits at 75% is the wrong priority entirely — the checkout experience is where the money is.
 
 For more on optimizing the checkout funnel specifically, read our [cart abandonment recovery guide](/blog/cart-abandonment-recovery/).
 
@@ -241,9 +241,9 @@ Every test should be documented with:
 - **Learnings**: What does this tell you about your audience? What would you test next?
 - **Implementation status**: Was the winner implemented? When?
 
-After 50+ tests, your log becomes a searchable database of audience insights. You stop making the same mistakes. You start recognizing patterns. You build hypotheses faster because you understand what your specific audience responds to.
+After 50+ tests, your log becomes a searchable database of audience insights. You stop making the same mistakes. You start recognizing patterns. Hypotheses come faster because you understand what your specific audience actually responds to.
 
-This is the moat that makes CRO compound. Two companies in the same space, with the same traffic, with the same testing tool — the one with 200 documented tests will consistently outperform the one with 30 undocumented ones.
+This is the moat that makes CRO compound. Two companies in the same space, same traffic, same testing tool — the one with 200 documented tests will consistently outperform the one with 30 undocumented ones. It's not close.
 
 ---
 
@@ -277,17 +277,17 @@ Always prioritize by traffic × conversion impact. A 10% lift on a page with 50,
 
 **When to use MVT**: Only when you have very high traffic, you've already established a hypothesis about element interactions (not just "let's try everything"), and you have an MVT tool that handles the statistics correctly.
 
-For most businesses, A/B testing is the right approach 90%+ of the time. MVT sounds sophisticated but rarely pays off unless traffic is very high and you're genuinely trying to understand interaction effects.
+For most businesses, A/B testing is the right approach 90%+ of the time. MVT sounds sophisticated but rarely pays off unless traffic is very high and you're genuinely trying to understand interaction effects between elements.
 
 ---
 
 ## Statistical Approaches: Frequentist vs. Bayesian
 
-Most A/B testing tools use frequentist statistics. Some use Bayesian. Here's what the difference means in practice:
+Most A/B testing tools use frequentist statistics. Some use Bayesian. Here's what that difference actually means in practice:
 
 **Frequentist (traditional)**: "The probability of seeing this result if the null hypothesis (no difference) were true is less than 5%." This is p < 0.05, or 95% confidence. You're controlling the false positive rate.
 
-**Bayesian**: "Given the data, there's an X% probability that B is better than A." More intuitive to interpret. Naturally handles sequential testing (peeking) better than frequentist approaches.
+**Bayesian**: "Given the data, there's an X% probability that B is better than A." More intuitive to interpret. And it handles sequential testing (peeking) better than frequentist approaches by design.
 
 In practice, both work when used correctly. The bigger issue isn't which approach you use — it's whether you respect the process. A frequentist test stopped early is worse than a Bayesian test run with proper stopping rules.
 
@@ -299,15 +299,15 @@ If you use VWO, they offer Bayesian testing as an option. Convert uses Bayesian 
 
 **Myth: "Our test won at 95% confidence, so it's definitely a real effect."**
 
-95% confidence means a 5% chance of a false positive. If you run 20 tests with 95% confidence, you'd expect one false positive by chance alone. With peeking and multiple metrics, that rate is much higher. Confidence is a threshold, not a guarantee.
+95% confidence means a 5% chance of a false positive. Run 20 tests at 95% confidence and you'd expect one false positive by chance alone. With peeking and multiple metrics layered on top, that rate climbs much higher. Confidence is a threshold, not a guarantee.
 
 **Myth: "We should test everything all the time."**
 
-Untargeted testing (changing things without research-backed hypotheses) produces wins that can't be learned from or replicated. Quality of hypotheses matters more than quantity of tests.
+Untargeted testing — changing things without research-backed hypotheses — produces wins that can't be learned from or replicated. Quality of hypotheses matters more than quantity of tests. Every time.
 
 **Myth: "A 50/50 traffic split is always best."**
 
-For standard A/B tests, 50/50 is optimal. But if you're testing a high-risk variant (very different page that might dramatically hurt conversion), consider 90/10 — expose the risky variant to only 10% of traffic until it shows early promise.
+For standard A/B tests, 50/50 is optimal. But if you're testing a high-risk variant — a very different page that might dramatically hurt conversion — consider 90/10. Expose the risky variant to only 10% of traffic until it shows early promise.
 
 **Myth: "We don't have enough traffic to A/B test."**
 
@@ -339,15 +339,15 @@ As many as you can run without overlapping audiences on the same pages. Running 
 
 **What's a good win rate for A/B tests?**
 
-For hypothesis-driven testing (based on user research), 25–35% is typical. If you're winning 80% of tests, your hypotheses are too conservative — you're testing obvious changes, not exploring meaningful optimization space. If you're winning less than 15%, your hypotheses need more grounding in user research.
+For hypothesis-driven testing based on user research, 25–35% is typical. If you're winning 80% of tests, your hypotheses are too conservative — you're testing obvious changes, not exploring meaningful optimization space. If you're winning less than 15%, your hypotheses need more grounding in real user research.
 
 **How do I handle tests during seasonal periods?**
 
-Be cautious about running tests during high-traffic anomalies (Black Friday, holiday season). Unusual traffic mixes and heightened purchase intent can produce results that don't hold during normal periods. Either pause tests during these windows or ensure your results account for seasonal bias.
+Be cautious running tests during high-traffic anomalies like Black Friday or the holiday season. Unusual traffic mixes and heightened purchase intent can produce results that don't hold during normal periods. Either pause tests during these windows or make sure your results account for seasonal bias.
 
 **Should I implement changes even before full significance?**
 
-No. Pre-significance implementation is one of the most common mistakes. You're accepting a higher false positive rate and potentially implementing a change that makes things worse. If you're in a hurry, consider a higher-risk / higher-reward change rather than lowering your statistical bar.
+No. Pre-significance implementation is one of the most common mistakes I see. You're accepting a higher false positive rate and potentially shipping a change that makes things worse. If you're in a hurry, go after a higher-risk, higher-reward change — don't lower your statistical bar.
 
 ---
 

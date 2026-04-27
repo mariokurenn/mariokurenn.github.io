@@ -80,11 +80,11 @@ Show your shipping cost (or free shipping threshold) on:
 - Cart page (always)
 - A persistent header/banner if you offer free shipping
 
-The psychological impact of surprise shipping costs at checkout is disproportionate to the actual amount. £4.99 shipping that appears on the last checkout screen causes more abandonment than the same £4.99 shown on the product page. Transparency converts.
+Here's something I've seen repeatedly in client audits: the psychological hit from surprise shipping costs is wildly disproportionate to the actual amount. £4.99 shipping appearing on the final checkout screen causes far more abandonment than the same £4.99 shown on the product page. Transparency converts.
 
 ### 2. Offer Guest Checkout as the Default
 
-"Create an account" before buying is a major conversion barrier. Baymard found 24% of shoppers abandoned specifically because of forced account creation.
+"Create an account" before buying is a serious conversion barrier. Baymard found 24% of shoppers abandoned specifically because of forced account creation.
 
 **Fix**: Make guest checkout the primary option. Place it first, or make it visually equal to registered checkout. You can invite account creation *after* the purchase is confirmed — at that point, they've already bought, and creating an account just saves their order history.
 
@@ -92,7 +92,7 @@ The psychological impact of surprise shipping costs at checkout is disproportion
 
 If you offer free shipping above a threshold (say, £50), show a cart-level progress bar: "You're £12 away from free shipping."
 
-This tactic does double duty: it reduces abandonment AND increases average order value. Shoppers who are close to the threshold frequently add an item to hit it. Tested across dozens of stores, it's one of the most consistently positive-ROI cart optimizations.
+This tactic does double duty: it cuts abandonment AND lifts average order value. Shoppers who are close to the threshold frequently add an item to hit it. In my experience, it's one of the most consistently positive-ROI cart optimizations you can run — tested across dozens of stores.
 
 ### 4. Streamline Your Checkout to Under 3 Steps
 
@@ -100,13 +100,13 @@ Baymard's research shows the ideal ecommerce checkout has 12–14 form elements 
 
 Audit every form field. Ask: "Would we lose the sale without this information right now?" Phone number for a non-phone business: no. Company name for B2C: no. Birth date: definitely no.
 
-Each removed field reduces abandonment. One study found reducing checkout fields from 14 to 8 increased completion rate by 31%.
+Each removed field cuts abandonment. One study found reducing checkout fields from 14 to 8 increased completion rate by 31%.
 
 ### 5. Add Multiple Payment Methods
 
 Different customers have strong preferences. Offering PayPal alongside credit cards typically lifts checkout conversion 10–15%. Apple Pay and Google Pay — especially on mobile — are increasingly table-stakes.
 
-One-tap payment options (where card details are pre-filled from the device) are particularly powerful on mobile, where typing a 16-digit card number is a significant friction point.
+One-tap payment options are particularly powerful on mobile, where typing a 16-digit card number is a genuine pain point that loses real sales.
 
 ### 6. Display Security Signals Throughout Checkout
 
@@ -122,20 +122,20 @@ These signals work best when placed directly adjacent to the "Place Order" butto
 
 ### 7. Handle Payment Errors Gracefully
 
-A declined payment is already frustrating. A confusing error message makes it worse and often causes abandonment.
+A declined payment is already frustrating. A confusing error message makes it worse and often triggers abandonment.
 
 Replace generic errors with specific, helpful ones:
 
 ❌ "Payment failed."  
 ✅ "Your card was declined. This sometimes happens with prepaid cards or international transactions. Please check your card details or try PayPal for instant checkout."
 
-Recovery rates from payment errors increase dramatically when users understand what happened and have a clear path forward.
+Recovery rates from payment errors jump when users understand what happened and have a clear path forward.
 
 ### 8. Remove Navigation from the Checkout Flow
 
-Every link in your checkout that leads outside the checkout funnel is a potential exit. Headers, footers, "Continue Shopping" links — they all leak revenue.
+Every link in your checkout that leads outside the funnel is a potential exit. Headers, footers, "Continue Shopping" links — they all leak revenue.
 
-Strip checkout pages down to essentials: your logo (not linked), the checkout steps, and back/next navigation. Nothing else. Distraction-free checkouts consistently outperform standard checkouts in A/B tests.
+Strip checkout pages down to essentials: your logo (not linked), the checkout steps, and back/next navigation. Nothing else. Distraction-free checkouts consistently beat standard checkouts in A/B tests. It's not close.
 
 ---
 
@@ -163,7 +163,7 @@ This sequence typically recovers 5–15% of abandons. On a store losing 70% of c
 
 For shoppers who haven't given their email, browser push notifications offer another recovery channel. Opt-in rates for push notifications are 10–15%, and abandonment recovery rates are comparable to email.
 
-The advantage: you can reach anonymous users. The disadvantage: requires opt-in and can feel intrusive if misused.
+The upside: you can reach anonymous users. The downside: requires opt-in and feels intrusive if you overdo it.
 
 ### 11. Use Exit-Intent Overlays on Cart and Checkout Pages
 
@@ -178,9 +178,9 @@ Test these carefully — on-exit overlays can annoy users who *weren't* abandoni
 
 ### 12. Retarget Abandoners with Paid Ads
 
-Dynamic product retargeting (showing abandoners ads featuring the exact items they left behind) is one of the highest-ROI digital advertising tactics available.
+Dynamic product retargeting — showing abandoners ads featuring the exact items they left behind — is one of the highest-ROI digital advertising tactics available.
 
-Typical retargeting ROAS for cart abandoners: 5–10x. These are warm audiences who have already expressed strong purchase intent.
+Typical retargeting ROAS for cart abandoners: 5–10x. These are warm audiences who've already shown strong purchase intent.
 
 Set up retargeting audiences in Google Ads and Meta Ads:
 - Audience: Users who visited `/checkout` but did NOT reach `/thank-you`
@@ -191,7 +191,7 @@ Set up retargeting audiences in Google Ads and Meta Ads:
 
 Questions that can't be answered in the moment often become reasons to abandon. A live chat or chatbot on cart/checkout pages that proactively offers help ("Do you have any questions before you complete your purchase?") can recover hesitant buyers.
 
-Rule: only deploy chat if you can respond quickly (under 2 minutes). Delayed responses on a checkout page increase abandonment rather than reducing it.
+One rule: only deploy chat if you can respond quickly (under 2 minutes). Slow responses on a checkout page make abandonment worse, not better.
 
 ---
 
@@ -199,7 +199,7 @@ Rule: only deploy chat if you can respond quickly (under 2 minutes). Delayed res
 
 ### 14. Test Your Checkout on Every Device and Browser
 
-Cart abandonment caused by technical failures (errors, layout issues, broken payment forms) is fully preventable but often missed because developers test on their own devices.
+Cart abandonment from technical failures — errors, broken layouts, busted payment forms — is fully preventable. But it often goes undetected because developers test on their own devices.
 
 Test your checkout on:
 - Chrome, Safari, Firefox, Edge
@@ -212,7 +212,7 @@ Common issues found: fonts that don't load, modals that don't close, form valida
 
 ### 15. Optimize Checkout Page Load Speed
 
-Checkout pages are often neglected in page speed optimizations. A slow loading cart or checkout kills conversions.
+Checkout pages are often the last to get attention in speed optimizations. That's a mistake. A slow cart or checkout kills conversions fast.
 
 Target: under 2 seconds to interactive on mobile. Specific fixes for checkout:
 - Lazy load below-fold images
@@ -222,9 +222,9 @@ Target: under 2 seconds to interactive on mobile. Specific fixes for checkout:
 
 ### 16. Enable Persistent Carts
 
-If a user adds to cart and returns the next day (common for considered purchases), is their cart still there?
+If a user adds to cart and comes back the next day — common for considered purchases — is their cart still there?
 
-Persistent carts — where cart contents are saved for 7–30 days — remove the friction of re-finding and re-adding products. This is especially important for furniture, high-ticket items, and categories where the buying decision takes multiple sessions.
+Persistent carts, where cart contents are saved for 7–30 days, remove the friction of re-finding and re-adding products. This matters most for furniture, high-ticket items, and categories where the buying decision plays out over multiple sessions.
 
 ---
 
@@ -255,7 +255,7 @@ You don't need all 16 tactics at once. Here's the recommended implementation ord
 
 ---
 
-The math is simple: a 70% cart abandonment rate means you're converting less than a third of people who intended to buy. Every tactic above chips away at that number. Together, they compound into a significantly lower abandonment rate — and meaningfully more revenue from the same traffic.
+The math is straightforward: a 70% cart abandonment rate means you're converting less than a third of people who intended to buy. Every tactic above chips away at that number. Together, they compound into a significantly lower abandonment rate — and meaningfully more revenue from the same traffic.
 
 **Further reading:**
 - [How to Improve Ecommerce Conversion Rate: 21 Proven Tactics](/blog/how-to-improve-ecommerce-conversion-rate/) — the full ecommerce CRO playbook

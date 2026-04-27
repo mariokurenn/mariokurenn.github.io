@@ -110,7 +110,7 @@ Ask customers immediately after they convert:
 - "What were you looking for that you couldn't find on our site?"
 - "Where did you find us?"
 
-The "what almost stopped you" question alone will reveal friction points you'd never find with analytics.
+The "what almost stopped you" question alone will surface friction you'd never find with analytics.
 
 **2. Exit-intent survey (one question)**
 Set up Hotjar or Microsoft Clarity to show an exit survey when users are about to leave: *"What stopped you from completing your purchase today?"*
