@@ -6,7 +6,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 export default defineConfig({
   site: process.env.SITE_URL || 'https://grow-conversions.com',
   base: '/',
-  integrations: [
+integrations: [
     mdx(),
   ],
   markdown: {
