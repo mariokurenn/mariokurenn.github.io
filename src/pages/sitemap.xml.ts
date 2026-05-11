@@ -35,7 +35,7 @@ const staticPages = [
 export const GET: APIRoute = async () => {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
   const glossaryTerms = await getCollection('glossary');
-  const caseStudies = await getCollection('case-studies');
+  const caseStudies = await getCollection('case-studies', ({ data }) => !data.draft);
 
   const postEntries = posts.map((post) => ({
     url: `/blog/${post.slug}/`,
