@@ -1,11 +1,11 @@
 ---
 title: "7 A/B Testing Mistakes That Invalidate Your Results (And How to Fix Them)"
-seoTitle: "7 A/B Testing Mistakes That Invalidate Your Results | 2026 Guide"
-description: "Most A/B tests are invalid before they finish. Discover the 7 critical mistakes that produce false winners and waste months of optimization. Learn exactly how to fix them with real examples from Reddit and top tech companies."
+seoTitle: "7 A/B Testing Mistakes That Invalidate Results"
+description: "Most A/B tests are invalid before they finish. 7 critical mistakes produce false winners. Learn how to fix them with real examples from Reddit."
 publishDate: "2026-04-14"
 author: "Mario Kuren"
 category: "A/B Testing"
-tags: ["a/b testing", "statistics", "split testing", "cro", "testing mistakes", "conversion rate optimization", "false positives", "peeking problem"]
+tags: ["a/b testing", "statistics", "split testing", "cro", "testing mistakes"]
 seoKeyword: "a/b testing mistakes"
 image: "/images/blog/ab-testing-mistakes.webp"
 imageHero: "/images/blog/ab-testing-mistakes.svg"
@@ -178,5 +178,13 @@ Before you look at CVR numbers, run through this diagnostic checklist. Most test
 | Multiple things changed, can't attribute the win | Testing multiple elements | Review change log — was it really one variable? |
 | CTR up, revenue flat | Wrong primary metric | Is your primary metric a business outcome or a proxy? |
 | Traffic split is 53/47 instead of 50/50 | Sample Ratio Mismatch | Chi-squared test on the split — SRM confirmed if p < 0.05 |
-| CVR varies 3–5× between days | Polluted traffic | Compare bot vs. human sessions; check internal IP filtering || A/A test shows a "winner" | Broken testing infrastructure | Randomization or tracking erro
+| CVR varies 3–5× between days | Polluted traffic | Compare bot vs. human sessions; check internal IP filtering |
+| A/A test shows a "winner" | Broken testing infrastructure | Randomization or tracking error — fix before any real test |
+
+---
+
+## A/B Testing Mistakes: Quick Reference
+
+| Mistake | Risk Level | Symptom | Fix |
+|---|---|---|---|| Stopping at significance | V
 (Content truncated due to size limit. Use line ranges to read remaining content)
