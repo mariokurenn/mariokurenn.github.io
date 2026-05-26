@@ -1,7 +1,7 @@
 ---
 title: "Conversion Rate Benchmarks by Industry: 2025/2026 Data + What the Numbers Don't Tell You"
 seoTitle: "Conversion Rate Benchmarks by Industry [2025/2026 Data]"
-description: "What's a good conversion rate for your industry? Real benchmarks for ecommerce, SaaS, B2B, and Google Ads — plus what 50+ client audits taught me that the studies don't cover."
+description: "What's a good conversion rate for your industry? Real 2025/2026 benchmarks for ecommerce, SaaS, B2B, and Google Ads — plus insights from 50+ client audits."
 publishDate: "2026-04-05"
 updatedDate: "2026-05-26"
 author: "Mario"
