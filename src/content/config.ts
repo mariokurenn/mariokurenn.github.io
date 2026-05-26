@@ -28,14 +28,6 @@ const blog = defineCollection({
       question: z.string(),
       answer: z.string(),
     })).optional(),
-    howTo: z.object({
-      name: z.string(),
-      description: z.string().optional(),
-      steps: z.array(z.object({
-        name: z.string(),
-        text: z.string(),
-      })),
-    }).optional(),
   }),
 });
 

@@ -180,6 +180,58 @@ const formatDate = (date: Date) =>
   <!-- 5. SERVICES -->
   <Services />
 
+  <!-- 5b. WHO WE WORK WITH -->
+  <section class="verticals section" aria-labelledby="verticals-heading">
+    <div class="container">
+      <span class="section-label">Who We Work With</span>
+      <h2 class="section-title" id="verticals-heading">Specialists in Three High-Stakes Verticals</h2>
+      <p class="section-subtitle" style="margin-bottom: var(--space-12);">
+        CRO looks different depending on your business model. We bring vertical-specific methodology to each engagement — not a one-size-fits-all process.
+      </p>
+      <div class="verticals__grid">
+        <div class="vertical-card">
+          <div class="vertical-card__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          </div>
+          <h3 class="vertical-card__title">E-commerce</h3>
+          <p class="vertical-card__desc">Product pages, checkout flows, cart abandonment, post-purchase upsells. We work with Shopify, WooCommerce, and Magento stores.</p>
+          <ul class="vertical-card__stats">
+            <li><strong>+157% CVR</strong> — e-commerce product page redesign</li>
+            <li><strong>+144% leads</strong> — checkout flow optimisation</li>
+            <li><strong>+137% sign-ups</strong> — enrolment funnel</li>
+          </ul>
+          <a href="/case-studies/" class="vertical-card__link">See e-commerce results →</a>
+        </div>
+        <div class="vertical-card">
+          <div class="vertical-card__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3 class="vertical-card__title">SaaS</h3>
+          <p class="vertical-card__desc">Free trial activation, onboarding flows, trial-to-paid conversion, pricing page optimisation. We understand SaaS metrics and funnel economics.</p>
+          <ul class="vertical-card__stats">
+            <li><strong>+89% completions</strong> — SaaS free-trial landing page</li>
+            <li><strong>3.4× RPV</strong> — pricing page and onboarding flow</li>
+            <li><strong>127% avg CVR lift</strong> — across SaaS engagements</li>
+          </ul>
+          <a href="/contact/" class="vertical-card__link">Discuss your SaaS funnel →</a>
+        </div>
+        <div class="vertical-card">
+          <div class="vertical-card__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="vertical-card__title">B2B Lead Gen</h3>
+          <p class="vertical-card__desc">Form conversion, landing page performance, MQL quality, multi-step lead flows. We help B2B teams turn more paid traffic into qualified pipeline.</p>
+          <ul class="vertical-card__stats">
+            <li><strong>+144% leads</strong> — B2B lead gen landing page</li>
+            <li><strong>Higher MQL quality</strong> — form friction reduction</li>
+            <li><strong>60–90 day results</strong> — typical revenue impact window</li>
+          </ul>
+          <a href="/contact/" class="vertical-card__link">Book a free audit →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- 6. RESULTS -->
   <section class="results section section--surface" id="results" aria-labelledby="results-heading">
     <div class="container">
@@ -293,8 +345,8 @@ const formatDate = (date: Date) =>
       <div class="container">
         <div class="blog-preview__header">
           <div>
-            <span class="section-label">CRO Insights</span>
-            <h2 class="section-title" id="blog-heading">Learn What Actually Moves the Needle</h2>
+            <span class="section-label">Free CRO Guides</span>
+            <h2 class="section-title" id="blog-heading">Expert Guides From 800+ A/B Tests</h2>
           </div>
           <a href="/blog/" class="btn btn--secondary">View All Posts</a>
         </div>
@@ -333,6 +385,91 @@ const formatDate = (date: Date) =>
 </BaseLayout>
 
 <style>
+  /* Verticals section */
+  .verticals__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+
+  .vertical-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-8);
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .vertical-card:hover {
+    border-color: var(--color-border-accent);
+    box-shadow: var(--shadow-accent);
+  }
+
+  .vertical-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: #e6f4ec;
+    border-radius: var(--radius-lg);
+    color: var(--color-accent);
+    flex-shrink: 0;
+  }
+
+  .vertical-card__title {
+    font-size: var(--text-xl);
+    font-weight: 800;
+    color: var(--color-heading);
+    letter-spacing: -0.02em;
+  }
+
+  .vertical-card__desc {
+    font-size: var(--text-base);
+    color: var(--color-text-muted);
+    line-height: 1.65;
+  }
+
+  .vertical-card__stats {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-4);
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    flex: 1;
+  }
+
+  .vertical-card__stats li {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    line-height: 1.4;
+  }
+
+  .vertical-card__stats strong {
+    color: var(--color-accent);
+    font-weight: 700;
+  }
+
+  .vertical-card__link {
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: gap var(--transition-fast);
+  }
+
+  .vertical-card__link:hover { text-decoration: underline; }
+
+  @media (max-width: 900px) {
+    .verticals__grid { grid-template-columns: 1fr; }
+  }
+
   /* Problem section */
   .problem__inner {
     display: grid;

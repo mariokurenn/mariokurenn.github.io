@@ -1,34 +1,56 @@
 # grow-conversions.com
 
-> Conversion rate optimization (CRO) resources for marketers and founders. Expert guides, A/B testing frameworks, landing page best practices, and a CRO glossary — written by Mario Kuren, CRO specialist.
-
-## Free CRO Tools (Interactive Calculators)
-- /tools/ — Hub page listing all 10 free CRO calculators
-- /tools/conversion-rate-calculator/ — Calculate CVR from conversions and visitors
-- /tools/ab-test-significance-calculator/ — Two-tailed z-test: confidence, p-value, pass/fail verdict
-- /tools/ab-test-sample-size-calculator/ — Minimum visitors needed per variant
-- /tools/ab-test-duration-calculator/ — Minimum days to run a valid test
-- /tools/checkout-funnel-calculator/ — Step-by-step funnel drop-off and revenue leak
-- /tools/cart-abandonment-rate-calculator/ — Abandonment rate and monthly revenue lost
-- /tools/landing-page-roi-calculator/ — CPA, ROAS, and CVR improvement scenarios
-- /tools/customer-lifetime-value-calculator/ — CLV, max CAC, and retention sensitivity
-- /tools/form-conversion-calculator/ — Form start vs completion rate and revenue impact
-- /tools/cro-roi-calculator/ — Monthly and annual revenue impact of CVR improvements
-- /.well-known/agent-skills/index.json — Machine-readable skill definitions for all 10 calculators (Agent Skills Discovery RFC v0.2.0)
-
-## Blog
-- /blog/ — CRO articles, A/B testing guides, landing page best practices
-
-## Glossary
-- /cro-glossary/ — 48-term CRO glossary covering metrics, psychology, A/B testing, and technical SEO
+> CRO agency helping e-commerce, SaaS, and B2B businesses increase conversion rates through A/B testing, landing page design, and conversion copywriting. Founded 2018 by Mario Kuren, CRO specialist certified by CXL Institute and Google Analytics. Average 127% CVR lift across 50+ client engagements. Free 47-point audit for qualifying businesses.
 
 ## Services
-- /services/cro-audit/ — Free 47-point CRO audit
-- /services/ab-testing/ — A/B testing program setup
-- /services/landing-page-design/ — Landing page design and optimization
-- /services/conversion-copywriting/ — Conversion-focused copywriting
+
+- [Free CRO Audit](https://grow-conversions.com/services/cro-audit/): 47-point audit finds every conversion blocker and ranks fixes by revenue impact. Annotated screenshots and 90-day A/B test roadmap included. Genuinely free, no commitment.
+- [A/B Testing](https://grow-conversions.com/services/ab-testing/): Hypothesis-driven testing with statistical rigor. Two-tailed z-tests, proper sample sizes, no peeking. Engagements start from €1,500/month.
+- [Landing Page Design](https://grow-conversions.com/services/landing-page-design/): Psychology-focused page design built around specific offer, traffic source, and buyer intent.
+- [Conversion Copywriting](https://grow-conversions.com/services/conversion-copywriting/): Headlines, CTAs, and email sequences built on voice-of-customer research.
+
+## Case Studies
+
+- [Filotea](https://grow-conversions.com/case-studies/filotea/): E-commerce CVR from 1.4% to 3.6% (+157%) — product page redesign and checkout optimisation over 90 days.
+- [Forte Solar](https://grow-conversions.com/case-studies/forte-solar/): B2B lead gen CVR from 3.2% to 7.8% (+144%) — landing page rebuild with trust architecture and form optimisation.
+- [Korak Ispred](https://grow-conversions.com/case-studies/korak-ispred/): Education enrolment CVR from 4.6% to 10.9% (+137%) — 19 friction points resolved over 8 weeks.
+- [Lara Sweetland](https://grow-conversions.com/case-studies/lara-sweetland/): E-commerce CVR from 1.9% to 4.6% (+142%) — full CRO audit and implementation.
+
+## Blog
+
+- [CRO vs SEO: Which Should You Prioritize First?](https://grow-conversions.com/blog/cro-vs-seo/): Decision framework for sequencing CRO and SEO investment based on traffic level and business stage.
+- [CRO for Low Traffic Websites](https://grow-conversions.com/blog/cro-low-traffic/): Five-phase qualitative CRO framework for sites under 1,000 visitors/month where A/B testing isn't viable.
+- [Best CRO Tools 2026](https://grow-conversions.com/blog/best-cro-tools-2026/): Honest reviews of analytics, A/B testing, heatmap, and voice-of-customer tools used in real client work.
+- [How Long to Run an A/B Test](https://grow-conversions.com/blog/how-long-to-run-ab-test/): Statistical guide with sample size calculator — enforces 14-day minimum for day-of-week coverage.
+- [AB Testing Best Practices](https://grow-conversions.com/blog/ab-testing-best-practices/): Common mistakes, false positive prevention, and rigorous testing methodology.
+- [What Is Conversion Rate Optimization?](https://grow-conversions.com/blog/what-is-conversion-rate-optimization/): Complete 2026 guide to CRO methodology, process, and ROI benchmarks.
+- [How to Reduce Cart Abandonment Rate](https://grow-conversions.com/blog/how-to-reduce-cart-abandonment-rate/): 12 proven tactics for e-commerce stores.
+- [Mobile Conversion Rate Optimization](https://grow-conversions.com/blog/mobile-conversion-rate-optimization/): Mobile-specific CRO guide for 2026.
+- [B2B Conversion Rate Optimization](https://grow-conversions.com/blog/b2b-conversion-rate-optimization/): Framework for B2B lead gen and SaaS funnels.
+
+## Free Tools (Interactive Calculators)
+
+- [A/B Test Significance Calculator](https://grow-conversions.com/tools/ab-test-significance-calculator/): Two-tailed z-test — confidence level, p-value, and pass/fail verdict.
+- [A/B Test Sample Size Calculator](https://grow-conversions.com/tools/ab-test-sample-size-calculator/): Minimum visitors per variant for a valid test.
+- [A/B Test Duration Calculator](https://grow-conversions.com/tools/ab-test-duration-calculator/): Days required; enforces 14-day minimum.
+- [Conversion Rate Calculator](https://grow-conversions.com/tools/conversion-rate-calculator/): CVR from conversions and visitors, with revenue impact.
+- [Checkout Funnel Calculator](https://grow-conversions.com/tools/checkout-funnel-calculator/): Step-by-step drop-off analysis and biggest revenue leak.
+- [Cart Abandonment Rate Calculator](https://grow-conversions.com/tools/cart-abandonment-rate-calculator/): Abandonment rate and monthly revenue lost.
+- [CRO ROI Calculator](https://grow-conversions.com/tools/cro-roi-calculator/): Monthly and annual revenue impact of CVR improvements.
+- [Landing Page ROI Calculator](https://grow-conversions.com/tools/landing-page-roi-calculator/): CPA, ROAS, and CVR improvement scenarios.
+- [Customer Lifetime Value Calculator](https://grow-conversions.com/tools/customer-lifetime-value-calculator/): CLV, max profitable CAC, and retention sensitivity.
+- [Form Conversion Calculator](https://grow-conversions.com/tools/form-conversion-calculator/): Form start vs. completion rate and revenue impact.
+
+## Glossary
+
+- [CRO Glossary](https://grow-conversions.com/cro-glossary/): 57-term glossary covering CRO metrics, A/B testing methodology, analytics, psychology, and technical concepts.
 
 ## About
-- /about/ — About Mario Kuren and grow-conversions.com
-- /author/mario-kuren/ — Author bio and all articles
-- /contact/ — Contact and free audit booking
+
+- [About](https://grow-conversions.com/about/): Agency background and methodology.
+- [Mario Kuren](https://grow-conversions.com/author/mario-kuren/): CRO specialist and founder. CXL Institute certified, Google Analytics certified. 800+ A/B tests, 50+ businesses, active since 2018. LinkedIn: https://www.linkedin.com/in/mariokuren
+
+## Optional
+
+- [Contact / Book Free Audit](https://grow-conversions.com/contact/): Book the free 47-point CRO audit or discuss an engagement.
+- [Agent Skills](https://grow-conversions.com/.well-known/agent-skills/index.json): Machine-readable definitions for all 10 CRO calculators (Agent Skills Discovery RFC v0.2.0). Tools: calculate_conversion_rate, calculate_ab_test_significance, calculate_ab_test_sample_size, calculate_ab_test_duration, calculate_checkout_funnel, calculate_cart_abandonment, calculate_landing_page_roi, calculate_clv, calculate_form_conversion, calculate_cro_roi.

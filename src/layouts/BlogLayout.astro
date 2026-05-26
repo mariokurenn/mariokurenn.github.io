@@ -13,7 +13,7 @@ interface Props {
 
 const { post, readingTime, relatedPosts = [], prevPost = null, nextPost = null, headings = [] } = Astro.props;
 const tocHeadings = headings.filter(h => h.depth === 2 || h.depth === 3);
-const { title, description, publishDate, updatedDate, author, category, tags, image, imageHero, imageAlt, seoKeyword, seoTitle, canonicalURL, faqs, howTo } = post.data;
+const { title, description, publishDate, updatedDate, author, category, tags, image, imageHero, imageAlt, seoTitle, canonicalURL, faqs } = post.data;
 const heroImage = imageHero ?? image;
 
 const siteURL = 'https://grow-conversions.com';
@@ -83,8 +83,6 @@ const formattedUpdated = updatedDate
   ? new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' }).format(updatedDate)
   : null;
 
-const formatRelDate = (date: Date) =>
-  new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).format(date);
 ---
 
 <BaseLayout
@@ -96,17 +94,6 @@ const formatRelDate = (date: Date) =>
   jsonLd={[
     blogPostSchema,
     breadcrumbSchema,
-    ...(howTo ? [{
-      '@context': 'https://schema.org',
-      '@type': 'HowTo',
-      name: howTo.name,
-      ...(howTo.description ? { description: howTo.description } : {}),
-      step: howTo.steps.map((s) => ({
-        '@type': 'HowToStep',
-        name: s.name,
-        text: s.text,
-      })),
-    }] : []),
     ...(faqs && faqs.length > 0 ? [{
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
