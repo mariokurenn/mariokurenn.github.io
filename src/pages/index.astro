@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Hero from '@/components/sections/Hero.astro';
-import Services from '@/components/sections/Services.astro';
 import Testimonials from '@/components/sections/Testimonials.astro';
 import FinalCTA from '@/components/sections/FinalCTA.astro';
 import FAQ from '@/components/sections/FAQ.astro';
@@ -48,6 +47,57 @@ const featuredCaseStudies = [
   },
 ];
 
+const process = [
+  {
+    step: '01',
+    title: 'Research & Audit',
+    duration: 'Week 1\u20132',
+    description: "We dig into your analytics, run heatmaps, study session recordings, and interview users. We find exactly where and why visitors are dropping off.",
+    services: [
+      {
+        title: 'CRO Audit',
+        href: '/services/cro-audit/',
+        description: "A comprehensive 47-point audit of your funnel, landing pages, and user flows \u2014 plus a prioritised action plan to fix what it finds.",
+        proof: 'Avg. 23 critical issues found',
+      },
+    ],
+  },
+  {
+    step: '02',
+    title: 'Strategy & Testing',
+    duration: 'Week 3\u201310',
+    description: "We build a prioritised hypothesis backlog and start running A/B tests. Every test is statistically rigorous \u2014 no false positives, no wasted cycles.",
+    services: [
+      {
+        title: 'A/B Testing',
+        href: '/services/ab-testing/',
+        description: "We design, run, and analyse statistically significant split tests that prove what works \u2014 hypothesis-driven, full-funnel, and iterated on continuously.",
+        proof: 'Avg. +34% per winning test',
+      },
+    ],
+  },
+  {
+    step: '03',
+    title: 'Implement & Compound',
+    duration: 'Ongoing',
+    description: "Winners get implemented. Each test builds on the last. Your conversion rate compounds over time and your learnings become a competitive advantage.",
+    services: [
+      {
+        title: 'Landing Page Design',
+        href: '/services/landing-page-design/',
+        description: "High-converting pages built around your audience's psychology, not just aesthetics \u2014 mobile-optimised and speed-focused.",
+        proof: 'Avg. +92% page conversions \u00b7 3.8\u00d7 return on ad spend (ROAS)',
+      },
+      {
+        title: 'Conversion Copywriting',
+        href: '/services/conversion-copywriting/',
+        description: "Headlines, calls to action, email sequences, and product copy grounded in voice-of-customer research.",
+        proof: 'Avg. +67% email click-through',
+      },
+    ],
+  },
+];
+
 const formatDate = (date: Date) =>
   new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).format(date);
 ---
@@ -64,7 +114,6 @@ const formatDate = (date: Date) =>
     <div class="container">
       <div class="problem__inner">
         <div class="problem__content">
-          <span class="section-label">Sound Familiar?</span>
           <h2 class="section-title" id="problem-heading">
             Your Traffic Is Expensive.<br />
             Why Isn't It Converting?
@@ -128,36 +177,18 @@ const formatDate = (date: Date) =>
     </div>
   </section>
 
-  <!-- 3. HOW IT WORKS -->
-  <section class="how-it-works section" aria-labelledby="how-heading">
+  <!-- 3. PROCESS & SERVICES -->
+  <section class="process section" id="services" aria-labelledby="process-heading">
     <div class="container">
-      <span class="section-label">The Process</span>
-      <h2 class="section-title" id="how-heading">From Leaking Funnel to Compounding Revenue</h2>
+      <h2 class="section-title" id="process-heading">From Leaking Funnel to Compounding Revenue</h2>
       <p class="section-subtitle" style="margin-bottom: var(--space-14);">
-        No guesswork. We research, hypothesise, test, and implement — a rigorous process that has delivered measurable lifts for 50+ businesses across e-commerce, SaaS, and lead-gen.
+        No guesswork. We research, hypothesise, test, and implement — a rigorous process that has
+        turned more existing traffic into customers across e-commerce, SaaS, and B2B lead
+        generation, without raising anyone's ad budget.
       </p>
 
       <div class="process-steps">
-        {[
-          {
-            step: '01',
-            title: 'Research & Audit',
-            description: "We dig into your analytics, run heatmaps, study session recordings, and interview users. We find exactly where and why visitors are dropping off.",
-            duration: 'Week 1–2',
-          },
-          {
-            step: '02',
-            title: 'Strategy & Testing',
-            description: "We build a prioritised hypothesis backlog and start running A/B tests. Every test is statistically rigorous — no false positives, no wasted cycles.",
-            duration: 'Week 3–10',
-          },
-          {
-            step: '03',
-            title: 'Implement & Compound',
-            description: "Winners get implemented. Each test builds on the last. Your conversion rate compounds over time and your learnings become a competitive advantage.",
-            duration: 'Ongoing',
-          },
-        ].map(({ step, title, description, duration }) => (
+        {process.map(({ step, title, duration, description, services }) => (
           <div class="process-step">
             <div class="process-step__num" aria-hidden="true">{step}</div>
             <div class="process-step__body">
@@ -166,69 +197,38 @@ const formatDate = (date: Date) =>
                 <span class="badge badge--surface">{duration}</span>
               </div>
               <p class="process-step__desc">{description}</p>
+
+              <ul class="step-services">
+                {services.map(({ title: svcTitle, href, description: svcDesc, proof }) => (
+                  <li>
+                    <a href={href} class="step-service">
+                      <span class="step-service__name">
+                        {svcTitle}
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                      </span>
+                      <span class="step-service__desc">{svcDesc}</span>
+                      <span class="step-service__proof">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
+                        {proof}
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         ))}
       </div>
-    </div>
-  </section>
 
-  <!-- 4. SERVICES -->
-  <Services />
-
-  <!-- 4b. WHO WE WORK WITH -->
-  <section class="verticals section" aria-labelledby="verticals-heading">
-    <div class="container">
-      <span class="section-label">Who We Work With</span>
-      <h2 class="section-title" id="verticals-heading">Specialists in Three High-Stakes Verticals</h2>
-      <p class="section-subtitle" style="margin-bottom: var(--space-12);">
-        CRO looks different depending on your business model. We bring vertical-specific methodology to each engagement — not a one-size-fits-all process.
+      <p class="process__disclaimer">
+        Average results across 50+ client engagements. Individual results vary based on site, traffic, and implementation.
       </p>
-      <div class="verticals__grid">
-        <div class="vertical-card">
-          <div class="vertical-card__icon" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-          </div>
-          <h3 class="vertical-card__title">E-commerce</h3>
-          <p class="vertical-card__desc">Product pages, checkout flows, cart abandonment, post-purchase upsells. We work with Shopify, WooCommerce, and Magento stores.</p>
-          <ul class="vertical-card__stats">
-            <li><strong>+157% conversion rate</strong> — product page and checkout rebuild</li>
-            <li><strong>157% more revenue</strong> — on the same ad spend, in 90 days</li>
-          </ul>
-          <a href="/case-studies/" class="vertical-card__link">See e-commerce results →</a>
-        </div>
-        <div class="vertical-card">
-          <div class="vertical-card__icon" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-          </div>
-          <h3 class="vertical-card__title">SaaS</h3>
-          <p class="vertical-card__desc">Free trial activation, onboarding flows, trial-to-paid conversion, pricing page optimisation. We understand SaaS metrics and funnel economics.</p>
-          <ul class="vertical-card__stats">
-            <li><strong>+89% trial sign-ups</strong> — free-trial landing page rebuild</li>
-            <li><strong>3.4× revenue per visitor</strong> — pricing page and onboarding flow</li>
-          </ul>
-          <a href="/contact/" class="vertical-card__link">Discuss your SaaS funnel →</a>
-        </div>
-        <div class="vertical-card">
-          <div class="vertical-card__icon" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <h3 class="vertical-card__title">B2B Lead Gen</h3>
-          <p class="vertical-card__desc">Form conversion, landing page performance, marketing-qualified lead (MQL) quality, multi-step lead flows. We help B2B teams turn more paid traffic into qualified pipeline.</p>
-          <ul class="vertical-card__stats">
-            <li><strong>+144% qualified leads</strong> — landing page and form rebuild</li>
-            <li><strong>60–90 days</strong> — typical window to revenue impact</li>
-          </ul>
-          <a href="/contact/" class="vertical-card__link">Discuss your lead-gen funnel →</a>
-        </div>
-      </div>
     </div>
   </section>
 
-  <!-- 5. RESULTS -->
+  <!-- 4. RESULTS -->
   <section class="results section section--surface" id="results" aria-labelledby="results-heading">
     <div class="container">
-      <span class="section-label">Client Results</span>
       <h2 class="section-title" id="results-heading">Real Numbers. Real Clients.</h2>
       <p class="section-subtitle" style="margin-bottom: var(--space-12);">
         Every metric below comes from an actual paid engagement — no cherry-picking, no projections. These are verified before/after conversion rates.
@@ -270,10 +270,10 @@ const formatDate = (date: Date) =>
     </div>
   </section>
 
-  <!-- 6. TESTIMONIALS -->
+  <!-- 5. TESTIMONIALS -->
   <Testimonials />
 
-  <!-- 7. FOUNDER -->
+  <!-- 6. FOUNDER -->
   <section class="founder section" aria-labelledby="founder-heading">
     <div class="container">
       <div class="founder__inner">
@@ -285,8 +285,6 @@ const formatDate = (date: Date) =>
             {[
               'CRO Certified — CXL Institute',
               'Google Analytics Certified',
-              '800+ A/B tests run',
-              '50+ businesses optimised',
             ].map((c) => (
               <div class="founder__cred">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
@@ -310,18 +308,6 @@ const formatDate = (date: Date) =>
             I don't do cosmetic CRO. I do systematic, data-driven optimisation that compounds over time
             and turns your funnel into a genuine competitive advantage.
           </p>
-          <div class="founder__stats">
-            {[
-              { n: '8+', l: 'Years in CRO' },
-              { n: '50+', l: 'Clients helped' },
-              { n: '127%', l: 'Avg. CVR lift' },
-            ].map(({ n, l }) => (
-              <div class="founder__stat">
-                <span class="founder__stat-num">{n}</span>
-                <span class="founder__stat-lbl">{l}</span>
-              </div>
-            ))}
-          </div>
           <a href="/about/" class="btn btn--secondary">
             More About Mario
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -331,7 +317,7 @@ const formatDate = (date: Date) =>
     </div>
   </section>
 
-  <!-- 8. BLOG PREVIEW -->
+  <!-- 7. BLOG PREVIEW -->
   {latestPosts.length > 0 && (
     <section class="blog-preview section" aria-labelledby="blog-heading">
       <div class="container">
@@ -368,99 +354,14 @@ const formatDate = (date: Date) =>
     </section>
   )}
 
-  <!-- 9. FAQ -->
+  <!-- 8. FAQ -->
   <FAQ />
 
-  <!-- 10. FINAL CTA -->
+  <!-- 9. FINAL CTA -->
   <FinalCTA />
 </BaseLayout>
 
 <style>
-  /* Verticals section */
-  .verticals__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-6);
-  }
-
-  .vertical-card {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    padding: var(--space-8);
-    background: var(--color-white);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-xl);
-    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
-  }
-
-  .vertical-card:hover {
-    border-color: var(--color-border-accent);
-    box-shadow: var(--shadow-accent);
-  }
-
-  .vertical-card__icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    background: #e6f4ec;
-    border-radius: var(--radius-lg);
-    color: var(--color-accent);
-    flex-shrink: 0;
-  }
-
-  .vertical-card__title {
-    font-size: var(--text-xl);
-    font-weight: 800;
-    color: var(--color-heading);
-    letter-spacing: -0.02em;
-  }
-
-  .vertical-card__desc {
-    font-size: var(--text-base);
-    color: var(--color-text-muted);
-    line-height: 1.65;
-  }
-
-  .vertical-card__stats {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-    padding: var(--space-4);
-    background: var(--color-surface);
-    border-radius: var(--radius-md);
-    border: 1px solid var(--color-border);
-    flex: 1;
-  }
-
-  .vertical-card__stats li {
-    font-size: var(--text-sm);
-    color: var(--color-text-muted);
-    line-height: 1.4;
-  }
-
-  .vertical-card__stats strong {
-    color: var(--color-accent);
-    font-weight: 700;
-  }
-
-  .vertical-card__link {
-    font-size: var(--text-sm);
-    font-weight: 700;
-    color: var(--color-accent);
-    text-decoration: none;
-    transition: gap var(--transition-fast);
-  }
-
-  .vertical-card__link:hover { text-decoration: underline; }
-
-  @media (max-width: 900px) {
-    .verticals__grid { grid-template-columns: 1fr; }
-  }
-
   /* Problem section */
   .problem__inner {
     display: grid;
@@ -611,6 +512,72 @@ const formatDate = (date: Date) =>
   .process-step__desc {
     color: var(--color-text-muted);
     line-height: 1.7;
+  }
+
+  .step-services {
+    list-style: none;
+    margin-top: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .step-service {
+    display: grid;
+    gap: var(--space-1);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-border);
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .step-service__name {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-base);
+    font-weight: 800;
+    color: var(--color-heading);
+    letter-spacing: -0.01em;
+    transition: color var(--transition-fast);
+  }
+
+  .step-service__name svg {
+    transition: transform var(--transition-fast);
+  }
+
+  .step-service:hover .step-service__name { color: var(--color-accent); }
+  .step-service:hover .step-service__name svg { transform: translateX(3px); }
+
+  .step-service:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
+    border-radius: var(--radius-sm);
+  }
+
+  .step-service__desc {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    line-height: 1.65;
+  }
+
+  .step-service__proof {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-top: var(--space-1);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    color: var(--color-accent);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .process__disclaimer {
+    max-width: 740px;
+    margin-top: var(--space-10);
+    font-size: var(--text-xs);
+    color: var(--color-text-subtle);
+    line-height: 1.6;
   }
 
   /* Results */
@@ -768,33 +735,6 @@ const formatDate = (date: Date) =>
     margin-bottom: var(--space-5);
   }
 
-  .founder__stats {
-    display: flex;
-    gap: var(--space-8);
-    margin: var(--space-8) 0;
-    padding: var(--space-6) 0;
-    border-top: 1px solid var(--color-border);
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .founder__stat { text-align: center; }
-
-  .founder__stat-num {
-    display: block;
-    font-size: var(--text-3xl);
-    font-weight: 900;
-    letter-spacing: -0.04em;
-    color: var(--color-accent);
-    line-height: 1;
-  }
-
-  .founder__stat-lbl {
-    display: block;
-    font-size: var(--text-xs);
-    color: var(--color-text-muted);
-    font-weight: 500;
-    margin-top: var(--space-1);
-  }
 
   /* Blog preview */
   .blog-preview__header {
@@ -833,7 +773,5 @@ const formatDate = (date: Date) =>
   @media (max-width: 768px) {
     .results__grid { grid-template-columns: 1fr; }
     .blog-preview__header { flex-direction: column; align-items: flex-start; }
-    .founder__stats { gap: var(--space-5); }
-    .founder__stat-num { font-size: var(--text-2xl); }
   }
 </style>
