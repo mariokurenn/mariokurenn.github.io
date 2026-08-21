@@ -94,6 +94,7 @@
       <p class="hero__logos-lbl">Proven with e-commerce, SaaS, and lead-gen businesses</p>
       <div class="hero__logos-row">
         {[
+          { src: '/images/logos/eljekarna24.svg', alt: 'eLjekarna 24 logo' },
           { src: '/images/logos/client-1.png', alt: 'Client 1 logo' },
           { src: '/images/logos/client-2.svg', alt: 'Client 2 logo' },
           { src: '/images/logos/client-3.png', alt: 'Client 3 logo' },
@@ -402,6 +403,9 @@
   opacity: 0.9;
 }
 
+/* Stacked lockup — needs extra height to read at the same optical size */
+.hero__logo img[src$="eljekarna24.svg"] { height: 48px; }
+
 /* Responsive */
 @media (max-width: 640px) {
   .hero__h1 { font-size: clamp(2.5rem, 11vw, 3.5rem); }
@@ -410,6 +414,7 @@
   .hero__stat:last-child { border-bottom: none; }
   .hero__logos-row { gap: var(--space-4); }
   .hero__logo img { height: 22px; max-width: 80px; }
+  .hero__logo img[src$="eljekarna24.svg"] { height: 30px; }
 }
 
 @media (max-width: 380px) {
