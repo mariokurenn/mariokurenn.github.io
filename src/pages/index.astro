@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Hero from '@/components/sections/Hero.astro';
-import SocialProof from '@/components/sections/SocialProof.astro';
 import Services from '@/components/sections/Services.astro';
 import Testimonials from '@/components/sections/Testimonials.astro';
 import FinalCTA from '@/components/sections/FinalCTA.astro';
@@ -60,10 +59,7 @@ const formatDate = (date: Date) =>
   <!-- 1. HERO -->
   <Hero />
 
-  <!-- 2. SOCIAL PROOF STATS -->
-  <SocialProof />
-
-  <!-- 3. PROBLEM -->
+  <!-- 2. PROBLEM -->
   <section class="problem section section--surface" aria-labelledby="problem-heading">
     <div class="container">
       <div class="problem__inner">
@@ -132,7 +128,7 @@ const formatDate = (date: Date) =>
     </div>
   </section>
 
-  <!-- 4. HOW IT WORKS -->
+  <!-- 3. HOW IT WORKS -->
   <section class="how-it-works section" aria-labelledby="how-heading">
     <div class="container">
       <span class="section-label">The Process</span>
@@ -177,10 +173,10 @@ const formatDate = (date: Date) =>
     </div>
   </section>
 
-  <!-- 5. SERVICES -->
+  <!-- 4. SERVICES -->
   <Services />
 
-  <!-- 5b. WHO WE WORK WITH -->
+  <!-- 4b. WHO WE WORK WITH -->
   <section class="verticals section" aria-labelledby="verticals-heading">
     <div class="container">
       <span class="section-label">Who We Work With</span>
@@ -232,7 +228,7 @@ const formatDate = (date: Date) =>
     </div>
   </section>
 
-  <!-- 6. RESULTS -->
+  <!-- 5. RESULTS -->
   <section class="results section section--surface" id="results" aria-labelledby="results-heading">
     <div class="container">
       <span class="section-label">Client Results</span>
@@ -277,10 +273,10 @@ const formatDate = (date: Date) =>
     </div>
   </section>
 
-  <!-- 7. TESTIMONIALS -->
+  <!-- 6. TESTIMONIALS -->
   <Testimonials />
 
-  <!-- 8. FOUNDER -->
+  <!-- 7. FOUNDER -->
   <section class="founder section" aria-labelledby="founder-heading">
     <div class="container">
       <div class="founder__inner">
@@ -339,7 +335,7 @@ const formatDate = (date: Date) =>
     </div>
   </section>
 
-  <!-- 9. BLOG PREVIEW -->
+  <!-- 8. BLOG PREVIEW -->
   {latestPosts.length > 0 && (
     <section class="blog-preview section" aria-labelledby="blog-heading">
       <div class="container">
@@ -377,10 +373,10 @@ const formatDate = (date: Date) =>
     </section>
   )}
 
-  <!-- 10. FAQ -->
+  <!-- 9. FAQ -->
   <FAQ />
 
-  <!-- 11. FINAL CTA -->
+  <!-- 10. FINAL CTA -->
   <FinalCTA />
 </BaseLayout>
 
