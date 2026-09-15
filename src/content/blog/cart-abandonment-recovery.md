@@ -48,7 +48,7 @@ That's not just a conversion problem — it's a revenue problem. If your store d
 
 This guide covers 16 tactics to reduce cart abandonment and recover the revenue you're currently leaving on the table.
 
-## Why Shoppers Abandon Their Carts
+## Why Do Shoppers Abandon Their Carts?
 
 [Baymard Institute](https://baymard.com/lists/cart-abandonment-rate) aggregates 50 studies on why shoppers leave. The top reasons, among those who actually intended to buy:
 

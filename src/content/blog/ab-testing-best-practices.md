@@ -3,7 +3,7 @@ title: "A/B Testing Best Practices: How to Run Tests That Actually Mean Somethin
 seoTitle: "A/B Testing Best Practices [2026 Guide]"
 description: "Run statistically valid A/B tests that produce reliable results. Avoid the common mistakes that waste months of effort and generate false positive winners."
 publishDate: "2026-02-01"
-updatedDate: "2026-04-10"
+updatedDate: "2026-09-15"
 author: "Mario"
 category: "A/B Testing"
 tags: ["a/b testing", "split testing", "statistics", "cro", "experimentation"]
@@ -47,7 +47,11 @@ faqs:
     answer: "Statistical significance at 95% means there is a 5% probability that the observed difference between test variants occurred by random chance. It does not confirm the magnitude of the improvement or guarantee real-world revenue impact — it only confirms the measured difference is likely not noise. A statistically significant result with a small effect size may not justify the implementation effort."
 ---
 
+**A/B testing best practices reduce to five rules: fix the sample size before you start, run for whole business weeks, test one hypothesis at a time, never stop at first significance, and check the winner again after launch.** Most tests break at least one of them, which is why most “wins” don't survive contact with production.
+
 I've run over 800 A/B tests. About 70% of them didn't produce a statistically significant winner. Of the 30% that did, roughly a third were false positives — changes that "won" in the test but produced zero lasting lift when implemented.
+
+That ratio is not unusual, and it is not a reflection on the people writing the hypotheses. [Microsoft's Experimentation Platform reported](http://ai.stanford.edu/~ronnyk/ExPThinkWeek2009Public.pdf) that among well-designed experiments built to move a specific key metric, only about one-third actually moved it — roughly a third came out flat and a third made the metric worse. Plan your roadmap around that hit rate rather than around the assumption that good ideas win.
 
 That's not failure. That's what honest A/B testing looks like.
 
@@ -247,7 +251,7 @@ This is the moat that makes CRO compound. Two companies in the same space, same 
 
 ---
 
-## What to Test First
+## What Should You Test First?
 
 If you're building a test backlog, prioritize in this order:
 
@@ -315,7 +319,7 @@ Low-traffic businesses can still do CRO — through qualitative research, expert
 
 ---
 
-## Choosing Your A/B Testing Tool
+## Which A/B Testing Tool Should You Choose?
 
 The tool matters less than the process — but here's a quick guide:
 

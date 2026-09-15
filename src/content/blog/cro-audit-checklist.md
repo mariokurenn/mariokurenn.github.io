@@ -3,7 +3,7 @@ title: "CRO Audit Checklist: 37 Questions to Find Every Conversion Leak"
 seoTitle: "CRO Audit Checklist: 37 Questions [Free]"
 description: "37-point CRO audit checklist covering analytics, UX, landing pages, trust signals, and checkout. Find exactly what's blocking your conversions."
 publishDate: "2026-03-28"
-updatedDate: "2026-04-10"
+updatedDate: "2026-09-15"
 author: "Mario"
 category: "CRO Strategy"
 tags: ["cro audit", "checklist", "conversion optimization", "ux audit"]
@@ -41,6 +41,8 @@ faqs:
   - question: "How do I prioritize findings from a CRO audit?"
     answer: "Use the ICE or PIE framework to prioritize CRO audit findings. ICE scores each issue on Impact (how much will fixing this improve CVR?), Confidence (how certain are you this is a real problem?), and Ease (how hard is this to implement?). Score each 1–10 and multiply. PIE uses Potential (CVR uplift potential), Importance (how much traffic does this affect?), and Ease. Start with issues that score high on all three — the changes that will move the most revenue for the least effort."
 ---
+
+**A CRO audit moves through six areas in sequence: analytics integrity, traffic and intent, landing page experience, the conversion path, trust and objections, then technical performance.** The order matters, because a leak found in the wrong sequence sends you optimising a page whose data you cannot trust. The 37 questions below are the checks I run, in that order.
 
 Most websites have 5–10 critical conversion blockers. The challenge isn't fixing them — it's finding them.
 
@@ -150,7 +152,7 @@ Every unnecessary field reduces conversion. Audit every form field: would you lo
 
 **21. Does the site load in under 3 seconds on mobile?**
 
-Check Google PageSpeed Insights for your key pages. LCP (Largest Contentful Paint) under 2.5 seconds, INP (Interaction to Next Paint) at 200ms or less, CLS (Cumulative Layout Shift) under 0.1, each measured at the 75th percentile of page loads. These directly affect both conversions and rankings.
+Check Google PageSpeed Insights for your key pages. [Google's current Core Web Vitals thresholds](https://web.dev/articles/vitals) are LCP (Largest Contentful Paint) under 2.5 seconds, INP (Interaction to Next Paint) at 200ms or less, and CLS (Cumulative Layout Shift) under 0.1 — each assessed at the 75th percentile of page loads, segmented across mobile and desktop. These directly affect both conversions and rankings.
 
 ---
 

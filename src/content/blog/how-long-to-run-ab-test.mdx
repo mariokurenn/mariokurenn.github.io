@@ -3,7 +3,7 @@ title: "How Long to Run an A/B Test: The Complete Duration Guide (2026)"
 seoTitle: "How Long to Run an A/B Test: Duration Guide (2026)"
 description: "Calculate the exact A/B test duration you need. Covers sample size formula, the peeking problem, and benchmarks for ecommerce, SaaS, and mobile apps."
 publishDate: "2026-03-31"
-updatedDate: "2026-05-13"
+updatedDate: "2026-09-15"
 author: "Mario Kuren"
 category: "A/B Testing"
 tags: ["a/b testing", "statistics", "split testing", "cro", "sample size", "statistical significance", "ecommerce", "saas", "mobile apps"]
@@ -44,6 +44,8 @@ howTo:
     - name: "Commit to the stopping date before launch"
       text: "Pre-define your end date before launching the test and do not change it based on early results. Peeking at significance daily and stopping early is the single most common source of false A/B test winners."
 ---
+
+**Run an A/B test until it reaches the sample size you calculated before starting, and never for fewer than two full business weeks.** Duration is decided by your baseline conversion rate, the smallest effect worth detecting and your traffic volume — not by the moment the dashboard first says “significant”.
 
 You are running an A/B test on your ecommerce checkout page. On day four, the new variant shows a 22% increase in conversions, and your testing dashboard proudly displays "94% statistical significance." The temptation to stop the test, declare a winner, and roll out the changes is overwhelming.
 
@@ -127,7 +129,7 @@ You do not need to do the complex math manually. Several reliable statistical si
 
 Regardless of which A/B test duration calculator you use, the output is only as good as the inputs. Be realistic about your MDE and your daily traffic figures.
 
-## Why "Reaching Significance" Isn't Enough (The Peeking Problem)
+## Why Isn't "Reaching Significance" Enough?
 
 The most dangerous phrase in A/B testing is: _"We reached 95% significance in three days, let's stop the test."_
 
@@ -184,7 +186,7 @@ Your test duration is also heavily influenced by where your traffic is coming fr
 - **Paid Search (PPC) Traffic:** Google Ads traffic is highly targeted and can be scaled quickly. If you increase your ad spend, you can reach your required sample size much faster, potentially concluding a test in exactly 14 days.
 - **Email Marketing Traffic:** Email traffic is highly episodic. You get a massive spike immediately after sending a campaign, followed by a sharp drop-off. Landing page tests driven by email traffic must account for the fact that the sample is not distributed evenly over time.
 
-## What to Do If You Have Low Traffic
+## What If You Don't Have Enough Traffic?
 
 If your site receives fewer than 10,000 visitors a month, traditional A/B testing becomes mathematically impractical. A test might take six months to reach significance, by which time seasonal shifts and sample pollution will have rendered the data useless.
 
@@ -206,7 +208,7 @@ Even if you calculate your A/B test duration perfectly, execution errors can inv
 - **Stopping at the First Sign of Significance:** As discussed above, stopping early guarantees false positives and wasted development resources.
 - **Running Tests Too Long:** Conversely, running a test for 12 weeks is also dangerous. Over long periods, users delete cookies, switch devices, and re-enter the test as "new" visitors, polluting the data and making the results unreliable. If a test takes longer than 8 weeks, your MDE is too small or your traffic is too low.
 
-## How to Handle Inconclusive Tests
+## What Should You Do With an Inconclusive Test?
 
 What happens when your A/B test duration calculation said the test should take 21 days, but on day 21, the results are completely inconclusive? This is a common scenario, and it usually means one of three things:
 
