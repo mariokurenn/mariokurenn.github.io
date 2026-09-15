@@ -16,7 +16,7 @@ faqs:
   - question: "Why are teams looking for Hotjar alternatives in 2026?"
     answer: "Three main reasons: (1) Pricing — Hotjar's free plan is now capped at 35 session recordings per day, and paid plans start at €39/month after the Contentsquare acquisition. (2) GDPR and data privacy — European teams have concerns about data residency and third-party data sharing following the acquisition. (3) Feature bloat — Hotjar has expanded into surveys, interviews, and feedback tools, meaning teams that only need recordings and heatmaps are paying for features they don't use."
   - question: "What is the best Hotjar alternative for e-commerce?"
-    answer: "Lucky Orange is the strongest e-commerce-focused alternative. It includes session recordings, dynamic heatmaps, form analytics (showing field-level abandonment), and a live visitor view for real-time session monitoring. Given that the average cart abandonment rate sits at 70.19%, the form analytics feature alone is worth the $19/month starting price for most e-commerce stores."
+    answer: "Lucky Orange is the strongest e-commerce-focused alternative. It includes session recordings, dynamic heatmaps, form analytics (showing field-level abandonment), and a live visitor view for real-time session monitoring. Given that the average cart abandonment rate sits at 70.22%, the form analytics feature alone is worth the $19/month starting price for most e-commerce stores."
   - question: "What is the best open-source Hotjar alternative?"
     answer: "PostHog is the best open-source Hotjar alternative. It offers session replays, heatmaps, feature flags, A/B testing, and full product analytics including funnels and user paths. The free tier includes 5,000 replays and 1 million events per month, making it the most cost-effective all-in-one option for engineering-led teams and startups."
   - question: "Which Hotjar alternative is best for GDPR compliance?"
@@ -54,7 +54,7 @@ The main consideration is data residency. As a Microsoft product, data is proces
 
 ### 2. Lucky Orange — Best for E-commerce and Shopify
 
-Lucky Orange gives you a comprehensive suite of CRO tools at a genuinely competitive price, making it the clear top pick for e-commerce. Its form analytics feature is particularly valuable given that the [average cart abandonment rate sits at 70.19%](https://baymard.com/lists/cart-abandonment-rate) — and form friction is one of the leading causes.
+Lucky Orange gives you a comprehensive suite of CRO tools at a genuinely competitive price, making it the clear top pick for e-commerce. Its form analytics feature is particularly valuable given that the [average cart abandonment rate sits at 70.22%](https://baymard.com/lists/cart-abandonment-rate) — and form friction is one of the leading causes.
 
 Beyond standard session recordings and dynamic heatmaps, Lucky Orange pinpoints exactly which form fields cause users to bail. And its live visitor view lets store owners watch sessions in real-time and jump in via live chat if a customer is struggling during checkout. In my experience, that live view alone has surfaced friction points that heatmaps never caught.
 

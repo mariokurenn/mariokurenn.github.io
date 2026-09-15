@@ -150,7 +150,7 @@ Every unnecessary field reduces conversion. Audit every form field: would you lo
 
 **21. Does the site load in under 3 seconds on mobile?**
 
-Check Google PageSpeed Insights for your key pages. LCP (Largest Contentful Paint) under 2.5 seconds, CLS (Cumulative Layout Shift) under 0.1, FID under 100ms. These directly affect both conversions and rankings.
+Check Google PageSpeed Insights for your key pages. LCP (Largest Contentful Paint) under 2.5 seconds, INP (Interaction to Next Paint) at 200ms or less, CLS (Cumulative Layout Shift) under 0.1, each measured at the 75th percentile of page loads. These directly affect both conversions and rankings.
 
 ---
 
