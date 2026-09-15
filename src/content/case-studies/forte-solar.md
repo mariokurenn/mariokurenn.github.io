@@ -28,15 +28,17 @@ featured: true
 publishDate: "2026-03-21"
 ---
 
+**In 60 days, Forte Solar's lead conversion rate went from 3.2% to 7.8% and cost per lead fell from €48 to €19 — a 60% reduction.** Same campaigns, same budget, rebuilt landing page. Here is what we found and what we changed.
+
 Forte Solar is a Croatian solar energy provider offering residential and commercial solar panel installation. With rising energy costs driving strong demand, they were running consistent Google Ads campaigns — but their landing page wasn't converting the high-intent traffic they were paying for.
 
-## The Challenge
+## What Was the Challenge?
 
 The solar energy market in Croatia is competitive and high-consideration. Potential customers are comparing multiple providers, price-checking, and doing significant research before requesting a quote. Forte Solar's cost per lead was €48 — sustainable but painful given the sales cycle involved.
 
 The opportunity: at 3.2% conversion rate on high-intent Google Ads traffic, even modest improvements would dramatically reduce cost per lead.
 
-## What We Found
+## What Did We Find?
 
 ### 1. Weak value proposition above the fold
 The landing page headline led with "Solar Energy Solutions for Your Home" — technically accurate, completely forgettable. Visitors who arrived from search ads (with specific intent) couldn't quickly understand what made Forte Solar different from the 5 other providers they were comparing.
@@ -47,7 +49,7 @@ The lead capture form asked for name, email, phone, address, property type, roof
 ### 3. No trust signals near the form
 The page had a testimonials section — at the very bottom, below a 4-screen scroll. Visitors reaching the form had no immediate reassurance that Forte Solar was a credible, established company.
 
-## What We Changed
+## What Did We Change?
 
 **Value proposition rewrite** — New headline: "Solar panels installed within 30 days — guaranteed ROI in under 7 years." Specific. Differentiated. Addresses the two biggest questions (how long does installation take, when do I break even).
 
@@ -57,7 +59,7 @@ The page had a testimonials section — at the very bottom, below a 4-screen scr
 
 **New CTA copy** — Changed from "Send enquiry" to "Get My Free Quote" — more specific, more benefit-led, clearer about what happens next.
 
-## Results
+## What Were the Results?
 
 Over 60 days of testing and implementation:
 

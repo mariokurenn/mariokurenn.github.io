@@ -28,15 +28,17 @@ featured: true
 publishDate: "2026-03-21"
 ---
 
+**In 75 days, Korak Ispred's conversion rate went from 4.6% to 10.9% — a 137% increase — and checkout abandonment fell from 68% to 41%.** The course library was already strong; the enrolment path was not. Here is what we found and what we changed.
+
 Korak Ispred is a Croatian online education platform offering professional development courses in business, communication, and career skills. With an established course library and growing organic traffic, the platform had the content — but was converting fewer visitors into enrolled students than the numbers should have allowed.
 
-## The Challenge
+## What Was the Challenge?
 
 At 4.6% conversion rate, Korak Ispred was already performing above average for the education market. But the platform had significant traffic volume, which meant even small percentage improvements translated into substantial revenue gains.
 
 The specific problem: visitors were landing on course pages, spending time reading, and then leaving without enrolling. The interest was clearly there. The conversion wasn't happening.
 
-## What We Found
+## What Did We Find?
 
 ### 1. Course pages weren't answering the enrollment decision
 A visitor considering enrolling in a professional course has a specific set of questions: What will I be able to do after this course? How long will it take? Is this right for my skill level? Will I get a certificate? Who teaches it?
@@ -49,7 +51,7 @@ The course price was visible, but the enrollment flow wasn't clear. Did clicking
 ### 3. Social proof was thin and unspecific
 The platform had a ratings system, but course pages showed averages without review counts. "4.8 stars" with no indication of how many students meant nothing. The qualitative testimonials present were generic ("Great course!") with no specific outcomes.
 
-## What We Changed
+## What Did We Change?
 
 **Course page restructure** — Moved learning outcomes to the first section after the headline. Rewrote them in concrete, outcome-focused language: "After this course, you will be able to..." rather than "This course covers..."
 
@@ -59,7 +61,7 @@ The platform had a ratings system, but course pages showed averages without revi
 
 **Checkout friction reduction** — Removed required account creation before payment. Added progress bar to checkout. Reduced required fields from 8 to 4.
 
-## Results
+## What Were the Results?
 
 Over 75 days of audit, implementation, and A/B testing:
 
