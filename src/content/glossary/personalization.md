@@ -25,7 +25,7 @@ faqs:
 
 Personalization moves websites from broadcasting a single message to everyone toward a more targeted, relevant communication — one that matches each visitor's specific context and intent.
 
-## Why Personalization Increases Conversion
+## Why Does Personalization Increase Conversion?
 
 Generic pages are compromises. They're written to appeal to the broadest possible audience — which means they're optimized for no one specifically.
 
@@ -102,7 +102,7 @@ Personalizing before optimizing means you're running segmented experiences of an
 
 This approach ensures personalization compounds an already-optimized baseline rather than scaling mediocre performance.
 
-## Measuring Personalization Effectiveness
+## How Do You Measure Personalization Effectiveness?
 
 Personalization requires careful measurement to avoid false conclusions:
 

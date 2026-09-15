@@ -39,6 +39,10 @@ Where quantitative tools (Google Analytics, GA4) tell you *what* visitors do in 
 | Dead clicks | Clicks on static elements users expect to be interactive |
 | U-turns | Scroll down then immediately back up — missed content |
 
+## How Many Recordings Do You Need to Watch?
+
+Far fewer than you would guess. [Jakob Nielsen's analysis for Nielsen Norman Group](https://www.nngroup.com/articles/why-you-only-need-to-test-with-5-users/) found five participants surface about 85% of the usability problems in a design, with the first alone accounting for roughly 31%, because observations start repeating quickly. Watch five recordings of one broken flow, fix what you see, then watch five more — that beats hoarding a hundred you never review.
+
 ## High-Value Signals to Identify
 
 **Rage clicks** — A user clicks the same element 3–5+ times rapidly. Classic signal of frustration: they expected something to happen and it didn't. Common causes: non-clickable elements that look like buttons, broken JavaScript, or slow-loading pages that appear unresponsive. Every rage click is a conversion opportunity destroyed.
@@ -65,7 +69,7 @@ For a detailed comparison including privacy features, pricing, and CRO-specific 
 
 Microsoft Clarity is the obvious starting point — completely free with no session caps, automatic behavioral signal detection, and direct GA4 integration.
 
-## How to Use Session Recordings in a CRO Programme
+## How Do You Use Session Recordings in a CRO Programme?
 
 The mistake most teams make: watching random recordings with no structure. A structured approach extracts 10× more value:
 

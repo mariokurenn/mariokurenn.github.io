@@ -93,7 +93,7 @@ Performance varies significantly by industry — revealing where the biggest opp
 
 E-commerce has among the worst Core Web Vitals scores — and some of the highest traffic volumes and revenue-per-visitor. This combination makes e-commerce technical performance one of the highest-ROI optimization areas in the sector.
 
-## How to Check Your Scores
+## How Do You Check Your Scores?
 
 1. **[PageSpeed Insights](https://pagespeed.web.dev/)** — Real-user data from CrUX + lab data from Lighthouse. Enter your URL to get both.
 2. **[Google Search Console](https://search.google.com/search-console/)** → Core Web Vitals report — Shows real-user data across all pages grouped by URL pattern. Essential for finding problem pages at scale.

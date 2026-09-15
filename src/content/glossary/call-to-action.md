@@ -100,7 +100,7 @@ This doesn't mean you can never have two CTAs — it means hierarchy matters:
 
 "Book a Free Call" (primary button) and "Download the Free Guide" (text link below) is a valid structure. Two equally prominent buttons fighting for attention is not.
 
-## What to Test on Your CTA
+## What Should You Test on Your CTA?
 
 Priority order for A/B testing:
 

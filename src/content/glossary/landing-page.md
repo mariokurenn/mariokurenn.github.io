@@ -99,7 +99,7 @@ The above-the-fold section is the most valuable real estate on any landing page 
 
 Everything below the fold exists to serve visitors who stayed past the initial judgment. Those visitors are more engaged but still need to be guided toward conversion — repeating the CTA every 300–400 pixels as content justifies the decision.
 
-## What to Test First on a Landing Page
+## What Should You Test First on a Landing Page?
 
 In order of typical impact:
 
@@ -114,7 +114,7 @@ In order of typical impact:
 
 Headline and CTA tests routinely deliver 20–50% CVR differences. Form length and trust badge tests typically deliver 5–15%. Start at the top of the list and work down.
 
-## Common Landing Page Mistakes
+## What Are the Most Common Landing Page Mistakes?
 
 **Navigation left in place** — Every navigation link is an exit route. Removing navigation from landing pages increases CVR by 10–15% on average (Unbounce data).
 

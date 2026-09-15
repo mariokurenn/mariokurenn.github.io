@@ -67,7 +67,7 @@ At 5 stages with 20% improvement each: (1.2)^5 = 2.48× the final conversion rat
 
 This is why a 12-month structured funnel optimization program consistently outperforms single-page redesigns or isolated landing page tests. See [What Is Conversion Rate Optimization](/blog/what-is-conversion-rate-optimization/) for the full program framework.
 
-## How to Optimize a Funnel
+## How Do You Optimize a Funnel?
 
 ### Step 1: Map and measure every stage
 Set up funnel exploration in Google Analytics 4. Define each step as an event or page view. Measure the exact drop-off rate at every transition. Include micro-conversions (add-to-cart, checkout initiation) alongside macro-conversions (purchase).

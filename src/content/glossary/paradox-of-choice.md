@@ -27,7 +27,7 @@ Coined and popularized by Barry Schwartz in *The Paradox of Choice: Why More Is 
 
 ## The Jam Study
 
-The most cited evidence: Sheena Iyengar and Mark Lepper's field experiment at a supermarket (2000):
+The most cited evidence: [Sheena Iyengar and Mark Lepper's field experiment](https://faculty.washington.edu/jdb/345/345%20Articles/Iyengar%20&%20Lepper%20(2000).pdf) at a supermarket, published in 2000:
 
 - A display table with **24 jam varieties** attracted 60% of passing shoppers — but only **3%** of those stopped made a purchase
 - A display table with **6 jam varieties** attracted 40% of shoppers — and **30%** of those made a purchase
@@ -104,7 +104,7 @@ Hick's Law states that the time required to make a decision increases logarithmi
 
 During those extra seconds, visitors experience cognitive friction rather than progress toward conversion. The best-converting SaaS landing pages frequently have no navigation at all — eliminating exit routes entirely for paid traffic. See [Landing Page](/cro-glossary/landing-page/) for the full navigation-removal case.
 
-## How to Audit for Choice Overload
+## How Do You Audit for Choice Overload?
 
 Signs your site has choice overload problems:
 - High bounce rate on category pages despite relevant traffic

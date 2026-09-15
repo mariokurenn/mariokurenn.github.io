@@ -71,6 +71,10 @@ Reduces the "who are these people?" concern — especially important for newer o
 
 Transparency signals are disproportionately impactful for B2B buyers, who research companies extensively before purchase and respond strongly to signals of legitimate business operation.
 
+## How Much Do Trust Signals Actually Matter?
+
+Enough to show up in abandonment data. [Baymard Institute](https://baymard.com/lists/cart-abandonment-rate), aggregating 50 studies on why shoppers leave, finds 19% of people who intended to buy abandoned because they didn't trust the site with their credit card details. That sits just behind extra costs and slow delivery as a cause — and unlike shipping economics, it is fixed purely with design and copy.
+
 ## Trust Signal Conversion Impact
 
 | Trust signal | Typical CVR lift | Best placement |

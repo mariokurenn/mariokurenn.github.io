@@ -115,7 +115,7 @@ Every section needs one dominant element that the eye is drawn to first. When mu
 - [ ] Font size minimum 16px for body copy on mobile
 - [ ] Contrast between text and background meets WCAG 4.5:1 minimum
 
-## Measuring Cognitive Load Effects
+## How Do You Measure Cognitive Load Effects?
 
 Cognitive load itself isn't directly measurable, but its effects are detectable through:
 

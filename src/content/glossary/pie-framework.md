@@ -21,7 +21,7 @@ faqs:
     answer: "A practical PIE backlog has 10–30 scored ideas at any time. Fewer than 10 gives you too little to prioritize from. More than 30 becomes difficult to maintain and the low-priority items rarely get re-evaluated as data changes. Review and re-score the backlog quarterly — a page that had low Potential 6 months ago may have become high-Potential after a UX change. Ideas can come from: analytics data (exit rates, CVR by page), session recordings (rage clicks, form abandonment), user surveys, heatmaps, and competitive analysis."
 ---
 
-**The PIE Framework** is a structured method for prioritizing which A/B tests and CRO experiments to run first, developed by Chris Goward at WiderFunnel.
+**The PIE Framework** is a structured method for prioritizing which A/B tests and CRO experiments to run first, developed by Chris Goward at [WiderFunnel](https://www.widerfunnel.com/blog/pie-framework-prioritizing-tests/).
 
 Each test idea is scored across three dimensions:
 - **P**otential — how much improvement is possible?

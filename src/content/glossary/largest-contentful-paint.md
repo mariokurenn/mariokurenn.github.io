@@ -120,7 +120,7 @@ Google's Page Experience ranking signal uses three Core Web Vitals:
 
 LCP is typically the hardest to achieve for content-heavy pages, and the one with the largest gap between current performance and the target. Fixing LCP alone is often sufficient to move from a "Needs Improvement" to a "Good" Page Experience signal.
 
-## Measuring LCP
+## How Do You Measure LCP?
 
 **Google PageSpeed Insights** ([pagespeed.web.dev](https://pagespeed.web.dev/)) — Shows field data (real users from the Chrome User Experience Report) and lab data. The field data LCP is what Google uses for ranking and what reflects actual visitor experience.
 

@@ -85,6 +85,10 @@ Exit opportunities that distract from the conversion path:
 
 Navigation friction on landing pages is a well-documented conversion killer. Pages with navigation menus typically convert 20–25% lower than equivalent pages without menus — every link is a potential exit. See [Landing Page Best Practices](/blog/landing-page-best-practices/) for the specific navigation removal protocol.
 
+## How Much Friction Is a Typical Checkout Carrying?
+
+More than most teams assume. [Baymard Institute](https://www.vaimo.com/blog/conversion-optimisation-checkout-length/) puts the average checkout at 23.48 form elements and 14.88 form fields for a new customer, where a fully optimised flow can run as short as 12 elements and 7 fields. Their [benchmark of 344 top-grossing US and EU sites](https://baymard.com/research/checkout-usability) finds the average site has 32 distinct improvements available in its checkout, and only 2% score as "good".
+
 ## Friction Benchmarks by Page Type
 
 Understanding what friction costs at each stage of the funnel:

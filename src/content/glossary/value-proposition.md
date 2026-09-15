@@ -79,7 +79,7 @@ Run the 5-second test using [UsabilityHub](https://usabilityhub.com/) (now Lyssn
 
 Alternatively, run the "stranger test" — show the page to a colleague who has never seen your product and has no context. Ask them to describe what the company does and who it's for. Their answer reveals exactly how clear (or unclear) your value proposition is.
 
-## How to Find Your Best Value Proposition
+## How Do You Find Your Best Value Proposition?
 
 The most effective value propositions come from customers, not copywriters.
 
@@ -119,7 +119,7 @@ Value proposition testing is one of the highest-leverage A/B tests available. A 
 
 For testing methodology, see [A/B Testing Best Practices](/blog/ab-testing-best-practices/) and [Landing Page Best Practices](/blog/landing-page-best-practices/).
 
-## Common Value Proposition Mistakes
+## What Are the Most Common Value Proposition Mistakes?
 
 **Leading with features, not outcomes.** "We have 47 reporting templates" describes the product. "Know exactly where your conversions are dropping — without custom analyst time" describes the outcome. Visitors buy outcomes, not features.
 
