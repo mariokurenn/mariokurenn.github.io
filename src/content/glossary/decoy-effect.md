@@ -25,7 +25,7 @@ faqs:
 
 The decoy is not intended to sell. It exists to make the target option look superior by comparison.
 
-First documented by Joel Huber, John Payne and Christopher Puto in [a 1982 paper in the *Journal of Consumer Research*](https://www.jstor.org/stable/2488689), the effect has been replicated hundreds of times and is now standard practice in pricing architecture across SaaS, e-commerce, and subscription businesses.
+First documented by Joel Huber, John Payne and Christopher Puto in a 1982 paper in the *Journal of Consumer Research*, the effect has been replicated hundreds of times and is now standard practice in pricing architecture across SaaS, e-commerce, and subscription businesses.
 
 ## The Classic Experiment
 

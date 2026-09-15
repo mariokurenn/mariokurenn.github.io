@@ -99,7 +99,7 @@ Littledata tracks Shopify stores specifically, which is more useful than aggrega
 | Top 20% | 3.2%+ |
 | Top 10% | 4.7%+ |
 
-*Source: [Littledata Shopify Benchmarks](https://www.littledata.io/average/ecommerce-conversion-rate-(all-devices)/Shopify)*
+*Source: [Littledata Shopify Benchmarks](https://www.littledata.io/average/ecommerce-conversion-rate-%28all-devices%29/Shopify)*
 
 If you're below 0.4%, the issue is almost never design or UX. In my experience, stores that far below average have a traffic quality problem — they're sending unqualified visitors from broad ad targeting or irrelevant keywords. Fix the traffic before you touch the site.
 

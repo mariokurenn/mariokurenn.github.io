@@ -25,7 +25,7 @@ faqs:
 
 **Example:** A 50/50 test intended to split traffic equally between control and variant. After 10,000 sessions, control received 5,400 visitors and variant received 4,600 — a 54/46 split instead of 50/50. This mismatch indicates that the randomization mechanism is broken, and the test results cannot be trusted.
 
-Microsoft's experimentation team documented the problem and its causes in ["Diagnosing Sample Ratio Mismatch in Online Controlled Experiments" (Fabijan et al., KDD 2019)](https://dl.acm.org/doi/10.1145/3292500.3330722), which remains the standard reference for the taxonomy of causes and the rules of thumb below.
+Microsoft's experimentation team documented the problem and its causes in ["Diagnosing Sample Ratio Mismatch in Online Controlled Experiments" (Fabijan et al., KDD 2019)](https://www.kdd.org/kdd2019/accepted-papers/view/diagnosing-sample-ratio-mismatch-in-online-controlled-experiments-a-taxonom), which remains the standard reference for the taxonomy of causes and the rules of thumb below.
 
 SRM is one of the most insidious A/B testing problems because the conversion data can look perfectly plausible — you might see a confident 95% significant result that is entirely an artifact of population bias, not a real effect.
 

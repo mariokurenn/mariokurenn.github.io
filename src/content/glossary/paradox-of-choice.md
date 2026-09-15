@@ -27,7 +27,7 @@ Coined and popularized by Barry Schwartz in *The Paradox of Choice: Why More Is 
 
 ## The Jam Study
 
-The most cited evidence: [Sheena Iyengar and Mark Lepper's field experiment](https://faculty.washington.edu/jdb/345/345%20Articles/Iyengar%20&%20Lepper%20(2000).pdf) at a supermarket, published in 2000:
+The most cited evidence: [Sheena Iyengar and Mark Lepper's field experiment](https://faculty.washington.edu/jdb/345/345%20Articles/Iyengar%20%26%20Lepper%20%282000%29.pdf) at a supermarket, published in 2000:
 
 - A display table with **24 jam varieties** attracted 60% of passing shoppers — but only **3%** of those stopped made a purchase
 - A display table with **6 jam varieties** attracted 40% of shoppers — and **30%** of those made a purchase
