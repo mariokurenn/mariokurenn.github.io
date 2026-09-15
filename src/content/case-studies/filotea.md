@@ -28,9 +28,11 @@ featured: true
 publishDate: "2026-03-21"
 ---
 
+**In 90 days, Filotea's conversion rate went from 1.4% to 3.6% — a 157% increase — with checkout completion up from 34% to 61%.** No extra ad spend: the gains came from removing friction in the product-to-checkout path. Here is what we found and what we changed.
+
 Filotea is a Croatian e-commerce brand specialising in premium gourmet food products. With solid traffic and a loyal repeat customer base, the business was struggling to convert new visitors — despite having a quality product and professional-looking store.
 
-## The Challenge
+## What Was the Challenge?
 
 When Filotea came to us, they had two core problems:
 
@@ -38,7 +40,7 @@ When Filotea came to us, they had two core problems:
 
 **No visibility into why.** The team knew something was wrong but didn't know where the problem lived. Analytics showed drop-offs, but not what was causing them.
 
-## What We Found
+## What Did We Find?
 
 A structured CRO audit across analytics, session recordings, and heatmaps revealed three major problem areas:
 
@@ -51,7 +53,7 @@ The checkout flow required account creation before purchase — a known conversi
 ### 3. Shipping cost visibility
 Shipping costs only appeared at checkout step 3. For visitors coming from ads who hadn't established trust yet, the late-appearing cost felt like a hidden fee — triggering abandonment even when the shipping cost itself was reasonable.
 
-## What We Changed
+## What Did We Change?
 
 **Product page copy rewrite** — Added origin stories, ingredient details, serving suggestions, and pairing recommendations. Rewrote product titles to include flavour/origin keywords (better for SEO too).
 
@@ -61,7 +63,7 @@ Shipping costs only appeared at checkout step 3. For visitors coming from ads wh
 
 **Trust signals at checkout** — Added payment method logos, security badge, and a satisfaction guarantee adjacent to the "Complete order" button.
 
-## Results
+## What Were the Results?
 
 The changes were implemented and A/B tested over 90 days. By the end of the programme:
 

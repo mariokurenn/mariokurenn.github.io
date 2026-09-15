@@ -18,9 +18,9 @@ howTo:
     - name: "Diagnose your abandonment reasons"
       text: "Use your analytics funnel to find the exact checkout step where visitors drop off most. Then run an exit survey (a single-question popup: 'What stopped you from completing your order?'). Baymard data points to unexpected costs, forced account creation, and slow delivery as the top three — confirm which applies to your store."
     - name: "Remove unexpected costs at checkout"
-      text: "Show the full price — including shipping, taxes, and fees — as early as possible, ideally on the product page or cart. Unexpected costs cause 48% of abandonment. If you can offer free shipping above a threshold, surface that threshold prominently throughout the shopping experience."
+      text: "Show the full price — including shipping, taxes, and fees — as early as possible, ideally on the product page or cart. Unexpected costs cause 40% of abandonment. If you can offer free shipping above a threshold, surface that threshold prominently throughout the shopping experience."
     - name: "Enable guest checkout"
-      text: "Remove forced account creation. Offer a visible guest checkout option on the first checkout screen. Forced registration causes 24% of cart abandonment. You can prompt account creation after the order is confirmed, when motivation is highest."
+      text: "Remove forced account creation. Offer a visible guest checkout option on the first checkout screen. Forced registration causes 18% of cart abandonment. You can prompt account creation after the order is confirmed, when motivation is highest."
     - name: "Simplify the checkout form"
       text: "Audit every field in your checkout form. Remove any field that isn't strictly necessary to complete the order. Auto-fill address fields from postcode. Use address lookup tools. Every additional form field increases drop-off — the fewer fields, the higher the completion rate."
     - name: "Add trust signals at payment"
@@ -31,9 +31,9 @@ howTo:
       text: "Trigger an exit-intent popup when the cursor moves toward the browser close button on the cart or checkout page. Use it to address the most common objection (shipping cost, returns policy, security) rather than just offering a discount. Discounts train visitors to abandon on purpose."
 faqs:
   - question: "What is the average cart abandonment rate?"
-    answer: "The average cart abandonment rate is 70.19% according to Baymard Institute data from over 57,000 shoppers (2024). This means roughly 7 out of every 10 shoppers who add an item to their cart leave without completing the purchase. Rates vary by industry: luxury and fashion see rates above 80%, while digital products and subscriptions typically see rates of 60–65%."
+    answer: "The average cart abandonment rate is 70.22%, the figure Baymard Institute calculates across 50 separate studies published between 2006 and 2025. This means roughly 7 out of every 10 shoppers who add an item to their cart leave without completing the purchase. Rates vary by industry: luxury and fashion see rates above 80%, while digital products and subscriptions typically see rates of 60–65%."
   - question: "Why do shoppers abandon their carts?"
-    answer: "The top reasons for cart abandonment (excluding 'just browsing') are: unexpected costs like shipping and taxes (48%), forced account creation (24%), slow delivery options (22%), distrust of the site with credit card information (18%), and a long or confusing checkout process (17%), according to Baymard Institute. Addressing the top two reasons alone — unexpected costs and forced registration — can recover a significant share of abandoned carts."
+    answer: "The top reasons for cart abandonment (excluding 'just browsing') are: unexpected costs like shipping and taxes (40%), delivery that was too slow (20%), distrust of the site with credit card information (19%), forced account creation (18%), and a long or confusing checkout process (17%), according to Baymard Institute. Addressing the top two reasons alone — unexpected costs and forced registration — can recover a significant share of abandoned carts."
   - question: "How do you recover abandoned carts?"
     answer: "The most effective cart recovery tactics are: (1) abandoned cart email sequences — send the first email within 1 hour of abandonment, a second at 24 hours, and a third at 72 hours; (2) exit-intent overlays on the cart and checkout pages; (3) retargeting ads on Meta and Google targeting cart abandoners. Email sequences typically recover 5–10% of abandoned carts. The combination of all three can recover 10–15%."
   - question: "How long should you wait before sending a cart abandonment email?"
@@ -42,23 +42,23 @@ faqs:
     answer: "Use discounts strategically, not automatically. Offering a discount in every abandonment email trains high-intent shoppers to abandon carts just to get a deal, which erodes margin over time. A better approach: use the first two emails to address objections (shipping policy, returns, security) and only introduce a discount in the third email for visitors who still haven't converted. Many abandoned carts can be recovered without any discount by simply removing friction."
 ---
 
-The average cart abandonment rate is 70.19% (Baymard Institute, 2024). For every 10 shoppers who add something to their cart, 7 leave without buying.
+The average cart abandonment rate is 70.22% ([Baymard Institute](https://baymard.com/lists/cart-abandonment-rate), calculated across 50 studies published between 2006 and 2025). For every 10 shoppers who add something to their cart, 7 leave without buying.
 
 That's not just a conversion problem — it's a revenue problem. If your store does £100K/month with a 2% CVR, reducing cart abandonment by even 10% could mean £7K+ in recovered revenue. Monthly.
 
 This guide covers 16 tactics to reduce cart abandonment and recover the revenue you're currently leaving on the table.
 
-## Why Shoppers Abandon Their Carts
+## Why Do Shoppers Abandon Their Carts?
 
-Baymard Institute has surveyed over 57,000 shoppers about cart abandonment. The top reasons (excluding "just browsing"):
+[Baymard Institute](https://baymard.com/lists/cart-abandonment-rate) aggregates 50 studies on why shoppers leave. The top reasons, among those who actually intended to buy:
 
 | Reason | % of Abandoners |
 |--------|----------------|
-| Unexpected costs (shipping, taxes, fees) | 48% |
-| Forced account creation | 24% |
-| Slow delivery | 22% |
-| Didn't trust site with credit card | 18% |
-| Too complex / long checkout | 17% |
+| Extra costs too high (shipping, taxes, fees) | 40% |
+| Delivery was too slow | 20% |
+| Didn't trust site with credit card | 19% |
+| Site required account creation | 18% |
+| Checkout too long / complicated | 17% |
 | Couldn't see total order cost upfront | 16% |
 | Website errors / crashes | 13% |
 | Not enough payment options | 11% |
@@ -84,7 +84,7 @@ Here's something I've seen repeatedly in client audits: the psychological hit fr
 
 ### 2. Offer Guest Checkout as the Default
 
-"Create an account" before buying is a serious conversion barrier. Baymard found 24% of shoppers abandoned specifically because of forced account creation.
+"Create an account" before buying is a serious conversion barrier. Baymard found 18% of shoppers abandoned specifically because the site required them to create an account.
 
 **Fix**: Make guest checkout the primary option. Place it first, or make it visually equal to registered checkout. You can invite account creation *after* the purchase is confirmed — at that point, they've already bought, and creating an account just saves their order history.
 

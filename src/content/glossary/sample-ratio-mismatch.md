@@ -16,7 +16,7 @@ faqs:
   - question: "Can I still use A/B test results if SRM is present?"
     answer: "No. SRM invalidates the test because it means the two variants did not receive equivalent, randomly-selected visitor populations. Any observed conversion rate difference could be caused by the population difference rather than the variant change. There is no statistical correction that can salvage SRM-affected data. The correct action is to fix the SRM root cause, then re-run the test from scratch."
   - question: "How common is SRM in real A/B testing programs?"
-    answer: "SRM is more common than most teams realize. Microsoft's experimentation team published research (Fabijan et al., 2019, 'Diagnosing Sample Ratio Mismatch in Online Controlled Experiments') finding that SRM affects a significant minority of tests when not actively monitored. Teams using redirect-based tests (where the variant is served from a different URL) face the highest SRM risk because redirect latency creates systematic visitor dropout before assignment."
+    answer: "SRM is more common than most teams realize. Microsoft's experimentation team published research (Fabijan et al., KDD 2019, 'Diagnosing Sample Ratio Mismatch in Online Controlled Experiments') finding that SRM affects a significant minority of tests when not actively monitored. Teams using redirect-based tests (where the variant is served from a different URL) face the highest SRM risk because redirect latency creates systematic visitor dropout before assignment."
   - question: "What is the difference between SRM and a losing variant?"
     answer: "A losing variant has a balanced traffic split (close to 50/50) but lower conversion rate than control. SRM has an unbalanced traffic split. The key diagnostic: check the traffic counts before looking at conversion rates. If variant has 4,200 sessions and control has 5,800 in a 50/50 test, that's SRM regardless of which variant converts better. Fix the traffic split first — if it was SRM-affected, the conversion data cannot be trusted."
 ---
@@ -24,6 +24,8 @@ faqs:
 **Sample Ratio Mismatch (SRM)** is a data quality problem in A/B testing that occurs when the actual distribution of visitors between test variants is statistically different from the intended distribution.
 
 **Example:** A 50/50 test intended to split traffic equally between control and variant. After 10,000 sessions, control received 5,400 visitors and variant received 4,600 — a 54/46 split instead of 50/50. This mismatch indicates that the randomization mechanism is broken, and the test results cannot be trusted.
+
+Microsoft's experimentation team documented the problem and its causes in ["Diagnosing Sample Ratio Mismatch in Online Controlled Experiments" (Fabijan et al., KDD 2019)](https://www.kdd.org/kdd2019/accepted-papers/view/diagnosing-sample-ratio-mismatch-in-online-controlled-experiments-a-taxonom), which remains the standard reference for the taxonomy of causes and the rules of thumb below.
 
 SRM is one of the most insidious A/B testing problems because the conversion data can look perfectly plausible — you might see a confident 95% significant result that is entirely an artifact of population bias, not a real effect.
 

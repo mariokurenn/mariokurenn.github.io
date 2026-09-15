@@ -30,7 +30,7 @@ faqs:
 
 CLS is scored as the sum of all unexpected layout shift scores — each individual shift contributes based on both the fraction of the viewport affected and the distance elements moved.
 
-## Why CLS Matters for Conversion
+## Why Does CLS Matter for Conversion?
 
 Layout shifts are not just an annoyance — they directly cause conversion failures:
 
@@ -67,7 +67,7 @@ Google's CrUX data shows significant variation across verticals:
 
 E-commerce has the worst CLS performance of major verticals — and it's also the vertical where misclicks have the most direct revenue impact.
 
-## Common CLS Causes
+## What Causes CLS?
 
 ### Images Without Defined Dimensions
 **The most common CLS cause.** When a browser encounters `<img src="hero.jpg">` without width and height attributes, it doesn't know how much space to reserve. When the image loads, it pushes all content below it down — a large, visible shift.
@@ -138,7 +138,7 @@ It's possible to estimate the revenue cost of poor CLS directly:
 
 CLS fixes are frequently among the highest-ROI technical improvements in a [CRO audit](/services/cro-audit/) precisely because the fix is often straightforward (add image dimensions, fix font loading) while the revenue impact compounds across every page affected.
 
-## Measuring and Monitoring CLS
+## How Do You Measure and Monitor CLS?
 
 **Google PageSpeed Insights** — Reports field CLS (real user data) from CrUX and lab CLS from Lighthouse. The field data is what matters for SEO and ranking. Available at [pagespeed.web.dev](https://pagespeed.web.dev/).
 

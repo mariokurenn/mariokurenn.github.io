@@ -25,7 +25,7 @@ faqs:
 
 The decoy is not intended to sell. It exists to make the target option look superior by comparison.
 
-First documented by Joel Huber, John Payne, and Christopher Puto in a 1982 paper published in the *Journal of Consumer Research*, the effect has been replicated hundreds of times and is now standard practice in pricing architecture across SaaS, e-commerce, and subscription businesses.
+First documented by Joel Huber, John Payne and Christopher Puto in a 1982 paper in the *Journal of Consumer Research*, the effect has been replicated hundreds of times and is now standard practice in pricing architecture across SaaS, e-commerce, and subscription businesses.
 
 ## The Classic Experiment
 
@@ -44,7 +44,7 @@ Dan Ariely's subscription pricing experiment, documented in *Predictably Irratio
 
 The decoy (print-only at $125, inferior to print+online at the same price) made print+online look obviously superior — and tripled its selection rate. The same product mix, radically different revenue per sale.
 
-## How the Decoy Effect Works
+## How Does the Decoy Effect Work?
 
 The decoy must meet two criteria:
 

@@ -29,15 +29,17 @@ draft: true
 publishDate: "2026-03-21"
 ---
 
+**In 60 days, coaching enquiries went from 2.8% to 6.1% of visitors — a 118% increase — with discovery call bookings up from 14% to 31%.** The work was a landing page rebuild around a single action, not more traffic. Here is what we found and what we changed.
+
 Dominik Metličić is a Croatian personal development coach and speaker with a strong social media presence and consistent organic traffic to his website. Despite the engagement on social channels, the website wasn't converting visitors into coaching enquiries at the rate the traffic justified.
 
-## The Challenge
+## What Was the Challenge?
 
 Personal brand websites face a specific CRO challenge: the visitor already knows who you are (they came from your content), but they need to make a high-trust decision — investing in personal coaching. The conversion journey requires building enough credibility and clarity to justify that investment.
 
 At 2.8% conversion rate on coaching enquiries, the site was leaving significant revenue on the table from an audience that was already warm.
 
-## What We Found
+## What Did We Find?
 
 ### 1. The offer wasn't clear enough
 The coaching page described Dominik's philosophy and approach in depth, but didn't clearly state: What specifically do clients get? How many sessions? What transformation can they expect? What does it cost?
@@ -50,7 +52,7 @@ The testimonials on the site were largely from speaking engagements and workshop
 ### 3. The booking flow had too many steps
 Enquiring required: filling a contact form → waiting for a reply → scheduling a call → having a discovery call → receiving a proposal. The initial form asked 8 questions. Many visitors who were interested didn't have 10 minutes to fill out a detailed form as their first interaction.
 
-## What We Changed
+## What Did We Change?
 
 **Offer page rewrite** — Added a clear programme structure: what's included, duration, expected outcomes, and a starting price point. Visitors could now evaluate the offer without needing to ask.
 
@@ -60,7 +62,7 @@ Enquiring required: filling a contact form → waiting for a reply → schedulin
 
 **Clear CTA hierarchy** — Primary CTA: "Book a Free Discovery Call". Secondary: "Download My Free Guide" (email capture for visitors not ready to book). Previously both had equal visual weight.
 
-## Results
+## What Were the Results?
 
 Over 60 days:
 

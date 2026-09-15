@@ -27,7 +27,7 @@ faqs:
 
 Traffic is randomly split between both versions. After collecting sufficient data, statistical analysis determines whether the observed difference in conversion rate is likely real or the result of random variation.
 
-## How A/B Testing Works
+## How Does A/B Testing Work?
 
 1. **Identify a conversion problem** — Use analytics, heatmaps, and session recordings to find pages where visitors drop off or fail to convert
 2. **Form a hypothesis** — "Because we observed [data], we believe [change] will improve [metric] for [segment]"
@@ -38,7 +38,7 @@ Traffic is randomly split between both versions. After collecting sufficient dat
 
 The hypothesis step is often skipped — and skipping it is what separates random tinkering from systematic CRO. Every test should be connected to a specific observation from user research.
 
-## What to A/B Test (and What Not to)
+## What Should You A/B Test (and What Not to)?
 
 | Element | Impact Potential | Notes |
 |---------|----------------|-------|
@@ -116,7 +116,7 @@ Pre-calculating sample size is non-negotiable. Tests stopped before reaching the
 
 For the exact calculation methodology, see [How Long to Run an A/B Test](/blog/how-long-to-run-ab-test/).
 
-## Common A/B Testing Mistakes
+## What Are the Most Common A/B Testing Mistakes?
 
 1. **Testing without a hypothesis** — Changes made without research backing are random guesses
 2. **Running too many tests simultaneously** — Overlapping tests pollute each other's data

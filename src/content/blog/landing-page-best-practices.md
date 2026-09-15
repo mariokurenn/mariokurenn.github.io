@@ -3,7 +3,7 @@ title: "Landing Page Best Practices: 18 Rules for Pages That Actually Convert"
 seoTitle: "Landing Page Best Practices: 18 Rules"
 description: "18 landing page best practices used by top-converting pages. Psychology principles and actionable changes you can implement today to boost conversions."
 publishDate: "2026-02-20"
-updatedDate: "2026-04-10"
+updatedDate: "2026-09-15"
 author: "Mario"
 category: "Landing Pages"
 tags: ["landing pages", "conversion rate", "cro", "design", "copywriting"]
@@ -42,6 +42,8 @@ faqs:
   - question: "What elements should every landing page have?"
     answer: "Every high-converting landing page needs: (1) a headline stating the primary benefit, (2) a sub-headline with supporting detail, (3) a primary CTA button visible above the fold, (4) social proof near the CTA (reviews, customer count, or logos), (5) objection-handling content or FAQ section, and (6) a single conversion goal with no competing navigation links or outbound distractions."
 ---
+
+**A landing page converts when one offer, one audience and one action line up:** a headline that keeps the promise the ad made, proof placed next to the decision, a single call to action, and no navigation offering a way out. The 18 rules below are ordered by how much each one typically moves the number.
 
 A landing page with a 2% conversion rate and one with an 8% conversion rate can look nearly identical to the untrained eye. The difference is in the details — details that compound into a 4x revenue multiplier from the same traffic.
 
@@ -119,6 +121,8 @@ Remove the navigation. Kill the footer links. Ditch the "See our other products"
 
 Your primary call-to-action must be visible without scrolling on desktop, tablet, and mobile. Not just desktop.
 
+This is not the same as claiming people won't scroll — they do. [Nielsen Norman Group's eye-tracking research](https://www.nngroup.com/articles/scrolling-and-attention/), covering 120 participants and more than 130,000 eye fixations, found 57% of viewing time goes above the fold and 43% below it, with 74% inside the first two screenfuls. The fold still holds the largest share of attention, which is why the CTA belongs there — but the page below it is read, so it is worth writing properly.
+
 Pull out your phone right now. Is your CTA visible? Most business owners check their own sites on desktop and forget that 60%+ of their traffic arrives on a device where the fold is half the height.
 
 Multiple CTAs throughout the page are fine — in fact, recommended for long pages. But the first one must be immediately visible.
@@ -152,6 +156,8 @@ When you design mobile first, the desktop version almost always benefits too —
 Every 1-second delay in page load reduces conversions by approximately 7% (Google/Deloitte research). On mobile, 53% of users abandon pages that take more than 3 seconds to load.
 
 Check your landing pages with Google PageSpeed Insights. Score below 90 on mobile? That score is costing you conversions every day.
+
+Speed is worth treating as a conversion lever rather than a technical chore. In [the Deloitte and Google study "Milliseconds Make Millions"](https://web.dev/case-studies/milliseconds-make-millions), covering 37 European and American brand sites and over 30 million sessions, a 0.1-second improvement in load metrics was associated with a 9.1% lift in progression to add-to-basket for retail and a 21.6% lift in reaching form submission for lead generation. Treat that as direction rather than a forecast — it is a correlational study on other people's sites, not a promise about yours.
 
 Quick wins for landing page speed:
 - Serve images in WebP format (30–50% smaller than PNG/JPEG)
@@ -302,7 +308,7 @@ Even two variants — "awareness traffic" and "high-intent traffic" — will out
 
 ---
 
-## Landing Page Conversion Rates by Type: What to Aim For
+## What Conversion Rate Should a Landing Page Aim For?
 
 | Landing Page Type | Average CVR | Top 25% |
 |-------------------|-------------|---------|

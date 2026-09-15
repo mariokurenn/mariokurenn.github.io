@@ -27,7 +27,7 @@ faqs:
 
 First documented by psychologists [Amos Tversky and Daniel Kahneman in 1974](https://science.sciencemag.org/content/185/4157/1124), anchoring is one of the most reliable and commercially exploitable biases in consumer psychology.
 
-## How Anchoring Works
+## How Does Anchoring Work?
 
 When a person encounters a number or value first, the brain uses it as a starting point and adjusts from there — but typically adjusts *insufficiently*. The result: final judgments remain biased toward the original anchor.
 

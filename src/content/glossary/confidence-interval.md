@@ -31,6 +31,8 @@ This means: with 95% confidence, the true effect of the variant is somewhere bet
 
 ## What Confidence Interval Actually Means
 
+One warning before the definition: a confidence interval only means what it claims if you fixed the sample size in advance. [Evan Miller's worked example](https://www.evanmiller.org/how-not-to-run-an-ab-test.html) shows that stopping the moment a result looks significant pushes the false positive rate to 26.1% rather than the nominal 5%, and peeking ten times turns a reported 1% significance into a real 5%. An interval computed from a test you stopped early is not the interval you think it is.
+
 A 95% confidence interval does **not** mean "there is a 95% probability that the true value is in this range." (This is the most common misinterpretation.)
 
 What it actually means: if you conducted this experiment 100 times with fresh samples each time and calculated a 95% CI from each, approximately 95 of those 100 CIs would contain the true value.

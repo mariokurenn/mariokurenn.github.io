@@ -116,7 +116,7 @@ Before attempting to fix a bounce rate problem, identify what type of problem yo
 | High bounce on mobile, low on desktop | Mobile UX failure | Mobile-specific redesign |
 | High bounce on all pages uniformly | Tracking configuration error | Verify GA4 setup |
 
-## How to Reduce Bounce Rate
+## How Do You Reduce Bounce Rate?
 
 In order of impact:
 

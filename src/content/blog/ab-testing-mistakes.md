@@ -3,6 +3,7 @@ title: "7 A/B Testing Mistakes That Invalidate Your Results (And How to Fix Them
 seoTitle: "7 A/B Testing Mistakes That Invalidate Results"
 description: "Most A/B tests are invalid before they finish. Learn the 7 critical mistakes that produce false winners and waste months of optimization."
 publishDate: "2026-04-14"
+updatedDate: "2026-09-15"
 author: "Mario Kuren"
 category: "A/B Testing"
 tags: ["a/b testing", "statistics", "split testing", "cro", "testing mistakes"]
@@ -13,7 +14,7 @@ imageAlt: "Red warning signs overlaid on an A/B testing dashboard showing common
 draft: false
 faqs:
   - question: "What is the most common A/B testing mistake?"
-    answer: "Stopping tests early, also called peeking. Checking results daily and stopping at the moment significance is reached inflates false positive rates from 5% to over 30%. Pre-commit to a sample size and runtime before launch."
+    answer: "Stopping tests early, also called peeking. Checking results repeatedly and stopping the moment significance appears inflates the false positive rate well beyond the nominal 5% — Evan Miller's worked example puts it at 26.1%. Pre-commit to a sample size and runtime before launch."
   - question: "Can I run multiple A/B tests at the same time?"
     answer: "Yes, if they test different pages or non-overlapping elements on the same page and your traffic supports it. Under 20,000 sessions per month, run one test at a time to avoid interaction effects and insufficient sample sizes per variant."
   - question: "What is a Sample Ratio Mismatch in A/B testing?"
@@ -40,6 +41,8 @@ howTo:
       text: "Revenue, purchases, signups, or demo requests. Not clicks, scroll depth, or time on page. Only business outcomes justify shipping a variant."
 ---
 
+**Seven mistakes account for almost every invalidated A/B test: stopping early at first significance, deciding sample size after the fact, testing through abnormal traffic, running overlapping tests on the same pages, ignoring segment effects, editing a variant mid-flight, and never validating the winner in production.** Each one is described below with the fix.
+
 I had a conversation with a product manager about six months ago. She was frustrated because her team had been running A/B tests for months, and every single time they shipped a winner, it didn't hold up in production. She asked me what they were doing wrong.
 
 The answer was simple: almost everything.
@@ -50,7 +53,7 @@ The good news is that these A/B testing mistakes are completely fixable. But the
 
 Before you read this, make sure you understand how long to run an A/B test. That's the foundation everything else builds on.
 
-## The Real Cost of Invalid A/B Tests
+## What Do Invalid A/B Tests Actually Cost?
 
 Here's what most companies don't realize. When you ship a false winner, you're not just wasting time. You're actually making your product worse. You've locked in a change that hurts your users, and you can't test that area again because you already have a winner. That's months of lost optimization potential.
 
@@ -72,11 +75,11 @@ That's peeking.
 
 A 95 percent confidence level means this: if the null hypothesis is true and the variants are identical, you would see this result 5 percent of the time by random chance. But that 5 percent only applies if you commit to a fixed sample size and stop there. When you peek multiple times, you multiply your chances of seeing a false positive with every check.
 
-Spotify's research on the peeking problem shows that checking results daily and stopping at the first significant result inflates your false positive rate from 5 percent to over 30 percent. That's not a small difference. That's the difference between a reliable testing program and one that's mostly noise.
+[Evan Miller's analysis of repeated significance testing](https://www.evanmiller.org/how-not-to-run-an-ab-test.html) puts a number on it. In his worked example — a 50% baseline conversion rate, stopping at the first significant result or at 150 observations — the false positive rate comes out at 26.1% rather than the 5% you think you are running at. Peek ten times and what your dashboard reports as 1% significance is really 5%. That is the difference between a reliable testing programme and one that is mostly noise.
 
 The fix is straightforward. Calculate your required sample size before the A/B test starts using Evan Miller's sample size calculator. Write down the number. Write down your stop date. Don't look at the results until you've hit both. This removes the temptation to call it when you see a green spike.
 
-If you absolutely must peek at results during a test, consider sequential testing. Spotify's research shows that sequential tests allow you to monitor results continuously without inflating false positive rates. The tradeoff is wider confidence intervals early on, meaning A/B tests may take longer to reach significance.
+If you absolutely must watch results during a test, use a design built for it. [Spotify's engineering team has written up sequential testing](https://engineering.atspotify.com/2023/07/bringing-sequential-testing-to-experiments-with-longitudinal-data-part-1-the-peeking-problem-2-0) for exactly this reason: a sequential test is constructed so that continuous monitoring does not inflate the false positive rate, where a fixed-horizon test peeked at repeatedly does. The tradeoff is wider confidence intervals early on, meaning A/B tests may take longer to reach significance.
 
 ## Mistake 2: Testing Too Many Elements at Once
 
@@ -187,7 +190,7 @@ Before you look at CVR numbers, run through this diagnostic checklist. Most A/B 
 | Wrong metric | High | No revenue impact despite winning | Define business outcome upfront |
 | No A/A test | Medium | Broken tracking produces false results | Run A/A before major test programs |
 
-## What a Valid A/B Test Looks Like
+## What Does a Valid A/B Test Look Like?
 
 A well-run A/B test has five things defined before it launches.
 
@@ -205,7 +208,7 @@ Run the A/B test. Don't peek. When it finishes, read the result once. Make your 
 
 That's it. It sounds boring. It is boring. Boring, rigorous A/B testing produces compound results over time. Exciting, intuition-driven testing produces one good story and a lot of wasted traffic.
 
-## Why Most Companies Get A/B Testing Wrong
+## Why Do Most Companies Get A/B Testing Wrong?
 
 The reason most companies fail at A/B testing isn't because the concept is hard. It's because discipline is hard. It's easy to check results on day 3. It's easy to ship when you see a green number. It's easy to test five things at once.
 

@@ -25,7 +25,7 @@ faqs:
 
 Where [A/B testing](/cro-glossary/ab-testing/) compares complete page variants, multivariate testing isolates and measures the individual impact of each element and their interactions.
 
-## How Multivariate Testing Works
+## How Does Multivariate Testing Work?
 
 Suppose you want to test three elements:
 - **Headline:** Version A or Version B (2 options)
@@ -50,6 +50,10 @@ The output is not just "which version wins" — it's:
 | Risk of inconclusion | Low | High on medium-traffic sites |
 | Best for | 90%+ of all tests | High-traffic, mature pages |
 | Tool requirements | Any A/B tool | Enterprise platforms only |
+
+## Is the Extra Complexity Worth It?
+
+Weigh it against the base rate for experiments generally. [Microsoft's Experimentation Platform reported](http://ai.stanford.edu/~ronnyk/ExPThinkWeek2009Public.pdf) that among well-designed experiments built to move a specific key metric, only about a third succeeded; a third came out flat and a third hurt the metric. Splitting your traffic across many combinations does not raise that hit rate — it just spreads the same sample thinner.
 
 ## The Traffic Problem with MVT
 
@@ -113,7 +117,7 @@ For a 2^5 = 32 combination test, a fractional factorial design might test 8 or 1
 
 For most CRO programs, this complexity is not justified. Sequential A/B testing with [statistical significance](/cro-glossary/statistical-significance/) monitoring achieves better outcomes faster.
 
-## Common MVT Mistakes
+## What Are the Most Common MVT Mistakes?
 
 **Running MVT on a page that's never been A/B tested** — MVT is a refinement tool, not a discovery tool. A page with fundamental CRO problems (weak headline, missing social proof, no clear CTA) needs A/B testing to solve those problems first, not an MVT to optimize element combinations.
 

@@ -103,7 +103,7 @@ Message match means the headline (and sometimes the hero image) should directly 
 
 For the full landing page optimisation framework, see [Landing Page Best Practices](/blog/landing-page-best-practices/).
 
-## Common Above-the-Fold Mistakes
+## What Are the Most Common Above-the-Fold Mistakes?
 
 **1. Clever over clear**
 A witty headline that doesn't communicate what you do is worse than a boring headline that does. "Unlock your potential" tells the visitor nothing; "Increase your e-commerce conversion rate by 30% in 90 days" tells them everything.

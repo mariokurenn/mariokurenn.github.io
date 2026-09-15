@@ -61,7 +61,7 @@ Google Analytics tells you *that* visitors bounced from a page. Heatmaps tell yo
 
 Heatmaps answer "why" at the page level. They're qualitative data that explains quantitative patterns.
 
-## How to Use Heatmaps in a CRO Programme
+## How Do You Use Heatmaps in a CRO Programme?
 
 1. **Audit highest-traffic, lowest-converting pages** — These are where heatmap data generates the most value per session analyzed
 2. **Look for confusion clicks** — Users clicking non-clickable elements = design confusion = friction

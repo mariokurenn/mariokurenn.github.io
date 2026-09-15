@@ -23,7 +23,7 @@ faqs:
 
 **Customer Lifetime Value (CLV or LTV)** is the total net revenue a business expects to generate from a single customer across the entire duration of their relationship. It's the most important metric for determining how much to invest in acquiring and retaining customers.
 
-## Why CLV Changes Everything in CRO
+## Why Does CLV Change Everything in CRO?
 
 CLV reframes the conversion question. Instead of asking "how do I get more first purchases?", CLV forces you to ask "how do I get more high-value customers?"
 
@@ -31,7 +31,7 @@ A visitor who converts once and never returns is worth far less than one who con
 
 The CLV lens also expands where CRO investment is justified. If your CLV is €2,000, investing €200 in CRO per converted customer is a 10× return — but only if you're tracking CLV and not just first-order revenue.
 
-## CLV Formula
+## What Is the CLV Formula?
 
 **Basic CLV:**
 > CLV = Average Order Value × Purchase Frequency × Customer Lifespan
@@ -82,7 +82,7 @@ Where d = discount rate (typically 8–12% annualized). NPV CLV is used by finan
 
 This channel CLV variation is why CAC alone is an incomplete metric. A paid social customer with €25 CAC and 0.85× CLV may generate less profit than an organic customer with €15 CAC and 1.25× CLV. See [Customer Acquisition Cost](/cro-glossary/customer-acquisition-cost/) for the full unit economics comparison.
 
-## How CLV Informs CRO Strategy
+## How Does CLV Inform CRO Strategy?
 
 | CLV Range | Implication for CRO |
 |-----------|---------------------|
@@ -93,7 +93,7 @@ This channel CLV variation is why CAC alone is an incomplete metric. A paid soci
 
 High-CLV businesses can afford longer, more educational conversion paths — and should invest in them. Low-CLV businesses need frictionless, immediate conversion.
 
-## Increasing CLV Through CRO
+## How Do You Increase CLV Through CRO?
 
 CRO isn't just about first conversions. Three CLV levers:
 

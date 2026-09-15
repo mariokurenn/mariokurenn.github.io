@@ -28,15 +28,17 @@ featured: false
 publishDate: "2026-03-21"
 ---
 
+**In 75 days, Lara Sweetland's conversion rate went from 1.9% to 4.6% and average order value rose from €34 to €52.** Add-to-cart rate more than doubled. Here is what we found and what we changed.
+
 Lara Sweetland is a Croatian artisan bakery and confectionery brand specialising in handmade cakes, pastries, and custom orders. With a devoted local following and a growing online presence, the brand wanted to convert more of its website visitors into orders — particularly for gifting occasions and custom cakes.
 
-## The Challenge
+## What Was the Challenge?
 
 Artisan food e-commerce has a specific conversion challenge: the product quality is inherently difficult to convey online. Customers can't smell the pastries or taste the ganache. The website has to do the sensory work through visuals, copy, and trust signals.
 
 At 1.9% conversion rate, Lara Sweetland was well below what the product quality and brand reputation warranted. Visitors were landing, browsing, and leaving — often to order from a competitor or visit in person.
 
-## What We Found
+## What Did We Find?
 
 ### 1. Product photography wasn't telling the full story
 The existing product photos were good quality but showed finished products on plain white backgrounds. They didn't show texture, cross-sections, or scale. For premium artisan products, context photography (on a table, being sliced, in a gift box) dramatically increases purchase intent.
@@ -50,7 +52,7 @@ Custom cake orders required sending an email, then waiting for a quote, then con
 ### 4. No cross-sell or upsell at cart
 The average order was a single item. There was no in-cart suggestion system ("Pair with our signature coffee cake" or "Add gift packaging"). The cart was a dead end rather than an extension of the shopping experience.
 
-## What We Changed
+## What Did We Change?
 
 **Product photography brief** — Provided a photography brief for context shots: lifestyle photography, cross-sections for layered cakes, scale reference images. Implemented on the top 10 products by traffic.
 
@@ -60,7 +62,7 @@ The average order was a single item. There was no in-cart suggestion system ("Pa
 
 **Cart cross-sells** — Added 3 complementary product suggestions in the cart ("Customers who ordered this also loved..."). Average order value increased by 53%.
 
-## Results
+## What Were the Results?
 
 Over 75 days:
 

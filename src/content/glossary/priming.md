@@ -25,7 +25,7 @@ faqs:
 
 In conversion optimization, priming is the mechanism by which the first messages, visuals, and framings a visitor encounters on a page shape their interpretation of everything that follows. The above-the-fold section doesn't just need to be clear and compelling — it needs to *prime* the right interpretive frame for the entire page experience.
 
-## How Priming Works
+## How Does Priming Work?
 
 Priming operates through **associative memory activation**: when you encounter a word, image, or idea, related concepts in memory become temporarily more accessible. This makes you faster at recognizing, and more positively disposed toward, stimuli that are consistent with that activated concept.
 

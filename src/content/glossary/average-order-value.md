@@ -32,7 +32,7 @@ faqs:
 
 AOV is one of three multipliers of total revenue (alongside traffic and conversion rate). Increasing any one of them increases revenue proportionally — making AOV optimization an often-underused lever in e-commerce CRO programs.
 
-## The Revenue Formula
+## What Is the Revenue Formula?
 
 Revenue = Traffic × Conversion Rate × AOV
 
